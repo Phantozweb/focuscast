@@ -5,6 +5,7 @@ import TrendingContent from '@/components/home/trending-content';
 import HeroSection from '@/components/home/hero-section';
 import SeriesSection from '@/components/home/series-section';
 import { placeholderEpisodes, placeholderSeries } from '@/lib/placeholder-data';
+import type { Episode } from '@/types';
 
 export const metadata: Metadata = {
   title: 'FocusCast: Optometry Insights, Clearly Delivered', 
@@ -12,7 +13,8 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const featured: Episode[] = []; 
+  const diabeticRetinopathyEpisode = placeholderEpisodes.find(ep => ep.id === 'dod-ep1');
+  const featured: Episode[] = diabeticRetinopathyEpisode ? [diabeticRetinopathyEpisode] : []; 
   const trending: Episode[] = []; 
   const seriesData = placeholderSeries;
 
