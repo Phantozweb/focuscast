@@ -44,16 +44,34 @@ Jennifer, signing off.`
   },
   {
     id: '8',
-    title: 'The Entoptic Universe: Seeing Inside Your Eyes',
+    title: "The Stiles-Crawford Effect - Your Pupil's Sweet Spot",
     showName: 'Focus Bites',
-    description: 'Discover the various entoptic phenomena, from floaters to Haidinger\'s brush, and the science behind them.',
-    duration: '10:30',
+    description: "Explore the Stiles-Crawford effect, where light entering the pupil's center appears brighter, impacting visual acuity and cone photoreceptor efficiency.",
+    duration: '10:30', // Keeping previous duration, can be updated if known
     thumbnailUrl: focusBitesSeriesThumbnail, 
-    audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3',
+    audioUrl: 'https://github.com/Phantozweb/StromVault/raw/30a6a0ce0ff712484fb03ddc6ceefc9a44a14244/Focus%20bites/focus%20bites%20episode%202%20The%20Stiles-Crawford%20Effect%20-%20Your%20Pupil%27s%20Sweet%20Spot.mp3',
     releaseDate: '2024-08-02',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 2,
+    transcript: `Hey, this is Jennifer — and you’re tuned in to Focus Bites.
+
+So, here's a neat visual science nugget: ever wonder why light entering the center of your pupil seems subjectively brighter and clearer than light entering from the edge?
+
+Well, that’s the Stiles-Crawford effect of the first kind! It describes how the directional sensitivity of our cone photoreceptors makes them most efficient when light hits them head-on, perpendicular to their surface.
+
+Think of your cones as tiny antennas optimally aligned to receive signals coming straight down their axis. Light entering the pupil more obliquely, even if it reaches the same cone, doesn't stimulate it as effectively. It’s primarily a cone phenomenon, so it impacts photopic vision most.
+
+But here’s what’s really cool – this isn't just a lab curiosity. It subtly influences visual acuity and subjective refraction. A well-centered pupil maximizes this effect. It also partly explains why a pinhole, beyond just increasing depth of focus, can improve vision by directing light more centrally onto the retina.
+
+You’ll appreciate this when considering patients with decentered pupils, irregular corneas, or even intraocular lenses that might not be perfectly centered – their effective visual quality might be impacted by how well light aligns with their photoreceptor "sweet spot."
+
+And that’s what makes understanding even these subtle visual phenomena so fascinating – it adds another layer to how we interpret what our patients see and why precise optical correction is so critical.
+
+Keep that in mind when you’re refracting – you’re not just bending light… you’re aiming it for peak photoreceptor performance!
+
+See you tomorrow on Focus Bites.
+
+Jennifer, signing off.`
   },
 ];
-
