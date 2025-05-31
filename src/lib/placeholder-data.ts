@@ -88,6 +88,21 @@ export const placeholderEpisodes: Episode[] = [
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 1,
+    transcript: `Hey, this is Jennifer — and welcome to Focus Bites, where we make optometry make sense.
+
+Have you ever pressed your eye shut and suddenly seen sparkles or weird shapes? That’s not just your brain being silly — that’s actually something called a phosphene.
+
+It happens when your retina gets triggered by pressure — not by light. Just a gentle press is enough to fire it up.
+
+Now, here’s why this actually matters. If someone says they’re seeing sudden flashes of light — especially when they haven’t touched their eye — it could be something more serious. Like a retinal detachment, or the vitreous tugging on the retina.
+
+So yeah — that strange little thing you see when you rub your eye? It’s actually a glimpse into how the retina reacts under stress.
+
+Eyes are more electric than we think.
+
+See you tomorrow on Focus Bites.
+
+Jennifer, signing off.`
   },
   {
     id: '7',

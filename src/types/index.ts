@@ -12,6 +12,7 @@ export interface Episode {
   seriesId?: string; // ID of the series this episode belongs to
   seriesTitle?: string; // Title of the series, denormalized for convenience
   episodeNumber?: number; // Episode number within the series
+  transcript?: string; // Added transcript field
 }
 
 export interface Category {

@@ -7,16 +7,12 @@ import { Button } from '@/components/ui/button';
 import { ChevronDown, X, ListMusic, Bookmark } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const ExpandedPlayer: React.FC = () => {
   const { currentEpisode, isExpanded, toggleExpandPlayer, closePlayer, isLoading } = usePlayer();
 
   if (!currentEpisode) return null;
-
-  // For mobile, expanded player is a full screen modal
-  // For desktop, it's part of the layout (e.g. a sidebar or a prominent section)
-  // This component will render differently based on `isExpanded` (for mobile sheet behavior)
-  // and screen size (for desktop fixed panel).
 
   const content = (
     <div className="flex flex-col h-full bg-background text-foreground shadow-2xl">
@@ -59,10 +55,17 @@ const ExpandedPlayer: React.FC = () => {
                     <CardTitle>Transcript</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-muted-foreground">
-                      Transcript for "{currentEpisode.title}" will be displayed here. 
-                      This feature is currently under development.
-                    </p>
+                    {currentEpisode.transcript ? (
+                      <div className="text-sm text-foreground space-y-4 whitespace-pre-line">
+                        {currentEpisode.transcript.split('\n\n').map((paragraph, index) => (
+                          <p key={index}>{paragraph}</p>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="text-sm text-muted-foreground">
+                        Transcript for "{currentEpisode.title}" is not available.
+                      </p>
+                    )}
                   </CardContent>
                 </Card>
               </TabsContent>
@@ -91,7 +94,6 @@ const ExpandedPlayer: React.FC = () => {
     </div>
   );
   
-  // Mobile expanded view (modal-like sheet)
   if (isExpanded) {
     return (
       <div className="fixed inset-0 z-[60] bg-background animate-slide-up md:hidden">
@@ -100,16 +102,11 @@ const ExpandedPlayer: React.FC = () => {
     );
   }
 
-  // Desktop expanded view (fixed panel, always visible when an episode is playing)
   return (
     <div className="hidden md:flex md:flex-col md:w-96 md:border-l md:h-full fixed right-0 top-16 bottom-0 z-40 bg-background shadow-lg">
-       {/* This is the area that shows when a podcast is playing on Desktop. 
-           It's part of the (main)/layout.tsx logic to show/hide it */}
       {content}
     </div>
   );
 };
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
 
 export default ExpandedPlayer;
