@@ -27,8 +27,8 @@ const FeaturedEpisodes: React.FC<FeaturedEpisodesProps> = ({ episodes }) => {
               <EpisodeCard
                 key={episode.id}
                 episode={episode}
-                className="w-[300px] md:w-[350px] flex-shrink-0"
-                layout="horizontal" // Changed from "vertical" to "horizontal"
+                className="w-[320px] sm:w-[380px] md:w-[420px] flex-shrink-0 bg-background border border-border/70 shadow-sm hover:shadow-md"
+                layout="horizontal"
               />
             ))}
           </div>
