@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Input } from "@/components/ui/input";
+import { Search } from "lucide-react";
 
 const HeroSection: React.FC = () => {
   return (
@@ -12,13 +13,21 @@ const HeroSection: React.FC = () => {
         <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto">
           Optometry Insights, Clearly Delivered.
         </p>
-        <div className="flex justify-center gap-4">
-          <Button asChild size="lg" className="shadow-lg hover:shadow-primary/30 transition-shadow">
-            <Link href="/episodes">Browse All Episodes</Link>
-          </Button>
-          <Button asChild variant="outline" size="lg" className="shadow-md hover:shadow-accent/20 transition-shadow">
-            <Link href="/#series">Explore Series</Link>
-          </Button>
+        <div className="max-w-xl mx-auto">
+          <div className="flex w-full items-center space-x-2">
+            <Input
+              type="search"
+              placeholder="Search episodes, series..."
+              className="flex-1 h-12 text-base md:text-lg"
+              aria-label="Search episodes and series"
+            />
+            <Button type="submit" size="lg" className="h-12" aria-label="Search">
+              <Search className="h-5 w-5" />
+            </Button>
+          </div>
+          <p className="mt-4 text-sm text-muted-foreground">
+            nothing to see here
+          </p>
         </div>
       </div>
     </section>
@@ -26,4 +35,3 @@ const HeroSection: React.FC = () => {
 };
 
 export default HeroSection;
-
