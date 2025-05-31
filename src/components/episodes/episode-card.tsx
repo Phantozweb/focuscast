@@ -44,7 +44,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
       <div className={cn("flex flex-col flex-grow", layout === 'vertical' ? "" : "p-4")}>
         {layout === 'vertical' && (
             <CardHeader>
-                <CardTitle className="text-lg leading-tight hover:text-primary transition-colors cursor-pointer" onClick={() => playEpisode(episode)}>
+                <CardTitle className="text-lg leading-tight hover:text-primary transition-colors cursor-pointer line-clamp-2" onClick={() => playEpisode(episode)}>
                     {episode.title}
                 </CardTitle>
                 <CardDescription className="text-xs">{episode.showName}</CardDescription>
@@ -52,7 +52,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
         )}
          {layout === 'horizontal' && (
             <div className="mb-2">
-                <h3 className="text-lg font-semibold leading-tight hover:text-primary transition-colors cursor-pointer" onClick={() => playEpisode(episode)}>
+                <h3 className="text-lg font-semibold leading-tight hover:text-primary transition-colors cursor-pointer line-clamp-2" onClick={() => playEpisode(episode)}>
                     {episode.title}
                 </h3>
                 <p className="text-sm text-muted-foreground">{episode.showName}</p>
