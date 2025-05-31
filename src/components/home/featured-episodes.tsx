@@ -31,12 +31,26 @@ const FeaturedEpisodes: React.FC<FeaturedEpisodesProps> = ({ episodes }) => {
         <h2 className="text-3xl font-bold mb-8 px-4 md:px-0 font-headline text-center md:text-left">
           Featured Episodes
         </h2>
-        <div className="relative">
+
+        {/* Mobile: Vertical Stack - uses layout="vertical" for EpisodeCard */}
+        <div className="md:hidden grid grid-cols-1 gap-6 px-4">
+          {episodes.map((episode) => (
+            <EpisodeCard
+              key={episode.id + '-mobile-featured'}
+              episode={episode}
+              className="w-full bg-background border border-border/70 shadow-sm hover:shadow-md"
+              layout="vertical" 
+            />
+          ))}
+        </div>
+
+        {/* Desktop: Horizontal Scroll - uses layout="horizontal" for EpisodeCard */}
+        <div className="hidden md:block relative">
           <ScrollArea className="w-full whitespace-nowrap">
-            <div className="flex space-x-6 pb-4 px-4 md:px-0"> {/* Increased space-x for better separation */}
+            <div className="flex space-x-6 pb-4 px-4 md:px-0">
               {episodes.map((episode) => (
                 <EpisodeCard
-                  key={episode.id}
+                  key={episode.id + '-desktop-featured'}
                   episode={episode}
                   className="w-[340px] sm:w-[400px] md:w-[460px] flex-shrink-0 bg-background border border-border/70 shadow-sm hover:shadow-md"
                   layout="horizontal"
