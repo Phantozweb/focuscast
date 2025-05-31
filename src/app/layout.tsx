@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: 'FocusCast',
-  description: 'Your daily dose of focused content.',
+  description: 'Clinical Clarity. Through Every Episode.',
 };
 
 export default function RootLayout({

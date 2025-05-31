@@ -1,6 +1,6 @@
 import type { Category } from '@/types';
 import Link from 'next/link';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
@@ -29,7 +29,7 @@ const CategoriesSection: React.FC<CategoriesSectionProps> = ({ categories }) => 
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
                       sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 20vw"
-                      data-ai-hint="category abstract"
+                      data-ai-hint={category.dataAiHint || "category abstract"}
                     />
                   </div>
                 )}

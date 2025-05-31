@@ -7,7 +7,7 @@ export interface Episode {
   thumbnailUrl: string;
   audioUrl: string;
   releaseDate: string; 
-  category?: string;
+  category?: string; // Corresponds to category id
 }
 
 export interface Category {
@@ -15,4 +15,5 @@ export interface Category {
   name: string;
   icon?: React.ElementType; // Optional: for a Lucide icon or custom SVG component
   imageUrl?: string; // Optional: for a category image
+  dataAiHint?: string; // Optional: for AI image generation hint
 }
