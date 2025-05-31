@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { useEffect, useState } from 'react'; // Import React for React.use
+import React, { useEffect, useState } from 'react'; 
 import { placeholderEpisodes, placeholderSeries } from '@/lib/placeholder-data';
 import type { Episode, Series } from '@/types';
 import Image from 'next/image';
@@ -9,31 +9,25 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, PlayCircle, Download, Clock, Play } from 'lucide-react';
 import { usePlayer } from '@/contexts/player-context';
+import { cn } from '@/lib/utils';
 
-// Define the shape of the resolved params object
 interface ResolvedSeriesPageParams {
   seriesId: string;
 }
 
-// Update props to reflect that `params` can be a Promise, as suggested by the error
 interface SeriesPageProps {
   params: Promise<ResolvedSeriesPageParams> | ResolvedSeriesPageParams;
 }
 
 export default function SeriesPage(props: SeriesPageProps) {
-  // Unwrap the params promise (or use directly if already resolved) using React.use()
-  // React.use must be called unconditionally at the top level of the component.
-  // To handle both cases (Promise or direct object), we check its type before calling React.use.
-  // However, the error message "params is now a Promise" suggests it WILL be a promise.
-  const actualParams = React.use(props.params as Promise<ResolvedSeriesPageParams>); // Cast to Promise as per error indication
-  const { seriesId } = actualParams; // Destructure seriesId from the resolved params
+  const actualParams = React.use(props.params as Promise<ResolvedSeriesPageParams>); 
+  const { seriesId } = actualParams; 
 
   const [series, setSeries] = useState<Series | undefined>(undefined);
   const [episodesInSeries, setEpisodesInSeries] = useState<Episode[]>([]);
   const { playEpisode, downloadEpisode, currentEpisode, isPlaying, startSeriesPlayback } = usePlayer();
 
   useEffect(() => {
-    // seriesId is now the resolved string value
     const foundSeries = placeholderSeries.find(s => s.id === seriesId);
     setSeries(foundSeries);
     if (foundSeries) {
@@ -42,7 +36,7 @@ export default function SeriesPage(props: SeriesPageProps) {
         .sort((a, b) => (a.episodeNumber || 0) - (b.episodeNumber || 0));
       setEpisodesInSeries(filteredEpisodes);
     }
-  }, [seriesId]); // useEffect now correctly depends on the resolved seriesId
+  }, [seriesId]); 
 
   if (!series) {
     return (
@@ -109,7 +103,10 @@ export default function SeriesPage(props: SeriesPageProps) {
             return (
               <div 
                 key={episode.id} 
-                className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 border rounded-lg shadow-sm hover:shadow-md transition-shadow bg-card"
+                className={cn(
+                  "flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 border rounded-lg shadow-sm bg-card",
+                  "transform hover:-translate-y-0.5 transition-all duration-200 ease-out hover:shadow-md"
+                )}
               >
                 <div className="flex items-start sm:items-center gap-4 mb-4 sm:mb-0 flex-grow">
                   <span className="text-xl sm:text-2xl font-bold text-muted-foreground w-10 sm:w-12 text-center pt-1 sm:pt-0">

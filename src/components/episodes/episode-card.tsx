@@ -29,14 +29,14 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
       )}>
       <div className={cn(
         "relative",
-        layout === 'vertical' ? "w-full aspect-square" : "w-1/3 aspect-square flex-shrink-0" // Ensure square aspect ratio
+        layout === 'vertical' ? "w-full aspect-square" : "w-28 h-28 md:w-32 md:h-32 flex-shrink-0" 
       )}>
         <Image
           src={episode.thumbnailUrl}
           alt={episode.title}
           fill
           className="object-cover"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          sizes={layout === 'vertical' ? "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" : "(max-width: 768px) 30vw, 20vw"}
           data-ai-hint={isFocusBitesEpisode ? "podcast series art" : "podcast episode thumbnail"}
         />
       </div>
@@ -94,3 +94,4 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
 };
 
 export default EpisodeCard;
+

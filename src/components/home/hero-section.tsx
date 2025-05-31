@@ -10,7 +10,7 @@ const HeroSection: React.FC = () => {
           FocusCast
         </h1>
         <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto">
-          Clinical Clarity. Through Every Episode.
+          Optometry Insights, Clearly Delivered.
         </p>
         <div className="flex justify-center gap-4">
           <Button asChild size="lg" className="shadow-lg hover:shadow-primary/30 transition-shadow">
@@ -26,3 +26,4 @@ const HeroSection: React.FC = () => {
 };
 
 export default HeroSection;
+
