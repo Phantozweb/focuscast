@@ -3,7 +3,7 @@ import FocusCastLogo from '@/components/icons/focus-cast-logo';
 import NavigationMenu from './navigation-menu';
 import { Button } from '@/components/ui/button';
 import { Menu } from 'lucide-react';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
 
 const Header: React.FC = () => {
   const navItems = [
@@ -34,6 +34,7 @@ const Header: React.FC = () => {
               </Button>
             </SheetTrigger>
             <SheetContent side="left">
+              <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
               <Link href="/" className="mb-6 flex items-center">
                 <FocusCastLogo />
               </Link>
