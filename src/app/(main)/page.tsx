@@ -1,9 +1,15 @@
 
+import type { Metadata } from 'next';
 import FeaturedEpisodes from '@/components/home/featured-episodes';
 import TrendingContent from '@/components/home/trending-content';
 import HeroSection from '@/components/home/hero-section';
 import SeriesSection from '@/components/home/series-section';
 import { placeholderEpisodes, placeholderSeries } from '@/lib/placeholder-data';
+
+export const metadata: Metadata = {
+  title: 'Optometry Podcasts & Insights', // Will become "Optometry Podcasts & Insights - FocusCast"
+  description: 'Explore featured optometry podcasts, series, and trending episodes on FocusCast, your source for optometry insights clearly delivered.',
+};
 
 export default function HomePage() {
   const featured = placeholderEpisodes.filter(ep => !ep.seriesId).slice(0, 3); 
@@ -16,7 +22,6 @@ export default function HomePage() {
       <div className="container mx-auto py-8 space-y-12">
         <FeaturedEpisodes episodes={featured} />
         <SeriesSection series={series} />
-        {/* CategoriesSection removed */}
         <TrendingContent episodes={trending} />
       </div>
     </div>

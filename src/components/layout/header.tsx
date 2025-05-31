@@ -11,17 +11,17 @@ const Header: React.FC = () => {
   const navItems = [
     { href: '/', label: 'Home' },
     { href: '/episodes', label: 'Episodes' },
-    // { href: '/categories', label: 'Categories' }, // Example for more items
+    { href: '/#featured-episodes', label: 'Featured' },
+    { href: '/#trending-content', label: 'Trending' },
   ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2 flex-shrink-0"> {/* Added flex-shrink-0 */}
+        <Link href="/" className="flex items-center space-x-2 flex-shrink-0">
           <FocusCastLogo />
         </Link>
         
-        {/* Desktop Navigation & Search */}
         <div className="hidden md:flex items-center gap-4">
           <NavigationMenu items={navItems} />
           <div className="relative">
@@ -34,7 +34,6 @@ const Header: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
@@ -45,7 +44,7 @@ const Header: React.FC = () => {
             </SheetTrigger>
             <SheetContent side="left">
               <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-              <Link href="/" className="mb-6 flex items-center flex-shrink-0"> {/* Added flex-shrink-0 */}
+              <Link href="/" className="mb-6 flex items-center flex-shrink-0">
                 <FocusCastLogo />
               </Link>
               <div className="relative mb-4">

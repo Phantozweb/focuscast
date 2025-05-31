@@ -1,3 +1,4 @@
+
 import type { Episode } from '@/types';
 import EpisodeCard from '@/components/episodes/episode-card';
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
@@ -12,7 +13,7 @@ const FeaturedEpisodes: React.FC<FeaturedEpisodesProps> = ({ episodes }) => {
   }
 
   return (
-    <section className="py-8">
+    <section id="featured-episodes" className="py-8">
       <h2 className="text-3xl font-bold mb-6 px-4 md:px-0 font-headline">Featured Episodes</h2>
       <div className="relative">
         <ScrollArea className="w-full whitespace-nowrap">

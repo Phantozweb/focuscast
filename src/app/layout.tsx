@@ -4,7 +4,10 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'FocusCast',
+  title: {
+    default: 'FocusCast',
+    template: '%s - FocusCast',
+  },
   description: 'Optometry Insights, Clearly Delivered.',
 };
 
@@ -27,4 +30,3 @@ export default function RootLayout({
     </html>
   );
 }
-
