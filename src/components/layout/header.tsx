@@ -17,7 +17,7 @@ const Header: React.FC = () => {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2">
+        <Link href="/" className="flex items-center space-x-2 flex-shrink-0"> {/* Added flex-shrink-0 */}
           <FocusCastLogo />
         </Link>
         
@@ -45,7 +45,7 @@ const Header: React.FC = () => {
             </SheetTrigger>
             <SheetContent side="left">
               <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-              <Link href="/" className="mb-6 flex items-center">
+              <Link href="/" className="mb-6 flex items-center flex-shrink-0"> {/* Added flex-shrink-0 */}
                 <FocusCastLogo />
               </Link>
               <div className="relative mb-4">
