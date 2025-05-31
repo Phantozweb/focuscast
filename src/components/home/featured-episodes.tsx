@@ -28,7 +28,7 @@ const FeaturedEpisodes: React.FC<FeaturedEpisodesProps> = ({ episodes }) => {
                 key={episode.id}
                 episode={episode}
                 className="w-[300px] md:w-[350px] flex-shrink-0"
-                layout="vertical"
+                layout="horizontal" // Changed from "vertical" to "horizontal"
               />
             ))}
           </div>
