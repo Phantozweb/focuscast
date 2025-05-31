@@ -29,12 +29,9 @@ const ShareButton: React.FC<ShareButtonProps> = ({
     
     let urlToShare: string;
     if (customShareUrl) {
-      // If customShareUrl is already absolute, URL constructor handles it.
-      // If relative, it correctly prepends origin.
       try {
         urlToShare = new URL(customShareUrl, window.location.origin).href;
       } catch (e) {
-        // Fallback if customShareUrl is invalid
         urlToShare = window.location.href;
         console.warn("Invalid customShareUrl provided, defaulting to current page URL:", customShareUrl);
       }
@@ -48,37 +45,39 @@ const ShareButton: React.FC<ShareButtonProps> = ({
       url: urlToShare,
     };
 
-    if (typeof navigator.share === 'function') {
-      try {
-        await navigator.share(shareData);
-        // Native share provides its own feedback, so no toast needed here.
-      } catch (err) {
-        const error = err as Error;
-        if (error.name !== 'AbortError') { // User didn't cancel
-          console.error('Error sharing natively:', error);
-          toast({
-            title: 'Could not share',
-            description: 'An error occurred while trying to share.',
-            variant: 'destructive',
-          });
-        }
-      }
-    } else {
-      // Fallback for browsers that don't support Web Share API: copy to clipboard
+    const fallbackToClipboard = async () => {
       try {
         await navigator.clipboard.writeText(urlToShare);
         toast({
           title: 'Link Copied!',
           description: `'${shareTitle}' link copied to clipboard.`,
         });
-      } catch (err) {
-        console.error('Error copying to clipboard:', err);
+      } catch (copyErr) {
+        console.error('Error copying to clipboard:', copyErr);
         toast({
           title: 'Failed to copy',
           description: 'Could not copy link to clipboard.',
           variant: 'destructive',
         });
       }
+    };
+
+    if (typeof navigator.share === 'function') {
+      try {
+        await navigator.share(shareData);
+        // Native share provides its own feedback, so no toast needed here for success.
+      } catch (err) {
+        const error = err as Error;
+        if (error.name !== 'AbortError') { // User didn't cancel
+          console.error('Error sharing natively:', error);
+          // If native share fails for other reasons (e.g., NotAllowedError), try clipboard.
+          await fallbackToClipboard();
+        }
+        // If error.name is 'AbortError', do nothing, user cancelled the share dialog.
+      }
+    } else {
+      // Fallback for browsers that don't support Web Share API
+      await fallbackToClipboard();
     }
   };
 
