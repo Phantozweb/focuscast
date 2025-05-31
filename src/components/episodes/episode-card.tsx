@@ -30,10 +30,10 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
         className
       )}>
       <div className={cn(
-        "relative",
+        "relative flex-shrink-0",
         layout === 'vertical' 
-          ? "w-full aspect-[4/3]" // Changed from aspect-square
-          : "w-20 h-20 sm:w-22 sm:h-22 md:w-24 md:h-24 flex-shrink-0" 
+          ? "w-full aspect-[4/3]"
+          : "w-20 h-20" // Fixed smaller size for horizontal layout image
       )}>
         <Image
           src={episode.thumbnailUrl}
@@ -43,14 +43,14 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
           sizes={
             layout === 'vertical' 
               ? "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" 
-              : "(max-width: 640px) 20vw, (max-width: 768px) 18vw, 15vw"
+              : "80px" // Corresponds to w-20 h-20
           }
           data-ai-hint={isFocusBitesEpisode ? "podcast series art" : "podcast episode thumbnail"}
         />
       </div>
       <div className={cn(
         "flex flex-col flex-grow", 
-        layout === 'vertical' ? "" : "p-2 sm:p-3"
+        layout === 'vertical' ? "" : "p-2 sm:p-3" // Maintained compact padding for horizontal text block
       )}>
         {layout === 'vertical' && (
             <CardHeader className="p-3 md:p-4"> 
@@ -107,7 +107,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
           "flex gap-2",
           layout === 'vertical' 
             ? "p-3 mt-auto" 
-            : "p-0 pt-1.5 sm:pt-2 mt-auto"
+            : "p-0 pt-1.5 sm:pt-2 mt-auto" // Maintained compact padding for horizontal footer
         )}>
           <Button
             size="sm"
@@ -135,4 +135,3 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
 };
 
 export default EpisodeCard;
-

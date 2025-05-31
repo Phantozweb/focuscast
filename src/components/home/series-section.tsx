@@ -2,23 +2,39 @@
 import type { Series, Episode } from '@/types';
 import SeriesCard from '@/components/series/series-card';
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { LayoutGrid } from 'lucide-react';
 
 interface SeriesSectionProps {
   series: Series[];
-  allEpisodes: Episode[]; // Added to calculate episode counts
+  allEpisodes: Episode[]; 
 }
 
 const SeriesSection: React.FC<SeriesSectionProps> = ({ series, allEpisodes }) => {
   if (!series || series.length === 0) {
-    return <p className="text-center text-muted-foreground py-8">No series available yet.</p>;
+    return (
+      <section id="series" className="py-12 bg-background">
+        <div className="container mx-auto">
+          <div className="flex items-end gap-3 justify-center md:justify-start mb-8 px-4 md:px-0">
+            <LayoutGrid className="h-7 w-7 text-primary flex-shrink-0" />
+            <h2 className="text-3xl font-bold font-headline border-b-2 border-primary pb-1 leading-none">
+              Explore Our Series
+            </h2>
+          </div>
+          <p className="text-center text-muted-foreground py-8">No series available yet.</p>
+        </div>
+      </section>
+    );
   }
 
   return (
     <section id="series" className="py-12 bg-background">
       <div className="container mx-auto">
-        <h2 className="text-3xl font-bold mb-8 px-4 md:px-0 font-headline text-center md:text-left">
-          Explore Our Series
-        </h2>
+        <div className="flex items-end gap-3 justify-center md:justify-start mb-8 px-4 md:px-0">
+          <LayoutGrid className="h-7 w-7 text-primary flex-shrink-0" />
+          <h2 className="text-3xl font-bold font-headline border-b-2 border-primary pb-1 leading-none">
+            Explore Our Series
+          </h2>
+        </div>
         <div className="relative">
            <ScrollArea className="w-full whitespace-nowrap">
             <div className="flex space-x-6 pb-4 px-4 md:px-0">
