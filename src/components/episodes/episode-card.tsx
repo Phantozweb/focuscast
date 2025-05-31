@@ -24,7 +24,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
   return (
     <Card className={cn(
         "overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex",
-        layout === 'vertical' ? "flex-col" : "flex-row items-start",
+        layout === 'vertical' ? "flex-col" : "flex-row items-start", // For horizontal, items-start allows image and content to align at top
         isActive && isPlaying ? "border-primary ring-2 ring-primary" : "",
         className
       )}>
@@ -43,25 +43,25 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
       </div>
       <div className={cn("flex flex-col flex-grow", layout === 'vertical' ? "" : "p-3 md:p-4")}>
         {layout === 'vertical' && (
-            <CardHeader className="p-4"> {/* Reduced padding from default p-6 to p-4 */}
+            <CardHeader className="p-4">
                 <CardTitle className="text-lg leading-tight hover:text-primary transition-colors cursor-pointer line-clamp-2" onClick={() => playEpisode(episode)}>
                     {episode.title}
                 </CardTitle>
-                <CardDescription className="text-xs line-clamp-1 mt-0.5">{/* Ensured small margin for show name */}
+                <CardDescription className="text-xs line-clamp-1 mt-0.5">
                     {episode.showName}
                 </CardDescription>
             </CardHeader>
         )}
          {layout === 'horizontal' && (
-            <div className="mb-1 md:mb-2"> {/* This div effectively acts as the header for horizontal layout */}
-                <h3 className="text-base md:text-lg font-semibold leading-tight hover:text-primary transition-colors cursor-pointer line-clamp-2" onClick={() => playEpisode(episode)}>
+            <div className="mb-1 md:mb-2">
+                <h3 className="text-base md:text-lg font-semibold leading-tight hover:text-primary transition-colors cursor-pointer" onClick={() => playEpisode(episode)}>
                     {episode.title}
                 </h3>
-                <p className="text-xs md:text-sm text-muted-foreground line-clamp-1">{episode.showName}</p>
+                <p className="text-xs md:text-sm text-muted-foreground line-clamp-1 mt-0.5">{episode.showName}</p>
             </div>
         )}
         <CardContent className={cn(
-          layout === 'vertical' ? "flex-grow px-4 pb-3 pt-2" : "py-0 md:py-1", /* Adjusted padding for vertical content */
+          layout === 'vertical' ? "flex-grow px-4 pb-3 pt-2" : "pt-1 pb-2 md:pt-2 md:pb-3",
           "text-sm"
         )}>
           {isFocusBitesEpisode && layout === 'vertical' && episode.episodeNumber ? (
@@ -81,9 +81,9 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
             <span>{episode.releaseDate}</span>
           </div>
         </CardContent>
-        <CardFooter className={cn( /* Standardized footer padding slightly */
+        <CardFooter className={cn(
           "flex gap-2",
-          layout === 'vertical' ? "p-3 mt-auto" : "p-0 pt-2" /* Horizontal footer integrated into its parent's padding */
+          layout === 'vertical' ? "p-3 mt-auto" : "p-0 pt-2 md:pt-3 mt-auto" // Added mt-auto for horizontal too
         )}>
           <Button
             size="sm"
