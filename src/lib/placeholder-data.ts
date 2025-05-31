@@ -19,10 +19,10 @@ export const placeholderEpisodes: Episode[] = [
     title: 'Phosphene Phenomena',
     showName: 'Focus Bites', 
     description: 'Exploring the fascinating world of phosphene phenomena and what they tell us about our visual system.',
-    duration: '00:50', // Updated duration
+    duration: '00:50',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://github.com/Phantozweb/StromVault/raw/5d97da6c8163ba0593557434f5c3b5d1a5ed2fb9/Focus%20bites/focus-bites-ep1-phosphene-phenomena.mp3',
-    releaseDate: '2024-07-26',
+    releaseDate: '2025-03-30',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 1,
@@ -47,10 +47,10 @@ Jennifer, signing off.`
     title: "The Stiles-Crawford Effect - Your Pupil's Sweet Spot",
     showName: 'Focus Bites',
     description: "Explore the Stiles-Crawford effect, where light entering the pupil's center appears brighter, impacting visual acuity and cone photoreceptor efficiency.",
-    duration: '01:50', // Updated duration
+    duration: '01:50',
     thumbnailUrl: focusBitesSeriesThumbnail, 
     audioUrl: 'https://github.com/Phantozweb/StromVault/raw/30a6a0ce0ff712484fb03ddc6ceefc9a44a14244/Focus%20bites/focus%20bites%20episode%202%20The%20Stiles-Crawford%20Effect%20-%20Your%20Pupil%27s%20Sweet%20Spot.mp3',
-    releaseDate: '2024-08-02',
+    releaseDate: '2025-03-31',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 2,
@@ -75,4 +75,3 @@ See you tomorrow on Focus Bites.
 Jennifer, signing off.`
   },
 ];
-
