@@ -10,30 +10,42 @@ interface FeaturedEpisodesProps {
 const FeaturedEpisodes: React.FC<FeaturedEpisodesProps> = ({ episodes }) => {
   if (!episodes || episodes.length === 0) {
     return (
-      <section id="featured-episodes" className="py-8">
-        <h2 className="text-3xl font-bold mb-6 px-4 md:px-0 font-headline">Featured Episodes</h2>
-        <p className="text-center text-muted-foreground py-8">No featured episodes available at the moment.</p>
+      <section 
+        id="featured-episodes" 
+        className="py-12 border-y border-border/30 bg-muted/20 dark:bg-muted/10"
+      >
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold mb-8 px-4 md:px-0 font-headline text-center md:text-left">Featured Episodes</h2>
+          <p className="text-center text-muted-foreground py-8">No featured episodes available at the moment.</p>
+        </div>
       </section>
     );
   }
 
   return (
-    <section id="featured-episodes" className="py-8">
-      <h2 className="text-3xl font-bold mb-6 px-4 md:px-0 font-headline">Featured Episodes</h2>
-      <div className="relative">
-        <ScrollArea className="w-full whitespace-nowrap">
-          <div className="flex space-x-4 pb-4 px-4 md:px-0">
-            {episodes.map((episode) => (
-              <EpisodeCard
-                key={episode.id}
-                episode={episode}
-                className="w-[320px] sm:w-[380px] md:w-[420px] flex-shrink-0 bg-background border border-border/70 shadow-sm hover:shadow-md"
-                layout="horizontal"
-              />
-            ))}
-          </div>
-          <ScrollBar orientation="horizontal" />
-        </ScrollArea>
+    <section 
+      id="featured-episodes" 
+      className="py-12 border-y border-border/30 bg-muted/20 dark:bg-muted/10"
+    >
+      <div className="container mx-auto">
+        <h2 className="text-3xl font-bold mb-8 px-4 md:px-0 font-headline text-center md:text-left">
+          Featured Episodes
+        </h2>
+        <div className="relative">
+          <ScrollArea className="w-full whitespace-nowrap">
+            <div className="flex space-x-6 pb-4 px-4 md:px-0"> {/* Increased space-x for better separation */}
+              {episodes.map((episode) => (
+                <EpisodeCard
+                  key={episode.id}
+                  episode={episode}
+                  className="w-[340px] sm:w-[400px] md:w-[460px] flex-shrink-0 bg-background border border-border/70 shadow-sm hover:shadow-md"
+                  layout="horizontal"
+                />
+              ))}
+            </div>
+            <ScrollBar orientation="horizontal" />
+          </ScrollArea>
+        </div>
       </div>
     </section>
   );
