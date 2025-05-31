@@ -15,14 +15,14 @@ interface EpisodesClientPageProps {
 
 export default function EpisodesClientPage({ initialEpisodes, allSeries }: EpisodesClientPageProps) {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedSeriesId, setSelectedSeriesId] = useState(''); // Empty string for "All Series"
+  const [selectedSeriesId, setSelectedSeriesId] = useState(''); // Empty string for "All Series" logic
   const [filteredEpisodes, setFilteredEpisodes] = useState<Episode[]>(initialEpisodes);
 
   useEffect(() => {
     let episodesToFilter = initialEpisodes;
 
     // Filter by selected series
-    if (selectedSeriesId) {
+    if (selectedSeriesId) { // This will be true if selectedSeriesId is not '' (i.e., a specific series is chosen)
       episodesToFilter = episodesToFilter.filter(episode => episode.seriesId === selectedSeriesId);
     }
 
@@ -53,6 +53,9 @@ export default function EpisodesClientPage({ initialEpisodes, allSeries }: Episo
     return Array.from(seriesMap.values());
   }, [initialEpisodes, allSeries]);
 
+  const handleSeriesChange = (value: string) => {
+    setSelectedSeriesId(value === "all-series" ? "" : value);
+  };
 
   return (
     <div className="container mx-auto py-8">
@@ -70,12 +73,15 @@ export default function EpisodesClientPage({ initialEpisodes, allSeries }: Episo
               aria-label="Search all episodes"
             />
           </div>
-          <Select value={selectedSeriesId} onValueChange={setSelectedSeriesId}>
+          <Select 
+            value={selectedSeriesId || "all-series"} 
+            onValueChange={handleSeriesChange}
+          >
             <SelectTrigger className="w-full md:w-[280px] h-10" aria-label="Filter by series">
               <SelectValue placeholder="Filter by Series" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All Series</SelectItem>
+              <SelectItem value="all-series">All Series</SelectItem>
               {uniqueSeriesForFilter.map(series => (
                 <SelectItem key={series.id} value={series.id}>
                   {series.title}
