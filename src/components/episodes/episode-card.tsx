@@ -32,7 +32,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
       <div className={cn(
         "relative",
         layout === 'vertical' 
-          ? "w-full aspect-square" 
+          ? "w-full aspect-[4/3]" // Changed from aspect-square
           : "w-20 h-20 sm:w-22 sm:h-22 md:w-24 md:h-24 flex-shrink-0" 
       )}>
         <Image
@@ -86,7 +86,6 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
             : "pt-1 pb-1 sm:pb-1.5 md:pb-2 flex-grow", 
           "text-sm"
         )}>
-          {/* Display description if not Focus Bites vertical, or if it is Focus Bites vertical but we want description */}
           <p className={cn(
             "text-muted-foreground",
             layout === 'vertical' ? "line-clamp-3" : "line-clamp-2 text-xs sm:text-sm" 
@@ -136,3 +135,4 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
 };
 
 export default EpisodeCard;
+
