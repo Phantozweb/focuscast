@@ -20,7 +20,7 @@ const SeriesCard: React.FC<SeriesCardProps> = ({ series, className }) => {
           "overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full bg-card",
           className
         )}>
-          <div className="relative w-full aspect-[16/9]">
+          <div className="relative w-full aspect-square"> {/* Ensure square aspect ratio */}
             <Image
               src={series.thumbnailUrl}
               alt={series.title}

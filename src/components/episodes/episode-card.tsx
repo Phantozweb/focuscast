@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -17,6 +18,7 @@ interface EpisodeCardProps {
 const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 'vertical' }) => {
   const { playEpisode, downloadEpisode, currentEpisode, isPlaying } = usePlayer();
   const isActive = currentEpisode?.id === episode.id;
+  const isFocusBitesEpisode = episode.seriesId === 'series-focus-bites' && episode.episodeNumber;
 
   return (
     <Card className={cn(
@@ -27,7 +29,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
       )}>
       <div className={cn(
         "relative",
-        layout === 'vertical' ? "w-full aspect-[16/10]" : "w-1/3 aspect-square flex-shrink-0"
+        layout === 'vertical' ? "w-full aspect-square" : "w-1/3 aspect-square flex-shrink-0" // Ensure square aspect ratio
       )}>
         <Image
           src={episode.thumbnailUrl}
@@ -35,7 +37,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
           fill
           className="object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          data-ai-hint="podcast episode thumbnail"
+          data-ai-hint={isFocusBitesEpisode ? "podcast series art" : "podcast episode thumbnail"}
         />
       </div>
       <div className={cn("flex flex-col flex-grow", layout === 'vertical' ? "" : "p-4")}>
@@ -56,9 +58,13 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
             </div>
         )}
         <CardContent className={cn(layout === 'vertical' ? "flex-grow" : "")}>
-          <p className={cn("text-sm text-muted-foreground", layout === 'vertical' ? "line-clamp-3" : "line-clamp-2")}>
-            {episode.description}
-          </p>
+          {isFocusBitesEpisode ? (
+            <p className="text-lg font-semibold text-primary mt-2">Episode {episode.episodeNumber}</p>
+          ) : (
+            <p className={cn("text-sm text-muted-foreground", layout === 'vertical' ? "line-clamp-3" : "line-clamp-2")}>
+              {episode.description}
+            </p>
+          )}
           <div className="mt-2 flex items-center text-xs text-muted-foreground">
             <Clock size={14} className="mr-1.5" />
             <span>{episode.duration}</span>

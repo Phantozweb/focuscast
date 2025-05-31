@@ -1,3 +1,4 @@
+
 import type { Category } from '@/types';
 import Link from 'next/link';
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
@@ -22,7 +23,7 @@ const CategoriesSection: React.FC<CategoriesSectionProps> = ({ categories }) => 
             <a className="block group">
               <Card className="overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 h-full flex flex-col">
                 {category.imageUrl && (
-                  <div className="relative w-full aspect-[4/3]">
+                  <div className="relative w-full aspect-square"> {/* Ensure square aspect ratio */}
                     <Image
                       src={category.imageUrl}
                       alt={category.name}

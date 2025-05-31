@@ -1,9 +1,11 @@
+
 import Link from 'next/link';
 import FocusCastLogo from '@/components/icons/focus-cast-logo';
 import NavigationMenu from './navigation-menu';
 import { Button } from '@/components/ui/button';
-import { Menu } from 'lucide-react';
+import { Menu, Search } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
+import { Input } from "@/components/ui/input";
 
 const Header: React.FC = () => {
   const navItems = [
@@ -19,10 +21,18 @@ const Header: React.FC = () => {
           <FocusCastLogo />
         </Link>
         
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex">
+        {/* Desktop Navigation & Search */}
+        <div className="hidden md:flex items-center gap-4">
           <NavigationMenu items={navItems} />
-        </nav>
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Input 
+              type="search" 
+              placeholder="Search episodes..." 
+              className="h-9 w-48 lg:w-64 pl-9" 
+            />
+          </div>
+        </div>
 
         {/* Mobile Navigation */}
         <div className="md:hidden">
@@ -38,6 +48,10 @@ const Header: React.FC = () => {
               <Link href="/" className="mb-6 flex items-center">
                 <FocusCastLogo />
               </Link>
+              <div className="relative mb-4">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                <Input type="search" placeholder="Search episodes..." className="h-9 w-full pl-9" />
+              </div>
               <nav className="flex flex-col space-y-3">
                 {navItems.map((item) => (
                   <Link

@@ -2,19 +2,21 @@
 import type { Episode, Category, Series } from '@/types';
 import { Microscope, Eye, Glasses, TrendingUp, Briefcase, Smile, LayoutGrid, Activity, Users, BookOpen, Sparkles } from 'lucide-react';
 
+const focusBitesSeriesThumbnail = 'https://raw.githubusercontent.com/Phantozweb/StromVault/175bc58a00e53a095eb5065a0cfb6e8599ca93dd/Albums/file_000000002c2861f89474f0ba58bb39a3.png';
+
 export const placeholderSeries: Series[] = [
   {
     id: 'series-focus-bites',
     title: 'Focus Bites',
     description: 'Short, insightful episodes exploring fascinating aspects of vision and optometry.',
-    thumbnailUrl: 'https://placehold.co/600x400.png',
+    thumbnailUrl: focusBitesSeriesThumbnail,
     dataAiHint: 'abstract science eye',
   },
   {
     id: 'series-clinical-cases',
     title: 'Clinical Case Files',
     description: 'Deep dives into interesting and educational clinical cases in optometry.',
-    thumbnailUrl: 'https://placehold.co/600x400.png',
+    thumbnailUrl: 'https://placehold.co/600x600.png', // Square
     dataAiHint: 'medical chart files',
   },
 ];
@@ -78,10 +80,10 @@ export const placeholderEpisodes: Episode[] = [
   {
     id: '6',
     title: 'Phosphene Phenomena',
-    showName: 'Focus Bites', // Show name for display on episode card
+    showName: 'Focus Bites', 
     description: 'Exploring the fascinating world of phosphene phenomena and what they tell us about our visual system.',
     duration: '08:17',
-    thumbnailUrl: 'https://placehold.co/600x600.png',
+    thumbnailUrl: focusBitesSeriesThumbnail, // Use series thumbnail
     audioUrl: 'https://github.com/Phantozweb/StromVault/raw/5d97da6c8163ba0593557434f5c3b5d1a5ed2fb9/Focus%20bites/focus-bites-ep1-phosphene-phenomena.mp3',
     releaseDate: '2024-07-26',
     category: 'vision-science',
@@ -124,7 +126,7 @@ Jennifer, signing off.`
     showName: 'Focus Bites',
     description: 'Discover the various entoptic phenomena, from floaters to Haidinger\'s brush, and the science behind them.',
     duration: '10:30',
-    thumbnailUrl: 'https://placehold.co/600x600.png',
+    thumbnailUrl: focusBitesSeriesThumbnail, // Use series thumbnail
     audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3',
     releaseDate: '2024-08-02',
     category: 'vision-science',
@@ -149,14 +151,14 @@ Jennifer, signing off.`
 ];
 
 export const placeholderCategories: Category[] = [
-  { id: 'clinical-insights', name: 'Clinical Insights', icon: Microscope, imageUrl: 'https://placehold.co/400x300.png', dataAiHint: 'microscope slide' },
-  { id: 'vision-science', name: 'Vision Science', icon: Eye, imageUrl: 'https://placehold.co/400x300.png', dataAiHint: 'abstract eye' },
-  { id: 'optical-tech', name: 'Optical Technology', icon: Glasses, imageUrl: 'https://placehold.co/400x300.png', dataAiHint: 'lens optics' },
-  { id: 'practice-growth', name: 'Practice Growth', icon: TrendingUp, imageUrl: 'https://placehold.co/400x300.png', dataAiHint: 'business graph' },
-  { id: 'patient-care', name: 'Patient Care', icon: Users, imageUrl: 'https://placehold.co/400x300.png', dataAiHint: 'doctor patient' },
-  { id: 'ocular-health', name: 'Ocular Health', icon: Activity, imageUrl: 'https://placehold.co/400x300.png', dataAiHint: 'healthy eye' },
-  { id: 'professional-dev', name: 'Professional Dev', icon: Briefcase, imageUrl: 'https://placehold.co/400x300.png', dataAiHint: 'learning book' },
-  { id: 'practitioner-wellness', name: 'Practitioner Wellness', icon: Smile, imageUrl: 'https://placehold.co/400x300.png', dataAiHint: 'calm yoga' },
-  { id: 'podcast-series', name: 'Podcast Series', icon: BookOpen, imageUrl: 'https://placehold.co/400x300.png', dataAiHint: 'book collection' },
-  { id: 'all-episodes', name: 'All Episodes', icon: LayoutGrid, imageUrl: 'https://placehold.co/400x300.png', dataAiHint: 'audio waves' },
+  { id: 'clinical-insights', name: 'Clinical Insights', icon: Microscope, imageUrl: 'https://placehold.co/400x400.png', dataAiHint: 'microscope slide' },
+  { id: 'vision-science', name: 'Vision Science', icon: Eye, imageUrl: 'https://placehold.co/400x400.png', dataAiHint: 'abstract eye' },
+  { id: 'optical-tech', name: 'Optical Technology', icon: Glasses, imageUrl: 'https://placehold.co/400x400.png', dataAiHint: 'lens optics' },
+  { id: 'practice-growth', name: 'Practice Growth', icon: TrendingUp, imageUrl: 'https://placehold.co/400x400.png', dataAiHint: 'business graph' },
+  { id: 'patient-care', name: 'Patient Care', icon: Users, imageUrl: 'https://placehold.co/400x400.png', dataAiHint: 'doctor patient' },
+  { id: 'ocular-health', name: 'Ocular Health', icon: Activity, imageUrl: 'https://placehold.co/400x400.png', dataAiHint: 'healthy eye' },
+  { id: 'professional-dev', name: 'Professional Dev', icon: Briefcase, imageUrl: 'https://placehold.co/400x400.png', dataAiHint: 'learning book' },
+  { id: 'practitioner-wellness', name: 'Practitioner Wellness', icon: Smile, imageUrl: 'https://placehold.co/400x400.png', dataAiHint: 'calm yoga' },
+  { id: 'podcast-series', name: 'Podcast Series', icon: BookOpen, imageUrl: 'https://placehold.co/400x400.png', dataAiHint: 'book collection' },
+  { id: 'all-episodes', name: 'All Episodes', icon: LayoutGrid, imageUrl: 'https://placehold.co/400x400.png', dataAiHint: 'audio waves' },
 ];

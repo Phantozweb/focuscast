@@ -1,33 +1,54 @@
 
+'use client';
+
 import { placeholderEpisodes, placeholderSeries } from '@/lib/placeholder-data';
 import type { Episode, Series } from '@/types';
-import EpisodeList from '@/components/episodes/episode-list';
 import Image from 'next/image';
-import { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, PlayCircle, Download, Clock } from 'lucide-react';
+import { usePlayer } from '@/contexts/player-context';
+import { useEffect, useState } from 'react';
+import type { Metadata } from 'next';
 
 interface SeriesPageProps {
   params: { seriesId: string };
 }
 
-export async function generateMetadata({ params }: SeriesPageProps): Promise<Metadata> {
-  const series = placeholderSeries.find(s => s.id === params.seriesId);
-  if (!series) {
-    return {
-      title: 'Series Not Found - FocusCast',
-    };
-  }
-  return {
-    title: `${series.title} - Series - FocusCast`,
-    description: series.description,
-  };
-}
+// Note: generateMetadata remains a server-side function.
+// We need to handle fetching data for it separately if it can't access client-side state.
+// For this example, we'll assume placeholderSeries is available, but in a real app,
+// you'd fetch this data in a way accessible by generateMetadata.
+
+// export async function generateMetadata({ params }: SeriesPageProps): Promise<Metadata> {
+//   const series = placeholderSeries.find(s => s.id === params.seriesId);
+//   if (!series) {
+//     return {
+//       title: 'Series Not Found - FocusCast',
+//     };
+//   }
+//   return {
+//     title: `${series.title} - Series - FocusCast`,
+//     description: series.description,
+//   };
+// }
 
 export default function SeriesPage({ params }: SeriesPageProps) {
-  const series = placeholderSeries.find(s => s.id === params.seriesId) as Series | undefined;
-  
+  const [series, setSeries] = useState<Series | undefined>(undefined);
+  const [episodesInSeries, setEpisodesInSeries] = useState<Episode[]>([]);
+  const { playEpisode, downloadEpisode, currentEpisode, isPlaying } = usePlayer();
+
+  useEffect(() => {
+    const foundSeries = placeholderSeries.find(s => s.id === params.seriesId);
+    setSeries(foundSeries);
+    if (foundSeries) {
+      const filteredEpisodes = placeholderEpisodes
+        .filter(ep => ep.seriesId === foundSeries.id)
+        .sort((a, b) => (a.episodeNumber || 0) - (b.episodeNumber || 0));
+      setEpisodesInSeries(filteredEpisodes);
+    }
+  }, [params.seriesId]);
+
   if (!series) {
     return (
       <div className="container mx-auto py-12 text-center">
@@ -41,10 +62,6 @@ export default function SeriesPage({ params }: SeriesPageProps) {
       </div>
     );
   }
-
-  const episodesInSeries = placeholderEpisodes
-    .filter(ep => ep.seriesId === series.id)
-    .sort((a, b) => (a.episodeNumber || 0) - (b.episodeNumber || 0));
 
   return (
     <div className="container mx-auto py-8">
@@ -76,14 +93,78 @@ export default function SeriesPage({ params }: SeriesPageProps) {
       </div>
       
       <h2 className="text-3xl font-bold mb-8 px-4 md:px-0 font-headline">Episodes in {series.title}</h2>
-      <EpisodeList episodes={episodesInSeries} />
+      
+      {episodesInSeries.length === 0 ? (
+        <p className="text-center text-muted-foreground py-8 px-4 md:px-0">No episodes found for this series yet.</p>
+      ) : (
+        <div className="space-y-4 px-4 md:px-0">
+          {episodesInSeries.map((episode, index) => {
+            const isActive = currentEpisode?.id === episode.id;
+            return (
+              <div 
+                key={episode.id} 
+                className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 border rounded-lg shadow-sm hover:shadow-md transition-shadow bg-card"
+              >
+                <div className="flex items-start sm:items-center gap-4 mb-4 sm:mb-0 flex-grow">
+                  <span className="text-xl sm:text-2xl font-bold text-muted-foreground w-10 sm:w-12 text-center pt-1 sm:pt-0">
+                    {episode.episodeNumber !== undefined ? `${episode.episodeNumber}` : `${index + 1}`}
+                  </span>
+                  <div className="flex-grow">
+                    <h3 
+                      className="text-lg font-semibold hover:text-primary transition-colors cursor-pointer" 
+                      onClick={() => playEpisode(episode)}
+                    >
+                      {episode.title}
+                    </h3>
+                    <p className="text-xs text-muted-foreground mt-0.5">
+                      From the "{series.title}" series
+                    </p>
+                    <div className="mt-1 flex items-center text-xs text-muted-foreground">
+                      <Clock size={14} className="mr-1.5" />
+                      <span>{episode.duration}</span>
+                      <span className="mx-1.5">•</span>
+                      <span>{episode.releaseDate}</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex gap-2 w-full sm:w-auto flex-shrink-0">
+                  <Button 
+                    size="sm" 
+                    variant={isActive && isPlaying ? "default" : "outline"}
+                    onClick={() => playEpisode(episode)}
+                    className="flex-1 sm:flex-none"
+                  >
+                    <PlayCircle size={16} className="mr-2" /> 
+                    {isActive && isPlaying ? 'Playing' : (isActive ? 'Paused' : 'Play')}
+                  </Button>
+                  <Button 
+                    size="sm" 
+                    variant="outline" 
+                    onClick={() => downloadEpisode(episode)}
+                    className="flex-1 sm:flex-none"
+                  >
+                    <Download size={16} className="mr-2" /> Download
+                  </Button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }
 
-export async function generateStaticParams() {
-  return placeholderSeries.map(series => ({
-    seriesId: series.id,
-  }));
-}
+// generateStaticParams remains a server function.
+// If it needs data that's also used in the client component, ensure it's fetched appropriately.
+// export async function generateStaticParams() {
+//   return placeholderSeries.map(series => ({
+//     seriesId: series.id,
+//   }));
+// }
+// Disabling generateStaticParams for now as it requires metadata generation which also needs to be fixed
+// for client components or have data fetched in a server-compatible way.
+// If you need static generation, metadata and data fetching strategies here will need adjustment.
+// For dynamic rendering, this setup is fine.
 
+    
