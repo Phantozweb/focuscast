@@ -1,7 +1,6 @@
 
 import type { Episode } from '@/types';
 import EpisodeCard from '@/components/episodes/episode-card';
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 interface TrendingContentProps {
   episodes: Episode[];
@@ -9,7 +8,12 @@ interface TrendingContentProps {
 
 const TrendingContent: React.FC<TrendingContentProps> = ({ episodes }) => {
   if (!episodes || episodes.length === 0) {
-    return <p>No trending content available.</p>;
+    return (
+      <section id="trending-content" className="py-8">
+        <h2 className="text-3xl font-bold mb-6 px-4 md:px-0 font-headline">Trending Now</h2>
+        <p className="text-center text-muted-foreground py-8">No trending content available at the moment.</p>
+      </section>
+    );
   }
 
   return (

@@ -7,13 +7,13 @@ import SeriesSection from '@/components/home/series-section';
 import { placeholderEpisodes, placeholderSeries } from '@/lib/placeholder-data';
 
 export const metadata: Metadata = {
-  title: 'Optometry Podcasts & Insights', 
-  description: 'Explore featured optometry podcasts, series, and trending episodes on FocusCast, your source for optometry insights clearly delivered.',
+  title: 'FocusCast: Optometry Insights, Clearly Delivered', 
+  description: 'Explore optometry podcasts, series, and trending episodes on FocusCast, your source for optometry insights clearly delivered.',
 };
 
 export default function HomePage() {
-  const featured = placeholderEpisodes.filter(ep => !ep.seriesId).slice(0, 3); 
-  const trending = placeholderEpisodes.slice(1, 5).reverse(); 
+  const featured: Episode[] = []; 
+  const trending: Episode[] = []; 
   const seriesData = placeholderSeries;
 
   return (

@@ -9,7 +9,12 @@ interface FeaturedEpisodesProps {
 
 const FeaturedEpisodes: React.FC<FeaturedEpisodesProps> = ({ episodes }) => {
   if (!episodes || episodes.length === 0) {
-    return <p>No featured episodes available.</p>;
+    return (
+      <section id="featured-episodes" className="py-8">
+        <h2 className="text-3xl font-bold mb-6 px-4 md:px-0 font-headline">Featured Episodes</h2>
+        <p className="text-center text-muted-foreground py-8">No featured episodes available at the moment.</p>
+      </section>
+    );
   }
 
   return (
