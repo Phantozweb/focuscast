@@ -19,7 +19,7 @@ interface SeriesCardProps {
 const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, className }) => {
   return (
     <Card className={cn(
-      "overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full bg-card group", // Added group here for button hover
+      "overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full bg-card group border border-border", 
       className
     )}>
       <Link href={`/series/${series.id}`} legacyBehavior passHref>
@@ -59,7 +59,7 @@ const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, className
           </Link>
         </CardContent>
         <div className="mt-auto flex gap-2">
-          <Button asChild variant="outline" size="sm" className="flex-1 group-hover:bg-accent transition-colors">
+          <Button asChild variant="default" size="sm" className="flex-1">
             <Link href={`/series/${series.id}`}>
               View Series <ArrowRight size={16} className="ml-2" />
             </Link>
