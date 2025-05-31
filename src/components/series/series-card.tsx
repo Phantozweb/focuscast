@@ -9,10 +9,11 @@ import { cn } from '@/lib/utils';
 
 interface SeriesCardProps {
   series: Series;
+  episodeCount: number;
   className?: string;
 }
 
-const SeriesCard: React.FC<SeriesCardProps> = ({ series, className }) => {
+const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, className }) => {
   return (
     <Link href={`/series/${series.id}`} legacyBehavior>
       <a className="block group">
@@ -36,10 +37,13 @@ const SeriesCard: React.FC<SeriesCardProps> = ({ series, className }) => {
                 {series.title}
               </CardTitle>
             </CardHeader>
-            <CardContent className="p-0 flex-grow mb-4">
+            <CardContent className="p-0 flex-grow mb-3">
               <CardDescription className="text-sm line-clamp-3">
                 {series.description}
               </CardDescription>
+              <p className="text-xs text-muted-foreground mt-2">
+                {episodeCount} episode{episodeCount === 1 ? '' : 's'}
+              </p>
             </CardContent>
             <div className="mt-auto">
                <Button variant="outline" size="sm" className="w-full group-hover:bg-accent transition-colors">

@@ -1,13 +1,14 @@
 
-import type { Series } from '@/types';
+import type { Series, Episode } from '@/types';
 import SeriesCard from '@/components/series/series-card';
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 interface SeriesSectionProps {
   series: Series[];
+  allEpisodes: Episode[]; // Added to calculate episode counts
 }
 
-const SeriesSection: React.FC<SeriesSectionProps> = ({ series }) => {
+const SeriesSection: React.FC<SeriesSectionProps> = ({ series, allEpisodes }) => {
   if (!series || series.length === 0) {
     return <p className="text-center text-muted-foreground py-8">No series available yet.</p>;
   }
@@ -21,13 +22,17 @@ const SeriesSection: React.FC<SeriesSectionProps> = ({ series }) => {
         <div className="relative">
            <ScrollArea className="w-full whitespace-nowrap">
             <div className="flex space-x-6 pb-4 px-4 md:px-0">
-              {series.map((s) => (
-                <SeriesCard
-                  key={s.id}
-                  series={s}
-                  className="w-[320px] md:w-[360px] flex-shrink-0"
-                />
-              ))}
+              {series.map((s) => {
+                const episodeCount = allEpisodes.filter(ep => ep.seriesId === s.id).length;
+                return (
+                  <SeriesCard
+                    key={s.id}
+                    series={s}
+                    episodeCount={episodeCount}
+                    className="w-[320px] md:w-[360px] flex-shrink-0"
+                  />
+                );
+              })}
             </div>
             <ScrollBar orientation="horizontal" />
           </ScrollArea>

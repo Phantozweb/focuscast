@@ -7,21 +7,21 @@ import SeriesSection from '@/components/home/series-section';
 import { placeholderEpisodes, placeholderSeries } from '@/lib/placeholder-data';
 
 export const metadata: Metadata = {
-  title: 'Optometry Podcasts & Insights', // Will become "Optometry Podcasts & Insights - FocusCast"
+  title: 'Optometry Podcasts & Insights', 
   description: 'Explore featured optometry podcasts, series, and trending episodes on FocusCast, your source for optometry insights clearly delivered.',
 };
 
 export default function HomePage() {
   const featured = placeholderEpisodes.filter(ep => !ep.seriesId).slice(0, 3); 
   const trending = placeholderEpisodes.slice(1, 5).reverse(); 
-  const series = placeholderSeries;
+  const seriesData = placeholderSeries;
 
   return (
     <div className="flex flex-col">
       <HeroSection />
       <div className="container mx-auto py-8 space-y-12">
         <FeaturedEpisodes episodes={featured} />
-        <SeriesSection series={series} />
+        <SeriesSection series={seriesData} allEpisodes={placeholderEpisodes} />
         <TrendingContent episodes={trending} />
       </div>
     </div>

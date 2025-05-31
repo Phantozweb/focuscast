@@ -11,6 +11,7 @@ const Header: React.FC = () => {
   const navItems = [
     { href: '/', label: 'Home' },
     { href: '/episodes', label: 'Episodes' },
+    { href: '/#series', label: 'Series' },
     { href: '/#featured-episodes', label: 'Featured' },
     { href: '/#trending-content', label: 'Trending' },
   ];
@@ -54,7 +55,7 @@ const Header: React.FC = () => {
               <nav className="flex flex-col space-y-3">
                 {navItems.map((item) => (
                   <Link
-                    key={item.href}
+                    key={item.label + item.href} // Ensure unique key if labels can repeat for different hrefs
                     href={item.href}
                     className="text-lg font-medium text-foreground hover:text-primary"
                   >
