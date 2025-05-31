@@ -1,8 +1,6 @@
 
 import type { Series, Episode } from '@/types';
 import SeriesCard from '@/components/series/series-card';
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-// import { LayoutGrid } from 'lucide-react'; // Icon removed
 
 interface SeriesSectionProps {
   series: Series[];
@@ -15,7 +13,6 @@ const SeriesSection: React.FC<SeriesSectionProps> = ({ series, allEpisodes }) =>
       <section id="series" className="py-12 bg-background">
         <div className="container mx-auto">
           <div className="flex items-end gap-3 justify-center md:justify-start mb-8 px-4 md:px-0">
-            {/* <LayoutGrid className="h-7 w-7 text-primary flex-shrink-0" /> */}
             <h2 className="text-3xl font-bold font-headline border-b-[3px] border-primary pb-1 leading-none">
               Explore Our Series
             </h2>
@@ -30,28 +27,22 @@ const SeriesSection: React.FC<SeriesSectionProps> = ({ series, allEpisodes }) =>
     <section id="series" className="py-12 bg-background">
       <div className="container mx-auto">
         <div className="flex items-end gap-3 justify-center md:justify-start mb-8 px-4 md:px-0">
-          {/* <LayoutGrid className="h-7 w-7 text-primary flex-shrink-0" /> */}
           <h2 className="text-3xl font-bold font-headline border-b-[3px] border-primary pb-1 leading-none">
             Explore Our Series
           </h2>
         </div>
-        <div className="relative">
-           <ScrollArea className="w-full whitespace-nowrap">
-            <div className="flex space-x-6 pb-4 px-4 md:px-0">
-              {series.map((s) => {
-                const episodeCount = allEpisodes.filter(ep => ep.seriesId === s.id).length;
-                return (
-                  <SeriesCard
-                    key={s.id}
-                    series={s}
-                    episodeCount={episodeCount}
-                    className="w-[320px] md:w-[360px] flex-shrink-0"
-                  />
-                );
-              })}
-            </div>
-            <ScrollBar orientation="horizontal" />
-          </ScrollArea>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-0">
+          {series.map((s) => {
+            const episodeCount = allEpisodes.filter(ep => ep.seriesId === s.id).length;
+            return (
+              <SeriesCard
+                key={s.id}
+                series={s}
+                episodeCount={episodeCount}
+                className="w-full" // SeriesCard is already designed for full width of its container
+              />
+            );
+          })}
         </div>
       </div>
     </section>

@@ -41,9 +41,9 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
               data-ai-hint={isFocusBitesEpisode ? "podcast series art" : "podcast episode thumbnail"}
             />
           </div>
-          <div className="flex-grow min-w-0"> {/* Added min-w-0 for flex child truncation */}
+          <div className="flex-grow min-w-0">
             <CardTitle
-              className="text-base font-semibold leading-tight line-clamp-2 hover:text-primary transition-colors cursor-pointer"
+              className="text-base font-semibold leading-tight hover:text-primary transition-colors cursor-pointer" // Removed line-clamp-2
               onClick={() => playEpisode(episode)}
             >
               {episode.title}
@@ -106,14 +106,14 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
     );
   }
 
-  // Horizontal layout
+  // Horizontal layout (used in Hero search suggestions, SeriesClientPage episode list)
   return (
     <Card className={cn(
         "overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-row items-start",
         isActive && isPlaying ? "border-primary ring-2 ring-primary" : "",
         className
       )}>
-      <div className="relative w-20 h-20 flex-shrink-0">
+      <div className="relative w-20 h-20 flex-shrink-0"> {/* Image on the left */}
         <Image
           src={episode.thumbnailUrl}
           alt={episode.title}
@@ -123,10 +123,10 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
           data-ai-hint={isFocusBitesEpisode ? "podcast series art" : "podcast episode thumbnail"}
         />
       </div>
-      <div className="flex flex-col flex-grow p-2 sm:p-3 min-w-0"> {/* Added min-w-0 for flex child truncation */}
+      <div className="flex flex-col flex-grow p-2 sm:p-3 min-w-0"> {/* Text content to the right */}
         <CardHeader className="p-0 mb-1 md:mb-1.5">
             <CardTitle
-              className="text-base md:text-lg font-semibold leading-tight hover:text-primary transition-colors cursor-pointer" // No line-clamp for horizontal title
+              className="text-base md:text-lg font-semibold leading-tight hover:text-primary transition-colors cursor-pointer"
               onClick={() => playEpisode(episode)}
             >
                 {episode.title}
