@@ -24,13 +24,13 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
   return (
     <Card className={cn(
         "overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex",
-        layout === 'vertical' ? "flex-col" : "flex-row items-start", // Changed items-center to items-start for horizontal
+        layout === 'vertical' ? "flex-col" : "flex-row items-start",
         isActive && isPlaying ? "border-primary ring-2 ring-primary" : "",
         className
       )}>
       <div className={cn(
         "relative",
-        layout === 'vertical' ? "w-full aspect-square" : "w-24 h-24 md:w-28 md:h-28 flex-shrink-0" // Adjusted horizontal size
+        layout === 'vertical' ? "w-full aspect-square" : "w-24 h-24 md:w-28 md:h-28 flex-shrink-0"
       )}>
         <Image
           src={episode.thumbnailUrl}
@@ -41,45 +41,53 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
           data-ai-hint={isFocusBitesEpisode ? "podcast series art" : "podcast episode thumbnail"}
         />
       </div>
-      <div className={cn("flex flex-col flex-grow", layout === 'vertical' ? "" : "p-3 md:p-4")}> {/* Adjusted padding for horizontal */}
+      <div className={cn("flex flex-col flex-grow", layout === 'vertical' ? "" : "p-3 md:p-4")}>
         {layout === 'vertical' && (
-            <CardHeader>
+            <CardHeader className="p-4"> {/* Reduced padding from default p-6 to p-4 */}
                 <CardTitle className="text-lg leading-tight hover:text-primary transition-colors cursor-pointer line-clamp-2" onClick={() => playEpisode(episode)}>
                     {episode.title}
                 </CardTitle>
-                <CardDescription className="text-xs line-clamp-1">{episode.showName}</CardDescription>
+                <CardDescription className="text-xs line-clamp-1 mt-0.5">{/* Ensured small margin for show name */}
+                    {episode.showName}
+                </CardDescription>
             </CardHeader>
         )}
          {layout === 'horizontal' && (
-            <div className="mb-1 md:mb-2">
+            <div className="mb-1 md:mb-2"> {/* This div effectively acts as the header for horizontal layout */}
                 <h3 className="text-base md:text-lg font-semibold leading-tight hover:text-primary transition-colors cursor-pointer line-clamp-2" onClick={() => playEpisode(episode)}>
                     {episode.title}
                 </h3>
                 <p className="text-xs md:text-sm text-muted-foreground line-clamp-1">{episode.showName}</p>
             </div>
         )}
-        <CardContent className={cn(layout === 'vertical' ? "flex-grow" : "", "py-0 md:py-2")}> {/* Adjusted padding */}
-          {isFocusBitesEpisode && layout === 'vertical' ? (
-            <p className="text-lg font-semibold text-primary mt-2">Episode {episode.episodeNumber}</p>
+        <CardContent className={cn(
+          layout === 'vertical' ? "flex-grow px-4 pb-3 pt-2" : "py-0 md:py-1", /* Adjusted padding for vertical content */
+          "text-sm"
+        )}>
+          {isFocusBitesEpisode && layout === 'vertical' && episode.episodeNumber ? (
+            <p className="text-lg font-semibold text-primary mt-1">Episode {episode.episodeNumber}</p>
           ) : (
             <p className={cn(
-              "text-sm text-muted-foreground", 
-              layout === 'vertical' ? "line-clamp-3" : "line-clamp-2 text-xs md:text-sm" // Ensure description also clamps
+              "text-muted-foreground",
+              layout === 'vertical' ? "line-clamp-3" : "line-clamp-2 text-xs md:text-sm"
             )}>
               {episode.description}
             </p>
           )}
-          <div className="mt-1 md:mt-2 flex items-center text-xs text-muted-foreground">
+          <div className="mt-2 flex items-center text-xs text-muted-foreground">
             <Clock size={14} className="mr-1.5" />
             <span>{episode.duration}</span>
             <span className="mx-1.5">•</span>
             <span>{episode.releaseDate}</span>
           </div>
         </CardContent>
-        <CardFooter className="flex gap-2 p-2 md:p-4">
-          <Button 
-            size="sm" 
-            onClick={() => playEpisode(episode)} 
+        <CardFooter className={cn( /* Standardized footer padding slightly */
+          "flex gap-2",
+          layout === 'vertical' ? "p-3 mt-auto" : "p-0 pt-2" /* Horizontal footer integrated into its parent's padding */
+        )}>
+          <Button
+            size="sm"
+            onClick={() => playEpisode(episode)}
             variant={isActive && isPlaying ? "default" : "outline"}
             className="flex-1"
             aria-label={`Play ${episode.title}`}
@@ -91,7 +99,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
             <Download size={16} className="mr-1 md:mr-2" />
             Download
           </Button>
-          <ShareButton 
+          <ShareButton
             shareTitle={episode.title}
             size="sm"
             className="flex-1"
