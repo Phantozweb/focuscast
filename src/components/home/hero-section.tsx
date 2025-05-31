@@ -25,9 +25,6 @@ const HeroSection: React.FC = () => {
               <Search className="h-5 w-5" />
             </Button>
           </div>
-          <p className="mt-4 text-sm text-muted-foreground">
-            nothing to see here
-          </p>
         </div>
       </div>
     </section>
