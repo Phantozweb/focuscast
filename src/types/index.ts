@@ -8,19 +8,11 @@ export interface Episode {
   thumbnailUrl: string;
   audioUrl: string;
   releaseDate: string;
-  category?: string; // Corresponds to category id
+  category?: string; // Corresponds to category id - will be removed if categories are fully removed
   seriesId?: string; // ID of the series this episode belongs to
   seriesTitle?: string; // Title of the series, denormalized for convenience
   episodeNumber?: number; // Episode number within the series
-  transcript?: string; // Added transcript field
-}
-
-export interface Category {
-  id: string;
-  name: string;
-  icon?: React.ElementType;
-  imageUrl?: string;
-  dataAiHint?: string;
+  transcript?: string;
 }
 
 export interface Series {

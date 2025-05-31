@@ -1,10 +1,11 @@
+
 'use client';
 
-import { Play, Pause, SkipBack, SkipForward, Volume2, VolumeX, Download, ListMusic, ExternalLink } from 'lucide-react';
+import { Play, Pause, SkipBack, SkipForward, Volume2, VolumeX, Download, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
 import { usePlayer } from '@/contexts/player-context';
-import { formatTime } from '@/lib/utils'; // Helper to format time, will create
+import { formatTime } from '@/lib/utils';
 
 interface PlayerControlsProps {
   isExpandedView: boolean;
@@ -22,7 +23,11 @@ const PlayerControls: React.FC<PlayerControlsProps> = ({ isExpandedView }) => {
     setVolume,
     downloadEpisode,
     toggleExpandPlayer,
-    isLoading
+    isLoading,
+    playNextInPlaylist,
+    playPreviousInPlaylist,
+    currentPlaylist,
+    currentPlaylistEpisodeIndex,
   } = usePlayer();
 
   if (!currentEpisode) return null;
@@ -37,6 +42,9 @@ const PlayerControls: React.FC<PlayerControlsProps> = ({ isExpandedView }) => {
 
   const iconSize = isExpandedView ? 24 : 20;
   const buttonSize = isExpandedView ? "default" : "sm";
+  
+  const canPlayPrev = currentPlaylist.length > 0 && currentPlaylistEpisodeIndex > 0;
+  const canPlayNext = currentPlaylist.length > 0 && currentPlaylistEpisodeIndex < currentPlaylist.length - 1;
 
   return (
     <div className={`flex flex-col w-full ${isExpandedView ? 'p-4 gap-4' : 'gap-2'}`}>
@@ -49,7 +57,7 @@ const PlayerControls: React.FC<PlayerControlsProps> = ({ isExpandedView }) => {
       <Slider
         defaultValue={[0]}
         value={[progress]}
-        max={duration || 100} // Provide a default max if duration is 0
+        max={duration || 100} 
         step={1}
         onValueChange={handleSeek}
         className="w-full h-2 data-[disabled]:opacity-50"
@@ -58,7 +66,7 @@ const PlayerControls: React.FC<PlayerControlsProps> = ({ isExpandedView }) => {
       />
       <div className={`flex items-center ${isExpandedView ? 'justify-around' : 'justify-center'} gap-2`}>
         {isExpandedView && (
-           <Button variant="ghost" size="icon" onClick={() => { /* previous track */ }} disabled={isLoading}>
+           <Button variant="ghost" size="icon" onClick={playPreviousInPlaylist} disabled={isLoading || !canPlayPrev}>
             <SkipBack size={iconSize} />
           </Button>
         )}
@@ -73,7 +81,7 @@ const PlayerControls: React.FC<PlayerControlsProps> = ({ isExpandedView }) => {
           {isPlaying ? <Pause size={isExpandedView ? 32 : iconSize} /> : <Play size={isExpandedView ? 32 : iconSize} />}
         </Button>
         {isExpandedView && (
-          <Button variant="ghost" size="icon" onClick={() => { /* next track */ }} disabled={isLoading}>
+          <Button variant="ghost" size="icon" onClick={playNextInPlaylist} disabled={isLoading || !canPlayNext}>
             <SkipForward size={iconSize} />
           </Button>
         )}
@@ -96,10 +104,6 @@ const PlayerControls: React.FC<PlayerControlsProps> = ({ isExpandedView }) => {
             <Button variant="outline" size={buttonSize} onClick={() => downloadEpisode(currentEpisode)} disabled={isLoading}>
               <Download size={iconSize-4} className="mr-2" /> Download
             </Button>
-            {/* Placeholder for future transcript/bookmark buttons */}
-            {/* <Button variant="outline" size={buttonSize}>
-              <ListMusic size={iconSize-4} className="mr-2" /> Transcript
-            </Button> */}
           </div>
         </div>
       )}

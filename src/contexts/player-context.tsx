@@ -1,10 +1,10 @@
 
-// src/contexts/player-context.tsx
 "use client";
 
 import type { Episode } from '@/types';
 import React, { createContext, useState, useContext, useRef, useEffect, useCallback } from 'react';
 import { useToast } from "@/hooks/use-toast";
+import { placeholderEpisodes } from '@/lib/placeholder-data'; // For next/prev episode logic
 
 interface PlayerState {
   currentEpisode: Episode | null;
@@ -12,18 +12,23 @@ interface PlayerState {
   progress: number;
   duration: number;
   volume: number;
-  isExpanded: boolean; // For mobile player view
+  isExpanded: boolean;
   isLoading: boolean;
+  currentPlaylist: Episode[];
+  currentPlaylistEpisodeIndex: number;
 }
 
 interface PlayerActions {
-  playEpisode: (episode: Episode) => void;
+  playEpisode: (episode: Episode, playlist?: Episode[], startIndex?: number) => void;
   togglePlayPause: () => void;
   seek: (time: number) => void;
   setVolume: (volume: number) => void;
   toggleExpandPlayer: () => void;
   downloadEpisode: (episode: Episode) => void;
   closePlayer: () => void;
+  playNextInPlaylist: () => void;
+  playPreviousInPlaylist: () => void;
+  startSeriesPlayback: (seriesEpisodes: Episode[]) => void;
 }
 
 type PlayerContextType = PlayerState & PlayerActions;
@@ -47,8 +52,21 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const [volume, setVolumeState] = useState(1);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [currentPlaylist, setCurrentPlaylist] = useState<Episode[]>([]);
+  const [currentPlaylistEpisodeIndex, setCurrentPlaylistEpisodeIndex] = useState<number>(-1);
+  
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const { toast } = useToast();
+
+  const playNextInPlaylist = useCallback(() => {
+    if (currentPlaylist.length > 0 && currentPlaylistEpisodeIndex < currentPlaylist.length - 1) {
+      const nextIndex = currentPlaylistEpisodeIndex + 1;
+      setCurrentPlaylistEpisodeIndex(nextIndex);
+      setCurrentEpisode(currentPlaylist[nextIndex]); // Trigger audio load via useEffect on currentEpisode
+    } else {
+      toast({ title: "End of playlist", description: "You've reached the end of the current playlist." });
+    }
+  }, [currentPlaylist, currentPlaylistEpisodeIndex, toast]);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -56,9 +74,7 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       audioRef.current.volume = volume;
 
       const handleTimeUpdate = () => {
-        if (audioRef.current) {
-          setProgress(audioRef.current.currentTime);
-        }
+        if (audioRef.current) setProgress(audioRef.current.currentTime);
       };
       const handleLoadedMetadata = () => {
         if (audioRef.current) {
@@ -70,11 +86,12 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       const handlePause = () => setIsPlaying(false);
       const handleEnded = () => {
         setIsPlaying(false);
-        // Implement next episode logic or reset
+        if (currentPlaylist.length > 0 && currentPlaylistEpisodeIndex < currentPlaylist.length - 1) {
+          playNextInPlaylist();
+        }
       };
       const handleWaiting = () => setIsLoading(true);
       const handleCanPlay = () => setIsLoading(false);
-
 
       audioRef.current.addEventListener('timeupdate', handleTimeUpdate);
       audioRef.current.addEventListener('loadedmetadata', handleLoadedMetadata);
@@ -83,7 +100,6 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       audioRef.current.addEventListener('ended', handleEnded);
       audioRef.current.addEventListener('waiting', handleWaiting);
       audioRef.current.addEventListener('canplay', handleCanPlay);
-
 
       return () => {
         if (audioRef.current) {
@@ -99,15 +115,15 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         }
       };
     }
-  }, []);
+  }, [volume, playNextInPlaylist, currentPlaylist, currentPlaylistEpisodeIndex]); // Added dependencies for playNextInPlaylist
 
-  const playEpisode = useCallback((episode: Episode) => {
-    if (audioRef.current) {
+  // Effect to load and play audio when currentEpisode changes
+  useEffect(() => {
+    if (currentEpisode && audioRef.current) {
       setIsLoading(true);
-      setCurrentEpisode(episode);
-      const rawAudioUrl = getRawGitHubUrl(episode.audioUrl);
+      const rawAudioUrl = getRawGitHubUrl(currentEpisode.audioUrl);
       audioRef.current.src = rawAudioUrl;
-      audioRef.current.load(); // Important to load new src
+      audioRef.current.load();
       audioRef.current.play().then(() => {
          setIsPlaying(true);
          setIsLoading(false);
@@ -117,7 +133,44 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         toast({ title: "Error", description: "Could not play audio.", variant: "destructive" });
       });
     }
-  }, [toast]);
+  }, [currentEpisode, toast]);
+
+
+  const playEpisode = useCallback((episode: Episode, playlist?: Episode[], startIndex?: number) => {
+    setCurrentEpisode(episode); // This will trigger the useEffect above
+    if (playlist && startIndex !== undefined) {
+      setCurrentPlaylist(playlist);
+      setCurrentPlaylistEpisodeIndex(startIndex);
+    } else {
+      // Playing a single episode, not part of a new explicit playlist
+      // Check if it's part of an existing playlist, or create a new one-item playlist
+      const existingIndex = currentPlaylist.findIndex(ep => ep.id === episode.id);
+      if (existingIndex !== -1 && currentPlaylist.length > 0) {
+        setCurrentPlaylistEpisodeIndex(existingIndex);
+      } else {
+        setCurrentPlaylist([episode]);
+        setCurrentPlaylistEpisodeIndex(0);
+      }
+    }
+  }, [currentPlaylist]);
+
+  const startSeriesPlayback = useCallback((seriesEpisodes: Episode[]) => {
+    if (seriesEpisodes.length > 0) {
+      playEpisode(seriesEpisodes[0], seriesEpisodes, 0);
+      setIsExpanded(true); // Optionally expand player when series starts
+    }
+  }, [playEpisode]);
+
+
+  const playPreviousInPlaylist = useCallback(() => {
+    if (currentPlaylist.length > 0 && currentPlaylistEpisodeIndex > 0) {
+      const prevIndex = currentPlaylistEpisodeIndex - 1;
+      setCurrentPlaylistEpisodeIndex(prevIndex);
+      setCurrentEpisode(currentPlaylist[prevIndex]);
+    } else {
+       toast({ title: "Start of playlist", description: "You're at the beginning of the playlist." });
+    }
+  }, [currentPlaylist, currentPlaylistEpisodeIndex, toast]);
 
   const togglePlayPause = useCallback(() => {
     if (audioRef.current && currentEpisode) {
@@ -129,7 +182,7 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
             toast({ title: "Error", description: "Could not resume audio.", variant: "destructive" });
         });
       }
-      setIsPlaying(!isPlaying);
+      // State update is handled by audio element's play/pause events
     }
   }, [isPlaying, currentEpisode, toast]);
 
@@ -152,15 +205,10 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   }, [isExpanded]);
 
   const downloadEpisode = useCallback((episode: Episode) => {
-    // Simulate download
     toast({
       title: "Download Started",
       description: `Downloading "${episode.title}"...`,
     });
-    console.log(`Simulating download for: ${episode.title}`);
-    // In a real app, you'd use browser APIs or a library for actual downloads.
-    // For web, this could be creating an anchor tag and clicking it.
-    // For offline, service workers would be involved.
     setTimeout(() => {
       toast({
         title: "Download Complete",
@@ -178,6 +226,8 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     setProgress(0);
     setDuration(0);
     setIsExpanded(false);
+    setCurrentPlaylist([]);
+    setCurrentPlaylistEpisodeIndex(-1);
   }, []);
 
   return (
@@ -189,6 +239,8 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       volume,
       isExpanded,
       isLoading,
+      currentPlaylist,
+      currentPlaylistEpisodeIndex,
       playEpisode,
       togglePlayPause,
       seek,
@@ -196,6 +248,9 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       toggleExpandPlayer,
       downloadEpisode,
       closePlayer,
+      playNextInPlaylist,
+      playPreviousInPlaylist,
+      startSeriesPlayback,
     }}>
       {children}
     </PlayerContext.Provider>

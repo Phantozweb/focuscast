@@ -6,37 +6,18 @@ import type { Episode, Series } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, PlayCircle, Download, Clock } from 'lucide-react';
+import { ArrowLeft, PlayCircle, Download, Clock, Play } from 'lucide-react';
 import { usePlayer } from '@/contexts/player-context';
 import { useEffect, useState } from 'react';
-import type { Metadata } from 'next';
 
 interface SeriesPageProps {
   params: { seriesId: string };
 }
 
-// Note: generateMetadata remains a server-side function.
-// We need to handle fetching data for it separately if it can't access client-side state.
-// For this example, we'll assume placeholderSeries is available, but in a real app,
-// you'd fetch this data in a way accessible by generateMetadata.
-
-// export async function generateMetadata({ params }: SeriesPageProps): Promise<Metadata> {
-//   const series = placeholderSeries.find(s => s.id === params.seriesId);
-//   if (!series) {
-//     return {
-//       title: 'Series Not Found - FocusCast',
-//     };
-//   }
-//   return {
-//     title: `${series.title} - Series - FocusCast`,
-//     description: series.description,
-//   };
-// }
-
 export default function SeriesPage({ params }: SeriesPageProps) {
   const [series, setSeries] = useState<Series | undefined>(undefined);
   const [episodesInSeries, setEpisodesInSeries] = useState<Episode[]>([]);
-  const { playEpisode, downloadEpisode, currentEpisode, isPlaying } = usePlayer();
+  const { playEpisode, downloadEpisode, currentEpisode, isPlaying, startSeriesPlayback } = usePlayer();
 
   useEffect(() => {
     const foundSeries = placeholderSeries.find(s => s.id === params.seriesId);
@@ -63,6 +44,12 @@ export default function SeriesPage({ params }: SeriesPageProps) {
     );
   }
 
+  const handlePlayAll = () => {
+    if (episodesInSeries.length > 0) {
+      startSeriesPlayback(episodesInSeries);
+    }
+  };
+
   return (
     <div className="container mx-auto py-8">
       <div className="mb-12 p-4 md:p-0">
@@ -84,10 +71,15 @@ export default function SeriesPage({ params }: SeriesPageProps) {
           </div>
           <div className="flex-grow">
             <h1 className="text-4xl md:text-5xl font-bold mb-3 font-headline">{series.title}</h1>
-            <p className="text-lg text-muted-foreground mb-6">{series.description}</p>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-lg text-muted-foreground mb-4">{series.description}</p>
+            <p className="text-sm text-muted-foreground mb-6">
               {episodesInSeries.length} episode{episodesInSeries.length === 1 ? '' : 's'} in this series.
             </p>
+            {episodesInSeries.length > 0 && (
+              <Button size="lg" onClick={handlePlayAll}>
+                <Play className="mr-2 h-5 w-5" /> Play All Episodes
+              </Button>
+            )}
           </div>
         </div>
       </div>
@@ -112,7 +104,7 @@ export default function SeriesPage({ params }: SeriesPageProps) {
                   <div className="flex-grow">
                     <h3 
                       className="text-lg font-semibold hover:text-primary transition-colors cursor-pointer" 
-                      onClick={() => playEpisode(episode)}
+                      onClick={() => playEpisode(episode, episodesInSeries, index)}
                     >
                       {episode.title}
                     </h3>
@@ -131,7 +123,7 @@ export default function SeriesPage({ params }: SeriesPageProps) {
                   <Button 
                     size="sm" 
                     variant={isActive && isPlaying ? "default" : "outline"}
-                    onClick={() => playEpisode(episode)}
+                    onClick={() => playEpisode(episode, episodesInSeries, index)}
                     className="flex-1 sm:flex-none"
                   >
                     <PlayCircle size={16} className="mr-2" /> 
@@ -154,17 +146,3 @@ export default function SeriesPage({ params }: SeriesPageProps) {
     </div>
   );
 }
-
-// generateStaticParams remains a server function.
-// If it needs data that's also used in the client component, ensure it's fetched appropriately.
-// export async function generateStaticParams() {
-//   return placeholderSeries.map(series => ({
-//     seriesId: series.id,
-//   }));
-// }
-// Disabling generateStaticParams for now as it requires metadata generation which also needs to be fixed
-// for client components or have data fetched in a server-compatible way.
-// If you need static generation, metadata and data fetching strategies here will need adjustment.
-// For dynamic rendering, this setup is fine.
-
-    

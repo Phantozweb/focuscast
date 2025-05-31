@@ -1,6 +1,5 @@
 
-import type { Episode, Category, Series } from '@/types';
-import { Microscope, Eye, Glasses, TrendingUp, Briefcase, Smile, LayoutGrid, Activity, Users, BookOpen, Sparkles } from 'lucide-react';
+import type { Episode, Series } from '@/types';
 
 const focusBitesSeriesThumbnail = 'https://raw.githubusercontent.com/Phantozweb/StromVault/175bc58a00e53a095eb5065a0cfb6e8599ca93dd/Albums/file_000000002c2861f89474f0ba58bb39a3.png';
 
@@ -16,7 +15,7 @@ export const placeholderSeries: Series[] = [
     id: 'series-clinical-cases',
     title: 'Clinical Case Files',
     description: 'Deep dives into interesting and educational clinical cases in optometry.',
-    thumbnailUrl: 'https://placehold.co/600x600.png', // Square
+    thumbnailUrl: 'https://placehold.co/600x600.png', 
     dataAiHint: 'medical chart files',
   },
 ];
@@ -31,7 +30,6 @@ export const placeholderEpisodes: Episode[] = [
     thumbnailUrl: 'https://placehold.co/600x600.png',
     audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
     releaseDate: '2024-07-15',
-    category: 'practice-growth',
   },
   {
     id: '2',
@@ -42,7 +40,6 @@ export const placeholderEpisodes: Episode[] = [
     thumbnailUrl: 'https://placehold.co/600x600.png',
     audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
     releaseDate: '2024-07-14',
-    category: 'practitioner-wellness',
   },
   {
     id: '3',
@@ -53,7 +50,6 @@ export const placeholderEpisodes: Episode[] = [
     thumbnailUrl: 'https://placehold.co/600x600.png',
     audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
     releaseDate: '2024-07-12',
-    category: 'professional-dev',
   },
   {
     id: '4',
@@ -64,7 +60,6 @@ export const placeholderEpisodes: Episode[] = [
     thumbnailUrl: 'https://placehold.co/600x600.png',
     audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',
     releaseDate: '2024-07-10',
-    category: 'optical-tech',
   },
   {
     id: '5',
@@ -75,7 +70,6 @@ export const placeholderEpisodes: Episode[] = [
     thumbnailUrl: 'https://placehold.co/600x600.png',
     audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3',
     releaseDate: '2024-07-08',
-    category: 'practice-growth',
   },
   {
     id: '6',
@@ -83,10 +77,9 @@ export const placeholderEpisodes: Episode[] = [
     showName: 'Focus Bites', 
     description: 'Exploring the fascinating world of phosphene phenomena and what they tell us about our visual system.',
     duration: '08:17',
-    thumbnailUrl: focusBitesSeriesThumbnail, // Use series thumbnail
+    thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://github.com/Phantozweb/StromVault/raw/5d97da6c8163ba0593557434f5c3b5d1a5ed2fb9/Focus%20bites/focus-bites-ep1-phosphene-phenomena.mp3',
     releaseDate: '2024-07-26',
-    category: 'vision-science',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 1,
@@ -115,7 +108,6 @@ Jennifer, signing off.`
     thumbnailUrl: 'https://placehold.co/600x600.png',
     audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3',
     releaseDate: '2024-07-28',
-    category: 'clinical-insights',
     seriesId: 'series-clinical-cases',
     seriesTitle: 'Clinical Case Files',
     episodeNumber: 1,
@@ -126,10 +118,9 @@ Jennifer, signing off.`
     showName: 'Focus Bites',
     description: 'Discover the various entoptic phenomena, from floaters to Haidinger\'s brush, and the science behind them.',
     duration: '10:30',
-    thumbnailUrl: focusBitesSeriesThumbnail, // Use series thumbnail
+    thumbnailUrl: focusBitesSeriesThumbnail, 
     audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3',
     releaseDate: '2024-08-02',
-    category: 'vision-science',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 2,
@@ -143,22 +134,8 @@ Jennifer, signing off.`
     thumbnailUrl: 'https://placehold.co/600x600.png',
     audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3',
     releaseDate: '2024-08-05',
-    category: 'clinical-insights',
     seriesId: 'series-clinical-cases',
     seriesTitle: 'Clinical Case Files',
     episodeNumber: 2,
   },
-];
-
-export const placeholderCategories: Category[] = [
-  { id: 'clinical-insights', name: 'Clinical Insights', icon: Microscope, imageUrl: 'https://placehold.co/400x400.png', dataAiHint: 'microscope slide' },
-  { id: 'vision-science', name: 'Vision Science', icon: Eye, imageUrl: 'https://placehold.co/400x400.png', dataAiHint: 'abstract eye' },
-  { id: 'optical-tech', name: 'Optical Technology', icon: Glasses, imageUrl: 'https://placehold.co/400x400.png', dataAiHint: 'lens optics' },
-  { id: 'practice-growth', name: 'Practice Growth', icon: TrendingUp, imageUrl: 'https://placehold.co/400x400.png', dataAiHint: 'business graph' },
-  { id: 'patient-care', name: 'Patient Care', icon: Users, imageUrl: 'https://placehold.co/400x400.png', dataAiHint: 'doctor patient' },
-  { id: 'ocular-health', name: 'Ocular Health', icon: Activity, imageUrl: 'https://placehold.co/400x400.png', dataAiHint: 'healthy eye' },
-  { id: 'professional-dev', name: 'Professional Dev', icon: Briefcase, imageUrl: 'https://placehold.co/400x400.png', dataAiHint: 'learning book' },
-  { id: 'practitioner-wellness', name: 'Practitioner Wellness', icon: Smile, imageUrl: 'https://placehold.co/400x400.png', dataAiHint: 'calm yoga' },
-  { id: 'podcast-series', name: 'Podcast Series', icon: BookOpen, imageUrl: 'https://placehold.co/400x400.png', dataAiHint: 'book collection' },
-  { id: 'all-episodes', name: 'All Episodes', icon: LayoutGrid, imageUrl: 'https://placehold.co/400x400.png', dataAiHint: 'audio waves' },
 ];

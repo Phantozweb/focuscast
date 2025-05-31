@@ -4,15 +4,14 @@ const FocusCastLogo: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 100 24"
-    // Removed fill="currentColor" as we'll use specific fill classes
     className="h-6 w-auto"
     {...props}
   >
     <title>FocusCast Logo</title>
     {/* Main circle using primary theme color */}
     <circle cx="12" cy="12" r="10" className="fill-primary" />
-    {/* Inner contrasting element, e.g., using primary-foreground for good contrast */}
-    <circle cx="12" cy="12" r="3" className="fill-primary-foreground" />
+    {/* Inner contrasting element, slightly larger */}
+    <circle cx="12" cy="12" r="4" className="fill-primary-foreground" /> 
     <text
       x="30"
       y="17"
