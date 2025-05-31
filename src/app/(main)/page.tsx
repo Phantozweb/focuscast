@@ -13,9 +13,23 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
+  const focusBitesEp2 = placeholderEpisodes.find(ep => ep.id === '8');
   const diabeticRetinopathyEpisode = placeholderEpisodes.find(ep => ep.id === 'dod-ep1');
-  const featured: Episode[] = diabeticRetinopathyEpisode ? [diabeticRetinopathyEpisode] : []; 
-  const trending: Episode[] = []; 
+
+  const featured: Episode[] = [];
+  if (focusBitesEp2) {
+    featured.push(focusBitesEp2);
+  }
+  if (diabeticRetinopathyEpisode) {
+    featured.push(diabeticRetinopathyEpisode);
+  }
+  
+  const trendingEpisodes = [
+    placeholderEpisodes.find(ep => ep.id === '8'), // Stiles-Crawford
+    placeholderEpisodes.find(ep => ep.id === 'dod-ep1'), // Diabetic Retinopathy
+    placeholderEpisodes.find(ep => ep.id === '6') // Phosphene Phenomena
+  ].filter(ep => ep !== undefined) as Episode[];
+
   const seriesData = placeholderSeries;
 
   return (
@@ -24,7 +38,7 @@ export default function HomePage() {
       <div className="container mx-auto py-8 space-y-12">
         <FeaturedEpisodes episodes={featured} />
         <SeriesSection series={seriesData} allEpisodes={placeholderEpisodes} />
-        <TrendingContent episodes={trending} />
+        <TrendingContent episodes={trendingEpisodes} />
       </div>
     </div>
   );
