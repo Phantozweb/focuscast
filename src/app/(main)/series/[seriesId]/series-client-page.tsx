@@ -6,9 +6,10 @@ import type { Episode, Series } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, PlayCircle, Download, Clock, Play } from 'lucide-react';
+import { ArrowLeft, PlayCircle, Download, Clock, Play, Share2 } from 'lucide-react';
 import { usePlayer } from '@/contexts/player-context';
 import { cn } from '@/lib/utils';
+import ShareButton from '@/components/general/share-button';
 
 interface SeriesClientPageProps {
   initialSeries: Series; 
@@ -16,7 +17,7 @@ interface SeriesClientPageProps {
 }
 
 export default function SeriesClientPage({ initialSeries, initialEpisodesInSeries }: SeriesClientPageProps) {
-  const [series] = useState<Series>(initialSeries); // Series data is now guaranteed by server component
+  const [series] = useState<Series>(initialSeries); 
   const [episodesInSeries] = useState<Episode[]>(initialEpisodesInSeries);
   const { playEpisode, downloadEpisode, currentEpisode, isPlaying, startSeriesPlayback } = usePlayer();
 
@@ -51,11 +52,19 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
             <p className="text-sm text-muted-foreground mb-6">
               {episodesInSeries.length} episode{episodesInSeries.length === 1 ? '' : 's'} in this series.
             </p>
-            {episodesInSeries.length > 0 && (
-              <Button size="lg" onClick={handlePlayAll}>
-                <Play className="mr-2 h-5 w-5" /> Play All Episodes
-              </Button>
-            )}
+            <div className="flex gap-2 items-center">
+              {episodesInSeries.length > 0 && (
+                <Button size="lg" onClick={handlePlayAll}>
+                  <Play className="mr-2 h-5 w-5" /> Play All Episodes
+                </Button>
+              )}
+               <ShareButton 
+                  shareTitle={series.title}
+                  shareUrl={`/series/${series.id}`}
+                  buttonText="Share Series"
+                  size="lg"
+                />
+            </div>
           </div>
         </div>
       </div>
@@ -104,6 +113,7 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
                     variant={isActive && isPlaying ? "default" : "outline"}
                     onClick={() => playEpisode(episode, episodesInSeries, index)}
                     className="flex-1 sm:flex-none"
+                    aria-label={`Play ${episode.title}`}
                   >
                     <PlayCircle size={16} className="mr-2" /> 
                     {isActive && isPlaying ? 'Playing' : (isActive ? 'Paused' : 'Play')}
@@ -113,9 +123,17 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
                     variant="outline" 
                     onClick={() => downloadEpisode(episode)}
                     className="flex-1 sm:flex-none"
+                    aria-label={`Download ${episode.title}`}
                   >
                     <Download size={16} className="mr-2" /> Download
                   </Button>
+                  <ShareButton
+                    shareTitle={episode.title}
+                    // shareUrl will default to current page (series page)
+                    size="sm"
+                    className="flex-1 sm:flex-none"
+                    aria-label={`Share ${episode.title}`}
+                  />
                 </div>
               </div>
             );

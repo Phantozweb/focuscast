@@ -5,9 +5,10 @@ import Image from 'next/image';
 import type { Episode } from '@/types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { PlayCircle, Download, Clock } from 'lucide-react';
+import { PlayCircle, Download, Clock, Share2 } from 'lucide-react';
 import { usePlayer } from '@/contexts/player-context';
 import { cn } from '@/lib/utils';
+import ShareButton from '@/components/general/share-button';
 
 interface EpisodeCardProps {
   episode: Episode;
@@ -87,6 +88,11 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
             <Download size={16} className="mr-2" />
             Download
           </Button>
+          <ShareButton 
+            shareTitle={episode.title}
+            size="sm"
+            className="flex-1"
+          />
         </CardFooter>
       </div>
     </Card>
@@ -94,4 +100,3 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
 };
 
 export default EpisodeCard;
-

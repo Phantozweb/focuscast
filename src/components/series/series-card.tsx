@@ -1,4 +1,6 @@
 
+'use client';
+
 import Image from 'next/image';
 import type { Series } from '@/types';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -6,6 +8,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import ShareButton from '@/components/general/share-button';
 
 interface SeriesCardProps {
   series: Series;
@@ -15,13 +18,13 @@ interface SeriesCardProps {
 
 const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, className }) => {
   return (
-    <Link href={`/series/${series.id}`} legacyBehavior>
-      <a className="block group">
-        <Card className={cn(
-          "overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full bg-card",
-          className
-        )}>
-          <div className="relative w-full aspect-square"> {/* Ensure square aspect ratio */}
+    <Card className={cn(
+      "overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full bg-card group", // Added group here for button hover
+      className
+    )}>
+      <Link href={`/series/${series.id}`} legacyBehavior passHref>
+        <a className="block">
+          <div className="relative w-full aspect-square">
             <Image
               src={series.thumbnailUrl}
               alt={series.title}
@@ -31,29 +34,45 @@ const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, className
               data-ai-hint={series.dataAiHint || "podcast series art"}
             />
           </div>
-          <div className="flex flex-col flex-grow p-5">
-            <CardHeader className="p-0 mb-2">
+        </a>
+      </Link>
+      <div className="flex flex-col flex-grow p-5">
+        <CardHeader className="p-0 mb-2">
+          <Link href={`/series/${series.id}`} legacyBehavior passHref>
+            <a className="block">
               <CardTitle className="text-xl leading-tight group-hover:text-primary transition-colors">
                 {series.title}
               </CardTitle>
-            </CardHeader>
-            <CardContent className="p-0 flex-grow mb-3">
+            </a>
+          </Link>
+        </CardHeader>
+        <CardContent className="p-0 flex-grow mb-3">
+           <Link href={`/series/${series.id}`} legacyBehavior passHref>
+            <a className="block">
               <CardDescription className="text-sm line-clamp-3">
                 {series.description}
               </CardDescription>
               <p className="text-xs text-muted-foreground mt-2">
                 {episodeCount} episode{episodeCount === 1 ? '' : 's'}
               </p>
-            </CardContent>
-            <div className="mt-auto">
-               <Button variant="outline" size="sm" className="w-full group-hover:bg-accent transition-colors">
-                View Series <ArrowRight size={16} className="ml-2" />
-              </Button>
-            </div>
-          </div>
-        </Card>
-      </a>
-    </Link>
+            </a>
+          </Link>
+        </CardContent>
+        <div className="mt-auto flex gap-2">
+          <Button asChild variant="outline" size="sm" className="flex-1 group-hover:bg-accent transition-colors">
+            <Link href={`/series/${series.id}`}>
+              View Series <ArrowRight size={16} className="ml-2" />
+            </Link>
+          </Button>
+          <ShareButton
+            shareTitle={series.title}
+            shareUrl={`/series/${series.id}`}
+            size="sm"
+            className="flex-shrink-0"
+          />
+        </div>
+      </div>
+    </Card>
   );
 };
 
