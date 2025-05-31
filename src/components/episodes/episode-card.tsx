@@ -32,7 +32,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
         "relative",
         layout === 'vertical' 
           ? "w-full aspect-square" 
-          : "w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 flex-shrink-0" // Adjusted image sizes for horizontal
+          : "w-20 h-20 sm:w-22 sm:h-22 md:w-24 md:h-24 flex-shrink-0" // Adjusted for compactness
       )}>
         <Image
           src={episode.thumbnailUrl}
@@ -42,14 +42,14 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
           sizes={
             layout === 'vertical' 
               ? "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" 
-              : "(max-width: 640px) 25vw, (max-width: 768px) 20vw, 15vw" // Adjusted sizes prop
+              : "(max-width: 640px) 20vw, (max-width: 768px) 18vw, 15vw" // Adjusted sizes prop for smaller image
           }
           data-ai-hint={isFocusBitesEpisode ? "podcast series art" : "podcast episode thumbnail"}
         />
       </div>
       <div className={cn(
         "flex flex-col flex-grow", 
-        layout === 'vertical' ? "" : "p-3 md:p-4" // Outer padding for text block in horizontal
+        layout === 'vertical' ? "" : "p-2 sm:p-3" // Reduced outer padding for text block in horizontal
       )}>
         {layout === 'vertical' && (
             <CardHeader className="p-3 md:p-4"> 
@@ -62,12 +62,12 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
             </CardHeader>
         )}
          {layout === 'horizontal' && (
-            <div className="mb-1 md:mb-2">
+            <div className="mb-1 md:mb-1.5"> {/* Reduced bottom margin */}
                 <h3 
                   className="text-base md:text-lg font-semibold leading-tight hover:text-primary transition-colors cursor-pointer" 
                   onClick={() => playEpisode(episode)}
                 >
-                    {episode.title}
+                    {episode.title} {/* No line clamp for horizontal title */}
                 </h3>
                 <p className="text-xs md:text-sm text-muted-foreground line-clamp-1 mt-0.5">
                     {episode.showName}
@@ -76,8 +76,8 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
         )}
         <CardContent className={cn(
           layout === 'vertical' 
-            ? "flex-grow px-4 pb-3 pt-1" // Slightly reduced vertical padding
-            : "pt-1 pb-2 md:pt-2 md:pb-3 flex-grow", // Internal padding for description area in horizontal
+            ? "flex-grow px-4 pb-3 pt-1" 
+            : "pt-1 pb-1 sm:pb-1.5 md:pb-2 flex-grow", // Reduced internal padding for description area in horizontal
           "text-sm"
         )}>
           {isFocusBitesEpisode && layout === 'vertical' && episode.episodeNumber ? (
@@ -85,12 +85,15 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
           ) : (
             <p className={cn(
               "text-muted-foreground",
-              layout === 'vertical' ? "line-clamp-3" : "line-clamp-2 text-xs md:text-sm" // Description remains clamped
+              layout === 'vertical' ? "line-clamp-3" : "line-clamp-2 text-xs sm:text-sm" 
             )}>
               {episode.description}
             </p>
           )}
-          <div className="mt-2 flex items-center text-xs text-muted-foreground">
+          <div className={cn(
+            "flex items-center text-xs text-muted-foreground",
+            layout === 'vertical' ? "mt-2" : "mt-1.5" // Reduced top margin for metadata in horizontal
+            )}>
             <Clock size={14} className="mr-1.5" />
             <span>{episode.duration}</span>
             <span className="mx-1.5">•</span>
@@ -101,7 +104,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
           "flex gap-2",
           layout === 'vertical' 
             ? "p-3 mt-auto" 
-            : "p-0 pt-2 md:pt-3 mt-auto" // Footer sticks to bottom in horizontal
+            : "p-0 pt-1.5 sm:pt-2 mt-auto" // Reduced top padding for footer in horizontal
         )}>
           <Button
             size="sm"
