@@ -2,6 +2,7 @@
 import type { Episode, Series } from '@/types';
 
 const focusBitesSeriesThumbnail = 'https://raw.githubusercontent.com/Phantozweb/StromVault/175bc58a00e53a095eb5065a0cfb6e8599ca93dd/Albums/file_000000002c2861f89474f0ba58bb39a3.png';
+const decodingOcularDiseaseSeriesThumbnail = 'https://raw.githubusercontent.com/Phantozweb/StromVault/465e2e0eb79ea7b432baa02d5940453dac8cb30b/Albums/file_00000000f84c61fb9d5c6e8418b642a7.png';
 
 export const placeholderSeries: Series[] = [
   {
@@ -10,6 +11,13 @@ export const placeholderSeries: Series[] = [
     description: 'Short, insightful episodes exploring fascinating aspects of vision and optometry.',
     thumbnailUrl: focusBitesSeriesThumbnail,
     dataAiHint: 'abstract science eye',
+  },
+  {
+    id: 'series-decoding-ocular-disease',
+    title: 'Decoding Ocular Disease',
+    description: 'Explore in-depth discussions on various ocular diseases, their mechanisms, diagnosis, and management. Essential insights for optometrists and eye care professionals.',
+    thumbnailUrl: decodingOcularDiseaseSeriesThumbnail,
+    dataAiHint: 'medical eye disease',
   },
 ];
 
@@ -74,4 +82,19 @@ See you tomorrow on Focus Bites.
 
 Jennifer, signing off.`
   },
+  {
+    id: 'dod-ep1',
+    title: 'Decoding Diabetic Retinopathy: A Comprehensive Look',
+    showName: 'Decoding Ocular Disease',
+    description: 'Dive deep into Diabetic Retinopathy, covering its pathophysiology, classification, modern diagnostic techniques, and comprehensive management strategies. A must-listen for understanding this prevalent ocular condition.',
+    duration: '11:51',
+    thumbnailUrl: decodingOcularDiseaseSeriesThumbnail,
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/716dbb2d66af593a3d4604b9cc0afcfcb4946af9/DoD/podcast.mp3',
+    releaseDate: '2025-06-01',
+    seriesId: 'series-decoding-ocular-disease',
+    seriesTitle: 'Decoding Ocular Disease',
+    episodeNumber: 1,
+    // transcript: "Transcript for Decoding Diabetic Retinopathy..." // Add if available
+  },
 ];
+
