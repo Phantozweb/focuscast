@@ -1,6 +1,7 @@
 
 'use client';
 
+import React, { useEffect, useState } from 'react'; // Import React for React.use
 import { placeholderEpisodes, placeholderSeries } from '@/lib/placeholder-data';
 import type { Episode, Series } from '@/types';
 import Image from 'next/image';
@@ -8,19 +9,32 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, PlayCircle, Download, Clock, Play } from 'lucide-react';
 import { usePlayer } from '@/contexts/player-context';
-import { useEffect, useState } from 'react';
 
-interface SeriesPageProps {
-  params: { seriesId: string };
+// Define the shape of the resolved params object
+interface ResolvedSeriesPageParams {
+  seriesId: string;
 }
 
-export default function SeriesPage({ params }: SeriesPageProps) {
+// Update props to reflect that `params` can be a Promise, as suggested by the error
+interface SeriesPageProps {
+  params: Promise<ResolvedSeriesPageParams> | ResolvedSeriesPageParams;
+}
+
+export default function SeriesPage(props: SeriesPageProps) {
+  // Unwrap the params promise (or use directly if already resolved) using React.use()
+  // React.use must be called unconditionally at the top level of the component.
+  // To handle both cases (Promise or direct object), we check its type before calling React.use.
+  // However, the error message "params is now a Promise" suggests it WILL be a promise.
+  const actualParams = React.use(props.params as Promise<ResolvedSeriesPageParams>); // Cast to Promise as per error indication
+  const { seriesId } = actualParams; // Destructure seriesId from the resolved params
+
   const [series, setSeries] = useState<Series | undefined>(undefined);
   const [episodesInSeries, setEpisodesInSeries] = useState<Episode[]>([]);
   const { playEpisode, downloadEpisode, currentEpisode, isPlaying, startSeriesPlayback } = usePlayer();
 
   useEffect(() => {
-    const foundSeries = placeholderSeries.find(s => s.id === params.seriesId);
+    // seriesId is now the resolved string value
+    const foundSeries = placeholderSeries.find(s => s.id === seriesId);
     setSeries(foundSeries);
     if (foundSeries) {
       const filteredEpisodes = placeholderEpisodes
@@ -28,13 +42,13 @@ export default function SeriesPage({ params }: SeriesPageProps) {
         .sort((a, b) => (a.episodeNumber || 0) - (b.episodeNumber || 0));
       setEpisodesInSeries(filteredEpisodes);
     }
-  }, [params.seriesId]);
+  }, [seriesId]); // useEffect now correctly depends on the resolved seriesId
 
   if (!series) {
     return (
       <div className="container mx-auto py-12 text-center">
         <h1 className="text-4xl font-bold mb-4">Series Not Found</h1>
-        <p className="text-muted-foreground mb-8">The series you are looking for does not exist.</p>
+        <p className="text-muted-foreground mb-8">The series you are looking for does not exist or is loading.</p>
         <Button asChild>
           <Link href="/">
             <ArrowLeft className="mr-2 h-4 w-4" /> Go Back Home
@@ -146,3 +160,4 @@ export default function SeriesPage({ params }: SeriesPageProps) {
     </div>
   );
 }
+
