@@ -1,19 +1,32 @@
+
 export interface Episode {
   id: string;
   title: string;
-  showName: string;
+  showName: string; // This can represent the overall show or podcast series name
   description: string;
   duration: string; // e.g., "30:15"
   thumbnailUrl: string;
   audioUrl: string;
-  releaseDate: string; 
+  releaseDate: string;
   category?: string; // Corresponds to category id
+  seriesId?: string; // ID of the series this episode belongs to
+  seriesTitle?: string; // Title of the series, denormalized for convenience
+  episodeNumber?: number; // Episode number within the series
 }
 
 export interface Category {
   id: string;
   name: string;
-  icon?: React.ElementType; // Optional: for a Lucide icon or custom SVG component
-  imageUrl?: string; // Optional: for a category image
-  dataAiHint?: string; // Optional: for AI image generation hint
+  icon?: React.ElementType;
+  imageUrl?: string;
+  dataAiHint?: string;
+}
+
+export interface Series {
+  id: string;
+  title: string;
+  description: string;
+  thumbnailUrl: string;
+  dataAiHint?: string;
+  // Episodes belonging to this series will be filtered from the global Episode list
 }
