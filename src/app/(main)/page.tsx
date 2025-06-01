@@ -13,21 +13,23 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const focusBitesEp2 = placeholderEpisodes.find(ep => ep.id === '8');
-  const diabeticRetinopathyEpisode = placeholderEpisodes.find(ep => ep.id === 'dod-ep1');
+  // Updated Featured Episodes
+  const growOptomEp1 = placeholderEpisodes.find(ep => ep.id === 'go-ep1');
+  const focusBitesEp8 = placeholderEpisodes.find(ep => ep.id === 'fb-ep8');
 
   const featured: Episode[] = [];
-  if (focusBitesEp2) {
-    featured.push(focusBitesEp2);
+  if (growOptomEp1) {
+    featured.push(growOptomEp1);
   }
-  if (diabeticRetinopathyEpisode) {
-    featured.push(diabeticRetinopathyEpisode);
+  if (focusBitesEp8) {
+    featured.push(focusBitesEp8);
   }
   
+  // Updated Trending Episodes
   const trendingEpisodes = [
-    placeholderEpisodes.find(ep => ep.id === '8'), // Stiles-Crawford
-    placeholderEpisodes.find(ep => ep.id === 'dod-ep1'), // Diabetic Retinopathy
-    placeholderEpisodes.find(ep => ep.id === '6') // Phosphene Phenomena
+    placeholderEpisodes.find(ep => ep.id === 'fb-ep6'),    // Focus Bites - Ep 6
+    placeholderEpisodes.find(ep => ep.id === 'fb-ep7'),    // Focus Bites - Ep 7
+    placeholderEpisodes.find(ep => ep.id === 'dod-ep1'),   // Decoding Ocular Disease - Ep 1
   ].filter(ep => ep !== undefined) as Episode[];
 
   const seriesData = placeholderSeries;

@@ -24,6 +24,13 @@ export default function EpisodeDetailClientPage({ episode, series, relatedEpisod
   const { playEpisode, downloadEpisode, currentEpisode, isPlaying } = usePlayer();
   const isActive = currentEpisode?.id === episode.id;
 
+  const getShareTitle = () => {
+    if (episode.seriesTitle && episode.episodeNumber) {
+      return `${episode.title} - ${episode.seriesTitle} Ep. ${episode.episodeNumber}`;
+    }
+    return episode.title;
+  };
+
   return (
     <div className="container mx-auto py-8">
       <div className="mb-8 px-4 md:px-0">
@@ -92,8 +99,8 @@ export default function EpisodeDetailClientPage({ episode, series, relatedEpisod
                 Download
               </Button>
               <ShareButton
-                shareTitle={episode.title}
-                shareUrl={`/episode/${episode.id}`} // Ensure this is absolute for sharing
+                shareTitle={getShareTitle()}
+                shareUrl={`/episode/${episode.id}`}
                 buttonText="Share"
                 size="lg"
                 className="flex-1"

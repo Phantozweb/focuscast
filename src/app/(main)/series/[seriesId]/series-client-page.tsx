@@ -26,6 +26,13 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
       startSeriesPlayback(episodesInSeries);
     }
   };
+  
+  const getEpisodeShareTitle = (episode: Episode) => {
+    if (episode.seriesTitle && episode.episodeNumber) {
+      return `${episode.title} - ${episode.seriesTitle} Ep. ${episode.episodeNumber}`;
+    }
+    return episode.title;
+  };
 
   return (
     <div className="container mx-auto py-8">
@@ -127,7 +134,7 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
                     <Download size={16} className="mr-2" /> Download
                   </Button>
                   <ShareButton
-                    shareTitle={episode.title}
+                    shareTitle={getEpisodeShareTitle(episode)}
                     shareUrl={`/episode/${episode.id}`}
                     size="sm"
                     className="flex-1 sm:flex-none"

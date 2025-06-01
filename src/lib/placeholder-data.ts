@@ -17,23 +17,23 @@ export const placeholderSeries: Series[] = [
     id: 'series-decoding-ocular-disease',
     title: 'Decoding Ocular Disease',
     description: 'Explore in-depth discussions on various ocular diseases, their mechanisms, diagnosis, and management. Essential insights for optometrists and eye care professionals.',
-    thumbnailUrl: decodingOcularDiseaseSeriesThumbnailUpdated,
+    thumbnailUrl: decodingOcularDiseaseSeriesThumbnailUpdated, // Already updated raw URL
     dataAiHint: 'microscopic eye cells',
   },
   {
     id: 'series-grow-optom',
     title: 'Grow Optom',
     description: 'A podcast series by the OptoBharat Team for optometry students, focusing on career growth, learning, and leadership in eye care.',
-    thumbnailUrl: growOptomSeriesThumbnail,
+    thumbnailUrl: growOptomSeriesThumbnail, // Already updated raw URL
     dataAiHint: 'professional networking growth',
   }
 ];
 
 export const placeholderEpisodes: Episode[] = [
   {
-    id: '6',
+    id: '6', // Corresponds to fb-ep1 in previous context, but ID is '6'
     title: 'Phosphene Phenomena',
-    showName: 'Focus Bites', 
+    showName: 'Focus Bites',
     description: 'Exploring the fascinating world of phosphene phenomena and what they tell us about our visual system.',
     duration: '00:50',
     thumbnailUrl: focusBitesSeriesThumbnail,
@@ -59,12 +59,12 @@ See you tomorrow on Focus Bites.
 Jennifer, signing off.`
   },
   {
-    id: '8',
+    id: '8', // Corresponds to fb-ep2 in previous context, but ID is '8'
     title: "The Stiles-Crawford Effect - Your Pupil's Sweet Spot",
     showName: 'Focus Bites',
     description: "Explore the Stiles-Crawford effect, where light entering the pupil's center appears brighter, impacting visual acuity and cone photoreceptor efficiency.",
     duration: '01:50',
-    thumbnailUrl: focusBitesSeriesThumbnail, 
+    thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/30a6a0ce0ff712484fb03ddc6ceefc9a44a14244/Focus%20bites/focus%20bites%20episode%202%20The%20Stiles-Crawford%20Effect%20-%20Your%20Pupil%27s%20Sweet%20Spot.mp3',
     releaseDate: '2025-06-01',
     seriesId: 'series-focus-bites',
@@ -114,7 +114,7 @@ So, let’s get into it. What is Diabetic Retinopathy? At its core, it’s a mic
 
 Let's explore the "how" – the pathophysiology. It might sound complex, but we can break it down. Persistent hyperglycemia, or high blood sugar, is the main culprit. This chronic state initiates a series of biochemical pathways that ultimately damage those tiny retinal capillaries. Think of these capillaries like delicate pipes. High sugar levels make the walls of these pipes weaker and more permeable, or leaky. They can develop tiny outpouchings called microaneurysms – and these are often the earliest clinical sign we see. These weakened vessels can then leak fluid, blood, and lipids into the surrounding retinal tissue.
 
-This leakage is crucial. If it occurs in the macula – that’s the central part of the retina responsible for our sharp, detailed vision – it leads to Diabetic Macular Edema. Diabetic Macular Edema is a primary cause of vision loss in patients with Diabetic Retinopathy. The macula swells, distorting central vision, making everyday tasks like reading or recognizing faces incredibly difficult.
+This leakage is crucial. If it occurs in the macula – that’s the central part of the retina responsible for our sharp, detailed vision – it leads to Diabetic Macular Edema. Diabetic Macular Edoma is a primary cause of vision loss in patients with Diabetic Retinopathy. The macula swells, distorting central vision, making everyday tasks like reading or recognizing faces incredibly difficult.
 
 As the disease progresses, beyond just leaking, blood vessels can also become blocked. This occlusion leads to areas of retinal ischemia, meaning parts of the retina simply aren't getting enough oxygen. The retina, starved for oxygen, cries out for help by releasing signaling molecules, most notably one called Vascular Endothelial Growth Factor. Now, Vascular Endothelial Growth Factor is usually a good guy, promoting blood vessel growth, but in this ischemic environment, it triggers the formation of abnormal, fragile new blood vessels. This is a critical, and dangerous, turning point.
 
@@ -336,7 +336,7 @@ Jennifer, signing off.`
     title: 'Why Every Optometry Student in India Should Be on LinkedIn',
     showName: 'Grow Optom by OptoBharat',
     description: 'Discover why LinkedIn is a crucial tool for Indian optometry students for networking, learning, and career development, with tips from OptoBharat.',
-    duration: '03:45',
+    duration: '03:56',
     thumbnailUrl: growOptomSeriesThumbnail,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/b9f96db3a4e292768f53a8b529adc31e07254925/Grow%20optom/grow%20optom%20ep%201.wav',
     releaseDate: '2025-06-03',

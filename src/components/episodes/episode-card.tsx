@@ -23,11 +23,18 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
   const isActive = currentEpisode?.id === episode.id;
   const isFocusBitesEpisode = episode.seriesId === 'series-focus-bites' && episode.episodeNumber !== undefined;
 
+  const getShareTitle = () => {
+    if (episode.seriesTitle && episode.episodeNumber) {
+      return `${episode.title} - ${episode.seriesTitle} Ep. ${episode.episodeNumber}`;
+    }
+    return episode.title;
+  };
+
   if (layout === 'vertical') {
     // This is the full-width, stacked vertical layout
     return (
       <Card className={cn(
-          "overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full w-full", // Ensures full width
+          "overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full w-full", 
           isActive && isPlaying ? "border-primary ring-2 ring-primary" : "",
           className
         )}>
@@ -63,6 +70,11 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
               <Badge variant="outline" className="mt-1 text-xs w-fit">
                 Episode {episode.episodeNumber}
               </Badge>
+            )}
+             {episode.seriesId === 'series-grow-optom' && episode.showName && (
+                <Badge variant="outline" className="mt-1 text-xs w-fit">
+                    By {episode.showName.replace('Grow Optom by ', '')} 
+                </Badge>
             )}
           </div>
         </div>
@@ -101,7 +113,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
             Download
           </Button>
           <ShareButton
-            shareTitle={episode.title}
+            shareTitle={getShareTitle()}
             shareUrl={`/episode/${episode.id}`}
             size="sm"
             className="flex-1"
@@ -126,7 +138,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
           fill
           className="object-cover"
           sizes="80px"
-          data-ai-hint={isFocusBitesEpisode ? "podcast series art" : "podcast episode thumbnail"}
+          data-ai-hint={isFocusBitesEpisode || episode.seriesId === 'series-grow-optom' ? "podcast series art" : "podcast episode thumbnail"}
         />
       </div>
       <div className="flex flex-col flex-grow p-2 sm:p-3 min-w-0">
@@ -173,7 +185,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
             Download
           </Button>
           <ShareButton
-            shareTitle={episode.title}
+            shareTitle={getShareTitle()}
             shareUrl={`/episode/${episode.id}`}
             size="sm"
             className="flex-1"
