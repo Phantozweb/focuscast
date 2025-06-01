@@ -23,13 +23,13 @@ export const placeholderSeries: Series[] = [
 
 export const placeholderEpisodes: Episode[] = [
   {
-    id: '6',
+    id: '6', // This was previously Phosphene Phenomena, will now be ep 1
     title: 'Phosphene Phenomena',
     showName: 'Focus Bites', 
     description: 'Exploring the fascinating world of phosphene phenomena and what they tell us about our visual system.',
     duration: '00:50',
     thumbnailUrl: focusBitesSeriesThumbnail,
-    audioUrl: 'https://github.com/Phantozweb/StromVault/raw/5d97da6c8163ba0593557434f5c3b5d1a5ed2fb9/Focus%20bites/focus-bites-ep1-phosphene-phenomena.mp3',
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/5d97da6c8163ba0593557434f5c3b5d1a5ed2fb9/Focus%20bites/focus-bites-ep1-phosphene-phenomena.mp3',
     releaseDate: '2025-06-01',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
@@ -51,13 +51,13 @@ See you tomorrow on Focus Bites.
 Jennifer, signing off.`
   },
   {
-    id: '8',
+    id: '8', // This was previously Stiles-Crawford, will now be ep 2
     title: "The Stiles-Crawford Effect - Your Pupil's Sweet Spot",
     showName: 'Focus Bites',
     description: "Explore the Stiles-Crawford effect, where light entering the pupil's center appears brighter, impacting visual acuity and cone photoreceptor efficiency.",
     duration: '01:50',
     thumbnailUrl: focusBitesSeriesThumbnail, 
-    audioUrl: 'https://github.com/Phantozweb/StromVault/raw/30a6a0ce0ff712484fb03ddc6ceefc9a44a14244/Focus%20bites/focus%20bites%20episode%202%20The%20Stiles-Crawford%20Effect%20-%20Your%20Pupil%27s%20Sweet%20Spot.mp3',
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/30a6a0ce0ff712484fb03ddc6ceefc9a44a14244/Focus%20bites/focus%20bites%20episode%202%20The%20Stiles-Crawford%20Effect%20-%20Your%20Pupil%27s%20Sweet%20Spot.mp3',
     releaseDate: '2025-06-01',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
@@ -141,7 +141,7 @@ Until next time, keep those funduscopes ready, stay curious, and continue to mak
     description: "Understand the Purkinje shift, how eye sensitivity changes in low light, affecting color perception from reds to blues.",
     duration: '01:54',
     thumbnailUrl: focusBitesSeriesThumbnail,
-    audioUrl: 'https://github.com/Phantozweb/StromVault/raw/f1180143675f538e7c48a962112743360367871a/Focus%20bites/Focus-bites-ep-3-The-Purkinje-Shift-Night_s-Different-Hues.mp3',
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/f1180143675f538e7c48a962112743360367871a/Focus%20bites/Focus-bites-ep-3-The-Purkinje-Shift-Night_s-Different-Hues.mp3',
     releaseDate: '2025-06-01',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
@@ -173,7 +173,7 @@ Jennifer, signing off.`
     description: "Learn about Haidinger's Brushes, an entoptic phenomenon allowing you to see polarized light due to macular pigment.",
     duration: '01:56',
     thumbnailUrl: focusBitesSeriesThumbnail,
-    audioUrl: 'https://github.com/Phantozweb/StromVault/raw/f1180143675f538e7c48a962112743360367871a/Focus%20bites/focus-bites-episode-4Haidinger_s-Brushes-Seeing-Polarized-Light.mp3',
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/f1180143675f538e7c48a962112743360367871a/Focus%20bites/focus-bites-episode-4Haidinger_s-Brushes-Seeing-Polarized-Light.mp3',
     releaseDate: '2025-06-01',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
@@ -205,7 +205,7 @@ Jennifer, signing off.`
     description: "Discover Troxler's fading, where stationary peripheral objects vanish due to neural adaptation, highlighting the brain's focus on change.",
     duration: '01:52',
     thumbnailUrl: focusBitesSeriesThumbnail,
-    audioUrl: 'https://github.com/Phantozweb/StromVault/raw/f1180143675f538e7c48a962112743360367871a/Focus%20bites/focus-bites-ep-5Troxler_s-Fading-The-Disappearing-Act-in-Your-Periphery.mp3',
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/f1180143675f538e7c48a962112743360367871a/Focus%20bites/focus-bites-ep-5Troxler_s-Fading-The-Disappearing-Act-in-Your-Periphery.mp3',
     releaseDate: '2025-06-01',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
@@ -230,4 +230,100 @@ See you tomorrow on Focus Bites.
 
 Jennifer, signing off.`
   },
+  {
+    id: 'fb-ep6',
+    title: "Scheerer's Phenomenon: Your Own Blood Cells Dancing",
+    showName: 'Focus Bites',
+    description: "Discover Scheerer's phenomenon, the blue field entoptic effect where you see tiny, moving specks – your own white blood cells – against a bright blue sky.",
+    duration: '01:47',
+    thumbnailUrl: focusBitesSeriesThumbnail,
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/c37b333b745b494439c209826ba393f9b355faf0/Focus%20bites/focus%20bites%20ep%206.wav',
+    releaseDate: '2025-06-01',
+    seriesId: 'series-focus-bites',
+    seriesTitle: 'Focus Bites',
+    episodeNumber: 6,
+    transcript: `Hey, this is Jennifer — and you’re tuned in to Focus Bites.
+
+Have you ever looked at a bright, uniform blue sky and noticed tiny, rapidly moving specks or "flying corpuscles" darting around in your vision?
+
+You’re likely experiencing Scheerer's phenomenon, also known as the blue field entoptic phenomenon. It offers a fascinating glimpse into your own retinal circulation.
+
+What you're actually seeing are white blood cells (leukocytes) moving through the tiny capillaries in front of your photoreceptors, especially around the fovea. Red blood cells absorb blue light, making them less visible, but leukocytes transmit blue light, creating these tiny, bright specks.
+
+These specks often appear to have small, dark “tails.” These are actually the shadows of red blood cells trailing behind the more transparent leukocytes within the capillaries.
+
+You can observe this most clearly against a featureless, bright blue background because blue light is maximally absorbed by hemoglobin in red blood cells, enhancing contrast. The movement of the specks often follows your pulse, as they are propelled by your heartbeat.
+
+Scheerer's phenomenon gives us a direct, real-time visualization of microcirculation, a normally invisible physiological process revealed under specific lighting conditions.
+
+So next time you gaze at a clear blue sky, you’re not just seeing the heavens—you might be watching a live performance by your own blood cells.
+
+See you tomorrow on Focus Bites.
+Jennifer, signing off.`
+  },
+  {
+    id: 'fb-ep7',
+    title: "The Horopter & Panum's Area: Where Two Eyes See One",
+    showName: 'Focus Bites',
+    description: "Explore the horopter and Panum's fusional area, concepts explaining how our brain fuses images from two eyes into a single 3D perception.",
+    duration: '02:06',
+    thumbnailUrl: focusBitesSeriesThumbnail,
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/c37b333b745b494439c209826ba393f9b355faf0/Focus%20bites/episode%207.wav',
+    releaseDate: '2025-06-01',
+    seriesId: 'series-focus-bites',
+    seriesTitle: 'Focus Bites',
+    episodeNumber: 7,
+    transcript: `Hey, this is Jennifer — and you’re tuned in to Focus Bites.
+
+We have two eyes, each capturing a slightly different image. So how does our brain fuse them into a single, three-dimensional perception—without us seeing double?
+
+The key concept here is the horopter. It’s an imaginary surface in visual space where all points stimulate corresponding retinal locations in both eyes, leading to single, fused vision.
+
+When an object lies on the horopter, its images fall on anatomically matched spots on each retina. Think of it as the “sweet spot” for binocular fusion. Objects just in front of or behind the horopter fall within Panum’s fusional area—a small zone where fusion still occurs, allowing us to perceive depth through stereopsis.
+
+Interestingly, the horopter isn't a perfect circle. The Vieth-Müller circle is a theoretical model, but in reality, the horopter is a complex curve that changes with fixation distance and varies between individuals. If an object lies too far outside Panum’s area, diplopia (double vision) results.
+
+This concept is essential in binocular vision testing, prism correction, and understanding why some patients experience difficulty with fusion or depth perception. Our brains constantly adjust to maintain clear, single, 3D vision.
+
+Studying binocular vision highlights the brain’s ability to integrate different retinal inputs into a unified perception of the world around us.
+
+So next time you’re measuring stereoacuity, remember—you’re not just checking clarity. You’re probing the brain’s spatial mapping and fusion capabilities.
+
+See you tomorrow on Focus Bites.
+Jennifer, signing off.`
+  },
+  {
+    id: 'fb-ep8',
+    title: "Binocular Rivalry: The Brain’s Visual Tug-of-War",
+    showName: 'Focus Bites',
+    description: "Understand binocular rivalry, where perception alternates between two different images presented to each eye, revealing the brain's active visual processing.",
+    duration: '01:58',
+    thumbnailUrl: focusBitesSeriesThumbnail,
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/c37b333b745b494439c209826ba393f9b355faf0/Focus%20bites/ep%208%20.wav',
+    releaseDate: '2025-06-01',
+    seriesId: 'series-focus-bites',
+    seriesTitle: 'Focus Bites',
+    episodeNumber: 8,
+    transcript: `Hey, this is Jennifer — and you’re tuned in to Focus Bites.
+
+What happens when each eye is presented with totally different images—like a vertical grating to one eye and a horizontal grating to the other—that can’t be fused into a single coherent picture?
+
+You don’t see a weird hybrid. Instead, you experience binocular rivalry—a perceptual phenomenon where your conscious visual awareness alternates between the two images.
+
+Your brain can’t decide which image to accept, so it switches between them. One image dominates for a few seconds, then is suppressed, and the other takes over. This alternation can continue indefinitely.
+
+The mechanism behind this isn’t just an on-off switch. It involves neural competition between brain areas processing each eye’s input, likely spanning multiple stages of visual processing.
+
+Factors like stimulus strength, contrast, and even attention can influence which image dominates and how long it stays visible. Researchers use binocular rivalry to study the neural correlates of consciousness, since it illustrates how visual perception can differ from raw sensory input.
+
+Binocular rivalry reveals that vision is not passive. It’s an active construction by the brain—especially when input is ambiguous.
+
+So when you think about visual processing, remember: your brain isn’t just a camera. It’s a selective interpreter, constantly negotiating and prioritizing what you see.
+
+See you tomorrow on Focus Bites.
+Jennifer, signing off.`
+  },
 ];
+
+
+    
