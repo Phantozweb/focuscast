@@ -30,7 +30,7 @@ export const placeholderEpisodes: Episode[] = [
     duration: '00:50',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://github.com/Phantozweb/StromVault/raw/5d97da6c8163ba0593557434f5c3b5d1a5ed2fb9/Focus%20bites/focus-bites-ep1-phosphene-phenomena.mp3',
-    releaseDate: '2025-06-01', // Updated
+    releaseDate: '2025-06-01',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 1,
@@ -58,7 +58,7 @@ Jennifer, signing off.`
     duration: '01:50',
     thumbnailUrl: focusBitesSeriesThumbnail, 
     audioUrl: 'https://github.com/Phantozweb/StromVault/raw/30a6a0ce0ff712484fb03ddc6ceefc9a44a14244/Focus%20bites/focus%20bites%20episode%202%20The%20Stiles-Crawford%20Effect%20-%20Your%20Pupil%27s%20Sweet%20Spot.mp3',
-    releaseDate: '2025-06-01', // Updated
+    releaseDate: '2025-06-01',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 2,
@@ -90,7 +90,7 @@ Jennifer, signing off.`
     duration: '11:51',
     thumbnailUrl: decodingOcularDiseaseSeriesThumbnail,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/716dbb2d66af593a3d4604b9cc0afcfcb4946af9/DoD/podcast.mp3',
-    releaseDate: '2025-06-01', // Updated
+    releaseDate: '2025-06-01',
     seriesId: 'series-decoding-ocular-disease',
     seriesTitle: 'Decoding Ocular Disease',
     episodeNumber: 1,
@@ -136,87 +136,98 @@ Until next time, keep those funduscopes ready, stay curious, and continue to mak
   },
   {
     id: 'fb-ep3',
-    title: 'Troxler’s Fading – The Disappearing Act in Your Periphery',
+    title: 'The Purkinje Shift - Night\'s Different Hues',
     showName: 'Focus Bites',
-    description: "Discover Troxler's fading, where stationary peripheral objects vanish due to neural adaptation, highlighting the brain's focus on change.",
-    duration: '00:45',
+    description: "Understand the Purkinje shift, how eye sensitivity changes in low light, affecting color perception from reds to blues.",
+    duration: '00:55',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://github.com/Phantozweb/StromVault/raw/f1180143675f538e7c48a962112743360367871a/Focus%20bites/Focus-bites-ep-3-The-Purkinje-Shift-Night_s-Different-Hues.mp3',
     releaseDate: '2025-06-01',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 3,
-    transcript: `Hey, welcome back to Focus Bites.
+    transcript: `Hey, this is Jennifer — and you’re tuned in to Focus Bites.
 
-Ever stared intently at a fixed point, only to notice that objects in your peripheral vision start to fade or even disappear, especially if they’re low contrast?
+So, have you ever noticed how the bright red flowers in your garden seem to almost vanish into darkness at dusk, while the blue ones appear surprisingly vibrant?
 
-That’s Troxler’s fading — a fascinating neural adaptation. When you fixate your gaze, the neurons responding to stable peripheral input begin to quiet down. The brain essentially says, “Nothing’s changing out there, no need to keep reporting it.”
+Well, that’s the Purkinje shift in action! It describes the tendency for the peak luminance sensitivity of the human eye to shift towards the blue end of the color spectrum at low illumination levels.
 
-It’s a smart trade-off. By tuning out the static, the visual system stays alert for motion and change — things that often matter more.
+Under bright light (photopic vision), our cones are king, and we're most sensitive to yellowish-green light. But as light fades and we transition to scotopic vision, our rods take over. Rods are much more sensitive to shorter wavelengths, peaking in the blue-green region.
 
-You’ll notice this most with soft-edged, blurry, or low-contrast stimuli. A small eye movement — even a blink — can reset the image and bring it back into awareness.
+But here’s what’s fascinating – this shift means that reds, which appear bright in daylight, look much darker, even black, in twilight because rods are relatively insensitive to long-wavelength red light. Conversely, blues and greens, which might look dimmer in bright light, appear relatively brighter as rods become dominant.
 
-It’s one of those reminders that what we see isn’t just what’s out there — it’s what the brain decides is worth showing us.
+You’ll experience this during the transition from daylight to twilight (mesopic vision), where both rods and cones are active. It’s why a red emergency light might seem less conspicuous in very dim conditions compared to a blue or green one of similar physical intensity.
 
-Keep that in mind next time your peripheral world goes quiet.
+And that’s what makes understanding these adaptive mechanisms so cool – it highlights how our visual system dynamically recalibrates to optimize perception across an incredible range of light levels, even if it means colors don't always look the same.
 
-See you tomorrow on Focus Bites.`
+Keep that in mind as evening falls – you’re not just losing light… your eyes are performing a sophisticated spectral handover!
+
+See you tomorrow on Focus Bites.
+
+Jennifer, signing off.`
   },
   {
     id: 'fb-ep4',
-    title: 'Maxwell’s Spot – The Eye’s Inner Shadow',
+    title: 'Haidinger\'s Brushes - Seeing Polarized Light',
     showName: 'Focus Bites',
-    description: "Learn about Maxwell's Spot, a faint shadow seen in blue light, revealing your macula's natural blue-light filtering capabilities.",
-    duration: '00:50',
+    description: "Learn about Haidinger's Brushes, an entoptic phenomenon allowing you to see polarized light due to macular pigment.",
+    duration: '00:58',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://github.com/Phantozweb/StromVault/raw/f1180143675f538e7c48a962112743360367871a/Focus%20bites/focus-bites-episode-4Haidinger_s-Brushes-Seeing-Polarized-Light.mp3',
     releaseDate: '2025-06-01',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 4,
-    transcript: `Welcome back to Focus Bites.
+    transcript: `Hey, this is Jennifer — and you’re tuned in to Focus Bites.
 
-Ever noticed a faint purplish shadow in the center of your vision when staring at a white light through a blue filter?
+So, here’s a subtle, almost elusive visual phenomenon: have you ever perceived a faint, yellowish bowtie or hourglass shape when looking at a uniformly blue, polarized light source, like the sky?
 
-That’s Maxwell’s Spot — and no, it’s not a glitch. It’s your macular pigment in action.
+Well, if you have, you’ve likely seen Haidinger's Brushes! This is an entoptic phenomenon – meaning it originates from within your own eye – and it's due to the dichroism of the macular pigment.
 
-The macula, rich in lutein and zeaxanthin, absorbs short-wavelength blue light more than the surrounding retina. So when you view a blue field, less light reaches the fovea, creating the perception of a subtle, shadowy spot.
+The macular pigment, composed of lutein and zeaxanthin, preferentially absorbs blue polarized light along certain orientations. When you look at a field of polarized blue light, this differential absorption creates a faint, yellowish (the complementary color to blue) pattern aligned with the orientation of the polarization.
 
-It’s an entoptic phenomenon — generated by your own eye — and it’s a clue to the natural blue-light filtering your macula provides. Sharper vision, less chromatic blur, and built-in retinal protection.
+But here’s what’s truly intriguing – not everyone can easily perceive it, and it often requires a bit of practice. It’s a direct, subjective visualization of your own macular pigment's interaction with light, and its appearance can even be used in some research to assess macular pigment density.
 
-Maxwell’s Spot isn’t just cool science. It’s been used to assess macular health, even to demonstrate pigment density in research and education.
+You’ll see it best against a uniform blue background that's polarized, like an LCD screen displaying a white field (which emits polarized light) or the blue sky viewed through a polarizer. The "brush" appears centered on your point of fixation and will rotate if you tilt your head.
 
-Sometimes, seeing that soft inner shadow is just your eye reminding you how brilliantly it’s been engineered.
+And that’s what makes phenomena like Haidinger's Brushes so fascinating – they offer a personal glimpse into the intricate optical and physiological machinery of our eyes, revealing structures we wouldn't otherwise know were there.
 
-See you tomorrow on Focus Bites.`
+Keep that in mind when you’re looking at a blue sky – you might not just be seeing the sky… you might be seeing a little piece of your own macula at work!
+
+See you tomorrow on Focus Bites.
+
+Jennifer, signing off.`
   },
   {
     id: 'fb-ep5',
-    title: 'The Blue Arc of the Retina – A Flash of Your Own Artery',
+    title: 'Troxler\'s Fading - The Disappearing Act in Your Periphery',
     showName: 'Focus Bites',
-    description: "Explore the Blue Arc Phenomenon, a fleeting visual effect where you glimpse your own retinal arteries under flickering light.",
-    duration: '00:52',
+    description: "Discover Troxler's fading, where stationary peripheral objects vanish due to neural adaptation, highlighting the brain's focus on change.",
+    duration: '00:50',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://github.com/Phantozweb/StromVault/raw/f1180143675f538e7c48a962112743360367871a/Focus%20bites/focus-bites-ep-5Troxler_s-Fading-The-Disappearing-Act-in-Your-Periphery.mp3',
     releaseDate: '2025-06-01',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 5,
-    transcript: `Time for another curiosity on Focus Bites.
+    transcript: `Hey, this is Jennifer — and you’re tuned in to Focus Bites.
 
-Ever seen a faint, curved blue line flash across your vision when looking at a bright, flickering light?
+So, ever stared intently at a fixed point, only to have stationary objects in your peripheral vision seem to fade away or disappear, especially if they're low contrast?
 
-That’s the Blue Arc Phenomenon — a glimpse of your own retinal arteries.
+Well, you’re experiencing Troxler's fading, or the Troxler effect! It's an optical illusion related to neural adaptation in our visual system.
 
-It happens when a small flickering light stimulates the photoreceptors near the optic disc. Since the retinal arteries lie in front of the photoreceptors, they cast dynamic shadows — which you can perceive as bluish arcs, shaped like branches of a tree.
+When you fixate your gaze, neurons responsible for processing unchanging peripheral stimuli begin to adapt and reduce their firing rate. Essentially, your brain decides that if something isn't changing in the periphery, it's not important enough to keep consciously perceiving.
 
-They typically radiate from the blind spot and curve toward the macula, mimicking the path of the superior or inferior temporal arteries.
+But here’s what’s really clever about it – this adaptation helps us focus on changes and movement, which are usually more critical for survival. If our brains didn't filter out constant, stable peripheral input, we'd be overwhelmed with unchanging visual noise.
 
-What’s amazing is that under steady light, these shadows vanish due to neural adaptation. But introduce flicker — and suddenly, your own vasculature becomes visible.
+You’ll notice this most strongly with stimuli that have soft edges or low contrast. A tiny eye movement (microsaccade) or a blink will refresh the image on the retina, causing the faded object to reappear. It highlights how "seeing" is an active, constructive process, not just passive reception.
 
-It’s rare, subtle, and usually brief — but it’s a reminder that our visual system is filled with hidden layers, just waiting for the right light to reveal them.
+And that’s what makes understanding these perceptual phenomena so important – it underscores that what we "see" is a carefully curated version of reality, shaped by our brain's priorities and adaptive mechanisms.
 
-See you tomorrow on Focus Bites.`
+Keep that in mind when you’re concentrating hard on one spot – your brain might be quietly decluttering your peripheral vision for you!
+
+See you tomorrow on Focus Bites.
+
+Jennifer, signing off.`
   },
 ];
-
