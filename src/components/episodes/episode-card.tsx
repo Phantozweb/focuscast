@@ -24,9 +24,10 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
   const isFocusBitesEpisode = episode.seriesId === 'series-focus-bites' && episode.episodeNumber !== undefined;
 
   if (layout === 'vertical') {
+    // This is the full-width, stacked vertical layout
     return (
       <Card className={cn(
-          "overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full",
+          "overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full w-full", // Ensures full width
           isActive && isPlaying ? "border-primary ring-2 ring-primary" : "",
           className
         )}>
@@ -42,12 +43,15 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
             />
           </div>
           <div className="flex-grow min-w-0">
-            <CardTitle
-              className="text-base font-semibold leading-tight hover:text-primary transition-colors cursor-pointer" // Removed line-clamp-2
-              onClick={() => playEpisode(episode)}
-            >
-              {episode.title}
-            </CardTitle>
+             <Link href={`/episode/${episode.id}`} passHref legacyBehavior>
+              <a>
+                <CardTitle
+                  className="text-base font-semibold leading-tight hover:text-primary transition-colors" 
+                >
+                  {episode.title}
+                </CardTitle>
+              </a>
+            </Link>
             {episode.seriesId && episode.seriesTitle && (
               <Link href={`/series/${episode.seriesId}`} passHref legacyBehavior>
                 <a className="text-xs text-primary/90 hover:text-primary transition-colors line-clamp-1 block mt-0.5">
@@ -98,22 +102,24 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
           </Button>
           <ShareButton
             shareTitle={episode.title}
+            shareUrl={`/episode/${episode.id}`}
             size="sm"
             className="flex-1"
+            aria-label={`Share ${episode.title}`}
           />
         </CardFooter>
       </Card>
     );
   }
 
-  // Horizontal layout (used in Hero search suggestions, SeriesClientPage episode list)
+  // Horizontal layout (used in Hero search suggestions, SeriesClientPage episode list, and potentially other places)
   return (
     <Card className={cn(
         "overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-row items-start",
         isActive && isPlaying ? "border-primary ring-2 ring-primary" : "",
         className
       )}>
-      <div className="relative w-20 h-20 flex-shrink-0"> {/* Image on the left */}
+      <div className="relative w-20 h-20 flex-shrink-0">
         <Image
           src={episode.thumbnailUrl}
           alt={episode.title}
@@ -123,14 +129,17 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
           data-ai-hint={isFocusBitesEpisode ? "podcast series art" : "podcast episode thumbnail"}
         />
       </div>
-      <div className="flex flex-col flex-grow p-2 sm:p-3 min-w-0"> {/* Text content to the right */}
+      <div className="flex flex-col flex-grow p-2 sm:p-3 min-w-0">
         <CardHeader className="p-0 mb-1 md:mb-1.5">
-            <CardTitle
-              className="text-base md:text-lg font-semibold leading-tight hover:text-primary transition-colors cursor-pointer"
-              onClick={() => playEpisode(episode)}
-            >
-                {episode.title}
-            </CardTitle>
+            <Link href={`/episode/${episode.id}`} passHref legacyBehavior>
+              <a>
+                <CardTitle
+                  className="text-base md:text-lg font-semibold leading-tight hover:text-primary transition-colors"
+                >
+                    {episode.title}
+                </CardTitle>
+              </a>
+            </Link>
             <CardDescription className="line-clamp-1 mt-0.5 text-xs md:text-sm text-muted-foreground">
                 {episode.showName}
             </CardDescription>
@@ -165,8 +174,10 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
           </Button>
           <ShareButton
             shareTitle={episode.title}
+            shareUrl={`/episode/${episode.id}`}
             size="sm"
             className="flex-1"
+            aria-label={`Share ${episode.title}`}
           />
         </CardFooter>
       </div>

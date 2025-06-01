@@ -91,10 +91,9 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
                   </span>
                   <div className="flex-grow">
                     <h3 
-                      className="text-lg font-semibold hover:text-primary transition-colors cursor-pointer" 
-                      onClick={() => playEpisode(episode, episodesInSeries, index)}
+                      className="text-lg font-semibold hover:text-primary transition-colors cursor-pointer"
                     >
-                      {episode.title}
+                       <Link href={`/episode/${episode.id}`}>{episode.title}</Link>
                     </h3>
                     <p className="text-xs text-muted-foreground mt-0.5">
                       From the "{series.title}" series
@@ -129,7 +128,7 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
                   </Button>
                   <ShareButton
                     shareTitle={episode.title}
-                    // shareUrl will default to current page (series page)
+                    shareUrl={`/episode/${episode.id}`}
                     size="sm"
                     className="flex-1 sm:flex-none"
                     aria-label={`Share ${episode.title}`}
