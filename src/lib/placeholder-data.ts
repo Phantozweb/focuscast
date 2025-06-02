@@ -17,21 +17,21 @@ export const placeholderSeries: Series[] = [
     id: 'series-decoding-ocular-disease',
     title: 'Decoding Ocular Disease',
     description: 'Explore in-depth discussions on various ocular diseases, their mechanisms, diagnosis, and management. Essential insights for optometrists and eye care professionals.',
-    thumbnailUrl: decodingOcularDiseaseSeriesThumbnailUpdated, // Already updated raw URL
+    thumbnailUrl: decodingOcularDiseaseSeriesThumbnailUpdated,
     dataAiHint: 'microscopic eye cells',
   },
   {
     id: 'series-grow-optom',
     title: 'Grow Optom',
     description: 'A podcast series by the OptoBharat Team for optometry students, focusing on career growth, learning, and leadership in eye care.',
-    thumbnailUrl: growOptomSeriesThumbnail, // Already updated raw URL
+    thumbnailUrl: growOptomSeriesThumbnail,
     dataAiHint: 'professional networking growth',
   }
 ];
 
 export const placeholderEpisodes: Episode[] = [
   {
-    id: '6', // Corresponds to fb-ep1 in previous context, but ID is '6'
+    id: '6', 
     title: 'Phosphene Phenomena',
     showName: 'Focus Bites',
     description: 'Exploring the fascinating world of phosphene phenomena and what they tell us about our visual system.',
@@ -59,7 +59,7 @@ See you tomorrow on Focus Bites.
 Jennifer, signing off.`
   },
   {
-    id: '8', // Corresponds to fb-ep2 in previous context, but ID is '8'
+    id: '8', 
     title: "The Stiles-Crawford Effect - Your Pupil's Sweet Spot",
     showName: 'Focus Bites',
     description: "Explore the Stiles-Crawford effect, where light entering the pupil's center appears brighter, impacting visual acuity and cone photoreceptor efficiency.",
@@ -400,5 +400,97 @@ We’ve got more exciting episodes coming up — about research, presenting pape
 Until then — stay curious, stay connected, and keep growing.
 This is GrowOptom, by OptoBharat.
 See you in the next one!`
+  },
+  {
+    id: 'fb-ep9',
+    title: "The Pulfrich Effect – When Time Becomes Depth",
+    showName: 'Focus Bites',
+    description: "Explore the Pulfrich effect, where a filter over one eye makes a swinging pendulum appear to move elliptically due to neural processing delays, impacting 3D perception.",
+    duration: '02:07',
+    thumbnailUrl: focusBitesSeriesThumbnail,
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/9e6b8f524acbfc9bc0710ac0da6b5aa58835789c/Focus%20bites/ep%209%20-%20fb.wav',
+    releaseDate: '2025-06-03',
+    seriesId: 'series-focus-bites',
+    seriesTitle: 'Focus Bites',
+    episodeNumber: 9,
+    transcript: `This is Jennifer, and you're listening to Focus Bites.
+
+The Pulfrich effect occurs when a neutral density filter placed over one eye causes a swinging pendulum, which normally moves in a flat plane, to appear to move in an elliptical path. This is due to a delay in neural processing in the eye receiving the dimmer image.
+
+When one eye receives a dimmer signal—due to a filter, cataract, or optic nerve pathology—the brain experiences a latency mismatch. For a laterally moving object, the eye with slower processing sees the object as lagging behind the other eye’s input. The brain interprets this as depth.
+
+This effect can serve as a subjective sign of unilateral optic neuropathy. It may be noticeable in early multiple sclerosis, where conduction velocity is slowed in one eye.
+
+To demonstrate the Pulfrich effect, use a pendulum swinging laterally against a plain background and place a neutral density filter over one eye. The pendulum will appear to move in an ellipse depending on the filter and swing direction.
+
+The Pulfrich effect demonstrates the sensitivity of the binocular visual system to timing discrepancies, showing that minor delays in neural processing can affect 3D perception.
+
+Keep in mind that binocular vision involves not only alignment but also precise temporal coordination.
+
+See you on the next Focus Bites.
+
+Jennifer, signing off.`
+  },
+  {
+    id: 'fb-ep10',
+    title: "Adaptive Optics – Sharpening Our Retinal Gaze",
+    showName: 'Focus Bites',
+    description: "Learn how adaptive optics (AO) technology corrects eye aberrations in real-time, enabling high-resolution imaging of individual retinal cells.",
+    duration: '02:06',
+    thumbnailUrl: focusBitesSeriesThumbnail,
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/9e6b8f524acbfc9bc0710ac0da6b5aa58835789c/Focus%20bites/ep%2010%20fb.wav',
+    releaseDate: '2025-06-03',
+    seriesId: 'series-focus-bites',
+    seriesTitle: 'Focus Bites',
+    episodeNumber: 10,
+    transcript: `This is Jennifer, and you're listening to Focus Bites.
+
+The optics of the human eye contain aberrations. Despite this, researchers can capture high-resolution images of the retina, down to individual photoreceptors.
+
+This is achieved using adaptive optics (AO), a technology that measures and corrects optical aberrations in real-time.
+
+AO systems use a wavefront sensor to detect imperfections in the eye’s optics. A deformable mirror then adjusts its shape to counteract those aberrations, effectively neutralizing them.
+
+Originally developed in astronomy to compensate for atmospheric distortion, adaptive optics is now used in retinal imaging to observe detailed cellular structures in the eye.
+
+This includes images of cones, rods, retinal pigment epithelial cells, blood cells, and nerve fiber layers—all in vivo.
+
+Adaptive optics enhances the ability to monitor retinal disease progression and treatment response at a microscopic level.
+
+It extends the frontiers of visual science, allowing exploration of visual function and retinal health with previously unavailable precision.
+
+See you on the next Focus Bites.
+
+Jennifer, signing off.`
+  },
+  {
+    id: 'fb-ep11',
+    title: "Metamerism – The Deceptive Nature of Color Matching",
+    showName: 'Focus Bites',
+    description: "Understand metamerism, where different objects appear the same color under one light but different under another, due to how human cones process light spectra.",
+    duration: '02:07',
+    thumbnailUrl: focusBitesSeriesThumbnail,
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/9e6b8f524acbfc9bc0710ac0da6b5aa58835789c/Focus%20bites/ep%2011%20fb.wav',
+    releaseDate: '2025-06-03',
+    seriesId: 'series-focus-bites',
+    seriesTitle: 'Focus Bites',
+    episodeNumber: 11,
+    transcript: `This is Jennifer, and you're listening to Focus Bites.
+
+Metamerism describes the phenomenon where two objects with different spectral reflectance profiles appear to be the same color under certain lighting conditions but differ under others.
+
+This occurs because human color vision is based on three types of cones—S, M, and L—that convert complex spectral information into three signals. Different spectra can stimulate these cones identically, producing a perceptual color match.
+
+These matched pairs are called metamers. The perceived match depends on the light source. Changing the illumination can shift cone responses and reveal differences between the samples—known as metameric failure.
+
+Metamerism is encountered in color-critical tasks such as matching paint or fabrics. It also affects color vision testing; for instance, certain Ishihara plates rely on metameric color pairs that are only distinguishable with normal trichromatic vision.
+
+Understanding metamerism is important in both clinical color testing and industries where color consistency is essential.
+
+Remember, color perception is a processed interpretation, not a direct measurement of light spectra.
+
+See you on the next Focus Bites.
+
+Jennifer, signing off.`
   }
 ];
