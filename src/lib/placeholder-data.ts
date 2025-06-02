@@ -31,7 +31,7 @@ export const placeholderSeries: Series[] = [
 
 export const placeholderEpisodes: Episode[] = [
   {
-    id: '6', 
+    id: '6',
     title: 'Phosphene Phenomena',
     showName: 'Focus Bites',
     description: 'Exploring the fascinating world of phosphene phenomena and what they tell us about our visual system.',
@@ -59,7 +59,7 @@ See you tomorrow on Focus Bites.
 Jennifer, signing off.`
   },
   {
-    id: '8', 
+    id: '8',
     title: "The Stiles-Crawford Effect - Your Pupil's Sweet Spot",
     showName: 'Focus Bites',
     description: "Explore the Stiles-Crawford effect, where light entering the pupil's center appears brighter, impacting visual acuity and cone photoreceptor efficiency.",
@@ -339,7 +339,7 @@ Jennifer, signing off.`
     duration: '03:56',
     thumbnailUrl: growOptomSeriesThumbnail,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/b9f96db3a4e292768f53a8b529adc31e07254925/Grow%20optom/grow%20optom%20ep%201.wav',
-    releaseDate: '2025-06-03',
+    releaseDate: '2025-06-01',
     seriesId: 'series-grow-optom',
     seriesTitle: 'Grow Optom',
     episodeNumber: 1,
@@ -409,7 +409,7 @@ See you in the next one!`
     duration: '02:07',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/9e6b8f524acbfc9bc0710ac0da6b5aa58835789c/Focus%20bites/ep%209%20-%20fb.wav',
-    releaseDate: '2025-06-03',
+    releaseDate: '2025-06-02',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 9,
@@ -439,7 +439,7 @@ Jennifer, signing off.`
     duration: '02:06',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/9e6b8f524acbfc9bc0710ac0da6b5aa58835789c/Focus%20bites/ep%2010%20fb.wav',
-    releaseDate: '2025-06-03',
+    releaseDate: '2025-06-02',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 10,
@@ -471,7 +471,7 @@ Jennifer, signing off.`
     duration: '02:07',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/9e6b8f524acbfc9bc0710ac0da6b5aa58835789c/Focus%20bites/ep%2011%20fb.wav',
-    releaseDate: '2025-06-03',
+    releaseDate: '2025-06-02',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 11,
@@ -494,3 +494,6 @@ See you on the next Focus Bites.
 Jennifer, signing off.`
   }
 ];
+
+
+    
