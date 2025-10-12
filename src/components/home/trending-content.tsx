@@ -35,7 +35,7 @@ const TrendingContent: React.FC<TrendingContentProps> = ({ episodes }) => {
             <EpisodeCard 
               key={episode.id + "-trending"} 
               episode={episode} 
-              layout="vertical" // Changed to vertical for full-width stacking
+              layout="vertical"
               className="w-full bg-background border border-border/70 shadow-sm hover:shadow-md"
             />
           ))}

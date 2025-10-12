@@ -5,10 +5,10 @@ import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: {
-    default: 'FocusCast',
+    default: 'FocusCast: Optometry Insights, Clearly Delivered',
     template: '%s - FocusCast',
   },
-  description: 'Optometry Insights, Clearly Delivered.',
+  description: 'Explore optometry podcasts, series, and trending episodes on FocusCast, your source for optometry insights clearly delivered.',
 };
 
 export default function RootLayout({

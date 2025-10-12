@@ -3,7 +3,6 @@ import type { Episode, Series } from '@/types';
 
 const focusBitesSeriesThumbnail = 'https://raw.githubusercontent.com/Phantozweb/StromVault/175bc58a00e53a095eb5065a0cfb6e8599ca93dd/Albums/file_000000002c2861f89474f0ba58bb39a3.png';
 const decodingOcularDiseaseSeriesThumbnailUpdated = 'https://raw.githubusercontent.com/Phantozweb/StromVault/71e7cef27cc65f264b7ba93d778a275abb57426c/Albums/file_00000000078861f89c2cd48d6e220a36%20(1).png';
-const growOptomSeriesThumbnail = 'https://raw.githubusercontent.com/Phantozweb/StromVault/71e7cef27cc65f264b7ba93d778a275abb57426c/Albums/file_00000000ab3461f78fcfc560f1dd566e.png';
 
 export const placeholderSeries: Series[] = [
   {
@@ -20,13 +19,6 @@ export const placeholderSeries: Series[] = [
     thumbnailUrl: decodingOcularDiseaseSeriesThumbnailUpdated,
     dataAiHint: 'microscopic eye cells',
   },
-  {
-    id: 'series-grow-optom',
-    title: 'Grow Optom',
-    description: 'A podcast series by the OptoBharat Team for optometry students, focusing on career growth, learning, and leadership in eye care.',
-    thumbnailUrl: growOptomSeriesThumbnail,
-    dataAiHint: 'professional networking growth',
-  }
 ];
 
 export const placeholderEpisodes: Episode[] = [
@@ -308,7 +300,7 @@ Jennifer, signing off.`
     duration: '01:58',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/c37b333b745b494439c209826ba393f9b355faf0/Focus%20bites/ep%208%20.wav',
-    releaseDate: '2025-06-02',
+    releaseDate: '2025-0 6-02',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 8,
@@ -330,76 +322,6 @@ So when you think about visual processing, remember: your brain isn’t just a c
 
 See you tomorrow on Focus Bites.
 Jennifer, signing off.`
-  },
-  {
-    id: 'go-ep1',
-    title: 'Why Every Optometry Student in India Should Be on LinkedIn',
-    showName: 'Grow Optom by OptoBharat',
-    description: 'Discover why LinkedIn is a crucial tool for Indian optometry students for networking, learning, and career development, with tips from OptoBharat.',
-    duration: '03:56',
-    thumbnailUrl: growOptomSeriesThumbnail,
-    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/b9f96db3a4e292768f53a8b529adc31e07254925/Grow%20optom/grow%20optom%20ep%201.wav',
-    releaseDate: '2025-06-01',
-    seriesId: 'series-grow-optom',
-    seriesTitle: 'Grow Optom',
-    episodeNumber: 1,
-    transcript: `Hey there! Welcome to GrowOptom — a podcast series by the OptoBharat Team. This space is just for optometry students like you, who want to go beyond textbooks, grow with purpose, and become the next generation of eye care leaders.
-
-Today, we’re talking about something simple, but super powerful —
-Why every optometry student in India should be on LinkedIn.
-
-Okay, let’s be honest.
-Most of us are way more comfortable on Instagram or YouTube. And I get that.
-But here’s the thing — I’ve seen so many optometry students still not having a LinkedIn profile. And that’s kind of a missed opportunity.
-
-LinkedIn is not just another app — it’s where learning, visibility, and career growth actually begin.
-Instead of just scrolling, you can use that time to connect with students across India, professionals in the field, mentors, and even global leaders in optometry.
-
-In today’s world, LinkedIn is like your digital resume. But it’s more than just listing your college name.
-It tells people what you’re learning, what you’re passionate about, and how you're growing.
-
-And if you’re someone who wants to attend webinars or find internships, LinkedIn is full of events being hosted by top hospitals, associations, and eye care brands — every single day.
-
-Now you might wonder — how do I even start?
-
-Here’s a simple way: Step one — just create your profile. Use a clear, friendly photo. And write a simple headline like:
-“Optometry student passionate about vision care and clinical skills.”
-
-Step two — start following pages and people related to your field. That way, your feed becomes full of useful content — not just random reels.
-
-Step three — post something!
-It could be as simple as:
-
-> “Today I learned how screen time affects our tear film. Digital life really impacts eye health.”
-
-That’s it. That’s your first step into building your presence.
-
-As you post more, people begin to notice. You build your network. Some might even reach out to you — for a project, or just to say thanks for sharing something valuable.
-
-Think of LinkedIn as your portfolio. You can share case summaries, clinical reflections, seminar posters, or even patient education tips.
-
-It’s not about being famous.
-It’s about being seen for what you do and love.
-
-Now imagine this — months later, you’re applying for a fellowship or internship, and someone reviewing your application already remembers your LinkedIn post from before. That’s the power of being visible and active.
-
-So to all optometry students listening — being on LinkedIn isn’t about being perfect.
-It’s just about being present.
-
-Because in today’s fast-moving world of eye care, the students who know how to connect, learn, and grow publicly are going to be the ones who lead.
-
-So here’s your takeaway for today:
-If you don’t have a LinkedIn profile yet — make one today.
-And if you already have one — post something real, something simple, something you.
-
-And hey — tag @OptoBharat if you do. We’d love to support your journey.
-
-Thanks for tuning in to GrowOptom.
-We’ve got more exciting episodes coming up — about research, presenting papers, using AI in optometry, building a personal brand, and so much more.
-
-Until then — stay curious, stay connected, and keep growing.
-This is GrowOptom, by OptoBharat.
-See you in the next one!`
   },
   {
     id: 'fb-ep9',
@@ -494,6 +416,3 @@ See you on the next Focus Bites.
 Jennifer, signing off.`
   }
 ];
-
-
-    

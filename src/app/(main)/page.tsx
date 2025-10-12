@@ -14,22 +14,15 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   // Updated Featured Episodes
-  const growOptomEp1 = placeholderEpisodes.find(ep => ep.id === 'go-ep1');
   const focusBitesEp8 = placeholderEpisodes.find(ep => ep.id === 'fb-ep8');
-
-  const featured: Episode[] = [];
-  if (growOptomEp1) {
-    featured.push(growOptomEp1);
-  }
-  if (focusBitesEp8) {
-    featured.push(focusBitesEp8);
-  }
+  const decodingOcularEp1 = placeholderEpisodes.find(ep => ep.id === 'dod-ep1');
+  const featured: Episode[] = [focusBitesEp8, decodingOcularEp1].filter(ep => ep) as Episode[];
   
   // Updated Trending Episodes
   const trendingEpisodes = [
-    placeholderEpisodes.find(ep => ep.id === 'fb-ep6'),    // Focus Bites - Ep 6
-    placeholderEpisodes.find(ep => ep.id === 'fb-ep7'),    // Focus Bites - Ep 7
-    placeholderEpisodes.find(ep => ep.id === 'dod-ep1'),   // Decoding Ocular Disease - Ep 1
+    placeholderEpisodes.find(ep => ep.id === 'fb-ep6'),
+    placeholderEpisodes.find(ep => ep.id === 'fb-ep7'),
+    placeholderEpisodes.find(ep => ep.id === 'fb-ep11'),
   ].filter(ep => ep !== undefined) as Episode[];
 
   const seriesData = placeholderSeries;
