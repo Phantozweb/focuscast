@@ -13,6 +13,7 @@ export interface Episode {
   seriesTitle?: string; // Title of the series, denormalized for convenience
   episodeNumber?: number; // Episode number within the series
   transcript?: string;
+  keywords?: string[];
 }
 
 export interface Series {
@@ -21,5 +22,6 @@ export interface Series {
   description: string;
   thumbnailUrl: string;
   dataAiHint?: string;
+  keywords?: string[];
   // Episodes belonging to this series will be filtered from the global Episode list
 }

@@ -28,10 +28,12 @@ export async function generateMetadata(
 
   return {
     title: fullTitle,
-    description: `Explore all episodes from the "${series.title}" series. ${series.description}`,
+    description: series.description,
+    keywords: series.keywords,
     openGraph: {
       title: fullTitle,
       description: series.description,
+      url: `/series/${series.id}`,
       images: series.thumbnailUrl ? [{ url: series.thumbnailUrl }] : [],
       type: 'website',
     },
@@ -57,6 +59,7 @@ export default async function SeriesPage({ params }: SeriesPageServerProps) {
     'description': series.description,
     'url': `/series/${series.id}`,
     'image': series.thumbnailUrl,
+    'keywords': series.keywords?.join(','),
   };
 
   return (

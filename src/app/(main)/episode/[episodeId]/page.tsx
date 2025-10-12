@@ -29,22 +29,27 @@ export async function generateMetadata(
   const fullTitle = `${episode.title} | ${series ? series.title : episode.showName}`;
 
   return {
-    title: fullTitle, 
-    description: `Listen to "${episode.title}". ${episode.description}`,
+    title: fullTitle,
+    description: episode.description,
+    keywords: episode.keywords,
     openGraph: {
       title: fullTitle,
       description: episode.description,
-      images: episode.thumbnailUrl ? [{ url: episode.thumbnailUrl }] : [],
+      url: `/episode/${episode.id}`,
       type: 'article',
       article: {
         publishedTime: new Date(episode.releaseDate).toISOString(),
         authors: [series ? series.title : episode.showName],
         section: series ? series.title : 'Podcast',
+        tags: episode.keywords,
       },
-      audio: {
-        url: episode.audioUrl,
-        type: 'audio/mpeg',
-      },
+      images: episode.thumbnailUrl ? [{ url: episode.thumbnailUrl }] : [],
+      audio: [
+        {
+          url: episode.audioUrl,
+          type: 'audio/mpeg',
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
@@ -95,6 +100,7 @@ export default async function EpisodePage({ params }: EpisodePageServerProps) {
       'encodingFormat': 'audio/mpeg'
     },
     'image': episode.thumbnailUrl,
+    'keywords': episode.keywords?.join(','),
     ...(series && {
       'partOfSeries': {
         '@type': 'PodcastSeries',

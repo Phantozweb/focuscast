@@ -9,23 +9,26 @@ export const placeholderSeries: Series[] = [
   {
     id: 'series-clinical-skills',
     title: 'Clinical Skills Corner',
-    description: 'A series dedicated to helping optometry students and practitioners sharpen their clinical skills, covering key techniques, tricky scenarios, and practical tips for great patient care.',
+    description: 'A comprehensive series for optometry students and practitioners dedicated to sharpening essential clinical skills. Covering key techniques like retinoscopy, visual acuity, and tonometry, this podcast offers practical tips for excellent patient care in ophthalmology and optometry.',
     thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
     dataAiHint: 'clinical eye exam',
+    keywords: ['optometry clinical skills', 'eye exam techniques', 'ophthalmology training', 'optometry podcast', 'patient care'],
   },
   {
     id: 'series-focus-bites',
     title: 'Focus Bites',
-    description: 'Short, insightful episodes exploring fascinating aspects of vision and optometry.',
+    description: 'Short, insightful optometry episodes exploring fascinating aspects of vision science and ocular phenomena. Perfect for quick learning on topics like the Purkinje shift, Haidinger\'s Brushes, and binocular rivalry.',
     thumbnailUrl: focusBitesSeriesThumbnail,
     dataAiHint: 'abstract science eye',
+    keywords: ['vision science', 'optometry basics', 'ocular phenomena', 'visual perception', 'entoptic phenomena'],
   },
   {
     id: 'series-decoding-ocular-disease',
     title: 'Decoding Ocular Disease',
-    description: 'Explore in-depth discussions on various ocular diseases, their mechanisms, diagnosis, and management. Essential insights for optometrists and eye care professionals.',
+    description: 'Explore in-depth discussions on various ocular diseases, their pathophysiology, diagnosis, and management. This series provides essential insights for optometrists and eye care professionals on conditions like Diabetic Retinopathy and Glaucoma.',
     thumbnailUrl: decodingOcularDiseaseSeriesThumbnailUpdated,
     dataAiHint: 'microscopic eye cells',
+    keywords: ['ocular disease', 'diabetic retinopathy', 'glaucoma management', 'retinal pathology', 'optometry diagnosis'],
   },
 ];
 
@@ -34,7 +37,7 @@ export const placeholderEpisodes: Episode[] = [
     id: 'csc-ep1',
     title: 'Visual Acuity: Beyond 20/20 (6/6)',
     showName: 'Clinical Skills Corner with Aanya',
-    description: 'Learn accurate methods to assess visual clarity at various distances, from basic Snellen charts to advanced LogMAR acuity and pinhole testing.',
+    description: 'Master accurate visual acuity assessment in this foundational optometry episode. Learn methods from basic Snellen charts to advanced LogMAR and pinhole testing to differentiate refractive errors from pathology. A key clinical skill for every eye exam.',
     duration: '03:23',
     thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E1%20(Visual%20Acuity%20Beyond%202020).mp3',
@@ -42,6 +45,7 @@ export const placeholderEpisodes: Episode[] = [
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 1,
+    keywords: ['visual acuity', 'Snellen chart', 'LogMAR', 'pinhole test', 'refractive error', 'optometry basics'],
     transcript: `Hello, and you’re listening to Clinical Skills Corner with Aanya!
 Every clinic day is full of tiny challenges and big learning moments.
 Together, we’ll break down key techniques, tackle tricky scenarios, and share the clinical pearls that turn good care into great care.
@@ -77,7 +81,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     id: 'csc-ep2',
     title: 'Retinoscopy Revealed: Mastering the Objective Refraction',
     showName: 'Clinical Skills Corner with Aanya',
-    description: 'Understand retinoscopy techniques to estimate refractive errors with precision, interpreting "with" and "against" motion to neutralize prescriptions.',
+    description: 'A deep dive into retinoscopy techniques for objective refraction. This episode explains how to estimate refractive errors with precision, interpret "with" and "against" motion, and neutralize prescriptions for myopia, hyperopia, and astigmatism.',
     duration: '03:02',
     thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E2%20(Retinoscopy%20Revealed).mp3',
@@ -85,6 +89,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 2,
+    keywords: ['retinoscopy', 'objective refraction', 'refractive error', 'astigmatism', 'with motion', 'against motion'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. Now, we're demystifying retinoscopy, your fastest, most objective way to determine a patient's refractive error. It’s like peeking into their eye to see how light is behaving.
 Concept & Explanation:
 Retinoscopy is an objective method of determining the eye's refractive error by observing the movement of reflected light from the retina as a streak of light is moved across the pupil.
@@ -120,7 +125,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     id: 'csc-ep3',
     title: 'Subjective Refraction: Refining the Prescription',
     showName: 'Clinical Skills Corner with Aanya',
-    description: 'Fine-tune prescriptions through patient responses for optimal visual comfort using techniques like JCC, fogging, and binocular balancing.',
+    description: 'Learn to fine-tune prescriptions using subjective refraction techniques for optimal visual comfort. This episode covers JCC (Jackson Cross Cylinder), fogging, and binocular balancing to achieve the best corrected visual acuity.',
     duration: '03:55',
     thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E3-%20(Subjective%20Refraction).mp3',
@@ -128,6 +133,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 3,
+    keywords: ['subjective refraction', 'JCC', 'Jackson Cross Cylinder', 'binocular balancing', 'phoropter', 'best corrected visual acuity'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. Once you've got an objective starting point, it's time to step into the art of subjective refraction – refining that prescription so your patient enjoys their clear, comfortable vision. This is where their "better 1 or better 2" choices come into play.
 Let’s start by understanding what subjective refraction really is before we jump into the techniques.
 Concept & Explanation:
@@ -167,7 +173,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     id: 'csc-ep4',
     title: 'Phoropter vs. Trial Frame: Choosing Your Refraction Tool',
     showName: 'Clinical Skills Corner with Aanya',
-    description: 'Compare refraction tools to determine the best approach for each patient, from routine exams to complex, low-vision, or pediatric cases.',
+    description: 'An essential comparison of refraction tools in optometry. Learn when to use a phoropter for efficiency versus a trial frame for complex, low-vision, or pediatric cases to ensure the most accurate and comfortable prescription.',
     duration: '03:10',
     thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E4%20(Phoropter%20vs.%20Trial%20Frame).mp3',
@@ -175,6 +181,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 4,
+    keywords: ['phoropter', 'trial frame', 'refraction', 'low vision', 'pediatric optometry', 'vertex distance'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. When performing a refraction, optometrists typically reach for one of two key tools: the phoropter or the trial frame. Both are essential, but each has its advantages and ideal situations. Knowing when to choose the right option is a vital clinical skill, and we’re going to break it down,
 Concept & Explanation:
 The Phoropter:
@@ -230,7 +237,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     id: 'csc-ep5',
     title: 'Presbyopic Add Determination: Helping Patients See Up Close',
     showName: 'Clinical Skills Corner with Aanya',
-    description: 'Master techniques for calculating near addition in presbyopic patients, from age-based methods to the advanced cross-cylinder technique.',
+    description: 'Master techniques for calculating near add power in presbyopic patients. This episode covers age-based methods, plus build-up, and the advanced cross-cylinder technique (NRA/PRA) to determine the best presbyopic addition for reading and computer use.',
     duration: '03:21',
     thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E5%20(Presbyopic%20Add%20Determination).mp3',
@@ -238,6 +245,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 5,
+    keywords: ['presbyopia', 'add power', 'near vision', 'NRA/PRA', 'cross cylinder', 'reading glasses'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. For many adult patients, the need for reading glasses eventually arises. Accurately determining the add power ensures that your patients can see clearly and comfortably at near.
 Let’s start with the basics — what exactly is presbyopia?
 Concept & Explanation:
@@ -279,7 +287,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     id: 'csc-ep6',
     title: 'Slit Lamp Mastery: A Systematic Anterior Segment Exam',
     showName: 'Clinical Skills Corner with Aanya',
-    description: 'Explore anterior eye structures through systematic slit lamp evaluation, from lids and lashes to the anterior vitreous, using various illumination techniques.',
+    description: 'Become a pro at using the slit lamp for anterior segment evaluation. This episode guides you through a systematic exam from lids and lashes to the anterior vitreous, using various illumination techniques like direct, indirect, and retro-illumination.',
     duration: '04:16',
     thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E6%20(Slit%20Lamp%20Mastery).mp3',
@@ -287,6 +295,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 6,
+    keywords: ['slit lamp', 'anterior segment', 'biomicroscopy', 'cornea examination', 'illumination techniques', 'eye exam'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. The slit lamp biomicroscope is arguably the most powerful and versatile diagnostic tool in your optometric arsenal. Mastering its systematic use is key to identifying subtle signs of ocular disease in the anterior segment.
 Let’s start with the basics — what exactly is a slit lamp, and why is it so essential?
 Concept & Explanation:
@@ -325,7 +334,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     id: 'csc-ep7',
     title: 'Tonometry Techniques: Measuring Intraocular Pressure Accurately',
     showName: 'Clinical Skills Corner with Aanya',
-    description: 'Learn accurate intraocular pressure measurement for glaucoma detection using Goldmann Applanation Tonometry (GAT) and other common methods.',
+    description: 'A guide to accurate intraocular pressure (IOP) measurement for glaucoma detection. This episode covers Goldmann Applanation Tonometry (GAT), non-contact tonometry (NCT), and the impact of central corneal thickness (CCT).',
     duration: '03:57',
     thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E7%20(Tonometry%20Techniques).mp3',
@@ -333,6 +342,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 7,
+    keywords: ['tonometry', 'IOP', 'intraocular pressure', 'Goldmann Applanation Tonometry', 'GAT', 'glaucoma'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. Measuring intraocular pressure, or IOP, is one of the most essential clinical skills in optometry — especially in the management of glaucoma.
 We’ll explore the gold standard and other common tonometry techniques, focusing on accuracy, patient comfort, and best practices.
 Let’s start by understanding what tonometry really means.
@@ -377,7 +387,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     id: 'csc-ep8',
     title: 'Gonioscopy Fundamentals: Viewing the Anterior Chamber Angle',
     showName: 'Clinical Skills Corner with Aanya',
-    description: 'Understand gonioscopy principles to evaluate the anterior chamber angle structures, identify abnormalities, and differentiate between open and closed-angle glaucoma.',
+    description: 'Learn gonioscopy principles to evaluate anterior chamber angle structures. This episode covers how to identify abnormalities and differentiate between open-angle and closed-angle glaucoma, a critical skill for any optometrist.',
     duration: '04:16',
     thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E8%20(Gonioscopy%20Fundamentals).mp3',
@@ -385,6 +395,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 8,
+    keywords: ['gonioscopy', 'anterior chamber angle', 'glaucoma diagnosis', 'trabecular meshwork', 'open-angle glaucoma', 'angle-closure glaucoma'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. For anyone involved in glaucoma care, gonioscopy is an indispensable skill. It's the only way to directly visualize the anterior chamber angle—the crucial drainage pathway of the eye.
 So how this technique gives us a direct window into the eye’s filtration system?
 Concept & Explanation:
@@ -436,7 +447,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     id: 'csc-ep9',
     title: 'Direct Ophthalmoscopy: Practical Tips for Fundus Viewing',
     showName: 'Clinical Skills Corner with Aanya',
-    description: 'Master direct ophthalmoscopy to perform a detailed posterior segment assessment, examining the optic disc, macula, and retinal vasculature with high magnification.',
+    description: 'Master direct ophthalmoscopy for a detailed posterior segment assessment. This episode offers practical tips for examining the optic disc, macula, and retinal vasculature with high magnification for a comprehensive fundus view.',
     duration: '04:09',
     thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E9%20(Direct%20Ophthalmoscopy).mp3',
@@ -444,6 +455,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 9,
+    keywords: ['direct ophthalmoscopy', 'fundus exam', 'posterior segment', 'optic disc', 'retina', 'macula'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. The direct ophthalmoscope is a classic tool, essential for peering into the back of the eye.
 It’s small, powerful, and deeply revealing… if you know how to use it right.
 While often seen as challenging, mastering it offers valuable insights into the optic disc, macula, and retinal vasculature, providing a highly magnified, upright view.
@@ -484,7 +496,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     id: 'csc-ep10',
     title: 'Indirect Ophthalmoscopy: Comprehensive Posterior Segment Examination',
     showName: 'Clinical Skills Corner with Aanya',
-    description: 'Examine the entire retina using binocular indirect ophthalmoscopy techniques.',
+    description: 'Learn to examine the entire retina with binocular indirect ophthalmoscopy. This episode covers techniques to get a wide-field, stereoscopic view of the posterior segment, crucial for detecting retinal tears, detachments, and peripheral pathology.',
     duration: '03:50',
     thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E10%20(Indirect%20Ophthalmoscopy).mp3',
@@ -492,6 +504,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 10,
+    keywords: ['indirect ophthalmoscopy', 'BIO', 'posterior segment', 'retinal detachment', 'peripheral retina', 'fundus exam'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. If the direct ophthalmoscope gives you a magnified keyhole view, indirect ophthalmoscopy gives you a wide-angle panorama of the entire posterior segment, including the crucial peripheral retina. This skill is paramount for detecting conditions like retinal tears and detachments.
 Concept & Explanation:
 Let’s start with the basics — what exactly is indirect ophthalmoscopy?
@@ -536,7 +549,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     id: 'csc-ep11',
     title: 'Pupil Examination: A Window to Neurological Health',
     showName: 'Clinical Skills Corner with Aanya',
-    description: 'Examining pupillary reactions to assess optic nerve function and detect neurological abnormalities.',
+    description: 'Learn to perform a thorough pupil examination to assess optic nerve function and detect neurological abnormalities. This episode covers direct and consensual responses, the swinging flashlight test for RAPD, and other key pupillary signs.',
     duration: '04:23',
     thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E11%20(Pupil%20Examination.mp3',
@@ -544,6 +557,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 11,
+    keywords: ['pupil exam', 'RAPD', 'swinging flashlight test', 'anisocoria', 'neurological exam', 'optic nerve'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. The pupils, those black circles in the center of your eyes, are far more than just openings for light. Their size, shape, and reactions provide crucial clues about the health of both the eyes and the complex neurological pathways connecting them to the brain.
 The pupils are the window to the neurological system.
 Concept & Explanation:
@@ -588,7 +602,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     id: 'csc-ep12',
     title: 'Cover Test Demystified: Diagnosing Ocular Misalignment',
     showName: 'Clinical Skills Corner with Aanya',
-    description: 'Objective assessment of eye alignment to identify tropias, phorias, and binocular vision disorders.',
+    description: 'An objective guide to assessing eye alignment with the cover test. Learn to identify tropias, phorias, and other binocular vision disorders. This episode breaks down the cover-uncover and alternating cover tests to diagnose strabismus.',
     duration: '04:11',
     thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E12%20(Cover%20Test%20Demystified).mp3',
@@ -596,6 +610,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 12,
+    keywords: ['cover test', 'strabismus', 'tropia', 'phoria', 'binocular vision', 'ocular alignment'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. The cover test is perhaps the most fundamental binocular vision test you'll perform. It's deceptively simple yet incredibly powerful for detecting and quantifying ocular misalignment, or strabismus.
 Let’s start with the basics.
 Concept & Explanation:
@@ -640,7 +655,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     id: 'csc-ep13',
     title: 'Ocular Motility Assessment: Tracking Eye Movements',
     showName: 'Clinical Skills Corner with Aanya',
-    description: 'Evaluating extraocular muscle function and coordination to detect nerve palsies or restrictions.',
+    description: 'A guide to evaluating extraocular muscle function and coordination. This episode explains how to perform an ocular motility assessment to detect nerve palsies (CN III, IV, VI), restrictions, and binocular vision disorders.',
     duration: '03:45',
     thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E13%20(Ocular%20Motility%20Assessment).mp3',
@@ -648,6 +663,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 13,
+    keywords: ['ocular motility', 'extraocular muscles', 'cranial nerve palsy', 'eye movements', 'saccades', 'pursuits'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. You’ve checked your patient’s clarity of vision — but can their eyes move together smoothly? This is where ocular motility assessment comes in – checking for any restrictions, weaknesses, or dysfunctions in their eye movements.
 Concept & Explanation:
 What is Ocular Motility? It’s the assessment of the coordinated movement of the eyes, controlled by the extraocular muscles.
@@ -699,7 +715,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     id: 'csc-ep14',
     title: 'Keratometry & Corneal Topography: Understanding Corneal Shape',
     showName: 'Clinical Skills Corner with Aanya',
-    description: 'Measuring and mapping corneal curvature for accurate refraction, lens fitting, and disease detection.',
+    description: 'Learn to measure and map corneal curvature using keratometry and corneal topography. This episode covers techniques for accurate refraction, contact lens fitting, and early detection of diseases like keratoconus.',
     duration: '04:08',
     thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E14%20(Keratometry%20%26%20Corneal%20Topography).mp3',
@@ -707,6 +723,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 14,
+    keywords: ['keratometry', 'corneal topography', 'corneal curvature', 'astigmatism', 'contact lens fitting', 'keratoconus'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. The cornea, your eye's clear front window, plays a critical role in focusing light. Understanding its precise shape is essential for accurate refraction, contact lens fitting, and diagnosing corneal diseases. Let’s explore keratometry and corneal topography, two essential tools that map the corneal surface.
 Concept & Explanation:
 What is Keratometry? It’s the measurement of the curvature of the central cornea, specifically the two principal meridians. It helps determine corneal astigmatism, giving us readings in diopters and axes.
@@ -753,7 +770,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     id: 'csc-ep15',
     title: 'Dilation Procedures: Safe and Effective Mydriasis',
     showName: 'Clinical Skills Corner with Aanya',
-    description: 'Mastering pharmacologic pupil dilation techniques for thorough fundus examination with patient safety.',
+    description: 'A guide to mastering pharmacologic pupil dilation (mydriasis) for a thorough fundus examination. Learn about mydriatic and cycloplegic drops, instillation techniques, and crucial patient safety precautions for a safe and effective dilated eye exam.',
     duration: '03:59',
     thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E15%20(Dilation%20Procedures).mp3',
@@ -761,6 +778,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 15,
+    keywords: ['pupil dilation', 'mydriasis', 'cycloplegia', 'fundus exam', 'tropicamide', 'phenylephrine'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. One of the most common and often discussed procedures in optometry is pupil dilation. While it causes temporary inconvenience, mastering safe and effective dilation is absolutely crucial for a comprehensive and thorough eye examination.
 So, what exactly is pupil dilation, or mydriasis?
 Concept & Explanation:
@@ -807,7 +825,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     id: 'csc-ep16',
     title: 'Eyelid Eversion & External Adnexa Exam: Beyond the Globe',
     showName: 'Clinical Skills Corner with Aanya',
-    description: 'Assessing eyelids and adnexa, including eversion, to reveal hidden ocular surface pathology.',
+    description: 'Learn to perform a meticulous external adnexa exam and master upper eyelid eversion. This episode covers assessing eyelids, lashes, and the lacrimal system to reveal hidden ocular surface pathology like foreign bodies or conjunctivitis.',
     duration: '04:22',
     thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E16%20(Eyelid%20Eversion).mp3',
@@ -815,6 +833,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 16,
+    keywords: ['eyelid eversion', 'adnexa exam', 'ocular surface', 'foreign body removal', 'conjunctivitis', 'blepharitis'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. While our focus is often on the globe itself, a thorough examination of the surrounding structures – the eyelids and adnexa – is equally vital. Let’s focus on how to perform a meticulous external adnexa exam, including the crucial skill of everting the upper eyelid.
 So, let’s step back and look around the eye — exploring the external adnexa and mastering the essential skill of eyelid eversion.
 Concept & Explanation:
@@ -862,7 +881,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     id: 'csc-ep17',
     title: 'Contact Lens Insertion & Removal: Patient Training',
     showName: 'Clinical Skills Corner with Aanya',
-    description: 'Guiding patients through safe, hygienic techniques for confident contact lens handling.',
+    description: 'A practical guide for training patients in safe contact lens handling. This episode covers hygienic techniques for insertion and removal of soft and RGP lenses, ensuring patient confidence and preventing complications like microbial keratitis.',
     duration: '03:57',
     thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E17%20(Contact%20Lens%20Insertion%20%26%20Removal).mp3',
@@ -870,6 +889,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 17,
+    keywords: ['contact lens training', 'lens insertion', 'lens removal', 'contact lens hygiene', 'RGP lens', 'soft contact lens'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. Prescribing contact lenses is only half the story — what truly defines success is how well patients are trained to use them safely.
 Proper insertion and removal techniques, along with excellent hygiene, are the foundation for comfort, confidence, and healthy eyes. 
 Let’s explore how to effectively guide your patients through this critical part of contact lens care.
@@ -919,7 +939,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     id: 'csc-ep18',
     title: 'Visual Field Testing: Protocols and Interpretation',
     showName: 'Clinical Skills Corner with Aanya',
-    description: 'Performing and interpreting perimetry to detect visual field loss in ocular or neural disease.',
+    description: 'A deep dive into performing and interpreting visual field tests. This episode covers protocols for Humphrey Field Analyzer (HFA) and Frequency Doubling Technology (FDT), helping you detect visual field loss from glaucoma or neurological disease.',
     duration: '03:21',
     thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E18%20(visual%20Field%20Testing).mp3',
@@ -927,6 +947,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 18,
+    keywords: ['visual field testing', 'perimetry', 'Humphrey Field Analyzer', 'HFA', 'glaucoma', 'scotoma'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. Visual field testing, or perimetry, is a critical diagnostic tool that provides functional assessment of a patient's entire field of vision. It's essential for detecting and monitoring conditions like glaucoma, neurological disorders, and retinal diseases.
 Concept & Explanation:
 What is Visual Field Testing? Measurement of the entire area of space visible to an eye when fixed on a central point.
@@ -970,7 +991,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     id: 'csc-ep19',
     title: 'Amsler Grid & Macular Assessment: Early Detection of Macular Disease',
     showName: 'Clinical Skills Corner with Aanya',
-    description: 'Using the Amsler grid to identify early macular changes affecting central visual function.',
+    description: 'Learn to use the Amsler grid for early detection of macular diseases like AMD. This episode covers how to identify metamorphopsia and scotomas, and supplements the grid test with other macular assessments like the Watzke-Allen test.',
     duration: '04:05',
     thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E19%20(Amsler%20Grid%20%26%20Macular%20Assessment).mp3',
@@ -978,6 +999,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 19,
+    keywords: ['Amsler grid', 'macular degeneration', 'AMD', 'metamorphopsia', 'scotoma', 'macular assessment'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. The macula is responsible for our sharpest central vision. Early detection of macular disease, particularly Age-Related Macular Degeneration (AMD), is critical. Let’s focus on how to use the Amsler grid and other simple techniques for effective macular assessment.
 Concept & Explanation:
 What is the Macula? It’s the central part of the retina, responsible for high-acuity, detailed, and color vision. At its very center lies the fovea, where vision is the sharpest.
@@ -1022,7 +1044,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     id: 'csc-ep20',
     title: 'Topical Drops: Proper Instillation & Patient Education',
     showName: 'Clinical Skills Corner with Aanya',
-    description: 'Learn correct eye drop instillation techniques and key patient education for safe, effective treatment.',
+    description: 'Learn correct eye drop instillation techniques and crucial patient education for safe, effective treatment. This episode covers instillation, punctal occlusion, and how to manage common patient challenges to ensure medication adherence.',
     duration: '04:18',
     thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E20%20(Topical%20Drops).mp3',
@@ -1030,6 +1052,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 20,
+    keywords: ['eye drops', 'medication adherence', 'punctal occlusion', 'patient education', 'topical medication', 'optometry treatment'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. Whether it's for diagnosis or treatment, eye drops are a cornerstone of optometric practice. But if a patient can't get the drop into their eye effectively, or if they don't understand why they're using it, even the best medication is useless. 
 Concept & Explanation:
 Let’s start with the basics — why proper instillation matters so much.
@@ -1075,7 +1098,7 @@ That brings us to the end of our Clinical Skills Corner series. This is Aanya, s
     id: 'fb-ep1',
     title: 'Phosphene Phenomena',
     showName: 'Focus Bites',
-    description: 'Exploring the fascinating world of phosphene phenomena and what they tell us about our visual system.',
+    description: 'Explore the fascinating world of phosphene phenomena—the sparkles you see when you press on your eyes—and learn what this entoptic phenomenon tells us about retinal health and detecting potential issues like retinal detachment.',
     duration: '00:50',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/5d97da6c8163ba0593557434f5c3b5d1a5ed2fb9/Focus%20bites/focus-bites-ep1-phosphene-phenomena.mp3',
@@ -1083,6 +1106,7 @@ That brings us to the end of our Clinical Skills Corner series. This is Aanya, s
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 1,
+    keywords: ['phosphenes', 'entoptic phenomenon', 'retina', 'visual system', 'retinal detachment', 'flashes of light'],
     transcript: `Hey, this is Jennifer — and welcome to Focus Bites, where we make optometry make sense.
 
 Have you ever pressed your eye shut and suddenly seen sparkles or weird shapes? That’s not just your brain being silly — that’s actually something called a phosphene.
@@ -1103,7 +1127,7 @@ Jennifer, signing off.`
     id: 'fb-ep2',
     title: "The Stiles-Crawford Effect - Your Pupil's Sweet Spot",
     showName: 'Focus Bites',
-    description: "Explore the Stiles-Crawford effect, where light entering the pupil's center appears brighter, impacting visual acuity and cone photoreceptor efficiency.",
+    description: "Explore the Stiles-Crawford effect, where light entering the pupil's center appears brighter. Understand how this impacts visual acuity and highlights the importance of cone photoreceptor efficiency in photopic vision.",
     duration: '01:50',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/30a6a0ce0ff712484fb03ddc6ceefc9a44a14244/Focus%20bites/focus%20bites%20episode%202%20The%20Stiles-Crawford%20Effect%20-%20Your%20Pupil%27s%20Sweet%20Spot.mp3',
@@ -1111,6 +1135,7 @@ Jennifer, signing off.`
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 2,
+    keywords: ['Stiles-Crawford effect', 'cone photoreceptors', 'photopic vision', 'visual acuity', 'pupil', 'retinal optics'],
     transcript: `Hey, this is Jennifer — and you’re tuned in to Focus Bites.
 
 So, here's a neat visual science nugget: ever wonder why light entering the center of your pupil seems subjectively brighter and clearer than light entering from the edge?
@@ -1135,7 +1160,7 @@ Jennifer, signing off.`
     id: 'dod-ep1',
     title: 'Decoding Diabetic Retinopathy: A Comprehensive Look',
     showName: 'Decoding Ocular Disease',
-    description: 'Dive deep into Diabetic Retinopathy, covering its pathophysiology, classification, modern diagnostic techniques, and comprehensive management strategies. A must-listen for understanding this prevalent ocular condition.',
+    description: 'A deep dive into Diabetic Retinopathy, covering pathophysiology, classification (NPDR, PDR), modern diagnostics (OCT, Fundus Photography), and comprehensive management strategies. A must-listen for understanding this prevalent ocular condition in optometry.',
     duration: '11:51',
     thumbnailUrl: decodingOcularDiseaseSeriesThumbnailUpdated,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/716dbb2d66af593a3d4604b9cc0afcfcb4946af9/DoD/podcast.mp3',
@@ -1143,6 +1168,7 @@ Jennifer, signing off.`
     seriesId: 'series-decoding-ocular-disease',
     seriesTitle: 'Decoding Ocular Disease',
     episodeNumber: 1,
+    keywords: ['diabetic retinopathy', 'NPDR', 'PDR', 'diabetic macular edema', 'fundus photography', 'OCT'],
     transcript: `I am John, and welcome to Focus Cast! This is the very first episode of our brand new series, Decoding Ocular Disease! In this series, our mission is to really break down those complex eye conditions, offering clear, practical insights for all you practicing optometrists out there, and for students who are eager to learn. Each episode, we’ll dissect a specific ocular pathology – looking at everything from its fundamental mechanisms, to what it actually looks like when you see it in the clinic, and, of course, how we best manage it. The goal here? To equip you with the knowledge and confidence to diagnose, to manage, and to truly educate your patients.
 
 Today, for our inaugural deep dive, we’re tackling a condition that is, frankly, a significant public health concern. It’s one that every single one of us in optometric practice will encounter with increasing frequency: Diabetic Retinopathy.
@@ -1187,7 +1213,7 @@ Until next time, keep those funduscopes ready, stay curious, and continue to mak
     id: 'fb-ep3',
     title: "The Purkinje Shift - Night's Different Hues",
     showName: 'Focus Bites',
-    description: "Understand the Purkinje shift, how eye sensitivity changes in low light, affecting color perception from reds to blues.",
+    description: "Discover the Purkinje shift and how our eyes' sensitivity to color changes in low light. This episode explains the transition from cone (photopic) to rod (scotopic) vision, affecting how we perceive red and blue hues at dusk.",
     duration: '01:54',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/f1180143675f538e7c48a962112743360367871a/Focus%20bites/Focus-bites-ep-3-The-Purkinje-Shift-Night_s-Different-Hues.mp3',
@@ -1195,6 +1221,7 @@ Until next time, keep those funduscopes ready, stay curious, and continue to mak
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 3,
+    keywords: ['Purkinje shift', 'scotopic vision', 'photopic vision', 'rod vision', 'cone vision', 'color perception'],
     transcript: `Hey, this is Jennifer — and you’re tuned in to Focus Bites.
 
 So, have you ever noticed how the bright red flowers in your garden seem to almost vanish into darkness at dusk, while the blue ones appear surprisingly vibrant?
@@ -1219,7 +1246,7 @@ Jennifer, signing off.`
     id: 'fb-ep4',
     title: "Haidinger's Brushes - Seeing Polarized Light",
     showName: 'Focus Bites',
-    description: "Learn about Haidinger's Brushes, an entoptic phenomenon allowing you to see polarized light due to macular pigment.",
+    description: "Learn about Haidinger's Brushes, a fascinating entoptic phenomenon that allows you to see polarized light. This episode explains how the dichroism of macular pigment makes this unique visual experience possible.",
     duration: '01:56',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/f1180143675f538e7c48a962112743360367871a/Focus%20bites/focus-bites-episode-4Haidinger_s-Brushes-Seeing-Polarized-Light.mp3',
@@ -1227,6 +1254,7 @@ Jennifer, signing off.`
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 4,
+    keywords: ["Haidinger's Brushes", 'entoptic phenomenon', 'polarized light', 'macular pigment', 'dichroism', 'visual perception'],
     transcript: `Hey, this is Jennifer — and you’re tuned in to Focus Bites.
 
 So, here’s a subtle, almost elusive visual phenomenon: have you ever perceived a faint, yellowish bowtie or hourglass shape when looking at a uniformly blue, polarized light source, like the sky?
@@ -1251,7 +1279,7 @@ Jennifer, signing off.`
     id: 'fb-ep5',
     title: "Troxler's Fading - The Disappearing Act in Your Periphery",
     showName: 'Focus Bites',
-    description: "Discover Troxler's fading, where stationary peripheral objects vanish due to neural adaptation, highlighting the brain's focus on change.",
+    description: "Discover Troxler's fading, the optical illusion where stationary peripheral objects vanish from your sight. This episode explains the concept of neural adaptation and how our brain prioritizes motion over static information in our visual field.",
     duration: '01:52',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/f1180143675f538e7c48a962112743360367871a/Focus%20bites/focus-bites-ep-5Troxler_s-Fading-The-Disappearing-Act-in-Your-Periphery.mp3',
@@ -1259,6 +1287,7 @@ Jennifer, signing off.`
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 5,
+    keywords: ["Troxler's fading", 'optical illusion', 'neural adaptation', 'peripheral vision', 'visual perception', 'microsaccade'],
     transcript: `Hey, this is Jennifer — and you’re tuned in to Focus Bites.
 
 So, ever stared intently at a fixed point, only to have stationary objects in your peripheral vision seem to fade away or disappear, especially if they're low contrast?
@@ -1283,7 +1312,7 @@ Jennifer, signing off.`
     id: 'fb-ep6',
     title: "Scheerer's Phenomenon: Your Own Blood Cells Dancing",
     showName: 'Focus Bites',
-    description: "Discover Scheerer's phenomenon, the blue field entoptic effect where you see tiny, moving specks – your own white blood cells – against a bright blue sky.",
+    description: "Ever see tiny specks moving in a bright blue sky? That's Scheerer's phenomenon, the blue field entoptic effect. Learn how you're actually seeing your own white blood cells moving through your retinal capillaries.",
     duration: '01:47',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/c37b333b745b494439c209826ba393f9b355faf0/Focus%20bites/focus%20bites%20ep%206.wav',
@@ -1291,6 +1320,7 @@ Jennifer, signing off.`
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 6,
+    keywords: ["Scheerer's phenomenon", 'blue field entoptic phenomenon', 'entoptic', 'retinal circulation', 'leukocytes', 'vision science'],
     transcript: `Hey, this is Jennifer — and you’re tuned in to Focus Bites.
 
 Have you ever looked at a bright, uniform blue sky and noticed tiny, rapidly moving specks or "flying corpuscles" darting around in your vision?
@@ -1314,7 +1344,7 @@ Jennifer, signing off.`
     id: 'fb-ep7',
     title: "The Horopter & Panum's Area: Where Two Eyes See One",
     showName: 'Focus Bites',
-    description: "Explore the horopter and Panum's fusional area, concepts explaining how our brain fuses images from two eyes into a single 3D perception.",
+    description: "Explore the horopter and Panum's fusional area, the core concepts explaining how our brain achieves single, 3D binocular vision by fusing images from two eyes. Understand the basis of stereopsis and what happens when fusion fails.",
     duration: '02:06',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/c37b333b745b494439c209826ba393f9b355faf0/Focus%20bites/episode%207.wav',
@@ -1322,6 +1352,7 @@ Jennifer, signing off.`
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 7,
+    keywords: ['horopter', "Panum's fusional area", 'binocular vision', 'stereopsis', 'diplopia', 'retinal correspondence'],
     transcript: `Hey, this is Jennifer — and you’re tuned in to Focus Bites.
 
 We have two eyes, each capturing a slightly different image. So how does our brain fuse them into a single, three-dimensional perception—without us seeing double?
@@ -1345,7 +1376,7 @@ Jennifer, signing off.`
     id: 'fb-ep8',
     title: "Binocular Rivalry: The Brain’s Visual Tug-of-War",
     showName: 'Focus Bites',
-    description: "Understand binocular rivalry, where perception alternates between two different images presented to each eye, revealing the brain's active visual processing.",
+    description: "Dive into binocular rivalry, the perceptual phenomenon where your vision alternates between two different images presented to each eye. Discover what this visual tug-of-war reveals about the brain's active role in processing and consciousness.",
     duration: '01:58',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/c37b333b745b494439c209826ba393f9b355faf0/Focus%20bites/ep%208%20.wav',
@@ -1353,6 +1384,7 @@ Jennifer, signing off.`
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 8,
+    keywords: ['binocular rivalry', 'visual perception', 'neural competition', 'consciousness', 'binocular vision', 'ambiguous stimuli'],
     transcript: `Hey, this is Jennifer — and you’re tuned in to Focus Bites.
 
 What happens when each eye is presented with totally different images—like a vertical grating to one eye and a horizontal grating to the other—that can’t be fused into a single coherent picture?
@@ -1376,7 +1408,7 @@ Jennifer, signing off.`
     id: 'fb-ep9',
     title: "The Pulfrich Effect – When Time Becomes Depth",
     showName: 'Focus Bites',
-    description: "Explore the Pulfrich effect, where a filter over one eye makes a swinging pendulum appear to move elliptically due to neural processing delays, impacting 3D perception.",
+    description: "Explore the strange Pulfrich effect, where a filter over one eye can make a swinging pendulum appear to move in an ellipse. Learn how this optical illusion reveals the brain's reliance on neural processing speed for 3D depth perception.",
     duration: '02:07',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/9e6b8f524acbfc9bc0710ac0da6b5aa58835789c/Focus%20bites/ep%209%20-%20fb.wav',
@@ -1384,6 +1416,7 @@ Jennifer, signing off.`
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 9,
+    keywords: ['Pulfrich effect', 'optical illusion', 'depth perception', 'stereopsis', 'neural processing', 'binocular vision'],
     transcript: `This is Jennifer, and you're listening to Focus Bites.
 
 The Pulfrich effect occurs when a neutral density filter placed over one eye causes a swinging pendulum, which normally moves in a flat plane, to appear to move in an elliptical path. This is due to a delay in neural processing in the eye receiving the dimmer image.
@@ -1406,7 +1439,7 @@ Jennifer, signing off.`
     id: 'fb-ep10',
     title: "Adaptive Optics – Sharpening Our Retinal Gaze",
     showName: 'Focus Bites',
-    description: "Learn how adaptive optics (AO) technology corrects eye aberrations in real-time, enabling high-resolution imaging of individual retinal cells.",
+    description: "Discover how adaptive optics (AO) technology, borrowed from astronomy, corrects the eye's tiny imperfections in real-time. This allows for incredibly high-resolution imaging of individual retinal cells like cones and rods in a living eye.",
     duration: '02:06',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/9e6b8f524acbfc9bc0710ac0da6b5aa58835789c/Focus%20bites/ep%2010%20fb.wav',
@@ -1414,6 +1447,7 @@ Jennifer, signing off.`
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 10,
+    keywords: ['adaptive optics', 'retinal imaging', 'high-resolution', 'photoreceptors', 'vision science', 'ocular aberrations'],
     transcript: `This is Jennifer, and you're listening to Focus Bites.
 
 The optics of the human eye contain aberrations. Despite this, researchers can capture high-resolution images of the retina, down to individual photoreceptors.
@@ -1438,7 +1472,7 @@ Jennifer, signing off.`
     id: 'fb-ep11',
     title: "Metamerism – The Deceptive Nature of Color Matching",
     showName: 'Focus Bites',
-    description: "Understand metamerism, where different objects appear the same color under one light but different under another, due to how human cones process light spectra.",
+    description: "Uncover the concept of metamerism, where two objects look like the same color under one light but different under another. This episode explains how this phenomenon of color perception impacts everything from color vision tests to industrial design.",
     duration: '02:07',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/9e6b8f524acbfc9bc0710ac0da6b5aa58835789c/Focus%20bites/ep%2011%20fb.wav',
@@ -1446,6 +1480,7 @@ Jennifer, signing off.`
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 11,
+    keywords: ['metamerism', 'color perception', 'color vision', 'trichromatic vision', 'Ishihara plates', 'spectral reflectance'],
     transcript: `This is Jennifer, and you're listening to Focus Bites.
 
 Metamerism describes the phenomenon where two objects with different spectral reflectance profiles appear to be the same color under certain lighting conditions but differ under others.

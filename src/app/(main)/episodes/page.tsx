@@ -6,7 +6,8 @@ import type { Episode, Series } from '@/types';
 
 export const metadata: Metadata = {
   title: 'All Episodes - FocusCast',
-  description: 'Browse, search, and filter all episodes from FocusCast. Discover content by series, keywords, and more.',
+  description: 'Browse, search, and filter all episodes from FocusCast. Discover optometry insights on topics like clinical skills, ocular disease, and vision science. Your source for continuing education and professional knowledge.',
+  keywords: ['optometry podcast', 'eye care episodes', 'vision science', 'clinical optometry', 'ocular disease', 'ophthalmology', 'optometry education'],
 };
 
 export default async function EpisodesPage() {
