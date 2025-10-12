@@ -56,7 +56,8 @@ const PlayerControls: React.FC<PlayerControlsProps> = ({ isExpandedView }) => {
   const iconSize = isExpandedView ? 24 : 20;
   
   const canPlayPrev = currentPlaylist.length > 0 && currentPlaylistEpisodeIndex > 0;
-  const canPlayNext = currentPlaylist.length > 0 && currentPlaylistEpisodeIndex < currentPlaylist.length - 1;
+  // The 'Next' button should always be active to allow finding the next recommended episode.
+  const canPlayNext = true;
 
   if (isExpandedView) {
     return (
