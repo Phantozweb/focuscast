@@ -53,7 +53,7 @@ export default function SeriesClientPage({ initialSeries: series, initialEpisode
   const seriesUrl = typeof window !== 'undefined' ? `${window.location.origin}/series/${series.id}` : '';
 
   const SeriesHero = () => (
-    <div className="bg-card dark:bg-muted/10 border border-border/50 rounded-xl p-4 sm:p-6 shadow-sm mb-12 group">
+    <div className="bg-card dark:bg-muted/10 sm:border sm:border-border/50 sm:rounded-xl p-4 sm:p-6 sm:shadow-sm sm:mb-12 group">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center">
             {/* Image Column */}
             <div className="md:col-span-1 flex justify-center">
@@ -62,7 +62,7 @@ export default function SeriesClientPage({ initialSeries: series, initialEpisode
                     alt={series.title}
                     width={400}
                     height={400}
-                    className="rounded-lg shadow-xl aspect-square object-cover w-48 h-48 md:w-full md:h-auto transition-transform duration-300 group-hover:scale-105"
+                    className="rounded-lg shadow-xl aspect-square object-cover w-40 h-40 sm:w-48 sm:h-48 md:w-full md:h-auto transition-transform duration-300 group-hover:scale-105"
                     data-ai-hint={series.dataAiHint || "podcast series cover"}
                     priority
                 />
@@ -82,7 +82,7 @@ export default function SeriesClientPage({ initialSeries: series, initialEpisode
 
                 <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-2">
                   {episodesInSeries.length > 0 && (
-                    <Button size="lg" onClick={handlePlayAll}>
+                    <Button size="lg" onClick={handlePlayAll} className="w-full sm:w-auto">
                       <Play className="mr-2 h-5 w-5" /> Play All
                     </Button>
                   )}
@@ -92,6 +92,7 @@ export default function SeriesClientPage({ initialSeries: series, initialEpisode
                       buttonText="Share Series"
                       size="lg"
                       variant="outline"
+                      className="w-full sm:w-auto"
                     />
                 </div>
             </div>
@@ -102,7 +103,7 @@ export default function SeriesClientPage({ initialSeries: series, initialEpisode
   const EpisodeItems = () => (
      <>
         {episodesInSeries.length === 0 ? (
-          <p className="text-center text-muted-foreground py-8 px-4 md:px-0">No episodes found for this series yet.</p>
+          <p className="text-center text-muted-foreground py-8 px-4">No episodes found for this series yet.</p>
         ) : (
           <div className="space-y-4 px-4 md:px-0">
             {episodesInSeries.map((episode, index) => {
@@ -162,8 +163,8 @@ export default function SeriesClientPage({ initialSeries: series, initialEpisode
   );
 
   return (
-    <div className="container mx-auto py-8">
-      <div className="mb-8 px-4 md:px-0">
+    <div className="sm:container sm:mx-auto py-8">
+      <div className="mb-8 px-4 sm:px-0">
         <Button asChild variant="outline" className="mb-6 text-sm">
           <Link href="/#series">
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to All Series
@@ -173,14 +174,16 @@ export default function SeriesClientPage({ initialSeries: series, initialEpisode
 
       {isMobile ? (
         <Tabs defaultValue="overview" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 mb-4">
-            <TabsTrigger value="overview"><Info className="mr-2 h-4 w-4"/>Overview</TabsTrigger>
-            <TabsTrigger value="episodes"><List className="mr-2 h-4 w-4"/>Episodes ({episodesInSeries.length})</TabsTrigger>
-          </TabsList>
+          <div className="px-4">
+            <TabsList className="grid w-full grid-cols-2 mb-4">
+              <TabsTrigger value="overview"><Info className="mr-2 h-4 w-4"/>Overview</TabsTrigger>
+              <TabsTrigger value="episodes"><List className="mr-2 h-4 w-4"/>Episodes ({episodesInSeries.length})</TabsTrigger>
+            </TabsList>
+          </div>
           <TabsContent value="overview">
               <SeriesHero />
           </TabsContent>
-          <TabsContent value="episodes">
+          <TabsContent value="episodes" className="px-0">
               <EpisodeItems />
           </TabsContent>
         </Tabs>
