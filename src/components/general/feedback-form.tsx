@@ -5,9 +5,12 @@ import { Star } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
+import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { sendFeedback } from '@/ai/flows/send-feedback-flow';
 import type { FeedbackInput } from '@/types/feedback';
+import { z } from 'zod';
+import { FeedbackInputSchema } from '@/types/feedback';
 
 interface FeedbackFormProps {
   sourceTitle: string;
@@ -21,32 +24,44 @@ const FeedbackForm: React.FC<FeedbackFormProps> = ({ sourceTitle, sourceType, so
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
   const [feedback, setFeedback] = useState('');
+  const [email, setEmail] = useState('');
+  const [errors, setErrors] = useState<z.ZodError<FeedbackInput> | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (rating === 0) {
-      toast({
-        title: 'Rating Required',
-        description: 'Please select a star rating before submitting.',
-        variant: 'destructive',
-      });
-      return;
-    }
     setIsSubmitting(true);
 
-    const feedbackData: FeedbackInput = {
+    const feedbackData: Omit<FeedbackInput, 'email'> & { email?: string, rating: number } = {
       sourceTitle,
       sourceType,
       rating,
       feedback,
+      email,
       sourceUrl,
       sourceThumbnailUrl,
     };
+    
+    const validationResult = FeedbackInputSchema.safeParse(feedbackData);
+
+    if (!validationResult.success) {
+      setErrors(validationResult.error);
+      setIsSubmitting(false);
+       if (validationResult.error.flatten().fieldErrors.rating) {
+         toast({
+            title: 'Rating Required',
+            description: 'Please select a star rating before submitting.',
+            variant: 'destructive',
+          });
+       }
+      return;
+    }
+
+    setErrors(null);
 
     try {
-      const result = await sendFeedback(feedbackData);
+      const result = await sendFeedback(validationResult.data);
       if (result.success) {
         toast({
           title: 'Thank You!',
@@ -54,6 +69,7 @@ const FeedbackForm: React.FC<FeedbackFormProps> = ({ sourceTitle, sourceType, so
         });
         setRating(0);
         setFeedback('');
+        setEmail('');
         if (onFeedbackSent) {
             onFeedbackSent();
         }
@@ -72,10 +88,12 @@ const FeedbackForm: React.FC<FeedbackFormProps> = ({ sourceTitle, sourceType, so
     }
   };
 
+  const emailError = errors?.flatten().fieldErrors.email?.[0];
+
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label className="text-sm font-medium text-foreground/80 mb-2 block">Your Rating</label>
+        <label className="text-sm font-medium text-foreground/80 mb-2 block">Your Rating *</label>
         <div className="flex items-center gap-1">
           {[1, 2, 3, 4, 5].map((star) => (
             <Star
@@ -93,6 +111,23 @@ const FeedbackForm: React.FC<FeedbackFormProps> = ({ sourceTitle, sourceType, so
           ))}
         </div>
       </div>
+      
+      <div>
+         <label htmlFor="email-input" className="text-sm font-medium text-foreground/80 mb-2 block">
+          Your Email *
+        </label>
+        <Input
+          id="email-input"
+          type="email"
+          placeholder="you@example.com"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          className={cn(emailError ? 'border-destructive' : '')}
+        />
+        {emailError && <p className="text-sm text-destructive mt-1">{emailError}</p>}
+      </div>
+
       <div>
         <label htmlFor="feedback-textarea" className="text-sm font-medium text-foreground/80 mb-2 block">
           Your Feedback (Optional)
