@@ -121,9 +121,25 @@ export default function EpisodeDetailClientPage({ episode, series, relatedEpisod
                     </div>
                   </div>
                 )}
+                
+                <Separator className="my-8" />
+
+                {/* Feedback Section */}
+                <div className="mt-6 mb-8">
+                    <h2 className="text-2xl font-semibold mb-4 font-headline flex items-center">
+                        <MessageSquareQuote className="mr-3 h-6 w-6" />
+                        Leave a Review
+                    </h2>
+                    <FeedbackForm
+                        sourceTitle={episode.title}
+                        sourceType="Episode"
+                        sourceUrl={episodeUrl}
+                        sourceThumbnailUrl={episode.thumbnailUrl}
+                    />
+                </div>
 
                 {episode.transcript && (
-                  <Accordion type="single" collapsible className="w-full mt-6">
+                  <Accordion type="single" collapsible className="w-full">
                     <AccordionItem value="transcript-item">
                       <AccordionTrigger className="text-lg hover:no-underline">
                         <div className="flex items-center">
@@ -162,21 +178,6 @@ export default function EpisodeDetailClientPage({ episode, series, relatedEpisod
                     </AccordionItem>
                   </Accordion>
                 )}
-                 <Separator className="my-8" />
-
-                {/* Feedback Section */}
-                <div className="mt-6">
-                    <h2 className="text-2xl font-semibold mb-4 font-headline flex items-center">
-                        <MessageSquareQuote className="mr-3 h-6 w-6" />
-                        Leave a Review
-                    </h2>
-                    <FeedbackForm
-                        sourceTitle={episode.title}
-                        sourceType="Episode"
-                        sourceUrl={episodeUrl}
-                        sourceThumbnailUrl={episode.thumbnailUrl}
-                    />
-                </div>
             </div>
           </div>
         </div>
