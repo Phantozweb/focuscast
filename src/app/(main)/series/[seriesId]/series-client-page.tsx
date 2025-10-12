@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react'; 
@@ -20,14 +19,12 @@ interface SeriesClientPageProps {
 }
 
 const StatItem: React.FC<{ icon: React.ElementType; value: string; label: string; }> = ({ icon: Icon, value, label }) => (
-    <div className="flex items-center gap-3">
-      <div className="bg-primary/10 text-primary p-2.5 rounded-full">
-        <Icon className="w-5 h-5" />
-      </div>
-      <div>
-        <p className="text-xl sm:text-2xl font-bold">{value}</p>
-        <p className="text-xs sm:text-sm text-muted-foreground">{label}</p>
-      </div>
+    <div className="flex items-center gap-2">
+      <Icon className="w-4 h-4 text-muted-foreground" />
+      <p className="text-sm">
+        <span className="font-semibold">{value}</span>
+        <span className="text-muted-foreground ml-1">{label}</span>
+      </p>
     </div>
 );
 
@@ -62,26 +59,26 @@ export default function SeriesClientPage({ initialSeries: series, initialEpisode
       
       {/* Redesigned Hero Section */}
       <div className="bg-card dark:bg-muted/10 border border-border/50 rounded-xl p-4 sm:p-6 shadow-sm mb-12 group">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-start">
             {/* Image Column */}
-            <div className="lg:col-span-1 flex justify-center">
+            <div className="md:col-span-1 flex justify-center items-start">
                 <Image
                     src={series.thumbnailUrl}
                     alt={series.title}
                     width={400}
                     height={400}
-                    className="rounded-lg shadow-xl aspect-square object-cover w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 transition-transform duration-300 group-hover:scale-105"
+                    className="rounded-lg shadow-xl aspect-square object-cover w-48 h-48 md:w-full md:h-auto transition-transform duration-300 group-hover:scale-105"
                     data-ai-hint={series.dataAiHint || "podcast series cover"}
                     priority
                 />
             </div>
 
             {/* Info & Stats Column */}
-            <div className="lg:col-span-2">
+            <div className="md:col-span-2">
                 <h1 className="text-3xl md:text-4xl font-bold mb-3 font-headline">{series.title}</h1>
                 <p className="text-md text-muted-foreground mb-6">{series.description}</p>
                 
-                <div className="grid grid-cols-2 sm:grid-cols-2 gap-6 text-left mb-6">
+                <div className="flex flex-col sm:flex-row gap-4 sm:items-center mb-6">
                     <StatItem icon={List} value={episodesInSeries.length.toString()} label="Episodes" />
                     {totalDuration && (
                         <StatItem icon={Clock} value={totalDuration.replace(' total','')} label="Total Time" />
