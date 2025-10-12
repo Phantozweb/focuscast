@@ -41,7 +41,7 @@ export default function HomePage() {
     <div className="flex flex-col">
       <HeroSection />
       <div className="container mx-auto py-8 space-y-12 px-0 md:px-2">
-        <div className="hidden md:block">
+        <div className="hidden md:block px-2">
             <StatsBanner 
               totalEpisodes={totalEpisodes}
               totalSeries={totalSeries}
@@ -56,4 +56,5 @@ export default function HomePage() {
     </div>
   );
 }
+
 

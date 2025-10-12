@@ -35,7 +35,7 @@ const SeriesSection: React.FC<SeriesSectionProps> = ({ series, allEpisodes }) =>
         </div>
 
         {/* Desktop Grid */}
-        <div className="hidden md:grid grid-cols-1 gap-6">
+        <div className="hidden md:grid grid-cols-1 gap-6 px-4 md:px-0">
           {series.map((s) => {
             const episodesInSeries = allEpisodes.filter(ep => ep.seriesId === s.id);
             const episodeCount = episodesInSeries.length;
@@ -88,4 +88,3 @@ const SeriesSection: React.FC<SeriesSectionProps> = ({ series, allEpisodes }) =>
 };
 
 export default SeriesSection;
-

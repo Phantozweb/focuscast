@@ -33,7 +33,7 @@ const TrendingContent: React.FC<TrendingContentProps> = ({ episodes }) => {
         </div>
         
         {/* Desktop Grid */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-0">
           {episodes.map((episode) => ( 
             <EpisodeCard 
               key={episode.id + "-trending-desktop"} 
@@ -67,4 +67,3 @@ const TrendingContent: React.FC<TrendingContentProps> = ({ episodes }) => {
 };
 
 export default TrendingContent;
-
