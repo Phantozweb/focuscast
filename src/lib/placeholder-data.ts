@@ -750,6 +750,328 @@ Keratometry and topography provide invaluable information about corneal shape, c
 Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`
   },
   {
+    id: 'csc-ep15',
+    title: 'Dilation Procedures: Safe and Effective Mydriasis',
+    showName: 'Clinical Skills Corner with Aanya',
+    description: 'Mastering pharmacologic pupil dilation techniques for thorough fundus examination with patient safety.',
+    duration: '03:59',
+    thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E15%20(Dilation%20Procedures).mp3',
+    releaseDate: '2025-06-18',
+    seriesId: 'series-clinical-skills',
+    seriesTitle: 'Clinical Skills Corner',
+    episodeNumber: 15,
+    transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. One of the most common and often discussed procedures in optometry is pupil dilation. While it causes temporary inconvenience, mastering safe and effective dilation is absolutely crucial for a comprehensive and thorough eye examination.
+So, what exactly is pupil dilation, or mydriasis?
+Concept & Explanation:
+Pupil Dilation (Mydriasis) is the temporary enlargement of the pupil, typically achieved with eye drops.
+Purpose: To allow for a wider, clearer, and more stereoscopic view of the internal structures of the eye, particularly the lens, vitreous, optic nerve, macula, and peripheral retina.
+Let’s look at the types of dilation drops and how they work
+Types of Dilation Drops:
+Mydriatics: Primarily act on the iris dilator muscle to enlarge the pupil.
+Example: Phenylephrine (a sympathomimetic). Onset ~15-30 min, duration 3-6 hours.
+Cycloplegics: Not only dilate the pupil but also temporarily paralyze the ciliary muscle, preventing accommodation (focusing).
+Example: Tropicamide (an anticholinergic). Onset ~20-30 min, duration 4-6 hours.
+Example (stronger, longer): Cyclopentolate, Atropine (used in children for refraction, or uveitis management).
+Mechanism of Action (Simplified): Mydriatics stimulate muscle contraction, cycloplegics block nerve impulses.
+Clinical Pearls & Troubleshooting:
+Let’s go step-by-step through the instillation procedure, because every detail here matters
+Verify Identity: Confirm correct patient and drops.
+Patient Education: Explain why dilation is needed, what to expect (blur, light sensitivity), duration, and safety precautions (e.g., no driving until clear, sunglasses).
+Drop Instillation:
+Instruct patient to tilt head back, look up.
+Pull lower lid down to create a pouch.
+Instill one drop, avoid touching bottle to eye.
+Instruct patient to close eyes gently for 30 seconds and apply punctal occlusion (gentle pressure on inner corner of eye) to minimize systemic absorption.
+Wait 5-10 minutes if second drop is needed (for cycloplegia or insufficient dilation).
+Now, let’s talk about precautions and contraindications — because safety always comes first.
+Contraindications & Precautions:
+Narrow Angles: Absolute contraindication for strong cycloplegics and caution with mydriatics in patients with undilated, very narrow anterior chamber angles. Risk of acute angle-closure glaucoma. Perform gonioscopy before dilation if angle suspicion is high.
+Systemic Conditions: Caution with phenylephrine in patients with uncontrolled hypertension, cardiovascular disease, or hyperthyroidism (risk of systemic side effects).
+Pregnancy/Lactation: Use with caution, discuss with prescribing doctor.
+Drug Interactions: Be aware of other medications patient is taking.
+Even when performed correctly, patients may experience minor discomfort — and how you handle this builds trust.
+Managing Side Effects:
+Photophobia: Provide disposable sunglasses.
+Blurred Vision: Reassure it's temporary.
+Stinging: Common, reassurance helps.
+Allergic Reactions: Rare, but be prepared.
+Incomplete Dilation: Reasons (dark iris, medications, insufficient time), and troubleshooting (repeat drop, alternative drop).
+Documentation: Always record the drops used, time, and final pupil size/reaction.
+Wrap-up & Takeaway:
+Dilation is a powerful diagnostic tool. Master the procedure, understand the pharmacology, and prioritize patient safety and education.
+"Dilation opens a world of diagnostic possibilities, but always with caution and care."
+Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`
+  },
+  {
+    id: 'csc-ep16',
+    title: 'Eyelid Eversion & External Adnexa Exam: Beyond the Globe',
+    showName: 'Clinical Skills Corner with Aanya',
+    description: 'Assessing eyelids and adnexa, including eversion, to reveal hidden ocular surface pathology.',
+    duration: '04:22',
+    thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E16%20(Eyelid%20Eversion).mp3',
+    releaseDate: '2025-06-19',
+    seriesId: 'series-clinical-skills',
+    seriesTitle: 'Clinical Skills Corner',
+    episodeNumber: 16,
+    transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. While our focus is often on the globe itself, a thorough examination of the surrounding structures – the eyelids and adnexa – is equally vital. Let’s focus on how to perform a meticulous external adnexa exam, including the crucial skill of everting the upper eyelid.
+So, let’s step back and look around the eye — exploring the external adnexa and mastering the essential skill of eyelid eversion.
+Concept & Explanation:
+What is the External Adnexa Exam? It’s the systematic examination of all structures surrounding the eyeball: eyelids, eyelashes, eyebrows, lacrimal system, and surrounding skin.
+Purpose: To detect signs of inflammation, infection, trauma, masses, or systemic disease manifestations that often begin on these external structures.
+Think of it like flipping a page that hides the fine print — the palpebral conjunctiva, that inner lining of the eyelid, can conceal foreign bodies, papillae, follicles, or even membranes. Without eversion, these could easily go unnoticed.
+Before we move into the procedure, let’s quickly recall some key anatomical landmarks:
+Meibomian glands – along the tarsal plate, responsible for the lipid layer of the tear film.
+Lash follicles – common sites for infections like styes.
+Lacrimal puncta and canaliculi – tiny drainage channels that can get blocked or inflamed.
+Understanding these will make your examination more targeted and meaningful.
+Clinical Pearls & Troubleshooting:
+Step-by-Step External Adnexa Exam:
+Observation (Unaided Eye): Start with general observation from a distance, then closer:
+Symmetry: Any ptosis (drooping), proptosis (bulging)?
+Lids: Redness, swelling, lesions (stye, chalazion, cysts, skin cancer).
+Lashes: Blepharitis (crusting), madarosis (loss), trichiasis (misdirected).
+Lacrimal System: Check for swelling over lacrimal gland or sac, tearing, discharge. Gently palpate.
+Surrounding Skin: Rashes, lesions.
+Slit Lamp Examination (Magnified View): Re-examine details with magnification.
+Step-by-Step Upper Eyelid Eversion:
+Patient Instruction: Explain the procedure calmly: "I'm just going to gently flip your eyelid to look underneath. It won't hurt, just feels a little strange." Instruct patient to look down.
+Technique:
+Grasp upper eyelid lashes between thumb and forefinger (or hold lid margin firmly).
+Place a cotton-tipped applicator (or your other thumb/finger) horizontally just above the tarsal plate (where the lid naturally folds).
+Pull the lid up and out, then quickly down over the applicator.
+Hold the everted lid against the brow bone with the thumb of the hand that held the applicator.
+Use the slit lamp to examine the palpebral conjunctiva.
+Reversion: Instruct patient to look up, or gently pull the lashes forward.
+Smooth, confident motion is key — hesitation often makes patients nervous.
+Common Findings on Eversion:
+Papillae: Small, vascularized bumps (e.g., in bacterial conjunctivitis, GPC).
+Follicles: Clear, avascular mounds (e.g., in viral conjunctivitis).
+Foreign Bodies: Often found lodged in the superior fornix.
+Pseudomembranes/Membranes: Can occur in severe conjunctivitis.
+Even experienced clinicians can trip up here. Avoid these pitfalls:
+Common Mistakes: Not explaining to the patient, being too hesitant, not getting a good grip on the lashes, not having the patient look down.
+Confidence and communication make all the difference here.
+Wrap-up & Takeaway:
+A thorough external adnexa exam and mastering eyelid eversion are essential for comprehensive patient care, uncovering critical pathology that starts outside the globe.
+"Don't miss the forest for the trees – or the adnexa for the globe!"
+Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`
+  },
+  {
+    id: 'csc-ep17',
+    title: 'Contact Lens Insertion & Removal: Patient Training',
+    showName: 'Clinical Skills Corner with Aanya',
+    description: 'Guiding patients through safe, hygienic techniques for confident contact lens handling.',
+    duration: '03:57',
+    thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E17%20(Contact%20Lens%20Insertion%20%26%20Removal).mp3',
+    releaseDate: '2025-06-20',
+    seriesId: 'series-clinical-skills',
+    seriesTitle: 'Clinical Skills Corner',
+    episodeNumber: 17,
+    transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. Prescribing contact lenses is only half the story — what truly defines success is how well patients are trained to use them safely.
+Proper insertion and removal techniques, along with excellent hygiene, are the foundation for comfort, confidence, and healthy eyes. 
+Let’s explore how to effectively guide your patients through this critical part of contact lens care.
+Concept & Explanation:
+Let’s begin with why patient training matters.
+Even the best lens prescription can lead to problems if the patient doesn’t handle their lenses correctly. Training helps prevent infections like microbial keratitis, lens damage, and loss of confidence during early wear.
+Now, before anyone touches a lens, we start with the golden rule — hygiene.
+Basic Hygiene Principles:
+ALWAYS wash hands thoroughly with soap and water, then dry with a lint-free towel before touching lenses.
+NEVER use tap water or saliva.
+Only use fresh, recommended contact lens solution.
+Replace lenses and cases as recommended.
+Identifying the "Right Side Up" Lens: Explain how to check for lens inversion before insertion. 
+Hold the lens on the fingertip and look at its shape — it should form a smooth bowl, not flare out at the edges.
+Or, try the “taco test” — gently squeeze the lens between your fingers. If the edges come together neatly like a taco shell, it’s correctly oriented.
+A small check like this can save a lot of discomfort later.
+Recommended Solutions: Briefly discuss saline, multi-purpose solutions, and hydrogen peroxide systems, and why to stick to one type.
+Clinical Pearls & Troubleshooting:
+Let’s walk through the insertion and removal techniques step by step — the most hands-on part of your training.
+Step-by-Step Insertion Technique:
+Preparation: Clean hands, lens in palm, right side up.
+Lid Control: Instruct patient to use one hand to firmly hold the upper eyelid open (against the brow bone), and the other hand (holding the lens) to pull the lower lid down firmly. This prevents blinking.
+Placement: Instruct the patient to look up or straight ahead, then gently place the lens directly onto the cornea (or lower white of the eye for beginners).
+Release: Slowly release the lower lid, then the upper lid, and blink gently.
+Checking: Ask, “How does that feel?” — Vision should clear, and there shouldn’t be irritation.
+If the lens feels off, it may be inverted, have debris, or be misplaced — so teach them to remove, rinse, and try again.
+Step-by-Step Removal Technique:
+Preparation: Clean hands.
+Lid Control: Same firm lid control as insertion.
+Removal (Soft Lenses): Instruct the patient to look up. Use the pad of the forefinger (from the hand holding the lower lid) to gently slide the lens down onto the white of the eye. Then, gently "pinch" the lens off with the thumb and forefinger. 
+Removal (RGP Lenses): demonstrate either the lid-blink method (blink while pulling lids sideways to pop lens out) or a suction cup to gently lift the lens off the eye.
+Common Patient Mistakes & How to Coach:
+Blinking: Reinforce firm lid control.
+Hesitancy/Fear: Encourage practice, remind them of benefits.
+Dropping the Lens: Practice over a clean surface.
+Touching lens with fingernail: Stress using finger pads.
+Scratching the eye: Emphasize gentle touch.
+Poor hygiene: Reinforce the risk of infection.
+Encourage your patients to take home written instructions or QR-coded video guides for reinforcement — repetition builds mastery.
+Wrap-up & Takeaway:
+At the end of the day, patient training is just as important as the lens itself.
+By teaching safe insertion and removal, you’re not just preventing complications — you’re building your patient’s confidence and independence.
+"Your guidance empowers patients to see clearly and safely with contact lenses."
+Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`
+  },
+  {
+    id: 'csc-ep18',
+    title: 'Visual Field Testing: Protocols and Interpretation',
+    showName: 'Clinical Skills Corner with Aanya',
+    description: 'Performing and interpreting perimetry to detect visual field loss in ocular or neural disease.',
+    duration: '03:21',
+    thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E18%20(visual%20Field%20Testing).mp3',
+    releaseDate: '2025-06-21',
+    seriesId: 'series-clinical-skills',
+    seriesTitle: 'Clinical Skills Corner',
+    episodeNumber: 18,
+    transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. Visual field testing, or perimetry, is a critical diagnostic tool that provides functional assessment of a patient's entire field of vision. It's essential for detecting and monitoring conditions like glaucoma, neurological disorders, and retinal diseases.
+Concept & Explanation:
+What is Visual Field Testing? Measurement of the entire area of space visible to an eye when fixed on a central point.
+Purpose: To detect areas of vision loss (scotomas), quantify their size and density, and monitor changes over time.
+But how do we do this in practice? That’s where perimeters come in.
+Common Perimeters:
+Humphrey Field Analyzer (HFA): The most common automated perimeter, using Standard Automated Perimetry (SAP).
+Frequency Doubling Technology (FDT): Screening device, good for rapid assessment, particularly for glaucoma.
+Basic Principles of SAP: Patient fixates centrally, small lights flash in different parts of the visual field, and they press a button when they see them. It’s simple, but powerful.
+Threshold vs. Screening Protocols: Threshold tests give detailed sensitivity maps; screening is quicker, more of a pass/fail check.
+Clinical Pearls & Troubleshooting:
+Now that we know what we’re measuring, let’s see how to do it correctly.
+Step-by-Step HFA Procedure:
+Patient Preparation: Explain the test clearly, emphasize pressing the button only when light is seen, encourage blinking normally, and stress the importance of fixation. Correct distance correction in the trial frame.
+Machine Setup: Select appropriate test strategy (e.g., SITA Standard 24-2, 30-2), test size, and fixation monitor.
+Patient Positioning: Comfortable, centered, eye aligned, with chin and forehead rests firmly in place.
+During the Test: Monitor fixation (blind spot monitor, gaze tracking), provide encouragement, and pause if needed.Even small lapses can affect results.
+Once the test is done, how do we read the results?
+Interpreting HFA Printouts: Key Indices:
+Reliability Indices: Crucial!
+Fixation Losses (FL): High FL (e.g., >20%) indicates patient wasn't looking at the central target.
+False Positives (FP): High FP (e.g., >15%) indicates "trigger happy" patient.
+False Negatives (FN): High FN (e.g., >15%) indicates patient misses seen stimuli (often a sign of fatigue or inattention).
+Unreliable tests render results uninterpretable.
+Raw Data Plots (Threshold/Grayscale): Visual representation of sensitivity.
+Deviation Plots (Total/Pattern): Highlights vision loss relative to age-matched norms. Pattern Deviation is best for glaucoma as it filters out generalized depression (e.g., from cataract).
+Global Indices: Mean Deviation shows overall sensitivity and Pattern Standard Deviation shows localized defects.
+Glaucoma Hemifield Test (GHT): Compares sensitivity between superior and inferior hemifields, sensitive for glaucoma.
+Let’s connect these findings to what’s happening in the eye or brain.
+Common Visual Field Defects:
+Glaucoma: Nasal step, arcuate scotoma, paracentral scotoma.
+Neurological: Hemianopsia (homonymous, bitemporal), quadrantanopsia.
+Retinal: Corresponding scotoma.
+Common Mistakes: Poor patient instruction, unreliable test, wrong test pattern, failing correlating with optic nerve/retinal findings.
+Wrap-up & Takeaway:
+Visual field testing is more than pressing buttons — it’s uncovering the story of a patient’s functional vision." Accuracy depends on protocol mastery, monitoring reliability, and recognizing patterns.
+"The visual field tells you what your patient sees, not just what their eyes look like."
+Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`
+  },
+  {
+    id: 'csc-ep19',
+    title: 'Amsler Grid & Macular Assessment: Early Detection of Macular Disease',
+    showName: 'Clinical Skills Corner with Aanya',
+    description: 'Using the Amsler grid to identify early macular changes affecting central visual function.',
+    duration: '04:05',
+    thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E19%20(Amsler%20Grid%20%26%20Macular%20Assessment).mp3',
+    releaseDate: '2025-06-22',
+    seriesId: 'series-clinical-skills',
+    seriesTitle: 'Clinical Skills Corner',
+    episodeNumber: 19,
+    transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. The macula is responsible for our sharpest central vision. Early detection of macular disease, particularly Age-Related Macular Degeneration (AMD), is critical. Let’s focus on how to use the Amsler grid and other simple techniques for effective macular assessment.
+Concept & Explanation:
+What is the Macula? It’s the central part of the retina, responsible for high-acuity, detailed, and color vision. At its very center lies the fovea, where vision is the sharpest.
+Purpose of Macular Assessment: To detect subtle changes in central vision (e.g., distortion, blind spots) that can be early indicators of macular pathology.
+Detecting these changes early allows timely intervention
+Amsler Grid:
+What it is: A simple grid of straight lines with a central fixation dot.
+Principle: When viewed by someone with macular pathology, the straight lines may appear wavy, distorted (metamorphopsia), or portions may be missing (scotoma). This happens because fluid, swelling, or scarring in the macula distorts the photoreceptors, causing the brain to misinterpret the straight lines.
+Let’s walk through how to use the Amsler grid effectively — both in the clinic and for home monitoring.
+Clinical Pearls & Troubleshooting:
+Step-by-Step Amsler Grid Instruction (for Clinic and Home Use):
+Patient Education: Explain the purpose: "This checks your central vision, like a self-test for your macula."
+Setup: Ensure good lighting, wear distance correction (or near correction if appropriate for working distance), hold grid at normal reading distance (e.g., 30 cm or 12 inches).
+Procedure:
+Cover one eye.
+Stare directly at the central dot with the uncovered eye.
+While staring at the dot, answer: "Are all the lines straight? Any missing, blurry, or distorted areas?"
+Repeat for the other eye.
+Documentation: Note any distortions, scotomas, or normal findings.
+While the Amsler grid is simple, combining it with other tests improves diagnostic accuracy.
+Other Macular Assessment Techniques:
+Watzke-Allen Test (Slit Lamp):
+Procedure: Use a narrow, vertical slit lamp beam directly over the fovea. Patient describes the line.
+Interpretation: A patient with a central macular lesion (e.g., macular hole, edema) may report a break or distortion in the straight line.
+Photostress Test:
+Procedure: Measure best corrected VA, then shine a bright light (e.g., direct ophthalmoscope) into the macula for 10 seconds. Immediately re-measure VA and time how long it takes to return to baseline.
+Interpretation: Prolonged recovery time can indicate macular dysfunction.
+Color Vision: Central macular pathology can sometimes affect color vision (e.g., blue-yellow defects).
+Let’s connect these tests to what we might see in practice.
+Common Macular Pathologies Detected:
+Age-Related Macular Degeneration (AMD): Both dry (atrophy) and wet (fluid/hemorrhage causing distortion).
+Macular Edema: Swelling from diabetes, retinal vein occlusion, etc.
+Macular Holes: Full-thickness defect in the fovea.
+Epiretinal Membranes (ERM): Scar tissue on the retinal surface.
+Common Mistakes with Amsler Grid: Not covering one eye, not fixating centrally, allowing patient to scan, not holding at correct distance, not explaining clearly.
+Wrap-up & Takeaway:
+The Amsler grid is a simple yet powerful tool for early detection and home monitoring of macular disease." Always combine it with other clinical tests for a comprehensive macular assessment.
+"Protecting central vision starts with vigilance for subtle changes."
+Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`
+  },
+  {
+    id: 'csc-ep20',
+    title: 'Topical Drops: Proper Instillation & Patient Education',
+    showName: 'Clinical Skills Corner with Aanya',
+    description: 'Learn correct eye drop instillation techniques and key patient education for safe, effective treatment.',
+    duration: '04:18',
+    thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E20%20(Topical%20Drops).mp3',
+    releaseDate: '2025-06-23',
+    seriesId: 'series-clinical-skills',
+    seriesTitle: 'Clinical Skills Corner',
+    episodeNumber: 20,
+    transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. Whether it's for diagnosis or treatment, eye drops are a cornerstone of optometric practice. But if a patient can't get the drop into their eye effectively, or if they don't understand why they're using it, even the best medication is useless. 
+Concept & Explanation:
+Let’s start with the basics — why proper instillation matters so much.
+Efficacy: Ensures the medication reaches the ocular surface for therapeutic effect.
+Minimizing Waste: Drops are expensive; avoiding overflow saves money.
+Reducing Systemic Absorption: Minimizes side effects from drugs entering the bloodstream.
+Preventing Contamination: Keeps the bottle tip sterile.
+Basic Eye Drop Anatomy: The eye’s conjunctival cul-de-sac — the pocket formed when you pull down the lower lid — can only hold about 25 to 30 microliters, so more than one drop often overflows.
+And when it comes to types, drops fall into two main categories:
+Diagnostic (fluorescein, dilating drops), 
+Therapeutic (antibiotics, steroids, glaucoma meds, artificial tears).
+Clinical Pearls & Troubleshooting:
+Now, let’s walk through how to teach self-instillation step-by-step — because this is where most patients struggle.
+Hand Hygiene: Emphasize washing hands thoroughly with soap and water.
+Bottle Preparation: Shake bottle gently if it's a suspension.
+Positioning: Recommend tilting head back, looking up towards the ceiling.
+Creating a Pouch: Use one hand to gently pull down the lower eyelid, creating a small pocket.
+Dispensing the Drop: Hold the bottle inverted, about 1 inch (2.5 cm) above the eye. Squeeze gently to dispense one drop into the pouch. Avoid touching the bottle tip to the eye or lashes!
+Closure & Occlusion: Close the eye gently (do not squeeze!). Apply gentle pressure to the inner corner of the eye (punctual occlusion) for 30-60 seconds. This helps prevent systemic absorption and keeps the drop on the eye longer.
+Wiping Excess: Blot any excess with a clean tissue.
+Multiple Drops: If multiple different drops are prescribed, advise waiting at least 5 minutes between drops to prevent "washout." If the same drop, wait 1-2 minutes.
+Of course, not every patient finds this easy — and that’s where your guidance makes the difference.
+Common Patient Challenges & Solutions:
+Difficulty Aiming: Suggest looking slightly away from the dropper tip, or lying down.
+Blinking Reflex: Remind them to keep the lids wide or pull them firmly.
+Fear: Reassure them, demonstrate on yourself.
+Tremors: Suggest resting hand on forehead for stability.
+Arthritis/Dexterity Issues: Recommend assistive devices (e.g., drop guides), or ask a family member to help.
+Now comes the most crucial part — empowering patients to care for their own eyes confidently.
+Key Patient Education Points:
+Adherence: Stress the importance of taking drops exactly as prescribed (dosage, frequency, duration).
+Storage: Where to store (refrigeration for some, room temp for others).
+Expiration: Discard after a certain time (e.g., 28 days for opened multi-dose bottles) or once treatment is complete.
+Side Effects: Counsel on expected transient stinging, blur, or other specific side effects of the medication.
+Contamination: Remind them not to touch the tip to any surface.
+Wrap-up & Takeaway:
+Your role in educating patients on proper drop instillation is vital for treatment success and patient safety. Make sure they know how and why.
+"Effective eye care often starts with a single, properly placed drop."
+
+That brings us to the end of our Clinical Skills Corner series. This is Aanya, signing off — thank you for learning with us, and until next time, keep applying these skills with precision and curiosity in your daily practice.`
+  },
+  {
     id: 'fb-ep1',
     title: 'Phosphene Phenomena',
     showName: 'Focus Bites',
