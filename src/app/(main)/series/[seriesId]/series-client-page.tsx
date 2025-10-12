@@ -59,26 +59,26 @@ export default function SeriesClientPage({ initialSeries: series, initialEpisode
       
       {/* Redesigned Hero Section */}
       <div className="bg-card dark:bg-muted/10 border border-border/50 rounded-xl p-4 sm:p-6 shadow-sm mb-12 group">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-start">
+        <div className="grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8 items-start">
             {/* Image Column */}
-            <div className="md:col-span-1 flex justify-center items-start">
+            <div className="col-span-1 flex justify-center items-start">
                 <Image
                     src={series.thumbnailUrl}
                     alt={series.title}
                     width={400}
                     height={400}
-                    className="rounded-lg shadow-xl aspect-square object-cover w-48 h-48 md:w-full md:h-auto transition-transform duration-300 group-hover:scale-105"
+                    className="rounded-lg shadow-xl aspect-square object-cover w-full h-auto transition-transform duration-300 group-hover:scale-105"
                     data-ai-hint={series.dataAiHint || "podcast series cover"}
                     priority
                 />
             </div>
 
             {/* Info & Stats Column */}
-            <div className="md:col-span-2">
-                <h1 className="text-3xl md:text-4xl font-bold mb-3 font-headline">{series.title}</h1>
-                <p className="text-md text-muted-foreground mb-6">{series.description}</p>
+            <div className="col-span-2">
+                <h1 className="text-xl md:text-4xl font-bold mb-2 font-headline">{series.title}</h1>
+                <p className="text-xs sm:text-md text-muted-foreground mb-4 sm:mb-6">{series.description}</p>
                 
-                <div className="flex flex-col sm:flex-row gap-4 sm:items-center mb-6">
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 sm:items-center mb-4 sm:mb-6">
                     <StatItem icon={List} value={episodesInSeries.length.toString()} label="Episodes" />
                     {totalDuration && (
                         <StatItem icon={Clock} value={totalDuration.replace(' total','')} label="Total Time" />
