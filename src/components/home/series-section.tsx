@@ -31,7 +31,7 @@ const SeriesSection: React.FC<SeriesSectionProps> = ({ series, allEpisodes }) =>
             Explore Our Series
           </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-6 px-4 md:px-0">
+        <div className="grid grid-cols-1 gap-6 px-4 md:px-0">
           {series.map((s) => {
             const episodeCount = allEpisodes.filter(ep => ep.seriesId === s.id).length;
             return (
