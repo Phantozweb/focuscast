@@ -1,7 +1,7 @@
-import Header from '@/components/layout/header';
+
 import AudioPlayerWrapper from '@/components/player/audio-player-wrapper';
 import { PlayerProvider } from '@/contexts/player-context';
-import Footer from '@/components/layout/footer';
+import MainContent from './main-content';
 
 export default function MainAppLayout({
   children,
@@ -10,10 +10,8 @@ export default function MainAppLayout({
 }) {
   return (
     <PlayerProvider>
-      <div className="relative flex min-h-screen flex-col bg-background">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+      <div className="flex">
+        <MainContent>{children}</MainContent>
         <AudioPlayerWrapper />
       </div>
     </PlayerProvider>
