@@ -73,7 +73,7 @@ const HeroSection: React.FC = () => {
           <FocusCastLogo className="h-10 md:h-12 text-4xl md:text-5xl" />
         </div>
         <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto">
-          Your weekly dose of optometry insights, always in focus.
+          Listen to expert optometry podcasts anytime, anywhere.
         </p>
         <div className="max-w-xl mx-auto">
           <div className="flex w-full items-center space-x-2">
