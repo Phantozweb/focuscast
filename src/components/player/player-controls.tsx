@@ -15,6 +15,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { useIsMobile } from '@/hooks/use-mobile';
 
 
 interface PlayerControlsProps {
@@ -40,8 +41,10 @@ const PlayerControls: React.FC<PlayerControlsProps> = ({ isExpandedView }) => {
     setPlaybackRate,
     skipForward,
     skipBackward,
-    toggleExpandPlayer
+    toggleExpandPlayer,
+    cyclePlaybackRate,
   } = usePlayer();
+  const isMobile = useIsMobile();
 
   if (!currentEpisode) return null;
 
@@ -117,24 +120,31 @@ const PlayerControls: React.FC<PlayerControlsProps> = ({ isExpandedView }) => {
 
         {/* Volume and Speed Controls */}
         <div className="flex items-center justify-between gap-4 mt-4">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="flex gap-2 text-muted-foreground">
+            {isMobile ? (
+                 <Button variant="ghost" className="flex gap-2 text-muted-foreground" onClick={cyclePlaybackRate}>
                   <Gauge size={18} />
                   <span>{playbackRate}x</span>
                 </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-24">
-                <DropdownMenuLabel>Playback Speed</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuRadioGroup value={playbackRate.toString()} onValueChange={(val) => setPlaybackRate(parseFloat(val))}>
-                  <DropdownMenuRadioItem value="0.75">0.75x</DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem value="1">1x (Normal)</DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem value="1.5">1.5x</DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem value="2">2x</DropdownMenuRadioItem>
-                </DropdownMenuRadioGroup>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            ) : (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" className="flex gap-2 text-muted-foreground">
+                      <Gauge size={18} />
+                      <span>{playbackRate}x</span>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="w-24">
+                    <DropdownMenuLabel>Playback Speed</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuRadioGroup value={playbackRate.toString()} onValueChange={(val) => setPlaybackRate(parseFloat(val))}>
+                      <DropdownMenuRadioItem value="0.75">0.75x</DropdownMenuRadioItem>
+                      <DropdownMenuRadioItem value="1">1x (Normal)</DropdownMenuRadioItem>
+                      <DropdownMenuRadioItem value="1.5">1.5x</DropdownMenuRadioItem>
+                      <DropdownMenuRadioItem value="2">2x</DropdownMenuRadioItem>
+                    </DropdownMenuRadioGroup>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+            )}
 
             <div className="flex items-center gap-2 w-1/2 max-w-xs">
               <Button variant="ghost" size="icon" onClick={() => setVolume(volume > 0 ? 0 : 1)} className="w-8 h-8">

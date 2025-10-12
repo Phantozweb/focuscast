@@ -30,6 +30,7 @@ interface PlayerActions {
   playPreviousInPlaylist: () => void;
   startSeriesPlayback: (seriesEpisodes: Episode[], startIndex?: number) => void;
   setPlaybackRate: (rate: number) => void;
+  cyclePlaybackRate: () => void;
   skipForward: () => void;
   skipBackward: () => void;
 }
@@ -46,6 +47,8 @@ const getRawGitHubUrl = (url: string): string => {
   }
   return url;
 };
+
+const PLAYBACK_RATES = [1, 1.5, 2, 0.75];
 
 export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [currentEpisode, setCurrentEpisode] = useState<Episode | null>(null);
@@ -255,11 +258,20 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   }, []);
   
   const setPlaybackRate = useCallback((rate: number) => {
-      setPlaybackRateState(rate);
-      if (audioRef.current) {
-        audioRef.current.playbackRate = rate;
+      if (PLAYBACK_RATES.includes(rate)) {
+        setPlaybackRateState(rate);
+        if (audioRef.current) {
+          audioRef.current.playbackRate = rate;
+        }
       }
   }, []);
+
+  const cyclePlaybackRate = useCallback(() => {
+    const currentIndex = PLAYBACK_RATES.indexOf(playbackRate);
+    const nextIndex = (currentIndex + 1) % PLAYBACK_RATES.length;
+    const newRate = PLAYBACK_RATES[nextIndex];
+    setPlaybackRate(newRate);
+  }, [playbackRate, setPlaybackRate]);
 
   const skipTime = useCallback((amount: number) => {
     if (audioRef.current) {
@@ -312,6 +324,7 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       playPreviousInPlaylist,
       startSeriesPlayback,
       setPlaybackRate,
+      cyclePlaybackRate,
       skipForward,
       skipBackward,
     }}>

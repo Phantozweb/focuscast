@@ -12,14 +12,25 @@ import { Separator } from '../ui/separator';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import FeedbackForm from '@/components/general/feedback-form';
 import { useState } from 'react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const ExpandedPlayer: React.FC = () => {
   const { currentEpisode, isExpanded, toggleExpandPlayer, closePlayer, isLoading } = usePlayer();
   const [isFeedbackDialogOpen, setIsFeedbackDialogOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   if (!currentEpisode) return null;
 
   const episodeUrl = typeof window !== 'undefined' ? `${window.location.origin}/episode/${currentEpisode.id}` : '';
+
+  const handleCloseAction = () => {
+    // On mobile, the 'X' in expanded view should just collapse it, not stop playback
+    if (isMobile) {
+      toggleExpandPlayer();
+    } else {
+      closePlayer();
+    }
+  };
 
   const content = (
     <div className="flex flex-col h-full bg-background text-foreground shadow-2xl">
@@ -31,7 +42,7 @@ const ExpandedPlayer: React.FC = () => {
         <div className="flex-grow text-center font-semibold text-sm truncate md:hidden">
           Now Playing
         </div>
-        <Button variant="ghost" size="icon" onClick={closePlayer} className="hover:bg-destructive/20">
+        <Button variant="ghost" size="icon" onClick={handleCloseAction} className="hover:bg-destructive/20">
           <X size={24} className="text-muted-foreground hover:text-destructive"/>
           <span className="sr-only">Close Player</span>
         </Button>
