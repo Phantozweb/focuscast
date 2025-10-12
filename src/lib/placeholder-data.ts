@@ -40,7 +40,7 @@ export const placeholderEpisodes: Episode[] = [
    {
     id: 'csc-ep1',
     title: 'Visual Acuity: Beyond 20/20 (6/6)',
-    showName: 'Clinical Skills Corner with Aanya',
+    showName: 'Clinical Skills Corner',
     description: 'Master accurate visual acuity assessment in this foundational optometry episode. Learn methods from basic Snellen charts to advanced LogMAR and pinhole testing to differentiate refractive errors from pathology. A key clinical skill for every eye exam.',
     duration: '03:23',
     thumbnailUrl: clinicalSkillsCornerThumbnail,
@@ -50,7 +50,7 @@ export const placeholderEpisodes: Episode[] = [
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 1,
     keywords: ['visual acuity', 'Snellen chart', 'LogMAR', 'pinhole test', 'refractive error', 'pediatric optometry', 'low vision', 'acuity testing', 'clinical pearls'],
-    transcript: `Hello, and you’re listening to Clinical Skills Corner with Aanya!
+    transcript: `Hello, and you’re listening to Clinical Skills Corner!
 Every clinic day is full of tiny challenges and big learning moments.
 Together, we’ll break down key techniques, tackle tricky scenarios, and share the clinical pearls that turn good care into great care.
 Ready to sharpen your skills and think like a pro? Let’s dive in!
@@ -92,7 +92,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
   {
     id: 'csc-ep2',
     title: 'Retinoscopy Revealed: Mastering the Objective Refraction',
-    showName: 'Clinical Skills Corner with Aanya',
+    showName: 'Clinical Skills Corner',
     description: 'A deep dive into retinoscopy techniques for objective refraction. This episode explains how to estimate refractive errors with precision, interpret "with" and "against" motion, and neutralize prescriptions for myopia, hyperopia, and astigmatism.',
     duration: '03:02',
     thumbnailUrl: clinicalSkillsCornerThumbnail,
@@ -143,7 +143,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
   {
     id: 'csc-ep3',
     title: 'Subjective Refraction: Refining the Prescription',
-    showName: 'Clinical Skills Corner with Aanya',
+    showName: 'Clinical Skills Corner',
     description: 'Learn to fine-tune prescriptions using subjective refraction techniques for optimal visual comfort. This episode covers JCC (Jackson Cross Cylinder), fogging, and binocular balancing to achieve the best corrected visual acuity.',
     duration: '03:55',
     thumbnailUrl: clinicalSkillsCornerThumbnail,
@@ -196,7 +196,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
   {
     id: 'csc-ep4',
     title: 'Phoropter vs. Trial Frame: Choosing Your Refraction Tool',
-    showName: 'Clinical Skills Corner with Aanya',
+    showName: 'Clinical Skills Corner',
     description: 'An essential comparison of refraction tools in optometry. Learn when to use a phoropter for efficiency versus a trial frame for complex, low-vision, or pediatric cases to ensure the most accurate and comfortable prescription.',
     duration: '03:10',
     thumbnailUrl: clinicalSkillsCornerThumbnail,
@@ -267,7 +267,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
   {
     id: 'csc-ep5',
     title: 'Presbyopic Add Determination: Helping Patients See Up Close',
-    showName: 'Clinical Skills Corner with Aanya',
+    showName: 'Clinical Skills Corner',
     description: 'Master techniques for calculating near add power in presbyopic patients. This episode covers age-based methods, plus build-up, and the advanced cross-cylinder technique (NRA/PRA) to determine the best presbyopic addition for reading and computer use.',
     duration: '03:21',
     thumbnailUrl: clinicalSkillsCornerThumbnail,
@@ -323,7 +323,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
   {
     id: 'csc-ep6',
     title: 'Slit Lamp Mastery: A Systematic Anterior Segment Exam',
-    showName: 'Clinical Skills Corner with Aanya',
+    showName: 'Clinical Skills Corner',
     description: 'Become a pro at using the slit lamp for anterior segment evaluation. This episode guides you through a systematic exam from lids and lashes to the anterior vitreous, using various illumination techniques like direct, indirect, and retro-illumination.',
     duration: '04:16',
     thumbnailUrl: clinicalSkillsCornerThumbnail,
@@ -377,7 +377,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
   {
     id: 'csc-ep7',
     title: 'Tonometry Techniques: Measuring Intraocular Pressure Accurately',
-    showName: 'Clinical Skills Corner with Aanya',
+    showName: 'Clinical Skills Corner',
     description: 'A guide to accurate intraocular pressure (IOP) measurement for glaucoma detection. This episode covers Goldmann Applanation Tonometry (GAT), non-contact tonometry (NCT), and the impact of central corneal thickness (CCT).',
     duration: '03:57',
     thumbnailUrl: clinicalSkillsCornerThumbnail,
@@ -436,7 +436,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
   {
     id: 'csc-ep8',
     title: 'Gonioscopy Fundamentals: Viewing the Anterior Chamber Angle',
-    showName: 'Clinical Skills Corner with Aanya',
+    showName: 'Clinical Skills Corner',
     description: 'Learn gonioscopy principles to evaluate anterior chamber angle structures. This episode covers how to identify abnormalities and differentiate between open-angle and closed-angle glaucoma, a critical skill for any optometrist.',
     duration: '04:16',
     thumbnailUrl: clinicalSkillsCornerThumbnail,
@@ -505,7 +505,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
   {
     id: 'csc-ep9',
     title: 'Direct Ophthalmoscopy: Practical Tips for Fundus Viewing',
-    showName: 'Clinical Skills Corner with Aanya',
+    showName: 'Clinical Skills Corner',
     description: 'Master direct ophthalmoscopy for a detailed posterior segment assessment. This episode offers practical tips for examining the optic disc, macula, and retinal vasculature with high magnification for a comprehensive fundus view.',
     duration: '04:09',
     thumbnailUrl: clinicalSkillsCornerThumbnail,
@@ -560,7 +560,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
   {
     id: 'csc-ep10',
     title: 'Indirect Ophthalmoscopy: Comprehensive Posterior Segment Examination',
-    showName: 'Clinical Skills Corner with Aanya',
+    showName: 'Clinical Skills Corner',
     description: 'Learn to examine the entire retina with binocular indirect ophthalmoscopy. This episode covers techniques to get a wide-field, stereoscopic view of the posterior segment, crucial for detecting retinal tears, detachments, and peripheral pathology.',
     duration: '03:50',
     thumbnailUrl: clinicalSkillsCornerThumbnail,
@@ -619,7 +619,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
   {
     id: 'csc-ep11',
     title: 'Pupil Examination: A Window to Neurological Health',
-    showName: 'Clinical Skills Corner with Aanya',
+    showName: 'Clinical Skills Corner',
     description: 'Learn to perform a thorough pupil examination to assess optic nerve function and detect neurological abnormalities. This episode covers direct and consensual responses, the swinging flashlight test for RAPD, and other key pupillary signs.',
     duration: '04:23',
     thumbnailUrl: clinicalSkillsCornerThumbnail,
@@ -683,7 +683,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
   {
     id: 'csc-ep12',
     title: 'Cover Test Demystified: Diagnosing Ocular Misalignment',
-    showName: 'Clinical Skills Corner with Aanya',
+    showName: 'Clinical Skills Corner',
     description: 'An objective guide to assessing eye alignment with the cover test. Learn to identify tropias, phorias, and other binocular vision disorders. This episode breaks down the cover-uncover and alternating cover tests to diagnose strabismus.',
     duration: '04:11',
     thumbnailUrl: clinicalSkillsCornerThumbnail,
@@ -743,7 +743,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
   {
     id: 'csc-ep13',
     title: 'Ocular Motility Assessment: Tracking Eye Movements',
-    showName: 'Clinical Skills Corner with Aanya',
+    showName: 'Clinical Skills Corner',
     description: 'A guide to evaluating extraocular muscle function and coordination. This episode explains how to perform an ocular motility assessment to detect nerve palsies (CN III, IV, VI), restrictions, and binocular vision disorders.',
     duration: '03:45',
     thumbnailUrl: clinicalSkillsCornerThumbnail,
@@ -813,7 +813,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
   {
     id: 'csc-ep14',
     title: 'Keratometry & Corneal Topography: Understanding Corneal Shape',
-    showName: 'Clinical Skills Corner with Aanya',
+    showName: 'Clinical Skills Corner',
     description: 'Learn to measure and map corneal curvature using keratometry and corneal topography. This episode covers techniques for accurate refraction, contact lens fitting, and early detection of diseases like keratoconus.',
     duration: '04:08',
     thumbnailUrl: clinicalSkillsCornerThumbnail,
@@ -873,7 +873,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
   {
     id: 'csc-ep15',
     title: 'Dilation Procedures: Safe and Effective Mydriasis',
-    showName: 'Clinical Skills Corner with Aanya',
+    showName: 'Clinical Skills Corner',
     description: 'A guide to mastering pharmacologic pupil dilation (mydriasis) for a thorough fundus examination. Learn about mydriatic and cycloplegic drops, instillation techniques, and crucial patient safety precautions for a safe and effective dilated eye exam.',
     duration: '03:59',
     thumbnailUrl: clinicalSkillsCornerThumbnail,
@@ -936,7 +936,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
   {
     id: 'csc-ep16',
     title: 'Eyelid Eversion & External Adnexa Exam: Beyond the Globe',
-    showName: 'Clinical Skills Corner with Aanya',
+    showName: 'Clinical Skills Corner',
     description: 'Learn to perform a meticulous external adnexa exam and master upper eyelid eversion. This episode covers assessing eyelids, lashes, and the lacrimal system to reveal hidden ocular surface pathology like foreign bodies or conjunctivitis.',
     duration: '04:22',
     thumbnailUrl: clinicalSkillsCornerThumbnail,
@@ -998,7 +998,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
   {
     id: 'csc-ep17',
     title: 'Contact Lens Insertion & Removal: Patient Training',
-    showName: 'Clinical Skills Corner with Aanya',
+    showName: 'Clinical Skills Corner',
     description: 'A practical guide for training patients in safe contact lens handling. This episode covers hygienic techniques for insertion and removal of soft and RGP lenses, ensuring patient confidence and preventing complications like microbial keratitis.',
     duration: '03:57',
     thumbnailUrl: clinicalSkillsCornerThumbnail,
@@ -1066,7 +1066,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
   {
     id: 'csc-ep18',
     title: 'Visual Field Testing: Protocols and Interpretation',
-    showName: 'Clinical Skills Corner with Aanya',
+    showName: 'Clinical Skills Corner',
     description: 'A deep dive into performing and interpreting visual field tests. This episode covers protocols for Humphrey Field Analyzer (HFA) and Frequency Doubling Technology (FDT), helping you detect visual field loss from glaucoma or neurological disease.',
     duration: '03:21',
     thumbnailUrl: clinicalSkillsCornerThumbnail,
@@ -1125,7 +1125,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
   {
     id: 'csc-ep19',
     title: 'Amsler Grid & Macular Assessment: Early Detection of Macular Disease',
-    showName: 'Clinical Skills Corner with Aanya',
+    showName: 'Clinical Skills Corner',
     description: 'Learn to use the Amsler grid for early detection of macular diseases like AMD. This episode covers how to identify metamorphopsia and scotomas, and supplements the grid test with other macular assessments like the Watzke-Allen test.',
     duration: '04:05',
     thumbnailUrl: clinicalSkillsCornerThumbnail,
@@ -1187,7 +1187,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
   {
     id: 'csc-ep20',
     title: 'Topical Drops: Proper Instillation & Patient Education',
-    showName: 'Clinical Skills Corner with Aanya',
+    showName: 'Clinical Skills Corner',
     description: 'Learn correct eye drop instillation techniques and crucial patient education for safe, effective treatment. This episode covers instillation, punctal occlusion, and how to manage common patient challenges to ensure medication adherence.',
     duration: '04:18',
     thumbnailUrl: clinicalSkillsCornerThumbnail,
@@ -1653,6 +1653,7 @@ Jennifer, signing off.`
     
 
     
+
 
 
 
