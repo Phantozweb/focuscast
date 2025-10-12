@@ -4,6 +4,7 @@
 import type { Episode } from '@/types';
 import React, { createContext, useState, useContext, useRef, useEffect, useCallback } from 'react';
 import { useToast } from "@/hooks/use-toast";
+import { placeholderEpisodes } from '@/lib/placeholder-data';
 
 interface PlayerState {
   currentEpisode: Episode | null;
@@ -62,14 +63,50 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const { toast } = useToast();
 
   const playNextInPlaylist = useCallback(() => {
+    let nextEpisode: Episode | undefined;
+    let nextIndex: number | undefined;
+
     if (currentPlaylist.length > 0 && currentPlaylistEpisodeIndex < currentPlaylist.length - 1) {
-      const nextIndex = currentPlaylistEpisodeIndex + 1;
-      setCurrentPlaylistEpisodeIndex(nextIndex);
-      setCurrentEpisode(currentPlaylist[nextIndex]);
+      // There's a next episode in the current playlist
+      nextIndex = currentPlaylistEpisodeIndex + 1;
+      nextEpisode = currentPlaylist[nextIndex];
+      toast({ title: "Playing Next in Playlist", description: nextEpisode.title });
     } else {
-      toast({ title: "End of playlist", description: "You've reached the end of the current playlist." });
+      // End of playlist, or no playlist. Find a new episode.
+      toast({ title: "Autoplaying Next Episode..." });
+      
+      const allOtherEpisodes = placeholderEpisodes.filter(ep => ep.id !== currentEpisode?.id);
+      
+      // Try to find a related episode from the same series
+      let suggestedEpisode: Episode | undefined;
+      if (currentEpisode?.seriesId) {
+        const relatedEpisodes = allOtherEpisodes.filter(ep => ep.seriesId === currentEpisode.seriesId);
+        if(relatedEpisodes.length > 0) {
+            suggestedEpisode = relatedEpisodes[Math.floor(Math.random() * relatedEpisodes.length)];
+        }
+      }
+
+      // If no related episode found, pick a random one
+      if (!suggestedEpisode) {
+        suggestedEpisode = allOtherEpisodes[Math.floor(Math.random() * allOtherEpisodes.length)];
+      }
+
+      nextEpisode = suggestedEpisode;
+      // When autoplaying a new episode, it becomes a playlist of one
+      setCurrentPlaylist([nextEpisode]);
+      setCurrentPlaylistEpisodeIndex(0);
+      setCurrentEpisode(nextEpisode);
+      return; // Exit here since we manually set the episode
     }
-  }, [currentPlaylist, currentPlaylistEpisodeIndex, toast]);
+    
+    if (nextEpisode && nextIndex !== undefined) {
+      setCurrentPlaylistEpisodeIndex(nextIndex);
+      setCurrentEpisode(nextEpisode);
+    } else {
+       toast({ title: "End of playlist", description: "You've reached the end of the content." });
+    }
+
+  }, [currentPlaylist, currentPlaylistEpisodeIndex, toast, currentEpisode]);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -93,9 +130,7 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       const handlePause = () => setIsPlaying(false);
       const handleEnded = () => {
         setIsPlaying(false);
-        if (currentPlaylist.length > 0 && currentPlaylistEpisodeIndex < currentPlaylist.length - 1) {
-          playNextInPlaylist();
-        }
+        playNextInPlaylist();
       };
       const handleWaiting = () => setIsLoading(true);
       const handleCanPlay = () => setIsLoading(false);
@@ -121,7 +156,7 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         }
       };
     }
-  }, [volume, playbackRate, playNextInPlaylist, currentPlaylist, currentPlaylistEpisodeIndex]);
+  }, [volume, playbackRate, playNextInPlaylist]);
 
   useEffect(() => {
     if (currentEpisode && audioRef.current) {
@@ -167,21 +202,17 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       setCurrentPlaylist(playlist);
       setCurrentPlaylistEpisodeIndex(startIndex);
     } else {
-      const existingIndex = currentPlaylist.findIndex(ep => ep.id === episode.id);
-      if (existingIndex !== -1 && currentPlaylist.length > 0) {
-        setCurrentPlaylistEpisodeIndex(existingIndex);
-      } else {
-        setCurrentPlaylist([episode]);
-        setCurrentPlaylistEpisodeIndex(0);
-      }
+      // If no playlist is provided, create a playlist of one
+      setCurrentPlaylist([episode]);
+      setCurrentPlaylistEpisodeIndex(0);
     }
-  }, [currentEpisode, currentPlaylist, togglePlayPause]);
+  }, [currentEpisode, togglePlayPause]);
 
 
   const startSeriesPlayback = useCallback((seriesEpisodes: Episode[], startIndex: number = 0) => {
     if (seriesEpisodes.length > 0) {
       playEpisode(seriesEpisodes[startIndex], seriesEpisodes, startIndex);
-      setIsExpanded(true);
+      // setIsExpanded(true); // Let's not force expand, user can do it.
     }
   }, [playEpisode]);
 
@@ -271,6 +302,7 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       skipBackward,
     }}>
       {children}
+      {audioRef.current && <audio ref={audioRef} />}
     </PlayerContext.Provider>
   );
 };
@@ -282,3 +314,5 @@ export const usePlayer = (): PlayerContextType => {
   }
   return context;
 };
+
+    
