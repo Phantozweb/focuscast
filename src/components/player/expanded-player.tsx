@@ -9,14 +9,14 @@ import { ChevronDown, X, ListMusic, MessageSquareQuote } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from '../ui/separator';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import FeedbackForm from '@/components/general/feedback-form';
 import { useState } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const ExpandedPlayer: React.FC = () => {
   const { currentEpisode, isExpanded, toggleExpandPlayer, closePlayer, isLoading } = usePlayer();
-  const [isFeedbackDialogOpen, setIsFeedbackDialogOpen] = useState(false);
+  const [isFeedbackSheetOpen, setIsFeedbackSheetOpen] = useState(false);
   const isMobile = useIsMobile();
 
   if (!currentEpisode) return null;
@@ -70,28 +70,28 @@ const ExpandedPlayer: React.FC = () => {
             <PlayerControls isExpandedView={true} />
           </div>
 
-          <Dialog open={isFeedbackDialogOpen} onOpenChange={setIsFeedbackDialogOpen}>
-            <DialogTrigger asChild>
+          <Sheet open={isFeedbackSheetOpen} onOpenChange={setIsFeedbackSheetOpen}>
+            <SheetTrigger asChild>
                 <Button variant="outline">
                     <MessageSquareQuote className="mr-2 h-4 w-4" />
                     Leave a Review
                 </Button>
-            </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px]">
-                <DialogHeader>
-                <DialogTitle>Review "{currentEpisode.title}"</DialogTitle>
-                </DialogHeader>
+            </SheetTrigger>
+            <SheetContent side="bottom" className="h-[90vh] overflow-y-auto">
+                <SheetHeader>
+                  <SheetTitle className="text-2xl mt-4">Review "{currentEpisode.title}"</SheetTitle>
+                </SheetHeader>
                 <div className="py-4">
                     <FeedbackForm
                         sourceTitle={currentEpisode.title}
                         sourceType="Episode"
                         sourceUrl={episodeUrl}
                         sourceThumbnailUrl={currentEpisode.thumbnailUrl}
-                        onFeedbackSent={() => setIsFeedbackDialogOpen(false)}
+                        onFeedbackSent={() => setIsFeedbackSheetOpen(false)}
                     />
                 </div>
-            </DialogContent>
-          </Dialog>
+            </SheetContent>
+          </Sheet>
 
           <Separator className="w-2/3 mx-auto" />
 
@@ -161,5 +161,3 @@ const ExpandedPlayer: React.FC = () => {
 };
 
 export default ExpandedPlayer;
-
-    
