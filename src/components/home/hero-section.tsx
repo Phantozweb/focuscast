@@ -35,9 +35,7 @@ const HeroSection: React.FC = () => {
       }
 
       // Suggest first matching series
-      const matchingSeries = placeholderSeries.find(s => 
-        s.title.toLowerCase().includes(lowerSearchTerm)
-      );
+      const matchingSeries = placeholderSeries.find(s => s.title.toLowerCase().includes(lowerSearchTerm));
       if (matchingSeries) {
         const count = placeholderEpisodes.filter(ep => ep.seriesId === matchingSeries.id).length;
         newSuggestions.push({ ...matchingSeries, resultType: 'series', episodeCount: count });
@@ -72,7 +70,7 @@ const HeroSection: React.FC = () => {
     <section className="py-16 md:py-24 bg-gradient-to-br from-primary/10 via-background to-secondary/10 dark:from-primary/5 dark:to-secondary/5">
       <div className="container mx-auto text-center">
         <div className="flex justify-center items-center gap-3 mb-6">
-          <FocusCastLogo className="h-12 w-auto md:h-16" />
+          <FocusCastLogo className="h-10 md:h-12" />
         </div>
         <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto">
           Optometry Insights, Clearly Delivered.

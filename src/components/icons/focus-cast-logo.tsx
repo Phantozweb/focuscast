@@ -22,7 +22,7 @@ const FocusCastLogo: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
         className="fill-primary"
       />
     </svg>
-    <span className="text-4xl md:text-5xl font-bold text-foreground font-headline">
+    <span className="text-3xl md:text-4xl font-bold text-foreground font-headline">
         FocusCast
     </span>
   </div>
