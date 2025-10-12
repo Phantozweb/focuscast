@@ -6,10 +6,12 @@ import type { Episode, Series } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, PlayCircle, Clock, Play, Share2 } from 'lucide-react';
+import { ArrowLeft, PlayCircle, Clock, Play, MessageSquareQuote } from 'lucide-react';
 import { usePlayer } from '@/contexts/player-context';
 import { cn } from '@/lib/utils';
 import ShareButton from '@/components/general/share-button';
+import FeedbackForm from '@/components/general/feedback-form';
+import { Separator } from '@/components/ui/separator';
 
 interface SeriesClientPageProps {
   initialSeries: Series; 
@@ -34,6 +36,8 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
     }
     return episode.title;
   };
+  
+  const seriesUrl = typeof window !== 'undefined' ? `${window.location.origin}/series/${series.id}` : '';
 
   return (
     <div className="container mx-auto py-8">
@@ -149,6 +153,23 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
           })}
         </div>
       )}
+
+      <Separator className="my-12" />
+
+      {/* Feedback Section */}
+      <div className="mt-6 px-4 md:px-0">
+          <h2 className="text-3xl font-bold mb-6 font-headline flex items-center">
+              <MessageSquareQuote className="mr-3 h-6 w-6" />
+              Review this Series
+          </h2>
+          <div className="max-w-2xl">
+            <FeedbackForm
+                sourceTitle={series.title}
+                sourceType="Series"
+                sourceUrl={seriesUrl}
+            />
+          </div>
+      </div>
     </div>
   );
 }

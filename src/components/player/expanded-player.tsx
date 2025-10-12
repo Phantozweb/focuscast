@@ -5,16 +5,22 @@ import Image from 'next/image';
 import { usePlayer } from '@/contexts/player-context';
 import PlayerControls from './player-controls';
 import { Button } from '@/components/ui/button';
-import { ChevronDown, X, ListMusic, Bookmark } from 'lucide-react';
+import { ChevronDown, X, ListMusic, Bookmark, MessageSquareQuote } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from '../ui/separator';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import FeedbackForm from '@/components/general/feedback-form';
+import { useState } from 'react';
 
 const ExpandedPlayer: React.FC = () => {
   const { currentEpisode, isExpanded, toggleExpandPlayer, closePlayer, isLoading } = usePlayer();
+  const [isFeedbackDialogOpen, setIsFeedbackDialogOpen] = useState(false);
 
   if (!currentEpisode) return null;
+
+  const episodeUrl = typeof window !== 'undefined' ? `${window.location.origin}/episode/${currentEpisode.id}` : '';
 
   const content = (
     <div className="flex flex-col h-full bg-background text-foreground shadow-2xl">
@@ -56,6 +62,28 @@ const ExpandedPlayer: React.FC = () => {
             )}
             <PlayerControls isExpandedView={true} />
           </div>
+
+          <Dialog open={isFeedbackDialogOpen} onOpenChange={setIsFeedbackDialogOpen}>
+            <DialogTrigger asChild>
+                <Button variant="outline">
+                    <MessageSquareQuote className="mr-2 h-4 w-4" />
+                    Leave a Review
+                </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[425px]">
+                <DialogHeader>
+                <DialogTitle>Review "{currentEpisode.title}"</DialogTitle>
+                </DialogHeader>
+                <div className="py-4">
+                    <FeedbackForm
+                        sourceTitle={currentEpisode.title}
+                        sourceType="Episode"
+                        sourceUrl={episodeUrl}
+                        onFeedbackSent={() => setIsFeedbackDialogOpen(false)}
+                    />
+                </div>
+            </DialogContent>
+          </Dialog>
 
           <Separator className="w-2/3 mx-auto" />
 

@@ -6,13 +6,14 @@ import type { Episode, Series } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, PlayCircle, Clock, ListMusic } from 'lucide-react';
+import { ArrowLeft, PlayCircle, Clock, ListMusic, MessageSquareQuote } from 'lucide-react';
 import { usePlayer } from '@/contexts/player-context';
 import ShareButton from '@/components/general/share-button';
 import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import EpisodeCard from '@/components/episodes/episode-card';
 import { Separator } from '@/components/ui/separator';
+import FeedbackForm from '@/components/general/feedback-form';
 
 interface EpisodeDetailClientPageProps {
   episode: Episode;
@@ -30,6 +31,8 @@ export default function EpisodeDetailClientPage({ episode, series, relatedEpisod
     }
     return episode.title;
   };
+
+  const episodeUrl = typeof window !== 'undefined' ? `${window.location.origin}/episode/${episode.id}` : '';
 
   return (
     <div className="container mx-auto py-8">
@@ -156,6 +159,20 @@ export default function EpisodeDetailClientPage({ episode, series, relatedEpisod
                 </AccordionItem>
               </Accordion>
             )}
+             <Separator className="my-6" />
+
+            {/* Feedback Section */}
+            <div className="mt-6">
+                <h2 className="text-xl font-semibold mb-4 font-headline flex items-center">
+                    <MessageSquareQuote className="mr-2 h-5 w-5" />
+                    Leave a Review
+                </h2>
+                <FeedbackForm
+                    sourceTitle={episode.title}
+                    sourceType="Episode"
+                    sourceUrl={episodeUrl}
+                />
+            </div>
           </div>
         </div>
 
