@@ -16,9 +16,54 @@ type Suggestion =
   | (Episode & { resultType: 'episode'; score: number }) 
   | (Series & { resultType: 'series'; episodeCount: number; totalDuration: string; score: number });
 
+const searchExamples = [
+  "Diabetic Retinopathy",
+  "Contact Lens Fitting",
+  "Slit Lamp Techniques",
+  "Glaucoma Diagnosis",
+  "Pediatric Optometry",
+];
+
 const HeroSection: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
+  const [placeholder, setPlaceholder] = useState("Search episodes, series, topics...");
+  
+  useEffect(() => {
+    let currentTermIndex = 0;
+    let currentTerm = searchExamples[currentTermIndex];
+    let letterIndex = 0;
+    let isDeleting = false;
+    let timeoutId: NodeJS.Timeout;
+
+    const type = () => {
+      const fullText = `Search "${currentTerm}"...`;
+      if (isDeleting) {
+        setPlaceholder(fullText.substring(0, letterIndex--));
+        if (letterIndex < 8) { // "Search ""
+          isDeleting = false;
+          currentTermIndex = (currentTermIndex + 1) % searchExamples.length;
+          currentTerm = searchExamples[currentTermIndex];
+          timeoutId = setTimeout(type, 500);
+        } else {
+          timeoutId = setTimeout(type, 50);
+        }
+      } else {
+        setPlaceholder(fullText.substring(0, letterIndex++));
+        if (letterIndex > fullText.length) {
+          isDeleting = true;
+          timeoutId = setTimeout(type, 2000);
+        } else {
+          timeoutId = setTimeout(type, 100);
+        }
+      }
+    };
+
+    timeoutId = setTimeout(type, 500);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
+
 
   useEffect(() => {
     if (searchTerm.trim() !== '') {
@@ -88,7 +133,7 @@ const HeroSection: React.FC = () => {
           <div className="flex w-full items-center space-x-2">
             <Input
               type="search"
-              placeholder="Search episodes, series, transcripts..."
+              placeholder={placeholder}
               className="flex-1 h-12 text-base md:text-lg"
               aria-label="Search episodes and series"
               value={searchTerm}

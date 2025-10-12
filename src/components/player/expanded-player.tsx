@@ -5,8 +5,7 @@ import Image from 'next/image';
 import { usePlayer } from '@/contexts/player-context';
 import PlayerControls from './player-controls';
 import { Button } from '@/components/ui/button';
-import { ChevronDown, X, ListMusic, Bookmark, MessageSquareQuote } from 'lucide-react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ChevronDown, X, ListMusic, MessageSquareQuote } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from '../ui/separator';
@@ -88,67 +87,49 @@ const ExpandedPlayer: React.FC = () => {
 
           <Separator className="w-2/3 mx-auto" />
 
-          <div className="w-full">
-             <Tabs defaultValue="transcript" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 mb-4">
-                <TabsTrigger value="transcript"><ListMusic className="mr-2 h-4 w-4" />Transcript</TabsTrigger>
-                <TabsTrigger value="bookmarks"><Bookmark className="mr-2 h-4 w-4" />Bookmarks</TabsTrigger>
-              </TabsList>
-              <TabsContent value="transcript">
-                <Card className="min-h-[200px] text-left">
-                  <CardHeader>
-                    <CardTitle>Transcript</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    {currentEpisode.transcript ? (
-                      <div className="prose prose-sm dark:prose-invert max-w-none text-foreground/80 p-1 leading-normal">
-                        {currentEpisode.transcript.split('\n').map((line, index) => {
-                          if (line.trim() === '') return <div key={index} className="h-4" />;
-                          
-                          const parts = line.split(/(:)/);
-                          if (parts.length > 1 && (
-                              line.toLowerCase().includes('welcome back') ||
-                              line.toLowerCase().includes('concept & explanation') ||
-                              line.toLowerCase().includes('clinical pearls') ||
-                              line.toLowerCase().includes('wrap-up & takeaway') ||
-                              line.toLowerCase().startsWith('i am john') ||
-                              line.toLowerCase().startsWith('hey, this is jennifer') ||
-                              line.toLowerCase().includes('thanks for tuning in')
-                            )
-                          ) {
-                            return (
-                              <p key={index} className="mb-2">
-                                <strong>{parts[0]}{parts[1]}</strong>
-                                {parts.slice(2).join('')}
-                              </p>
-                            );
-                          }
-                          
-                          return <p key={index} className="mb-2">{line}</p>;
-                        })}
-                      </div>
-                    ) : (
-                      <p className="text-sm text-muted-foreground">
-                        Transcript for "{currentEpisode.title}" is not available.
-                      </p>
-                    )}
-                  </CardContent>
-                </Card>
-              </TabsContent>
-              <TabsContent value="bookmarks">
-                 <Card className="min-h-[200px] text-left">
-                  <CardHeader>
-                    <CardTitle>Bookmarks</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">
-                      Bookmarks for this episode will appear here.
-                      This feature is currently under development.
-                    </p>
-                  </CardContent>
-                </Card>
-              </TabsContent>
-            </Tabs>
+          <div className="w-full text-left">
+            <Card className="min-h-[200px]">
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <ListMusic className="mr-2 h-5 w-5" />
+                  Transcript
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                {currentEpisode.transcript ? (
+                  <div className="prose prose-sm dark:prose-invert max-w-none text-foreground/80 p-1 leading-normal">
+                    {currentEpisode.transcript.split('\n').map((line, index) => {
+                      if (line.trim() === '') return <div key={index} className="h-4" />;
+                      
+                      const parts = line.split(/(:)/);
+                      if (parts.length > 1 && (
+                          line.toLowerCase().includes('welcome back') ||
+                          line.toLowerCase().includes('concept & explanation') ||
+                          line.toLowerCase().includes('clinical pearls') ||
+                          line.toLowerCase().includes('wrap-up & takeaway') ||
+                          line.toLowerCase().startsWith('i am john') ||
+                          line.toLowerCase().startsWith('hey, this is jennifer') ||
+                          line.toLowerCase().includes('thanks for tuning in')
+                        )
+                      ) {
+                        return (
+                          <p key={index} className="mb-2">
+                            <strong>{parts[0]}{parts[1]}</strong>
+                            {parts.slice(2).join('')}
+                          </p>
+                        );
+                      }
+                      
+                      return <p key={index} className="mb-2">{line}</p>;
+                    })}
+                  </div>
+                ) : (
+                  <p className="text-sm text-muted-foreground">
+                    Transcript for "{currentEpisode.title}" is not available.
+                  </p>
+                )}
+              </CardContent>
+            </Card>
           </div>
         </div>
       </ScrollArea>
