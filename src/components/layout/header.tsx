@@ -8,9 +8,10 @@ import {
   Sheet,
   SheetContent,
   SheetTrigger,
+  SheetHeader,
   SheetTitle,
 } from '@/components/ui/sheet';
-import { Input } from '@/components/ui/input';
+import InteractiveSearch from '../general/interactive-search';
 
 const Header: React.FC = () => {
   const navItems = [
@@ -20,7 +21,7 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header className="z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="z-40 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
         <Link
           href="/"
@@ -41,16 +42,11 @@ const Header: React.FC = () => {
                 <span className="sr-only">Search</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="top">
-              <SheetTitle className="sr-only">Search</SheetTitle>
-              <div className="relative mt-8">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input
-                  type="search"
-                  placeholder="Search episodes..."
-                  className="h-10 w-full pl-9"
-                />
-              </div>
+            <SheetContent side="top" className="h-full overflow-y-auto">
+              <SheetHeader>
+                <SheetTitle className="text-2xl mt-4 mb-2">Search</SheetTitle>
+              </SheetHeader>
+              <InteractiveSearch />
             </SheetContent>
           </Sheet>
         </div>
