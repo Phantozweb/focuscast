@@ -8,24 +8,23 @@ import { placeholderEpisodes, placeholderSeries } from '@/lib/placeholder-data';
 import type { Episode } from '@/types';
 
 export const metadata: Metadata = {
-  title: 'FocusCast: Optometry Insights, Clearly Delivered', 
-  description: 'Explore optometry podcasts, series, and trending episodes on FocusCast, your source for optometry insights clearly delivered.',
+  title: 'FocusCast: Optometry Insights, Clearly Delivered',
+  description: 'Explore insightful optometry podcasts, expert series, and trending episodes. Your source for clear, concise, and professional optometry knowledge, updated daily.',
 };
 
 export default function HomePage() {
-  // Updated Featured Episodes
-  const focusBitesEp8 = placeholderEpisodes.find(ep => ep.id === 'fb-ep8');
-  const decodingOcularEp1 = placeholderEpisodes.find(ep => ep.id === 'dod-ep1');
-  const featured: Episode[] = [focusBitesEp8, decodingOcularEp1].filter(ep => ep) as Episode[];
+  const featured: Episode[] = [
+    placeholderEpisodes.find(ep => ep.id === 'dod-ep1'),
+    placeholderEpisodes.find(ep => ep.id === 'fb-ep8'),
+  ].filter(ep => ep) as Episode[];
   
-  // Updated Trending Episodes
   const trendingEpisodes = [
-    placeholderEpisodes.find(ep => ep.id === 'fb-ep6'),
-    placeholderEpisodes.find(ep => ep.id === 'fb-ep7'),
     placeholderEpisodes.find(ep => ep.id === 'fb-ep11'),
+    placeholderEpisodes.find(ep => ep.id === 'fb-ep7'),
+    placeholderEpisodes.find(ep => ep.id === 'fb-ep6'),
   ].filter(ep => ep !== undefined) as Episode[];
 
-  const seriesData = placeholderSeries;
+  const seriesData = placeholderSeries.filter(s => s.id !== 'series-grow-optom');
 
   return (
     <div className="flex flex-col">

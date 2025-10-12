@@ -3,7 +3,7 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 
 const FocusCastLogo: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <div className={cn("flex items-center gap-3", props.className)}>
+  <div className={cn("flex items-center gap-2 text-foreground", props.className)}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
@@ -22,7 +22,7 @@ const FocusCastLogo: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
         className="fill-primary"
       />
     </svg>
-    <span className="text-3xl md:text-4xl font-bold text-foreground font-headline">
+    <span className="font-bold font-headline">
         FocusCast
     </span>
   </div>

@@ -70,7 +70,7 @@ const HeroSection: React.FC = () => {
     <section className="py-16 md:py-24 bg-gradient-to-br from-primary/10 via-background to-secondary/10 dark:from-primary/5 dark:to-secondary/5">
       <div className="container mx-auto text-center">
         <div className="flex justify-center items-center gap-3 mb-6">
-          <FocusCastLogo className="h-10 md:h-12" />
+          <FocusCastLogo className="h-10 md:h-12 text-4xl md:text-5xl" />
         </div>
         <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto">
           Optometry Insights, Clearly Delivered.
