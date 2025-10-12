@@ -126,10 +126,31 @@ export default function EpisodeDetailClientPage({ episode, series, relatedEpisod
                     </div>
                   </AccordionTrigger>
                   <AccordionContent>
-                    <div className="prose prose-sm dark:prose-invert max-w-none whitespace-pre-line text-foreground/80 p-1 leading-normal">
-                      {episode.transcript.split('\n\n').map((paragraph, index) => (
-                        <p key={index} className="mb-3">{paragraph}</p>
-                      ))}
+                    <div className="prose prose-sm dark:prose-invert max-w-none text-foreground/80 p-1 leading-normal">
+                      {episode.transcript.split('\n').map((line, index) => {
+                        if (line.trim() === '') return <div key={index} className="h-4" />;
+                        
+                        const parts = line.split(/(:)/);
+                        if (parts.length > 1 && (
+                            line.toLowerCase().includes('welcome back') ||
+                            line.toLowerCase().includes('concept & explanation') ||
+                            line.toLowerCase().includes('clinical pearls') ||
+                            line.toLowerCase().includes('wrap-up & takeaway') ||
+                            line.toLowerCase().startsWith('i am john') ||
+                            line.toLowerCase().startsWith('hey, this is jennifer') ||
+                            line.toLowerCase().includes('thanks for tuning in')
+                          )
+                        ) {
+                          return (
+                            <p key={index} className="mb-2">
+                              <strong>{parts[0]}{parts[1]}</strong>
+                              {parts.slice(2).join('')}
+                            </p>
+                          );
+                        }
+                        
+                        return <p key={index} className="mb-2">{line}</p>;
+                      })}
                     </div>
                   </AccordionContent>
                 </AccordionItem>
