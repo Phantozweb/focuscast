@@ -15,7 +15,7 @@ export async function sendFeedback(input: FeedbackInput): Promise<{ success: boo
       return { success: false, message: 'Server configuration error.' };
     }
 
-    const { sourceTitle, sourceType, rating, feedback, sourceUrl, sourceThumbnailUrl, email } = input;
+    const { sourceTitle, sourceType, rating, feedback, name, email, sourceUrl, sourceThumbnailUrl } = input;
 
     const starRating = '⭐'.repeat(rating) + '✩'.repeat(5 - rating);
 
@@ -32,9 +32,13 @@ export async function sendFeedback(input: FeedbackInput): Promise<{ success: boo
           name: 'Rating',
           value: starRating,
         },
+         {
+          name: 'Email',
+          value: email,
+        },
       ],
       author: {
-        name: email
+        name: name
       },
       footer: {
         text: `Feedback submitted at: ${new Date().toUTCString()}`,

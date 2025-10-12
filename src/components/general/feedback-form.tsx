@@ -24,6 +24,7 @@ const FeedbackForm: React.FC<FeedbackFormProps> = ({ sourceTitle, sourceType, so
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
   const [feedback, setFeedback] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [errors, setErrors] = useState<z.ZodError<FeedbackInput> | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -33,11 +34,12 @@ const FeedbackForm: React.FC<FeedbackFormProps> = ({ sourceTitle, sourceType, so
     e.preventDefault();
     setIsSubmitting(true);
 
-    const feedbackData: Omit<FeedbackInput, 'email'> & { email?: string, rating: number } = {
+    const feedbackData = {
       sourceTitle,
       sourceType,
       rating,
       feedback,
+      name,
       email,
       sourceUrl,
       sourceThumbnailUrl,
@@ -69,6 +71,7 @@ const FeedbackForm: React.FC<FeedbackFormProps> = ({ sourceTitle, sourceType, so
         });
         setRating(0);
         setFeedback('');
+        setName('');
         setEmail('');
         if (onFeedbackSent) {
             onFeedbackSent();
@@ -88,6 +91,7 @@ const FeedbackForm: React.FC<FeedbackFormProps> = ({ sourceTitle, sourceType, so
     }
   };
 
+  const nameError = errors?.flatten().fieldErrors.name?.[0];
   const emailError = errors?.flatten().fieldErrors.email?.[0];
 
   return (
@@ -110,6 +114,22 @@ const FeedbackForm: React.FC<FeedbackFormProps> = ({ sourceTitle, sourceType, so
             />
           ))}
         </div>
+      </div>
+
+      <div>
+         <label htmlFor="name-input" className="text-sm font-medium text-foreground/80 mb-2 block">
+          Your Name *
+        </label>
+        <Input
+          id="name-input"
+          type="text"
+          placeholder="John Doe"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+          className={cn(nameError ? 'border-destructive' : '')}
+        />
+        {nameError && <p className="text-sm text-destructive mt-1">{nameError}</p>}
       </div>
       
       <div>
