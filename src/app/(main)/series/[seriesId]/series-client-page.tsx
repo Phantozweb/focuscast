@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState } from 'react'; 
@@ -41,7 +40,7 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
 
   return (
     <div className="container mx-auto py-8">
-      <div className="mb-12 p-4 md:p-0">
+      <div className="mb-12 p-4 md:p-0 group">
         <Button asChild variant="outline" className="mb-6">
           <Link href="/#series">
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to All Series
@@ -54,7 +53,7 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
               alt={series.title}
               width={400}
               height={400}
-              className="rounded-lg shadow-xl aspect-square object-cover w-full"
+              className="rounded-lg shadow-xl aspect-square object-cover w-full transition-transform duration-300 group-hover:scale-105"
               data-ai-hint={series.dataAiHint || "podcast series cover"}
             />
           </div>
