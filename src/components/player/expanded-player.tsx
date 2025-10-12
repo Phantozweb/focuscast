@@ -56,9 +56,6 @@ const ExpandedPlayer: React.FC = () => {
           </div>
 
           <div className="w-full">
-            {isLoading && (
-              <div className="w-6 h-6 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
-            )}
             <PlayerControls isExpandedView={true} />
           </div>
 
@@ -153,3 +150,5 @@ const ExpandedPlayer: React.FC = () => {
 };
 
 export default ExpandedPlayer;
+
+    
