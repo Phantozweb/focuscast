@@ -123,18 +123,19 @@ export default function NotificationSignupDialog({ isOpen, onOpenChange }: Notif
             </DialogHeader>
             <form onSubmit={handleSubmit} className="grid gap-4 py-4">
               <div className="grid gap-2">
-                <Label htmlFor="name">Name</Label>
+                <Label htmlFor="name">Name *</Label>
                 <Input
                   id="name"
                   placeholder="Dr. Jane Doe"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className={errors?.fieldErrors.name ? 'border-destructive' : ''}
+                  required
                 />
                 {errors?.fieldErrors.name && <p className="text-sm text-destructive">{errors.fieldErrors.name[0]}</p>}
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email">Email *</Label>
                 <Input
                   id="email"
                   type="email"
@@ -142,12 +143,13 @@ export default function NotificationSignupDialog({ isOpen, onOpenChange }: Notif
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className={errors?.fieldErrors.email ? 'border-destructive' : ''}
+                  required
                 />
                  {errors?.fieldErrors.email && <p className="text-sm text-destructive">{errors.fieldErrors.email[0]}</p>}
               </div>
                <div className="grid gap-2">
-                <Label htmlFor="role">Primary Role</Label>
-                <Select value={role} onValueChange={setRole}>
+                <Label htmlFor="role">Primary Role *</Label>
+                <Select value={role} onValueChange={setRole} required>
                     <SelectTrigger id="role" className={errors?.fieldErrors.role ? 'border-destructive' : ''}>
                         <SelectValue placeholder="Select your primary role..." />
                     </SelectTrigger>

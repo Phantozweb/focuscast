@@ -43,7 +43,7 @@ const FeaturedEpisodes: React.FC<FeaturedEpisodesProps> = ({ episodes }) => {
               key={episode.id + '-featured'}
               episode={episode}
               className="w-full bg-background border border-border/70 shadow-sm hover:shadow-md"
-              layout="horizontal"
+              layout="vertical"
             />
           ))}
         </div>
