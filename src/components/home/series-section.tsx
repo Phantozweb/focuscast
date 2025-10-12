@@ -2,7 +2,6 @@
 import type { Series, Episode } from '@/types';
 import SeriesCard from '@/components/series/series-card';
 import { parseDurationToSeconds, formatTotalSeconds } from '@/lib/utils';
-import { ScrollArea, ScrollBar } from '../ui/scroll-area';
 
 interface SeriesSectionProps {
   series: Series[];
@@ -57,30 +56,27 @@ const SeriesSection: React.FC<SeriesSectionProps> = ({ series, allEpisodes }) =>
 
         {/* Mobile Carousel */}
         <div className="md:hidden">
-            <ScrollArea className="w-full whitespace-nowrap">
-                <div className="flex w-max space-x-4 px-4">
-                {series.map((s) => {
-                    const episodesInSeries = allEpisodes.filter(ep => ep.seriesId === s.id);
-                    const episodeCount = episodesInSeries.length;
-                    const totalDurationInSeconds = episodesInSeries.reduce((total, episode) => {
-                        return total + parseDurationToSeconds(episode.duration);
-                    }, 0);
-                    const totalDurationFormatted = formatTotalSeconds(totalDurationInSeconds);
+          <div className="flex overflow-x-auto snap-x snap-mandatory py-4 space-x-4 pl-4 no-scrollbar">
+            {series.map((s) => {
+                const episodesInSeries = allEpisodes.filter(ep => ep.seriesId === s.id);
+                const episodeCount = episodesInSeries.length;
+                const totalDurationInSeconds = episodesInSeries.reduce((total, episode) => {
+                    return total + parseDurationToSeconds(episode.duration);
+                }, 0);
+                const totalDurationFormatted = formatTotalSeconds(totalDurationInSeconds);
 
-                    return (
-                        <div key={s.id + '-mobile'} className="w-[90vw] max-w-sm">
-                            <SeriesCard
-                                series={s}
-                                episodeCount={episodeCount}
-                                totalDuration={totalDurationFormatted}
-                                className="h-full"
-                            />
-                        </div>
-                    );
-                })}
-                </div>
-                <ScrollBar orientation="horizontal" />
-            </ScrollArea>
+                return (
+                    <div key={s.id + '-mobile'} className="snap-center shrink-0 w-[90vw] max-w-sm">
+                        <SeriesCard
+                            series={s}
+                            episodeCount={episodeCount}
+                            totalDuration={totalDurationFormatted}
+                            className="h-full"
+                        />
+                    </div>
+                );
+            })}
+            </div>
         </div>
       </div>
     </section>

@@ -3,9 +3,14 @@ import Link from 'next/link';
 import FocusCastLogo from '@/components/icons/focus-cast-logo';
 import NavigationMenu from './navigation-menu';
 import { Button } from '@/components/ui/button';
-import { Menu, Search } from 'lucide-react';
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
-import { Input } from "@/components/ui/input";
+import { Search } from 'lucide-react';
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetTitle,
+} from '@/components/ui/sheet';
+import { Input } from '@/components/ui/input';
 
 const Header: React.FC = () => {
   const navItems = [
@@ -15,12 +20,15 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header className="w-full border-b border-border/40 bg-background">
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2 flex-shrink-0 mr-6">
+        <Link
+          href="/"
+          className="flex items-center space-x-2 flex-shrink-0 mr-6"
+        >
           <FocusCastLogo className="h-8 text-2xl" />
         </Link>
-        
+
         <div className="hidden md:flex flex-1 items-center justify-end gap-4">
           <NavigationMenu items={navItems} />
         </div>
@@ -29,30 +37,20 @@ const Header: React.FC = () => {
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Toggle Navigation</span>
+                <Search className="h-6 w-6" />
+                <span className="sr-only">Search</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left">
-              <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-              <Link href="/" className="mb-6 flex items-center flex-shrink-0">
-                <FocusCastLogo className="h-8 text-2xl" />
-              </Link>
-              <div className="relative mb-4">
+            <SheetContent side="top">
+              <SheetTitle className="sr-only">Search</SheetTitle>
+              <div className="relative mt-8">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input type="search" placeholder="Search episodes..." className="h-9 w-full pl-9" />
+                <Input
+                  type="search"
+                  placeholder="Search episodes..."
+                  className="h-10 w-full pl-9"
+                />
               </div>
-              <nav className="flex flex-col space-y-3">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.label + item.href}
-                    href={item.href}
-                    className="text-lg font-medium text-foreground hover:text-primary"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </nav>
             </SheetContent>
           </Sheet>
         </div>

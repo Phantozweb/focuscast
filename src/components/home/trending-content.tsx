@@ -1,7 +1,6 @@
 
 import type { Episode } from '@/types';
 import EpisodeCard from '@/components/episodes/episode-card';
-import { ScrollArea, ScrollBar } from '../ui/scroll-area';
 
 interface TrendingContentProps {
   episodes: Episode[];
@@ -46,10 +45,9 @@ const TrendingContent: React.FC<TrendingContentProps> = ({ episodes }) => {
         
         {/* Mobile Carousel */}
         <div className="md:hidden">
-          <ScrollArea className="w-full whitespace-nowrap">
-            <div className="flex w-max space-x-4 px-4">
+          <div className="flex overflow-x-auto snap-x snap-mandatory py-4 space-x-4 pl-4 no-scrollbar">
               {episodes.map((episode) => ( 
-                <div key={episode.id + "-trending-mobile"} className="w-72">
+                <div key={episode.id + "-trending-mobile"} className="snap-center shrink-0 w-[85vw]">
                   <EpisodeCard 
                     episode={episode} 
                     layout="vertical"
@@ -57,9 +55,7 @@ const TrendingContent: React.FC<TrendingContentProps> = ({ episodes }) => {
                   />
                 </div>
               ))}
-            </div>
-            <ScrollBar orientation="horizontal" />
-          </ScrollArea>
+          </div>
         </div>
       </div>
     </section>

@@ -9,9 +9,10 @@ import { cn } from '@/lib/utils';
 export default function MainContent({ children }: { children: React.ReactNode }) {
   const { currentEpisode } = usePlayer();
   return (
-    <div className={cn("relative flex min-h-screen flex-col bg-background transition-all duration-300", 
+    <div className={cn("relative flex min-h-screen flex-col bg-background transition-all duration-300 w-full", 
         "md:pr-0",
-        currentEpisode ? "md:mr-96" : "md:mr-0"
+        currentEpisode ? "md:mr-96" : "md:mr-0",
+        "pb-16 md:pb-0" // Add padding to bottom to avoid overlap with bottom nav
       )}>
       <Header />
       <main className="flex-1">{children}</main>

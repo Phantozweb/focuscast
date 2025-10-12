@@ -52,20 +52,17 @@ const FeaturedEpisodes: React.FC<FeaturedEpisodesProps> = ({ episodes }) => {
 
         {/* Mobile Carousel */}
         <div className="md:hidden">
-            <ScrollArea className="w-full whitespace-nowrap">
-                <div className="flex w-max space-x-4 px-4">
-                {episodes.map((episode) => (
-                    <div key={episode.id + '-featured-mobile'} className="w-72">
-                         <EpisodeCard
-                            episode={episode}
-                            className="w-full h-full bg-background border border-border/70 shadow-sm"
-                            layout="vertical"
-                        />
-                    </div>
-                ))}
+            <div className="flex overflow-x-auto snap-x snap-mandatory py-4 space-x-4 pl-4 no-scrollbar">
+              {episodes.map((episode) => (
+                <div key={episode.id + '-featured-mobile'} className="snap-center shrink-0 w-[85vw]">
+                      <EpisodeCard
+                        episode={episode}
+                        className="w-full h-full bg-background border border-border/70 shadow-sm"
+                        layout="vertical"
+                    />
                 </div>
-                <ScrollBar orientation="horizontal" />
-            </ScrollArea>
+              ))}
+            </div>
         </div>
       </div>
     </section>
