@@ -49,7 +49,7 @@ const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, className
         <CardContent className="p-0 flex-grow mb-3">
            <Link href={`/series/${series.id}`} legacyBehavior passHref>
             <a className="block">
-              <CardDescription className="text-sm">
+              <CardDescription className="text-sm text-foreground/80 line-clamp-2">
                 {series.shortDescription || series.description}
               </CardDescription>
               <p className="text-xs text-muted-foreground mt-2">
