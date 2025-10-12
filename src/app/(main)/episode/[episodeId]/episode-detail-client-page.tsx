@@ -70,7 +70,6 @@ export default function EpisodeDetailClientPage({ episode, series, relatedEpisod
                     <Badge variant="secondary" className="hover:bg-accent cursor-pointer mb-2 text-xs sm:text-sm">{series.title}</Badge>
                   </Link>
                 )}
-                 <Badge variant="outline" className="mb-2 ml-1 text-xs sm:text-sm">{episode.showName}</Badge>
                 {episode.episodeNumber && <Badge variant="outline" className="mb-2 ml-1 text-xs sm:text-sm">Episode {episode.episodeNumber}</Badge>}
                 
                 <div className="flex items-center text-xs sm:text-sm text-muted-foreground mt-1 mb-3">
