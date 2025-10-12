@@ -9,8 +9,8 @@ const SignupSchema = z.object({
 });
 
 export async function submitNotificationSignup(formData: { name: string; email: string; role: string }) {
-  const webhookUrl = process.env.NOTIFICATION_WEBHOOK_URL;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const webhookUrl = 'https://discord.com/api/webhooks/1426937706658664528/Y2lwu0KXNL-J1m9N-jA6VBWfFlGuODnJjSdvHfOUmxxJkw9hqPzdyDyX_CiLbj1qoSYb';
+  const siteUrl = 'http://localhost:3000';
 
   if (!webhookUrl) {
     console.error('NOTIFICATION_WEBHOOK_URL is not set.');

@@ -8,7 +8,7 @@
 import type { FeedbackInput } from '@/types/feedback';
 
 export async function sendFeedback(input: FeedbackInput): Promise<{ success: boolean; message: string }> {
-    const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
+    const webhookUrl = 'https://discord.com/api/webhooks/1426931938999931034/SjkSRzZ3uK_K6ZOnUD6NuG_z-F6UJ2cXdNh1JR3G6UeaKP97Bf8U5wE-MjmMdB-lFbGZ';
 
     if (!webhookUrl) {
       console.error('DISCORD_WEBHOOK_URL is not set.');
