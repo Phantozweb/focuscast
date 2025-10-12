@@ -9,29 +9,29 @@ export const placeholderSeries: Series[] = [
   {
     id: 'series-clinical-skills',
     title: 'Clinical Skills Corner',
-    description: 'A comprehensive series for optometry students and practitioners dedicated to sharpening essential clinical skills. Covering key techniques like retinoscopy, visual acuity, and tonometry, this podcast offers practical tips for excellent patient care in ophthalmology and optometry.',
-    shortDescription: 'Master essential optometry techniques for diagnosis and patient care.',
+    description: 'A comprehensive series for optometry students and practitioners dedicated to sharpening essential clinical skills. This series covers foundational techniques like visual acuity testing, retinoscopy, and subjective refraction, to advanced diagnostics including slit lamp mastery, tonometry, gonioscopy, and visual field analysis. Learn to confidently manage everything from presbyopia and contact lens fitting to pupil examination and ocular motility assessment.',
+    shortDescription: 'Master essential optometry skills, from refraction and tonometry to advanced diagnostic procedures.',
     thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
     dataAiHint: 'clinical eye exam',
-    keywords: ['optometry clinical skills', 'eye exam techniques', 'ophthalmology training', 'optometry podcast', 'patient care'],
+    keywords: ['optometry clinical skills', 'eye exam techniques', 'ophthalmology training', 'optometry podcast', 'patient care', 'retinoscopy', 'tonometry', 'gonioscopy', 'slit lamp', 'visual field'],
   },
   {
     id: 'series-focus-bites',
     title: 'Focus Bites',
-    description: 'Short, insightful optometry episodes exploring fascinating aspects of vision science and ocular phenomena. Perfect for quick learning on topics like the Purkinje shift, Haidinger\'s Brushes, and binocular rivalry.',
-    shortDescription: 'Quick, insightful episodes on fascinating vision science topics.',
+    description: 'Short, insightful optometry episodes exploring fascinating aspects of vision science and ocular phenomena. Perfect for quick learning on topics like phosphenes, the Purkinje shift, Haidinger\'s Brushes, binocular rivalry, and other entoptic phenomena that reveal the inner workings of the eye and brain. Understand the science behind how we see.',
+    shortDescription: 'Quick, insightful episodes on fascinating vision science topics and entoptic phenomena.',
     thumbnailUrl: focusBitesSeriesThumbnail,
     dataAiHint: 'abstract science eye',
-    keywords: ['vision science', 'optometry basics', 'ocular phenomena', 'visual perception', 'entoptic phenomena'],
+    keywords: ['vision science', 'optometry basics', 'ocular phenomena', 'visual perception', 'entoptic phenomena', 'Purkinje shift', 'Haidinger\'s Brushes', 'binocular rivalry'],
   },
   {
     id: 'series-decoding-ocular-disease',
     title: 'Decoding Ocular Disease',
-    description: 'Explore in-depth discussions on various ocular diseases, their pathophysiology, diagnosis, and management. This series provides essential insights for optometrists and eye care professionals on conditions like Diabetic Retinopathy and Glaucoma.',
-    shortDescription: 'In-depth discussions on ocular disease diagnosis and management.',
+    description: 'Explore in-depth discussions on various ocular diseases, their pathophysiology, diagnosis, and management. This series provides essential insights for optometrists and eye care professionals on conditions like Diabetic Retinopathy, covering classifications like NPDR and PDR, diagnostics with OCT and Fundus Photography, and management with anti-VEGF and PRP laser.',
+    shortDescription: 'In-depth discussions on ocular disease diagnosis and management, including Diabetic Retinopathy.',
     thumbnailUrl: decodingOcularDiseaseSeriesThumbnailUpdated,
     dataAiHint: 'microscopic eye cells',
-    keywords: ['ocular disease', 'diabetic retinopathy', 'glaucoma management', 'retinal pathology', 'optometry diagnosis'],
+    keywords: ['ocular disease', 'diabetic retinopathy', 'glaucoma management', 'retinal pathology', 'optometry diagnosis', 'NPDR', 'PDR', 'OCT', 'anti-VEGF'],
   },
 ];
 
@@ -844,9 +844,9 @@ What is the External Adnexa Exam? It’s the systematic examination of all struc
 Purpose: To detect signs of inflammation, infection, trauma, masses, or systemic disease manifestations that often begin on these external structures.
 Think of it like flipping a page that hides the fine print — the palpebral conjunctiva, that inner lining of the eyelid, can conceal foreign bodies, papillae, follicles, or even membranes. Without eversion, these could easily go unnoticed.
 Before we move into the procedure, let’s quickly recall some key anatomical landmarks:
-Meibomian glands – along the tarsal plate, responsible for the lipid layer of the tear film.
-Lash follicles – common sites for infections like styes.
-Lacrimal puncta and canaliculi – tiny drainage channels that can get blocked or inflamed.
+ Meibomian glands – along the tarsal plate, responsible for the lipid layer of the tear film.
+ Lash follicles – common sites for infections like styes.
+ Lacrimal puncta and canaliculi – tiny drainage channels that can get blocked or inflamed.
 Understanding these will make your examination more targeted and meaningful.
 Clinical Pearls & Troubleshooting:
 Step-by-Step External Adnexa Exam:
@@ -1509,4 +1509,5 @@ Jennifer, signing off.`
     
 
     
+
 
