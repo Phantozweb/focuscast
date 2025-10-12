@@ -20,6 +20,7 @@ export interface Series {
   id: string;
   title: string;
   description: string;
+  shortDescription?: string; // Add this new field
   thumbnailUrl: string;
   dataAiHint?: string;
   keywords?: string[];
