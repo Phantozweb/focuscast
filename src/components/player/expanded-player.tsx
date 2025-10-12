@@ -7,15 +7,15 @@ import PlayerControls from './player-controls';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, X, ListMusic, MessageSquareQuote } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from '../ui/separator';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import FeedbackForm from '@/components/general/feedback-form';
 import { useState } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const ExpandedPlayer: React.FC = () => {
-  const { currentEpisode, isExpanded, toggleExpandPlayer, closePlayer, isLoading } = usePlayer();
+  const { currentEpisode, isExpanded, toggleExpandPlayer, closePlayer } = usePlayer();
   const [isFeedbackSheetOpen, setIsFeedbackSheetOpen] = useState(false);
   const isMobile = useIsMobile();
 
@@ -24,7 +24,6 @@ const ExpandedPlayer: React.FC = () => {
   const episodeUrl = typeof window !== 'undefined' ? `${window.location.origin}/episode/${currentEpisode.id}` : '';
 
   const handleCloseAction = () => {
-    // On mobile, the 'X' in expanded view should just collapse it, not stop playback
     if (isMobile) {
       toggleExpandPlayer();
     } else {
@@ -96,63 +95,65 @@ const ExpandedPlayer: React.FC = () => {
           <Separator className="w-2/3 mx-auto" />
 
           <div className="w-full text-left">
-            <Card className="min-h-[200px]">
-              <CardHeader>
-                <CardTitle className="flex items-center">
-                  <ListMusic className="mr-2 h-5 w-5" />
-                  Transcript
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                {currentEpisode.transcript ? (
-                  <div className="prose prose-sm dark:prose-invert max-w-none text-foreground/80 p-1 leading-normal">
-                    {currentEpisode.transcript.split('\n').map((line, index) => {
-                      if (line.trim() === '') return <div key={index} className="h-4" />;
-                      
-                      const parts = line.split(/(:)/);
-                      if (parts.length > 1 && (
-                          line.toLowerCase().includes('welcome back') ||
-                          line.toLowerCase().includes('concept & explanation') ||
-                          line.toLowerCase().includes('clinical pearls') ||
-                          line.toLowerCase().includes('wrap-up & takeaway') ||
-                          line.toLowerCase().startsWith('i am john') ||
-                          line.toLowerCase().startsWith('hey, this is jennifer') ||
-                          line.toLowerCase().includes('thanks for tuning in')
-                        )
-                      ) {
-                        return (
-                          <p key={index} className="mb-2">
-                            <strong>{parts[0]}{parts[1]}</strong>
-                            {parts.slice(2).join('')}
-                          </p>
-                        );
-                      }
-                      
-                      return <p key={index} className="mb-2">{line}</p>;
-                    })}
-                  </div>
-                ) : (
-                  <p className="text-sm text-muted-foreground">
-                    Transcript for "{currentEpisode.title}" is not available.
-                  </p>
-                )}
-              </CardContent>
-            </Card>
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="transcript">
+                <AccordionTrigger>
+                   <div className="flex items-center text-lg">
+                      <ListMusic className="mr-2 h-5 w-5" />
+                      Transcript
+                   </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                   {currentEpisode.transcript ? (
+                    <div className="prose prose-sm dark:prose-invert max-w-none text-foreground/80 p-1 leading-normal">
+                      {currentEpisode.transcript.split('\n').map((line, index) => {
+                        if (line.trim() === '') return <div key={index} className="h-4" />;
+                        
+                        const parts = line.split(/(:)/);
+                        if (parts.length > 1 && (
+                            line.toLowerCase().includes('welcome back') ||
+                            line.toLowerCase().includes('concept & explanation') ||
+                            line.toLowerCase().includes('clinical pearls') ||
+                            line.toLowerCase().includes('wrap-up & takeaway') ||
+                            line.toLowerCase().startsWith('i am john') ||
+                            line.toLowerCase().startsWith('hey, this is jennifer') ||
+                            line.toLowerCase().includes('thanks for tuning in')
+                          )
+                        ) {
+                          return (
+                            <p key={index} className="mb-2">
+                              <strong>{parts[0]}{parts[1]}</strong>
+                              {parts.slice(2).join('')}
+                            </p>
+                          );
+                        }
+                        
+                        return <p key={index} className="mb-2">{line}</p>;
+                      })}
+                    </div>
+                  ) : (
+                    <p className="text-sm text-muted-foreground p-4 text-center">
+                      Transcript for "{currentEpisode.title}" is not available.
+                    </p>
+                  )}
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
         </div>
       </ScrollArea>
     </div>
   );
   
-  if (isExpanded) {
+  if (isExpanded && isMobile) {
     return (
-      <div className="fixed inset-0 z-[60] bg-background animate-slide-up md:hidden">
+      <div className="fixed inset-0 z-[60] bg-background animate-slide-up">
         {content}
       </div>
     );
   }
 
-  // Desktop layout
+  // Desktop layout or when player is not expanded on mobile
   return (
     <div className="hidden md:flex md:flex-col md:w-96 md:border-l md:h-screen fixed right-0 top-0 z-40 bg-background shadow-lg">
       {content}
