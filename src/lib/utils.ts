@@ -45,12 +45,19 @@ export function parseDurationToSeconds(duration: string): number {
   return minutes * 60 + seconds;
 }
 
-export function formatTotalSeconds(totalSeconds: number): string {
+export function formatTotalSeconds(totalSeconds: number, useShortUnits: boolean = false): string {
   if (isNaN(totalSeconds) || totalSeconds < 0) {
-    return '0 minutes';
+    return useShortUnits ? '0m' : '0 minutes';
   }
   const hours = Math.floor(totalSeconds / 3600);
   const minutes = Math.floor((totalSeconds % 3600) / 60);
+
+  if (useShortUnits) {
+     if (hours > 0) {
+        return `${hours}h ${minutes}m`;
+     }
+     return `${minutes}m`;
+  }
 
   let result = '';
   if (hours > 0) {

@@ -187,7 +187,7 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       if (isPlaying) {
         audioRef.current.pause();
       } else {
-        audioRef.current.play().catch(error => {
+        audio.current.play().catch(error => {
             console.error("Error playing audio:", error);
             toast({ title: "Error", description: "Could not resume audio.", variant: "destructive" });
         });
@@ -282,5 +282,3 @@ export const usePlayer = (): PlayerContextType => {
   }
   return context;
 };
-
-    

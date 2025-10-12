@@ -6,6 +6,8 @@ import HeroSection from '@/components/home/hero-section';
 import SeriesSection from '@/components/home/series-section';
 import { placeholderEpisodes, placeholderSeries } from '@/lib/placeholder-data';
 import type { Episode } from '@/types';
+import StatsBanner from '@/components/home/stats-banner';
+import { parseDurationToSeconds, formatTotalSeconds } from '@/lib/utils';
 
 export const metadata: Metadata = {
   title: 'FocusCast: Optometry Insights, Clearly Delivered',
@@ -26,10 +28,25 @@ export default function HomePage() {
 
   const seriesData = placeholderSeries;
 
+  const totalEpisodes = placeholderEpisodes.length;
+  const totalSeries = placeholderSeries.length;
+  const totalDurationInSeconds = placeholderEpisodes.reduce((total, episode) => {
+    return total + parseDurationToSeconds(episode.duration);
+  }, 0);
+  const totalDurationFormatted = formatTotalSeconds(totalDurationInSeconds, true);
+  
+  const clinicalSkillsSeries = placeholderSeries.find(s => s.id === 'series-clinical-skills');
+
   return (
     <div className="flex flex-col">
       <HeroSection />
       <div className="container mx-auto py-8 space-y-12">
+        <StatsBanner 
+          totalEpisodes={totalEpisodes}
+          totalSeries={totalSeries}
+          totalHours={totalDurationFormatted}
+          featuredSeries={clinicalSkillsSeries}
+        />
         <FeaturedEpisodes episodes={featured} />
         <SeriesSection series={seriesData} allEpisodes={placeholderEpisodes} />
         <TrendingContent episodes={trendingEpisodes} />
