@@ -37,13 +37,13 @@ const FeaturedEpisodes: React.FC<FeaturedEpisodesProps> = ({ episodes }) => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 px-4 md:px-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 md:px-0">
           {episodes.map((episode) => (
             <EpisodeCard
               key={episode.id + '-featured'}
               episode={episode}
               className="w-full bg-background border border-border/70 shadow-sm hover:shadow-md"
-              layout="vertical"
+              layout="horizontal"
             />
           ))}
         </div>

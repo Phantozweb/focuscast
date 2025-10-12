@@ -65,16 +65,18 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
                 </a>
               </Link>
             )}
-            {episode.episodeNumber && (
-              <Badge variant="outline" className="mt-1 text-xs w-fit">
-                Episode {episode.episodeNumber}
-              </Badge>
-            )}
-             {episode.seriesId === 'series-grow-optom' && episode.showName && (
-                <Badge variant="outline" className="mt-1 text-xs w-fit">
-                    By {episode.showName.replace('Grow Optom by ', '')} 
+            <div className="flex flex-wrap gap-1 mt-1">
+              {episode.episodeNumber && (
+                <Badge variant="outline" className="text-xs w-fit">
+                  Episode {episode.episodeNumber}
                 </Badge>
-            )}
+              )}
+              {episode.seriesId === 'series-grow-optom' && episode.showName && (
+                  <Badge variant="outline" className="text-xs w-fit">
+                      By {episode.showName.replace('Grow Optom by ', '')} 
+                  </Badge>
+              )}
+            </div>
           </div>
         </div>
 
