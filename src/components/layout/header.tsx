@@ -23,7 +23,7 @@ const Header: React.FC = () => {
           <FocusCastLogo />
         </Link>
         
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex flex-1 items-center justify-end gap-4">
           <NavigationMenu items={navItems} />
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -55,7 +55,7 @@ const Header: React.FC = () => {
               <nav className="flex flex-col space-y-3">
                 {navItems.map((item) => (
                   <Link
-                    key={item.label + item.href} // Ensure unique key if labels can repeat for different hrefs
+                    key={item.label + item.href}
                     href={item.href}
                     className="text-lg font-medium text-foreground hover:text-primary"
                   >
