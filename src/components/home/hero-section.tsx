@@ -13,8 +13,8 @@ import FocusCastLogo from '@/components/icons/focus-cast-logo';
 import { parseDurationToSeconds, formatTotalSeconds } from '@/lib/utils';
 
 type Suggestion = 
-  | (Episode & { resultType: 'episode' }) 
-  | (Series & { resultType: 'series'; episodeCount: number; totalDuration: string; });
+  | (Episode & { resultType: 'episode'; score: number }) 
+  | (Series & { resultType: 'series'; episodeCount: number; totalDuration: string; score: number });
 
 const HeroSection: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -24,38 +24,51 @@ const HeroSection: React.FC = () => {
     if (searchTerm.trim() !== '') {
       const lowerSearchTerm = searchTerm.toLowerCase();
 
-      // Find multiple matching episodes
-      const matchingEpisodes = placeholderEpisodes.filter(ep => 
-        ep.title.toLowerCase().includes(lowerSearchTerm) || 
-        (ep.description && ep.description.toLowerCase().includes(lowerSearchTerm)) ||
-        (ep.transcript && ep.transcript.toLowerCase().includes(lowerSearchTerm)) ||
-        (ep.keywords && ep.keywords.some(k => k.toLowerCase().includes(lowerSearchTerm))) ||
-        (ep.showName && ep.showName.toLowerCase().includes(lowerSearchTerm)) ||
-        (ep.seriesTitle && ep.seriesTitle.toLowerCase().includes(lowerSearchTerm))
-      ).slice(0, 2); // Get top 2 results
+      const calculateScore = (item: Episode | Series, term: string): number => {
+        let score = 0;
+        const weights = {
+          title: 10,
+          keywords: 5,
+          seriesTitle: 4,
+          showName: 3,
+          description: 2,
+          transcript: 1,
+        };
 
-      // Find the best matching series
-      const matchingSeries = placeholderSeries.find(s => 
-        s.title.toLowerCase().includes(lowerSearchTerm) ||
-        (s.description && s.description.toLowerCase().includes(lowerSearchTerm)) ||
-        (s.keywords && s.keywords.some(k => k.toLowerCase().includes(lowerSearchTerm)))
-      );
-      
-      const newSuggestions: Suggestion[] = [];
-      
-      matchingEpisodes.forEach(ep => {
-        newSuggestions.push({ ...ep, resultType: 'episode' });
-      });
+        if (item.title?.toLowerCase().includes(term)) score += weights.title;
+        if (item.description?.toLowerCase().includes(term)) score += weights.description;
+        if (item.keywords?.some(k => k.toLowerCase().includes(term))) score += weights.keywords;
 
-      if (matchingSeries) {
-        const episodesInSeries = placeholderEpisodes.filter(ep => ep.seriesId === matchingSeries.id);
+        if ('seriesTitle' in item && item.seriesTitle?.toLowerCase().includes(term)) score += weights.seriesTitle;
+        if ('showName' in item && item.showName?.toLowerCase().includes(term)) score += weights.showName;
+        if ('transcript' in item && item.transcript?.toLowerCase().includes(term)) score += weights.transcript;
+
+        return score;
+      };
+
+      const matchingEpisodes = placeholderEpisodes
+        .map(ep => ({ ...ep, resultType: 'episode' as const, score: calculateScore(ep, lowerSearchTerm) }))
+        .filter(ep => ep.score > 0);
+
+      const matchingSeries = placeholderSeries.map(s => {
+        const episodesInSeries = placeholderEpisodes.filter(ep => ep.seriesId === s.id);
         const count = episodesInSeries.length;
         const totalDurationInSeconds = episodesInSeries.reduce((total, ep) => total + parseDurationToSeconds(ep.duration), 0);
         const totalDuration = formatTotalSeconds(totalDurationInSeconds);
-        newSuggestions.push({ ...matchingSeries, resultType: 'series', episodeCount: count, totalDuration });
-      }
+        return { 
+          ...s, 
+          resultType: 'series' as const, 
+          episodeCount: count, 
+          totalDuration,
+          score: calculateScore(s, lowerSearchTerm)
+        };
+      }).filter(s => s.score > 0);
       
-      setSuggestions(newSuggestions);
+      const combinedSuggestions = [...matchingEpisodes, ...matchingSeries];
+
+      combinedSuggestions.sort((a, b) => b.score - a.score);
+      
+      setSuggestions(combinedSuggestions);
 
     } else {
       setSuggestions([]);
