@@ -4,6 +4,8 @@ import type { Metadata, ResolvingMetadata } from 'next';
 import { notFound } from 'next/navigation';
 import EpisodeDetailClientPage from './episode-detail-client-page';
 import type { Episode, Series } from '@/types';
+import { formatDurationToISO8601 } from '@/lib/utils';
+import Script from 'next/script';
 
 type EpisodePageServerProps = {
   params: { episodeId: string };
@@ -19,27 +21,34 @@ export async function generateMetadata(
   if (!episode) {
     return {
       title: 'Episode Not Found',
-      description: 'The episode you are looking for could not be found on FocusCast.',
+      description: 'The podcast episode you are looking for could not be found on FocusCast.',
     };
   }
 
+  const series = episode.seriesId ? placeholderSeries.find(s => s.id === episode.seriesId) : undefined;
+  const fullTitle = `${episode.title} | ${series ? series.title : episode.showName}`;
+
   return {
-    title: episode.title, 
-    description: episode.description,
+    title: fullTitle, 
+    description: `Listen to "${episode.title}". ${episode.description}`,
     openGraph: {
-      title: `${episode.title} - FocusCast`,
+      title: fullTitle,
       description: episode.description,
       images: episode.thumbnailUrl ? [{ url: episode.thumbnailUrl }] : [],
       type: 'article',
       article: {
-        published_time: new Date(episode.releaseDate).toISOString(),
-        // authors: [episode.showName], // Consider adding if author data is available
-        // section: episode.seriesTitle || 'Podcast', // Consider adding if category/section data is robust
+        publishedTime: new Date(episode.releaseDate).toISOString(),
+        authors: [series ? series.title : episode.showName],
+        section: series ? series.title : 'Podcast',
+      },
+      audio: {
+        url: episode.audioUrl,
+        type: 'audio/mpeg',
       },
     },
-    twitter: { // Basic Twitter card metadata
+    twitter: {
       card: 'summary_large_image',
-      title: `${episode.title} - FocusCast`,
+      title: fullTitle,
       description: episode.description,
       images: episode.thumbnailUrl ? [episode.thumbnailUrl] : [],
     },
@@ -72,6 +81,37 @@ export default async function EpisodePage({ params }: EpisodePageServerProps) {
     relatedEpisodes = [...relatedEpisodes, ...otherEpisodes];
   }
 
+  const episodeJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'PodcastEpisode',
+    'name': episode.title,
+    'description': episode.description,
+    'url': `/episode/${episode.id}`,
+    'datePublished': new Date(episode.releaseDate).toISOString(),
+    'timeRequired': formatDurationToISO8601(episode.duration),
+    'associatedMedia': {
+      '@type': 'MediaObject',
+      'contentUrl': episode.audioUrl,
+      'encodingFormat': 'audio/mpeg'
+    },
+    'image': episode.thumbnailUrl,
+    ...(series && {
+      'partOfSeries': {
+        '@type': 'PodcastSeries',
+        'name': series.title,
+        'url': `/series/${series.id}`
+      }
+    })
+  };
 
-  return <EpisodeDetailClientPage episode={episode} series={series} relatedEpisodes={relatedEpisodes} />;
+  return (
+    <>
+      <Script
+        id="episode-structured-data"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(episodeJsonLd) }}
+      />
+      <EpisodeDetailClientPage episode={episode} series={series} relatedEpisodes={relatedEpisodes} />
+    </>
+  );
 }
