@@ -66,31 +66,39 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     toast({ title: "Autoplaying Next Episode..." });
 
     let nextEpisode: Episode | undefined;
-    const allOtherEpisodes = placeholderEpisodes.filter(ep => ep.id !== currentEpisode?.id);
+    
+    // Get all episodes played in the current session to avoid repeating them
+    const playedEpisodeIds = new Set(currentPlaylist.map(ep => ep.id));
 
+    // Try to find a related episode from the same series that hasn't been played
     if (currentEpisode?.seriesId) {
-      const relatedEpisodes = allOtherEpisodes.filter(
-        ep => ep.seriesId === currentEpisode.seriesId && !currentPlaylist.some(p => p.id === ep.id)
+      const relatedEpisodes = placeholderEpisodes.filter(
+        ep => ep.seriesId === currentEpisode.seriesId && !playedEpisodeIds.has(ep.id)
       );
       if (relatedEpisodes.length > 0) {
-        nextEpisode = relatedEpisodes[Math.floor(Math.random() * relatedEpisodes.length)];
+        // Sort by episode number to play in order
+        relatedEpisodes.sort((a,b) => (a.episodeNumber || 0) - (b.episodeNumber || 0));
+        nextEpisode = relatedEpisodes[0];
       }
     }
 
+    // If no related episode is found, find any other random unplayed episode
     if (!nextEpisode) {
-      const unplayedEpisodes = allOtherEpisodes.filter(ep => !currentPlaylist.some(p => p.id === ep.id));
-      if(unplayedEpisodes.length > 0) {
-        nextEpisode = unplayedEpisodes[Math.floor(Math.random() * unplayedEpisodes.length)];
+      const allOtherUnplayedEpisodes = placeholderEpisodes.filter(ep => !playedEpisodeIds.has(ep.id));
+      if(allOtherUnplayedEpisodes.length > 0) {
+        nextEpisode = allOtherUnplayedEpisodes[Math.floor(Math.random() * allOtherUnplayedEpisodes.length)];
       } else {
-        // All episodes have been played, pick any random one
-        nextEpisode = allOtherEpisodes[Math.floor(Math.random() * allOtherEpisodes.length)];
+        // If everything has been played, just pick a random one that isn't the current one
+        const allButCurrent = placeholderEpisodes.filter(ep => ep.id !== currentEpisode?.id);
+        nextEpisode = allButCurrent[Math.floor(Math.random() * allButCurrent.length)];
       }
     }
     
     if (nextEpisode) {
         // Add to playlist and play
-        setCurrentPlaylist(prev => [...prev, nextEpisode!]);
-        setCurrentPlaylistEpisodeIndex(prev => prev + 1);
+        const newPlaylist = [...currentPlaylist, nextEpisode];
+        setCurrentPlaylist(newPlaylist);
+        setCurrentPlaylistEpisodeIndex(newPlaylist.length - 1);
         setCurrentEpisode(nextEpisode);
     } else {
         toast({ title: "End of Content", description: "You've listened to all available episodes." });
@@ -100,6 +108,7 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
 
   const playNextInPlaylist = useCallback(() => {
+    // If there's a next episode in the existing playlist
     if (currentPlaylist.length > 0 && currentPlaylistEpisodeIndex < currentPlaylist.length - 1) {
       const nextIndex = currentPlaylistEpisodeIndex + 1;
       const nextEpisode = currentPlaylist[nextIndex];
@@ -107,6 +116,7 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       setCurrentEpisode(nextEpisode);
       toast({ title: "Playing Next in Playlist", description: nextEpisode.title });
     } else {
+      // Otherwise, find a new one to add to the playlist
       findAndPlayNextEpisode();
     }
   }, [currentPlaylist, currentPlaylistEpisodeIndex, findAndPlayNextEpisode, toast]);
@@ -194,33 +204,28 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   }, [isPlaying, currentEpisode, toast]);
 
   const playEpisode = useCallback((episode: Episode, playlist?: Episode[], startIndex?: number) => {
-    if (currentEpisode?.id !== episode.id) {
-      if (playlist && startIndex !== undefined) {
-        setCurrentPlaylist(playlist);
-        setCurrentPlaylistEpisodeIndex(startIndex);
-      } else {
-        const existingIndex = currentPlaylist.findIndex(ep => ep.id === episode.id);
-        if (existingIndex !== -1) {
-          // If the episode is already in the history, just jump to it
-          setCurrentPlaylistEpisodeIndex(existingIndex);
-        } else {
-          // It's a new episode, add it to the history
-          const newPlaylist = [...currentPlaylist.slice(0, currentPlaylistEpisodeIndex + 1), episode];
-          setCurrentPlaylist(newPlaylist);
-          setCurrentPlaylistEpisodeIndex(newPlaylist.length - 1);
-        }
-      }
-      setCurrentEpisode(episode);
-    } else {
+    if (currentEpisode?.id === episode.id) {
       togglePlayPause();
+      return;
     }
-  }, [currentEpisode, togglePlayPause, currentPlaylist, currentPlaylistEpisodeIndex]);
+    
+    // If a playlist is explicitly provided (e.g., from a series page)
+    if (playlist && startIndex !== undefined) {
+      setCurrentPlaylist(playlist);
+      setCurrentPlaylistEpisodeIndex(startIndex);
+    } else {
+      // For a single episode play, create a new playlist for the session
+      setCurrentPlaylist([episode]);
+      setCurrentPlaylistEpisodeIndex(0);
+    }
+    
+    setCurrentEpisode(episode);
+  }, [currentEpisode, togglePlayPause]);
 
 
   const startSeriesPlayback = useCallback((seriesEpisodes: Episode[], startIndex: number = 0) => {
     if (seriesEpisodes.length > 0) {
       playEpisode(seriesEpisodes[startIndex], seriesEpisodes, startIndex);
-      // setIsExpanded(true); // Let's not force expand, user can do it.
     }
   }, [playEpisode]);
 
