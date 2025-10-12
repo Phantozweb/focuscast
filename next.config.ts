@@ -33,6 +33,7 @@ const nextConfig: NextConfig = {
   },
   env: {
     DISCORD_WEBHOOK_URL: process.env.DISCORD_WEBHOOK_URL,
+    NOTIFICATION_WEBHOOK_URL: process.env.NOTIFICATION_WEBHOOK_URL,
   }
 };
 

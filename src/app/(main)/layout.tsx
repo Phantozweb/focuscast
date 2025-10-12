@@ -2,6 +2,7 @@
 import AudioPlayerWrapper from '@/components/player/audio-player-wrapper';
 import { PlayerProvider } from '@/contexts/player-context';
 import MainContent from './main-content';
+import SignupDialogManager from '@/components/general/signup-dialog-manager';
 
 export default function MainAppLayout({
   children,
@@ -13,6 +14,7 @@ export default function MainAppLayout({
       <div className="flex">
         <MainContent>{children}</MainContent>
         <AudioPlayerWrapper />
+        <SignupDialogManager />
       </div>
     </PlayerProvider>
   );
