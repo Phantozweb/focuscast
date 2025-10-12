@@ -13,10 +13,11 @@ interface FeedbackFormProps {
   sourceTitle: string;
   sourceType: 'Episode' | 'Series';
   sourceUrl?: string;
+  sourceThumbnailUrl?: string;
   onFeedbackSent?: () => void;
 }
 
-const FeedbackForm: React.FC<FeedbackFormProps> = ({ sourceTitle, sourceType, sourceUrl, onFeedbackSent }) => {
+const FeedbackForm: React.FC<FeedbackFormProps> = ({ sourceTitle, sourceType, sourceUrl, sourceThumbnailUrl, onFeedbackSent }) => {
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
   const [feedback, setFeedback] = useState('');
@@ -41,6 +42,7 @@ const FeedbackForm: React.FC<FeedbackFormProps> = ({ sourceTitle, sourceType, so
       rating,
       feedback,
       sourceUrl,
+      sourceThumbnailUrl,
     };
 
     try {

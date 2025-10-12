@@ -167,6 +167,7 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
                 sourceTitle={series.title}
                 sourceType="Series"
                 sourceUrl={seriesUrl}
+                sourceThumbnailUrl={series.thumbnailUrl}
             />
           </div>
       </div>

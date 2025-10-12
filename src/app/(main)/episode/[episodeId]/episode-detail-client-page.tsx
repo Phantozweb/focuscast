@@ -171,6 +171,7 @@ export default function EpisodeDetailClientPage({ episode, series, relatedEpisod
                     sourceTitle={episode.title}
                     sourceType="Episode"
                     sourceUrl={episodeUrl}
+                    sourceThumbnailUrl={episode.thumbnailUrl}
                 />
             </div>
           </div>

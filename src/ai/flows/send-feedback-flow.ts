@@ -15,11 +15,11 @@ export async function sendFeedback(input: FeedbackInput): Promise<{ success: boo
       return { success: false, message: 'Server configuration error.' };
     }
 
-    const { sourceTitle, sourceType, rating, feedback, sourceUrl } = input;
+    const { sourceTitle, sourceType, rating, feedback, sourceUrl, sourceThumbnailUrl } = input;
 
     const starRating = '⭐'.repeat(rating) + '✩'.repeat(5 - rating);
 
-    const embed = {
+    const embed: any = {
       title: `New ${sourceType} Feedback!`,
       type: 'rich',
       color: 0x5865f2, // Discord blurple
@@ -43,6 +43,12 @@ export async function sendFeedback(input: FeedbackInput): Promise<{ success: boo
         name: 'Feedback',
         value: feedback,
       });
+    }
+
+    if (sourceThumbnailUrl) {
+        embed.thumbnail = {
+            url: sourceThumbnailUrl
+        };
     }
 
     try {

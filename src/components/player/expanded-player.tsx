@@ -79,6 +79,7 @@ const ExpandedPlayer: React.FC = () => {
                         sourceTitle={currentEpisode.title}
                         sourceType="Episode"
                         sourceUrl={episodeUrl}
+                        sourceThumbnailUrl={currentEpisode.thumbnailUrl}
                         onFeedbackSent={() => setIsFeedbackDialogOpen(false)}
                     />
                 </div>
