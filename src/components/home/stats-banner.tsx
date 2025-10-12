@@ -18,6 +18,10 @@ const AnimatedCounter: React.FC<{ value: number }> = ({ value }) => {
 
     useEffect(() => {
         const duration = 1500; // ms
+        if (value === 0) {
+            setCount(0);
+            return;
+        }
         const stepTime = Math.max(1, Math.floor(duration / value));
         let currentCount = 0;
         
@@ -39,15 +43,15 @@ const AnimatedCounter: React.FC<{ value: number }> = ({ value }) => {
 
 
 const StatItem: React.FC<StatItemProps & { isHours?: boolean, hourValue?: string }> = ({ icon: Icon, value, label, isHours = false, hourValue }) => (
-  <div className="flex items-center gap-4 text-center">
-    <div className="bg-primary/10 text-primary p-3 rounded-full">
-      <Icon className="w-6 h-6" />
+  <div className="flex items-center gap-3">
+    <div className="bg-primary/10 text-primary p-2.5 rounded-full">
+      <Icon className="w-5 h-5" />
     </div>
     <div>
-      <p className="text-2xl font-bold">
+      <p className="text-xl sm:text-2xl font-bold">
         {isHours ? <span className="font-bold">{hourValue}</span> : <AnimatedCounter value={value} />}
       </p>
-      <p className="text-sm text-muted-foreground">{label}</p>
+      <p className="text-xs sm:text-sm text-muted-foreground">{label}</p>
     </div>
   </div>
 );
@@ -61,7 +65,7 @@ interface StatsBannerProps {
 
 const StatsBanner: React.FC<StatsBannerProps> = ({ totalEpisodes, totalSeries, totalHours, featuredSeries }) => {
   return (
-    <section className="bg-muted/30 dark:bg-muted/10 border border-border/50 rounded-xl p-8 shadow-sm">
+    <section className="bg-card dark:bg-muted/10 border border-border/50 rounded-xl p-6 sm:p-8 shadow-sm">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         {/* Left Side: Stats */}
         <div className="flex flex-col items-center md:items-start">
@@ -75,7 +79,7 @@ const StatsBanner: React.FC<StatsBannerProps> = ({ totalEpisodes, totalSeries, t
         
         {/* Right Side: Featured Series */}
         {featuredSeries && (
-           <div className="bg-card p-6 rounded-lg border border-primary/20 shadow-lg text-center md:text-left flex flex-col md:flex-row items-center gap-6">
+           <div className="bg-muted/30 dark:bg-background/50 p-6 rounded-lg border border-primary/20 shadow-lg text-center md:text-left flex flex-col items-center gap-6">
              <div className="flex-grow">
                 <p className="text-sm font-semibold text-primary mb-1">NEW SERIES DROP</p>
                 <h3 className="text-2xl font-bold font-headline mb-2">{featuredSeries.title}</h3>
