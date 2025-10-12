@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState } from 'react';
@@ -29,9 +28,10 @@ type FormErrors = z.inferFlattenedErrors<typeof SignupSchema>;
 interface NotificationSignupDialogProps {
   isOpen: boolean;
   onOpenChange: (open: boolean) => void;
+  onSignupSuccess: () => void;
 }
 
-export default function NotificationSignupDialog({ isOpen, onOpenChange }: NotificationSignupDialogProps) {
+export default function NotificationSignupDialog({ isOpen, onOpenChange, onSignupSuccess }: NotificationSignupDialogProps) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [role, setRole] = useState('');
@@ -55,6 +55,7 @@ export default function NotificationSignupDialog({ isOpen, onOpenChange }: Notif
       const result = await submitNotificationSignup(validationResult.data);
       if (result.success) {
         setIsSubmitted(true);
+        onSignupSuccess();
       } else {
         throw new Error(result.message);
       }
@@ -116,7 +117,7 @@ export default function NotificationSignupDialog({ isOpen, onOpenChange }: Notif
                     <BellRing className="h-8 w-8 text-primary" />
                  </div>
               </div>
-              <DialogTitle className="text-2xl">Be the First to Know</DialogTitle>
+              <DialogTitle className="text-2xl font-headline">Want to listen to upcoming episodes?</DialogTitle>
               <DialogDescription>
                 Get notified when new episodes and series arrive. Listen, learn, and stay ahead.
               </DialogDescription>

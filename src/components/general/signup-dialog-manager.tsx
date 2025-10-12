@@ -1,10 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import NotificationSignupDialog from './notification-signup-dialog';
 
-const SIGNUP_COOKIE_NAME = 'focuscast_signup_dismissed';
-const COOKIE_EXPIRATION_DAYS = 365;
+const SIGNUP_SUCCESS_COOKIE = 'focuscast_signup_success';
+const SIGNUP_DISMISS_COOKIE = 'focuscast_signup_dismissed';
+const SUCCESS_EXPIRATION_DAYS = 365;
+const DISMISS_EXPIRATION_DAYS = 3;
 
 const getCookie = (name: string): string | undefined => {
   if (typeof document === 'undefined') return undefined;
@@ -28,9 +30,11 @@ export default function SignupDialogManager() {
 
   useEffect(() => {
     // We want this to run only on the client
-    const hasBeenDismissed = getCookie(SIGNUP_COOKIE_NAME);
+    const hasSignedUp = getCookie(SIGNUP_SUCCESS_COOKIE);
+    const hasDismissed = getCookie(SIGNUP_DISMISS_COOKIE);
+    
     const timer = setTimeout(() => {
-      if (!hasBeenDismissed) {
+      if (!hasSignedUp && !hasDismissed) {
         setIsOpen(true);
       }
     }, 5000); // Wait 5 seconds before showing
@@ -38,13 +42,21 @@ export default function SignupDialogManager() {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleOpenChange = (open: boolean) => {
-    if (!open) {
-      // When the dialog is closed (either by submitting or clicking away), set the cookie.
-      setCookie(SIGNUP_COOKIE_NAME, 'true', COOKIE_EXPIRATION_DAYS);
-    }
+  const handleOpenChange = useCallback((open: boolean) => {
     setIsOpen(open);
-  };
+    if (!open) {
+        // If dialog is closed without success, set a temporary dismiss cookie
+        if (!getCookie(SIGNUP_SUCCESS_COOKIE)) {
+            setCookie(SIGNUP_DISMISS_COOKIE, 'true', DISMISS_EXPIRATION_DAYS);
+        }
+    }
+  }, []);
 
-  return <NotificationSignupDialog isOpen={isOpen} onOpenChange={handleOpenChange} />;
+  const onSignupSuccess = useCallback(() => {
+    setCookie(SIGNUP_SUCCESS_COOKIE, 'true', SUCCESS_EXPIRATION_DAYS);
+    // No need to close the dialog here, as the component itself handles the success UI
+  }, []);
+
+
+  return <NotificationSignupDialog isOpen={isOpen} onOpenChange={handleOpenChange} onSignupSuccess={onSignupSuccess} />;
 }
