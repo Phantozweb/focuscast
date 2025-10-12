@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -120,20 +121,23 @@ const HeroSection: React.FC = () => {
   }, [searchTerm]);
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-primary/10 via-background to-secondary/10 dark:from-primary/5 dark:to-secondary/5">
+    <section className="py-12 md:py-24 bg-gradient-to-br from-primary/10 via-background to-secondary/10 dark:from-primary/5 dark:to-secondary/5">
       <div className="container mx-auto text-center">
-        <div className="hidden md:flex justify-center items-center gap-3 mb-6">
+        <div className="flex justify-center items-center gap-3 mb-4 md:mb-6">
           <FocusCastLogo className="h-10 md:h-12 text-4xl md:text-5xl" />
         </div>
-        <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto">
+        <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4 max-w-3xl mx-auto font-headline">
           Listen to optometry podcasts anytime, anywhere.
+        </h1>
+        <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+          Your source for clear, concise, and professional optometry knowledge.
         </p>
-        <div className="max-w-xl mx-auto">
+        <div className="max-w-xl mx-auto px-4 md:px-0">
           <div className="flex w-full items-center space-x-2">
             <Input
               type="search"
               placeholder={placeholder}
-              className="flex-1 h-12 text-base md:text-lg"
+              className="flex-1 h-12 text-base"
               aria-label="Search episodes and series"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
