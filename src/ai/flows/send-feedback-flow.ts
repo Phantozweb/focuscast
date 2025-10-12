@@ -1,13 +1,12 @@
 'use server';
 /**
- * @fileOverview A flow to send feedback to a Discord webhook.
+ * @fileOverview A server action to send feedback to a Discord webhook.
  *
  * - sendFeedback - A function that sends feedback to Discord.
  * - FeedbackInput - The input type for the sendFeedback function.
  */
 
-import { ai } from '@/ai/genkit';
-import { z } from 'genkit';
+import { z } from 'zod';
 
 export const FeedbackInputSchema = z.object({
   sourceTitle: z.string().describe('The title of the episode or series.'),
@@ -19,19 +18,6 @@ export const FeedbackInputSchema = z.object({
 export type FeedbackInput = z.infer<typeof FeedbackInputSchema>;
 
 export async function sendFeedback(input: FeedbackInput): Promise<{ success: boolean; message: string }> {
-  return sendFeedbackFlow(input);
-}
-
-const sendFeedbackFlow = ai.defineFlow(
-  {
-    name: 'sendFeedbackFlow',
-    inputSchema: FeedbackInputSchema,
-    outputSchema: z.object({
-        success: z.boolean(),
-        message: z.string(),
-    }),
-  },
-  async (input) => {
     const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
 
     if (!webhookUrl) {
@@ -93,5 +79,4 @@ const sendFeedbackFlow = ai.defineFlow(
       console.error('Error sending Discord webhook:', error);
       return { success: false, message: 'An unexpected error occurred.' };
     }
-  }
-);
+}
