@@ -23,7 +23,7 @@ export const placeholderSeries: Series[] = [
 
 export const placeholderEpisodes: Episode[] = [
   {
-    id: '6',
+    id: 'fb-ep1',
     title: 'Phosphene Phenomena',
     showName: 'Focus Bites',
     description: 'Exploring the fascinating world of phosphene phenomena and what they tell us about our visual system.',
@@ -51,7 +51,7 @@ See you tomorrow on Focus Bites.
 Jennifer, signing off.`
   },
   {
-    id: '8',
+    id: 'fb-ep2',
     title: "The Stiles-Crawford Effect - Your Pupil's Sweet Spot",
     showName: 'Focus Bites',
     description: "Explore the Stiles-Crawford effect, where light entering the pupil's center appears brighter, impacting visual acuity and cone photoreceptor efficiency.",
@@ -300,7 +300,7 @@ Jennifer, signing off.`
     duration: '01:58',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/c37b333b745b494439c209826ba393f9b355faf0/Focus%20bites/ep%208%20.wav',
-    releaseDate: '2025-0 6-02',
+    releaseDate: '2025-06-02',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 8,
