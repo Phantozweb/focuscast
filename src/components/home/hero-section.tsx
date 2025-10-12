@@ -10,10 +10,11 @@ import SeriesCard from '@/components/series/series-card';
 import { placeholderEpisodes, placeholderSeries } from '@/lib/placeholder-data';
 import type { Episode, Series } from '@/types';
 import FocusCastLogo from '@/components/icons/focus-cast-logo';
+import { parseDurationToSeconds, formatTotalSeconds } from '@/lib/utils';
 
 type Suggestion = 
   | (Episode & { resultType: 'episode' }) 
-  | (Series & { resultType: 'series'; episodeCount: number });
+  | (Series & { resultType: 'series'; episodeCount: number; totalDuration: string; });
 
 const HeroSection: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -21,7 +22,7 @@ const HeroSection: React.FC = () => {
 
   useEffect(() => {
     if (searchTerm.trim() !== '') {
-      const newSuggestions: Suggestion[] = [];
+      const newSuggestions: Omit<Suggestion, 'resultType'>[] = [];
       const lowerSearchTerm = searchTerm.toLowerCase();
 
       // Suggest first matching episode
@@ -37,8 +38,11 @@ const HeroSection: React.FC = () => {
       // Suggest first matching series
       const matchingSeries = placeholderSeries.find(s => s.title.toLowerCase().includes(lowerSearchTerm));
       if (matchingSeries) {
-        const count = placeholderEpisodes.filter(ep => ep.seriesId === matchingSeries.id).length;
-        newSuggestions.push({ ...matchingSeries, resultType: 'series', episodeCount: count });
+        const episodesInSeries = placeholderEpisodes.filter(ep => ep.seriesId === matchingSeries.id);
+        const count = episodesInSeries.length;
+        const totalDurationInSeconds = episodesInSeries.reduce((total, ep) => total + parseDurationToSeconds(ep.duration), 0);
+        const totalDuration = formatTotalSeconds(totalDurationInSeconds);
+        newSuggestions.push({ ...matchingSeries, resultType: 'series', episodeCount: count, totalDuration });
       }
       
       // Fallback: if no specific matches, but search term exists, show first of each
@@ -48,15 +52,18 @@ const HeroSection: React.FC = () => {
           }
           if (placeholderSeries.length > 0 && newSuggestions.filter(s => s.resultType === 'series').length === 0) {
               const firstSeries = placeholderSeries[0];
-              const count = placeholderEpisodes.filter(ep => ep.seriesId === firstSeries.id).length;
-              newSuggestions.push({ ...firstSeries, resultType: 'series', episodeCount: count });
+              const episodesInSeries = placeholderEpisodes.filter(ep => ep.seriesId === firstSeries.id);
+              const count = episodesInSeries.length;
+              const totalDurationInSeconds = episodesInSeries.reduce((total, ep) => total + parseDurationToSeconds(ep.duration), 0);
+              const totalDuration = formatTotalSeconds(totalDurationInSeconds);
+              newSuggestions.push({ ...firstSeries, resultType: 'series', episodeCount: count, totalDuration });
           }
       }
-      // Ensure we don't have too many, and try to have one of each if possible.
-      // This logic can be improved for better relevance.
+
       const finalSuggestions: Suggestion[] = [];
-      const epSugg = newSuggestions.find(s => s.resultType === 'episode');
-      const serSugg = newSuggestions.find(s => s.resultType === 'series');
+      const epSugg = newSuggestions.find(s => s.resultType === 'episode') as (Episode & { resultType: 'episode' }) | undefined;
+      const serSugg = newSuggestions.find(s => s.resultType === 'series') as (Series & { resultType: 'series'; episodeCount: number; totalDuration: string; }) | undefined;
+      
       if(epSugg) finalSuggestions.push(epSugg);
       if(serSugg) finalSuggestions.push(serSugg);
       
@@ -108,11 +115,13 @@ const HeroSection: React.FC = () => {
                     />
                   );
                 } else if (item.resultType === 'series') {
+                  const seriesItem = item as Series & { episodeCount: number; totalDuration: string; };
                   return (
                     <SeriesCard 
-                      key={`ser-search-${item.id}`} 
-                      series={item as Series} 
-                      episodeCount={item.episodeCount}
+                      key={`ser-search-${seriesItem.id}`} 
+                      series={seriesItem} 
+                      episodeCount={seriesItem.episodeCount}
+                      totalDuration={seriesItem.totalDuration}
                       className="bg-background border border-border/70 shadow-sm hover:shadow-md"
                     />
                   );

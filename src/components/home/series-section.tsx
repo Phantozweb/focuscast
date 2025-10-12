@@ -1,6 +1,7 @@
 
 import type { Series, Episode } from '@/types';
 import SeriesCard from '@/components/series/series-card';
+import { parseDurationToSeconds, formatTotalSeconds } from '@/lib/utils';
 
 interface SeriesSectionProps {
   series: Series[];
@@ -33,12 +34,19 @@ const SeriesSection: React.FC<SeriesSectionProps> = ({ series, allEpisodes }) =>
         </div>
         <div className="grid grid-cols-1 gap-6 px-4 md:px-0">
           {series.map((s) => {
-            const episodeCount = allEpisodes.filter(ep => ep.seriesId === s.id).length;
+            const episodesInSeries = allEpisodes.filter(ep => ep.seriesId === s.id);
+            const episodeCount = episodesInSeries.length;
+            const totalDurationInSeconds = episodesInSeries.reduce((total, episode) => {
+                return total + parseDurationToSeconds(episode.duration);
+            }, 0);
+            const totalDurationFormatted = formatTotalSeconds(totalDurationInSeconds);
+
             return (
               <SeriesCard
                 key={s.id}
                 series={s}
                 episodeCount={episodeCount}
+                totalDuration={totalDurationFormatted}
               />
             );
           })}

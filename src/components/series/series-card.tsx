@@ -5,7 +5,7 @@ import Image from 'next/image';
 import type { Series } from '@/types';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import ShareButton from '@/components/general/share-button';
@@ -13,10 +13,11 @@ import ShareButton from '@/components/general/share-button';
 interface SeriesCardProps {
   series: Series;
   episodeCount: number;
+  totalDuration?: string;
   className?: string;
 }
 
-const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, className }) => {
+const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, totalDuration, className }) => {
   return (
     <Card className={cn(
       "overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col sm:flex-row h-full bg-card group border border-border", 
@@ -50,9 +51,17 @@ const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, className
               <CardDescription className="text-sm text-foreground/80 line-clamp-2">
                 {series.shortDescription || series.description}
               </CardDescription>
-              <p className="text-xs text-muted-foreground mt-2">
-                {episodeCount} episode{episodeCount === 1 ? '' : 's'}
-              </p>
+              <div className="text-xs text-muted-foreground mt-2 flex flex-wrap items-center gap-x-3 gap-y-1">
+                <span>
+                  {episodeCount} episode{episodeCount === 1 ? '' : 's'}
+                </span>
+                {totalDuration && (
+                  <div className="flex items-center">
+                    <Clock className="mr-1.5 h-3 w-3" />
+                    <span>{totalDuration}</span>
+                  </div>
+                )}
+              </div>
             </a>
           </Link>
         </CardContent>
