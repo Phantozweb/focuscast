@@ -16,7 +16,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 
 const ExpandedPlayer: React.FC = () => {
   const { currentEpisode, isExpanded, toggleExpandPlayer, closePlayer } = usePlayer();
-  const [isFeedbackSheetOpen, setIsFeedbackSheetOpen] = useState(false);
   const isMobile = useIsMobile();
 
   if (!currentEpisode) return null;
@@ -69,28 +68,20 @@ const ExpandedPlayer: React.FC = () => {
             <PlayerControls isExpandedView={true} />
           </div>
 
-          <Sheet open={isFeedbackSheetOpen} onOpenChange={setIsFeedbackSheetOpen}>
-            <SheetTrigger asChild>
-                <Button variant="outline">
-                    <MessageSquareQuote className="mr-2 h-4 w-4" />
-                    Leave a Review
-                </Button>
-            </SheetTrigger>
-            <SheetContent side="bottom" className="h-[90vh] overflow-y-auto">
-                <SheetHeader>
-                  <SheetTitle className="text-2xl mt-4">Review "{currentEpisode.title}"</SheetTitle>
-                </SheetHeader>
-                <div className="py-4">
-                    <FeedbackForm
-                        sourceTitle={currentEpisode.title}
-                        sourceType="Episode"
-                        sourceUrl={episodeUrl}
-                        sourceThumbnailUrl={currentEpisode.thumbnailUrl}
-                        onFeedbackSent={() => setIsFeedbackSheetOpen(false)}
-                    />
-                </div>
-            </SheetContent>
-          </Sheet>
+          <Separator className="w-2/3 mx-auto" />
+
+          <div className="w-full text-left">
+              <h2 className="text-2xl font-semibold mb-4 font-headline flex items-center justify-center">
+                  <MessageSquareQuote className="mr-3 h-6 w-6" />
+                  Leave a Review
+              </h2>
+              <FeedbackForm
+                  sourceTitle={currentEpisode.title}
+                  sourceType="Episode"
+                  sourceUrl={episodeUrl}
+                  sourceThumbnailUrl={currentEpisode.thumbnailUrl}
+              />
+          </div>
 
           <Separator className="w-2/3 mx-auto" />
 
