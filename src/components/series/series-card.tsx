@@ -39,7 +39,7 @@ const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, totalDura
         <CardHeader className="p-0 mb-2">
           <Link href={`/series/${series.id}`} legacyBehavior passHref>
             <a className="block">
-              <CardTitle className="text-xl leading-tight group-hover:text-primary transition-colors">
+              <CardTitle className="text-xl sm:text-2xl leading-tight group-hover:text-primary transition-colors">
                 {series.title}
               </CardTitle>
             </a>
@@ -48,10 +48,10 @@ const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, totalDura
         <CardContent className="p-0 flex-grow mb-3">
            <Link href={`/series/${series.id}`} legacyBehavior passHref>
             <a className="block">
-              <CardDescription className="text-sm text-foreground/80 line-clamp-2">
+              <CardDescription className="text-base sm:text-sm text-foreground/80 line-clamp-2">
                 {series.shortDescription || series.description}
               </CardDescription>
-              <div className="text-xs text-muted-foreground mt-2 flex flex-wrap items-center gap-x-3 gap-y-1">
+              <div className="text-sm sm:text-xs text-muted-foreground mt-2 flex flex-wrap items-center gap-x-3 gap-y-1">
                 <span>
                   {episodeCount} episode{episodeCount === 1 ? '' : 's'}
                 </span>
@@ -66,7 +66,7 @@ const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, totalDura
           </Link>
         </CardContent>
         <div className="mt-auto flex gap-2">
-          <Button asChild variant="default" size="sm" className="flex-1">
+          <Button asChild size="lg" sm-size="sm" className="flex-1">
             <Link href={`/series/${series.id}`}>
               View Series <ArrowRight size={16} className="ml-2" />
             </Link>
@@ -74,7 +74,7 @@ const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, totalDura
           <ShareButton
             shareTitle={series.title}
             shareUrl={`/series/${series.id}`}
-            size="sm"
+            size="lg" sm-size="sm"
             className="flex-shrink-0"
           />
         </div>

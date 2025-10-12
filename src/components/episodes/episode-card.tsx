@@ -37,14 +37,14 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
           isActive && isPlaying ? "border-primary ring-2 ring-primary" : "",
           className
         )}>
-        <div className="flex flex-row items-start gap-3 p-3">
-          <div className="relative w-20 h-20 flex-shrink-0 rounded-md overflow-hidden">
+        <div className="flex flex-row items-start gap-4 p-4">
+          <div className="relative w-24 h-24 sm:w-20 sm:h-20 flex-shrink-0 rounded-md overflow-hidden">
             <Image
               src={episode.thumbnailUrl}
               alt={episode.title}
               fill
               className="object-cover"
-              sizes="80px"
+              sizes="(max-width: 640px) 96px, 80px"
               data-ai-hint={episode.seriesId === 'series-focus-bites' ? "podcast series art" : "podcast episode thumbnail"}
             />
           </div>
@@ -52,7 +52,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
              <Link href={`/episode/${episode.id}`} passHref legacyBehavior>
               <a>
                 <CardTitle
-                  className="text-base font-semibold leading-tight hover:text-primary transition-colors" 
+                  className="text-lg sm:text-base font-semibold leading-tight hover:text-primary transition-colors" 
                 >
                   {episode.title}
                 </CardTitle>
@@ -60,12 +60,12 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
             </Link>
             {episode.seriesId && episode.seriesTitle && (
               <Link href={`/series/${episode.seriesId}`} passHref legacyBehavior>
-                <a className="text-xs text-primary/90 hover:text-primary transition-colors line-clamp-1 block mt-0.5">
+                <a className="text-sm sm:text-xs text-primary/90 hover:text-primary transition-colors line-clamp-1 block mt-0.5">
                   {episode.seriesTitle}
                 </a>
               </Link>
             )}
-            <div className="flex flex-wrap gap-1 mt-1">
+            <div className="flex flex-wrap gap-1 mt-2">
               {episode.episodeNumber && (
                 <Badge variant="outline" className="text-xs w-fit">
                   Episode {episode.episodeNumber}
@@ -80,17 +80,17 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
           </div>
         </div>
 
-        <div className="px-3 pb-1 pt-0 text-left">
-          <CardDescription className="line-clamp-1 text-xs text-muted-foreground">
+        <div className="px-4 pb-1 pt-0 text-left">
+          <CardDescription className="line-clamp-1 text-sm sm:text-xs text-muted-foreground">
             {episode.showName}
           </CardDescription>
         </div>
 
-        <CardContent className="text-sm flex-grow px-3 pb-2 pt-1 text-left">
-          <p className="text-muted-foreground line-clamp-3 text-xs">
+        <CardContent className="text-sm flex-grow px-4 pb-3 pt-1 text-left">
+          <p className="text-muted-foreground line-clamp-3 text-sm sm:text-xs">
             {episode.description}
           </p>
-          <div className="flex items-center text-xs text-muted-foreground mt-2">
+          <div className="flex items-center text-sm sm:text-xs text-muted-foreground mt-2">
             <Clock size={14} className="mr-1.5" />
             <span>{episode.duration}</span>
             <span className="mx-1.5">•</span>
@@ -98,21 +98,21 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
           </div>
         </CardContent>
 
-        <CardFooter className="flex gap-2 p-3 pt-0 mt-auto">
+        <CardFooter className="flex gap-2 p-4 pt-0 mt-auto">
           <Button
-            size="sm"
+            size="lg" sm-size="sm"
             onClick={() => playEpisode(episode)}
             variant={isActive && isPlaying ? "default" : "outline"}
             className="flex-1"
             aria-label={`Play ${episode.title}`}
           >
-            <PlayCircle size={16} className="mr-1 md:mr-2" />
+            <PlayCircle size={18} sm-size={16} className="mr-1 md:mr-2" />
             {isActive && isPlaying ? 'Playing' : (isActive ? 'Paused' : 'Play')}
           </Button>
           <ShareButton
             shareTitle={getShareTitle()}
             shareUrl={`/episode/${episode.id}`}
-            size="sm"
+            size="lg" sm-size="sm"
             className="flex-1"
             aria-label={`Share ${episode.title}`}
           />
