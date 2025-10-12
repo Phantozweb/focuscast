@@ -12,7 +12,7 @@ export default function MainContent({ children }: { children: React.ReactNode })
     <div className={cn("relative flex min-h-screen flex-col bg-background transition-all duration-300 w-full", 
         "md:pr-0",
         currentEpisode ? "md:mr-96" : "md:mr-0",
-        "pb-16 md:pb-0" // Add padding to bottom to avoid overlap with bottom nav
+        currentEpisode ? "pb-36 md:pb-0" : "pb-16 md:pb-0" // Add padding to bottom to avoid overlap with bottom nav and player
       )}>
       <Header />
       <main className="flex-1">{children}</main>

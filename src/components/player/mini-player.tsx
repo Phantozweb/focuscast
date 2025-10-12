@@ -7,6 +7,7 @@ import PlayerControls from './player-controls';
 import { X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
+import { cn } from '@/lib/utils';
 
 const MiniPlayer: React.FC = () => {
   const { currentEpisode, toggleExpandPlayer, closePlayer, isLoading, progress, duration, seek } = usePlayer();
@@ -19,7 +20,9 @@ const MiniPlayer: React.FC = () => {
 
   return (
     <div 
-      className="fixed bottom-0 left-0 right-0 h-20 bg-background/90 backdrop-blur-md border-t border-border/60 p-2 flex items-center justify-between shadow-lg md:hidden animate-slide-up"
+      className={cn(
+        "fixed bottom-16 left-0 right-0 h-20 bg-background/90 backdrop-blur-md border-t border-border/60 p-2 flex items-center justify-between shadow-lg md:hidden animate-slide-up",
+      )}
       role="button"
       tabIndex={0}
       aria-label={`Now playing: ${currentEpisode.title}. Tap to expand player.`}
@@ -79,5 +82,3 @@ const MiniPlayer: React.FC = () => {
 };
 
 export default MiniPlayer;
-
-    
