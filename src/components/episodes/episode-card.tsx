@@ -21,7 +21,6 @@ interface EpisodeCardProps {
 const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 'vertical' }) => {
   const { playEpisode, currentEpisode, isPlaying } = usePlayer();
   const isActive = currentEpisode?.id === episode.id;
-  const isFocusBitesEpisode = episode.seriesId === 'series-focus-bites' && episode.episodeNumber !== undefined;
 
   const getShareTitle = () => {
     if (episode.seriesTitle && episode.episodeNumber) {
@@ -46,7 +45,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
               fill
               className="object-cover"
               sizes="80px"
-              data-ai-hint={isFocusBitesEpisode ? "podcast series art" : "podcast episode thumbnail"}
+              data-ai-hint={episode.seriesId === 'series-focus-bites' ? "podcast series art" : "podcast episode thumbnail"}
             />
           </div>
           <div className="flex-grow min-w-0">
@@ -66,7 +65,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
                 </a>
               </Link>
             )}
-            {isFocusBitesEpisode && episode.episodeNumber && (
+            {episode.episodeNumber && (
               <Badge variant="outline" className="mt-1 text-xs w-fit">
                 Episode {episode.episodeNumber}
               </Badge>
@@ -134,7 +133,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
           fill
           className="object-cover"
           sizes="80px"
-          data-ai-hint={isFocusBitesEpisode || episode.seriesId === 'series-grow-optom' ? "podcast series art" : "podcast episode thumbnail"}
+          data-ai-hint={episode.seriesId === 'series-focus-bites' || episode.seriesId === 'series-grow-optom' ? "podcast series art" : "podcast episode thumbnail"}
         />
       </div>
       <div className="flex flex-col flex-grow p-2 sm:p-3 min-w-0">
