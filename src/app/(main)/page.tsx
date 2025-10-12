@@ -1,4 +1,3 @@
-
 import type { Metadata } from 'next';
 import FeaturedEpisodes from '@/components/home/featured-episodes';
 import TrendingContent from '@/components/home/trending-content';
@@ -8,6 +7,7 @@ import { placeholderEpisodes, placeholderSeries } from '@/lib/placeholder-data';
 import type { Episode } from '@/types';
 import StatsBanner from '@/components/home/stats-banner';
 import { parseDurationToSeconds, formatTotalSeconds } from '@/lib/utils';
+import AnnouncementBar from '@/components/home/announcement-bar';
 
 export const metadata: Metadata = {
   title: 'FocusCast: Optometry Insights, Clearly Delivered',
@@ -39,6 +39,7 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col">
+      <AnnouncementBar featuredSeries={clinicalSkillsSeries} />
       <HeroSection />
       <div className="container mx-auto py-8 space-y-12 px-0 md:px-2">
         <div className="hidden md:block px-2">
@@ -56,5 +57,3 @@ export default function HomePage() {
     </div>
   );
 }
-
-
