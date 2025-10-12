@@ -59,35 +59,35 @@ export default function SeriesClientPage({ initialSeries: series, initialEpisode
       
       {/* Redesigned Hero Section */}
       <div className="bg-card dark:bg-muted/10 border border-border/50 rounded-xl p-4 sm:p-6 shadow-sm mb-12 group">
-        <div className="grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center">
             {/* Image Column */}
-            <div className="col-span-1 flex justify-center items-start">
+            <div className="md:col-span-1 flex justify-center">
                 <Image
                     src={series.thumbnailUrl}
                     alt={series.title}
                     width={400}
                     height={400}
-                    className="rounded-lg shadow-xl aspect-square object-cover w-full h-auto transition-transform duration-300 group-hover:scale-105"
+                    className="rounded-lg shadow-xl aspect-square object-cover w-48 h-48 md:w-full md:h-auto transition-transform duration-300 group-hover:scale-105"
                     data-ai-hint={series.dataAiHint || "podcast series cover"}
                     priority
                 />
             </div>
 
             {/* Info & Stats Column */}
-            <div className="col-span-2">
-                <h1 className="text-xl md:text-4xl font-bold mb-2 font-headline">{series.title}</h1>
-                <p className="text-xs sm:text-md text-muted-foreground mb-4 sm:mb-6">{series.description}</p>
+            <div className="md:col-span-2 text-center md:text-left">
+                <h1 className="text-3xl md:text-4xl font-bold mb-2 font-headline">{series.title}</h1>
+                <p className="text-sm text-muted-foreground mb-6">{series.description}</p>
                 
-                <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 sm:items-center mb-4 sm:mb-6">
+                <div className="flex justify-center md:justify-start gap-4 sm:gap-6 mb-6">
                     <StatItem icon={List} value={episodesInSeries.length.toString()} label="Episodes" />
                     {totalDuration && (
                         <StatItem icon={Clock} value={totalDuration.replace(' total','')} label="Total Time" />
                     )}
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-2 items-center">
+                <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-2">
                   {episodesInSeries.length > 0 && (
-                    <Button size="lg" onClick={handlePlayAll} className="flex-1 w-full sm:w-auto">
+                    <Button size="lg" onClick={handlePlayAll}>
                       <Play className="mr-2 h-5 w-5" /> Play All
                     </Button>
                   )}
@@ -97,7 +97,6 @@ export default function SeriesClientPage({ initialSeries: series, initialEpisode
                       buttonText="Share Series"
                       size="lg"
                       variant="outline"
-                      className="flex-1 w-full sm:w-auto"
                     />
                 </div>
             </div>
