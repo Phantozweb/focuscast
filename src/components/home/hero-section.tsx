@@ -22,28 +22,30 @@ const HeroSection: React.FC = () => {
 
   useEffect(() => {
     if (searchTerm.trim() !== '') {
-      const newSuggestions: Omit<Suggestion, 'resultType'>[] = [];
       const lowerSearchTerm = searchTerm.toLowerCase();
 
-      // Suggest first matching episode
-      const matchingEpisode = placeholderEpisodes.find(ep => 
+      // Find multiple matching episodes
+      const matchingEpisodes = placeholderEpisodes.filter(ep => 
         ep.title.toLowerCase().includes(lowerSearchTerm) || 
         (ep.description && ep.description.toLowerCase().includes(lowerSearchTerm)) ||
         (ep.transcript && ep.transcript.toLowerCase().includes(lowerSearchTerm)) ||
         (ep.keywords && ep.keywords.some(k => k.toLowerCase().includes(lowerSearchTerm))) ||
         (ep.showName && ep.showName.toLowerCase().includes(lowerSearchTerm)) ||
         (ep.seriesTitle && ep.seriesTitle.toLowerCase().includes(lowerSearchTerm))
-      );
-      if (matchingEpisode) {
-        newSuggestions.push({ ...matchingEpisode, resultType: 'episode' });
-      }
+      ).slice(0, 2); // Get top 2 results
 
-      // Suggest first matching series
+      // Find the best matching series
       const matchingSeries = placeholderSeries.find(s => 
         s.title.toLowerCase().includes(lowerSearchTerm) ||
         (s.description && s.description.toLowerCase().includes(lowerSearchTerm)) ||
         (s.keywords && s.keywords.some(k => k.toLowerCase().includes(lowerSearchTerm)))
       );
+      
+      const newSuggestions: Suggestion[] = [];
+      
+      matchingEpisodes.forEach(ep => {
+        newSuggestions.push({ ...ep, resultType: 'episode' });
+      });
 
       if (matchingSeries) {
         const episodesInSeries = placeholderEpisodes.filter(ep => ep.seriesId === matchingSeries.id);
@@ -53,29 +55,8 @@ const HeroSection: React.FC = () => {
         newSuggestions.push({ ...matchingSeries, resultType: 'series', episodeCount: count, totalDuration });
       }
       
-      // Fallback: if no specific matches, but search term exists, show first of each
-      if (newSuggestions.length === 0) {
-          if (placeholderEpisodes.length > 0 && newSuggestions.filter(s => s.resultType === 'episode').length === 0) {
-              newSuggestions.push({ ...placeholderEpisodes[0], resultType: 'episode' });
-          }
-          if (placeholderSeries.length > 0 && newSuggestions.filter(s => s.resultType === 'series').length === 0) {
-              const firstSeries = placeholderSeries[0];
-              const episodesInSeries = placeholderEpisodes.filter(ep => ep.seriesId === firstSeries.id);
-              const count = episodesInSeries.length;
-              const totalDurationInSeconds = episodesInSeries.reduce((total, ep) => total + parseDurationToSeconds(ep.duration), 0);
-              const totalDuration = formatTotalSeconds(totalDurationInSeconds);
-              newSuggestions.push({ ...firstSeries, resultType: 'series', episodeCount: count, totalDuration });
-          }
-      }
+      setSuggestions(newSuggestions);
 
-      const finalSuggestions: Suggestion[] = [];
-      const epSugg = newSuggestions.find(s => s.resultType === 'episode') as (Episode & { resultType: 'episode' }) | undefined;
-      const serSugg = newSuggestions.find(s => s.resultType === 'series') as (Series & { resultType: 'series'; episodeCount: number; totalDuration: string; }) | undefined;
-      
-      if(epSugg) finalSuggestions.push(epSugg);
-      if(serSugg) finalSuggestions.push(serSugg);
-      
-      setSuggestions(finalSuggestions);
     } else {
       setSuggestions([]);
     }
