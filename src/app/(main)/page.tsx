@@ -40,13 +40,15 @@ export default function HomePage() {
   return (
     <div className="flex flex-col">
       <HeroSection />
-      <div className="container mx-auto py-8 space-y-12">
-        <StatsBanner 
-          totalEpisodes={totalEpisodes}
-          totalSeries={totalSeries}
-          totalHours={totalDurationFormatted}
-          featuredSeries={clinicalSkillsSeries}
-        />
+      <div className="container mx-auto py-8 space-y-12 px-0 md:px-2">
+        <div className="hidden md:block">
+            <StatsBanner 
+              totalEpisodes={totalEpisodes}
+              totalSeries={totalSeries}
+              totalHours={totalDurationFormatted}
+              featuredSeries={clinicalSkillsSeries}
+            />
+        </div>
         <FeaturedEpisodes episodes={featured} />
         <SeriesSection series={seriesData} allEpisodes={placeholderEpisodes} />
         <TrendingContent episodes={trendingEpisodes} />
@@ -54,3 +56,4 @@ export default function HomePage() {
     </div>
   );
 }
+
