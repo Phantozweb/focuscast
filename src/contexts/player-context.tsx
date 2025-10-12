@@ -73,7 +73,7 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     // Try to find a related episode from the same series that hasn't been played
     if (currentEpisode?.seriesId) {
       const relatedEpisodes = placeholderEpisodes.filter(
-        ep => ep.seriesId === currentEpisode.seriesId && !playedEpisodeIds.has(ep.id)
+        ep => ep.seriesId === currentEpisode.seriesId && !playedEpisodeIds.has(ep.id) && ep.id !== currentEpisode.id
       );
       if (relatedEpisodes.length > 0) {
         // Sort by episode number to play in order
@@ -90,7 +90,9 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       } else {
         // If everything has been played, just pick a random one that isn't the current one
         const allButCurrent = placeholderEpisodes.filter(ep => ep.id !== currentEpisode?.id);
-        nextEpisode = allButCurrent[Math.floor(Math.random() * allButCurrent.length)];
+        if (allButCurrent.length > 0) {
+          nextEpisode = allButCurrent[Math.floor(Math.random() * allButCurrent.length)];
+        }
       }
     }
     
@@ -209,12 +211,11 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       return;
     }
     
-    // If a playlist is explicitly provided (e.g., from a series page)
     if (playlist && startIndex !== undefined) {
       setCurrentPlaylist(playlist);
       setCurrentPlaylistEpisodeIndex(startIndex);
     } else {
-      // For a single episode play, create a new playlist for the session
+      // For a single episode play, reset the playlist history
       setCurrentPlaylist([episode]);
       setCurrentPlaylistEpisodeIndex(0);
     }
@@ -254,9 +255,9 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   }, []);
   
   const setPlaybackRate = useCallback((rate: number) => {
+      setPlaybackRateState(rate);
       if (audioRef.current) {
         audioRef.current.playbackRate = rate;
-        setPlaybackRateState(rate);
       }
   }, []);
 
