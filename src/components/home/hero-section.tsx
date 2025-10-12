@@ -28,6 +28,9 @@ const HeroSection: React.FC = () => {
       // Suggest first matching episode
       const matchingEpisode = placeholderEpisodes.find(ep => 
         ep.title.toLowerCase().includes(lowerSearchTerm) || 
+        (ep.description && ep.description.toLowerCase().includes(lowerSearchTerm)) ||
+        (ep.transcript && ep.transcript.toLowerCase().includes(lowerSearchTerm)) ||
+        (ep.keywords && ep.keywords.some(k => k.toLowerCase().includes(lowerSearchTerm))) ||
         (ep.showName && ep.showName.toLowerCase().includes(lowerSearchTerm)) ||
         (ep.seriesTitle && ep.seriesTitle.toLowerCase().includes(lowerSearchTerm))
       );
@@ -36,7 +39,12 @@ const HeroSection: React.FC = () => {
       }
 
       // Suggest first matching series
-      const matchingSeries = placeholderSeries.find(s => s.title.toLowerCase().includes(lowerSearchTerm));
+      const matchingSeries = placeholderSeries.find(s => 
+        s.title.toLowerCase().includes(lowerSearchTerm) ||
+        (s.description && s.description.toLowerCase().includes(lowerSearchTerm)) ||
+        (s.keywords && s.keywords.some(k => k.toLowerCase().includes(lowerSearchTerm)))
+      );
+
       if (matchingSeries) {
         const episodesInSeries = placeholderEpisodes.filter(ep => ep.seriesId === matchingSeries.id);
         const count = episodesInSeries.length;
@@ -86,7 +94,7 @@ const HeroSection: React.FC = () => {
           <div className="flex w-full items-center space-x-2">
             <Input
               type="search"
-              placeholder="Search episodes, series..."
+              placeholder="Search episodes, series, transcripts..."
               className="flex-1 h-12 text-base md:text-lg"
               aria-label="Search episodes and series"
               value={searchTerm}

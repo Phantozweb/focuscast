@@ -32,6 +32,8 @@ export default function EpisodesClientPage({ initialEpisodes, allSeries }: Episo
       episodesToFilter = episodesToFilter.filter(episode =>
         episode.title.toLowerCase().includes(lowerSearchTerm) ||
         episode.description.toLowerCase().includes(lowerSearchTerm) ||
+        (episode.transcript && episode.transcript.toLowerCase().includes(lowerSearchTerm)) ||
+        (episode.keywords && episode.keywords.some(k => k.toLowerCase().includes(lowerSearchTerm))) ||
         (episode.showName && episode.showName.toLowerCase().includes(lowerSearchTerm)) ||
         (episode.seriesTitle && episode.seriesTitle.toLowerCase().includes(lowerSearchTerm))
       );
@@ -66,7 +68,7 @@ export default function EpisodesClientPage({ initialEpisodes, allSeries }: Episo
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               type="search"
-              placeholder="Search episodes by title, description, show..."
+              placeholder="Search by title, description, transcript..."
               className="pl-9 h-10 w-full"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
