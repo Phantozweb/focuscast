@@ -456,7 +456,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 9,
     keywords: ['direct ophthalmoscopy', 'fundus exam', 'posterior segment', 'optic disc', 'retina', 'macula', 'red reflex', 'retinal vessels', 'cup to disc ratio'],
-    transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. The direct ophthalmoscope is a classic tool, essential for peering into the back of the eye.
+    transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. The direct ophthalmoscope is a classic tool, essential for peering into the back of the eye. 
 It’s small, powerful, and deeply revealing… if you know how to use it right.
 While often seen as challenging, mastering it offers valuable insights into the optic disc, macula, and retinal vasculature, providing a highly magnified, upright view.
 So, let’s start by understanding what direct ophthalmoscopy really is.
@@ -895,6 +895,8 @@ Proper insertion and removal techniques, along with excellent hygiene, are the f
 Let’s explore how to effectively guide your patients through this critical part of contact lens care.
 Concept & Explanation:
 Let’s begin with why patient training matters.
+
+
 Even the best lens prescription can lead to problems if the patient doesn’t handle their lenses correctly. Training helps prevent infections like microbial keratitis, lens damage, and loss of confidence during early wear.
 Now, before anyone touches a lens, we start with the golden rule — hygiene.
 Basic Hygiene Principles:
@@ -1216,7 +1218,7 @@ Until next time, keep those funduscopes ready, stay curious, and continue to mak
     description: "Discover the Purkinje shift and how our eyes' sensitivity to color changes in low light. This episode explains the transition from cone (photopic) to rod (scotopic) vision, affecting how we perceive red and blue hues at dusk.",
     duration: '01:54',
     thumbnailUrl: focusBitesSeriesThumbnail,
-    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/f1180143675f538e7c48a962112743360367871a/Focus%20bites/Focus-bites-ep-3-The-Purkinje-Shift-Night_s-Different-Hues.mp3',
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/f1180143675f538e7c48a962112743360367871a/Focus%20bites/focus-bites-ep-3-The-Purkinje-Shift-Night_s-Different-Hues.mp3',
     releaseDate: '2025-06-01',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
@@ -1500,5 +1502,7 @@ See you on the next Focus Bites.
 Jennifer, signing off.`
   }
 ];
+
+    
 
     
