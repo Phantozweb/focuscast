@@ -62,51 +62,54 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const { toast } = useToast();
 
-  const playNextInPlaylist = useCallback(() => {
+  const findAndPlayNextEpisode = useCallback(() => {
+    toast({ title: "Autoplaying Next Episode..." });
+
     let nextEpisode: Episode | undefined;
-    let nextIndex: number | undefined;
+    const allOtherEpisodes = placeholderEpisodes.filter(ep => ep.id !== currentEpisode?.id);
 
-    if (currentPlaylist.length > 0 && currentPlaylistEpisodeIndex < currentPlaylist.length - 1) {
-      // There's a next episode in the current playlist
-      nextIndex = currentPlaylistEpisodeIndex + 1;
-      nextEpisode = currentPlaylist[nextIndex];
-      toast({ title: "Playing Next in Playlist", description: nextEpisode.title });
-    } else {
-      // End of playlist, or no playlist. Find a new episode.
-      toast({ title: "Autoplaying Next Episode..." });
-      
-      const allOtherEpisodes = placeholderEpisodes.filter(ep => ep.id !== currentEpisode?.id);
-      
-      // Try to find a related episode from the same series
-      let suggestedEpisode: Episode | undefined;
-      if (currentEpisode?.seriesId) {
-        const relatedEpisodes = allOtherEpisodes.filter(ep => ep.seriesId === currentEpisode.seriesId);
-        if(relatedEpisodes.length > 0) {
-            suggestedEpisode = relatedEpisodes[Math.floor(Math.random() * relatedEpisodes.length)];
-        }
+    if (currentEpisode?.seriesId) {
+      const relatedEpisodes = allOtherEpisodes.filter(
+        ep => ep.seriesId === currentEpisode.seriesId && !currentPlaylist.some(p => p.id === ep.id)
+      );
+      if (relatedEpisodes.length > 0) {
+        nextEpisode = relatedEpisodes[Math.floor(Math.random() * relatedEpisodes.length)];
       }
+    }
 
-      // If no related episode found, pick a random one
-      if (!suggestedEpisode) {
-        suggestedEpisode = allOtherEpisodes[Math.floor(Math.random() * allOtherEpisodes.length)];
+    if (!nextEpisode) {
+      const unplayedEpisodes = allOtherEpisodes.filter(ep => !currentPlaylist.some(p => p.id === ep.id));
+      if(unplayedEpisodes.length > 0) {
+        nextEpisode = unplayedEpisodes[Math.floor(Math.random() * unplayedEpisodes.length)];
+      } else {
+        // All episodes have been played, pick any random one
+        nextEpisode = allOtherEpisodes[Math.floor(Math.random() * allOtherEpisodes.length)];
       }
-
-      nextEpisode = suggestedEpisode;
-      // When autoplaying a new episode, it becomes a playlist of one
-      setCurrentPlaylist([nextEpisode]);
-      setCurrentPlaylistEpisodeIndex(0);
-      setCurrentEpisode(nextEpisode);
-      return; // Exit here since we manually set the episode
     }
     
-    if (nextEpisode && nextIndex !== undefined) {
+    if (nextEpisode) {
+        // Add to playlist and play
+        setCurrentPlaylist(prev => [...prev, nextEpisode!]);
+        setCurrentPlaylistEpisodeIndex(prev => prev + 1);
+        setCurrentEpisode(nextEpisode);
+    } else {
+        toast({ title: "End of Content", description: "You've listened to all available episodes." });
+        setIsPlaying(false);
+    }
+  }, [currentEpisode, currentPlaylist, toast]);
+
+
+  const playNextInPlaylist = useCallback(() => {
+    if (currentPlaylist.length > 0 && currentPlaylistEpisodeIndex < currentPlaylist.length - 1) {
+      const nextIndex = currentPlaylistEpisodeIndex + 1;
+      const nextEpisode = currentPlaylist[nextIndex];
       setCurrentPlaylistEpisodeIndex(nextIndex);
       setCurrentEpisode(nextEpisode);
+      toast({ title: "Playing Next in Playlist", description: nextEpisode.title });
     } else {
-       toast({ title: "End of playlist", description: "You've reached the end of the content." });
+      findAndPlayNextEpisode();
     }
-
-  }, [currentPlaylist, currentPlaylistEpisodeIndex, toast, currentEpisode]);
+  }, [currentPlaylist, currentPlaylistEpisodeIndex, findAndPlayNextEpisode, toast]);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -192,21 +195,26 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   const playEpisode = useCallback((episode: Episode, playlist?: Episode[], startIndex?: number) => {
     if (currentEpisode?.id !== episode.id) {
-        setCurrentEpisode(episode);
+      if (playlist && startIndex !== undefined) {
+        setCurrentPlaylist(playlist);
+        setCurrentPlaylistEpisodeIndex(startIndex);
+      } else {
+        const existingIndex = currentPlaylist.findIndex(ep => ep.id === episode.id);
+        if (existingIndex !== -1) {
+          // If the episode is already in the history, just jump to it
+          setCurrentPlaylistEpisodeIndex(existingIndex);
+        } else {
+          // It's a new episode, add it to the history
+          const newPlaylist = [...currentPlaylist.slice(0, currentPlaylistEpisodeIndex + 1), episode];
+          setCurrentPlaylist(newPlaylist);
+          setCurrentPlaylistEpisodeIndex(newPlaylist.length - 1);
+        }
+      }
+      setCurrentEpisode(episode);
     } else {
-        // If it's the same episode, just toggle play/pause
-        togglePlayPause();
+      togglePlayPause();
     }
-
-    if (playlist && startIndex !== undefined) {
-      setCurrentPlaylist(playlist);
-      setCurrentPlaylistEpisodeIndex(startIndex);
-    } else {
-      // If no playlist is provided, create a playlist of one
-      setCurrentPlaylist([episode]);
-      setCurrentPlaylistEpisodeIndex(0);
-    }
-  }, [currentEpisode, togglePlayPause]);
+  }, [currentEpisode, togglePlayPause, currentPlaylist, currentPlaylistEpisodeIndex]);
 
 
   const startSeriesPlayback = useCallback((seriesEpisodes: Episode[], startIndex: number = 0) => {
@@ -222,7 +230,7 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       setCurrentPlaylistEpisodeIndex(prevIndex);
       setCurrentEpisode(currentPlaylist[prevIndex]);
     } else {
-       toast({ title: "Start of playlist", description: "You're at the beginning of the playlist." });
+       toast({ title: "Start of playlist", description: "You're at the beginning of your listening history." });
     }
   }, [currentPlaylist, currentPlaylistEpisodeIndex, toast]);
 
@@ -314,5 +322,3 @@ export const usePlayer = (): PlayerContextType => {
   }
   return context;
 };
-
-    
