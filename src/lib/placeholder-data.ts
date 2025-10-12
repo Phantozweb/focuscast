@@ -46,7 +46,7 @@ export const placeholderEpisodes: Episode[] = [
 Every clinic day is full of tiny challenges and big learning moments.
 Together, we’ll break down key techniques, tackle tricky scenarios, and share the clinical pearls that turn good care into great care.
 Ready to sharpen your skills and think like a pro? Let’s dive in!
-Episode 1: Visual Acuity: Beyond 20\\20 (6\\6)
+Episode 1: Visual Acuity: Beyond 20/20 (6/6)
 Every eye exam starts with a single question: how clear is the vision? That’s visual acuity – a fundamental measurement in optometry. But it’s not just reading lines; there’s a fascinating science behind those letters.
 Concept & Explanation:
 So, what exactly is Visual Acuity? It’s the resolving power of the eye, a measure of how clearly a person sees. The Snellen fraction tells you the distance you’re standing from the eye chart compared to the distance a person with normal vision can read the same line. Eg: if your vision is 20/40 or 6/12 it means you can read at 20 ft or 6m what a person with normal vision can read from 40 ft or 12m.
@@ -273,6 +273,211 @@ Prescribing for Early Presbyopes: May start with a low add or offer different so
 Wrap-up & Takeaway:
 Determining the presbyopic add is about customizing vision for near tasks, ensuring comfort and clarity for individual needs.
 "Your goal is to give them back the functional vision they need, not just a number."
+Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`
+  },
+  {
+    id: 'csc-ep6',
+    title: 'Slit Lamp Mastery: A Systematic Anterior Segment Exam',
+    showName: 'Clinical Skills Corner with Aanya',
+    description: 'Explore anterior eye structures through systematic slit lamp evaluation, from lids and lashes to the anterior vitreous, using various illumination techniques.',
+    duration: '04:16',
+    thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E6%20(Slit%20Lamp%20Mastery).mp3',
+    releaseDate: '2025-06-09',
+    seriesId: 'series-clinical-skills',
+    seriesTitle: 'Clinical Skills Corner',
+    episodeNumber: 6,
+    transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. The slit lamp biomicroscope is arguably the most powerful and versatile diagnostic tool in your optometric arsenal. Mastering its systematic use is key to identifying subtle signs of ocular disease in the anterior segment.
+Let’s start with the basics — what exactly is a slit lamp, and why is it so essential?
+Concept & Explanation:
+What is the Slit Lamp? It’s a combination of a light source, or slit illumination system, and an observation system, or microscope, mounted together with a chin and forehead rest. The slit lamp gives a magnified, stereoscopic, three-dimensional view of the eye and allows you to use different illumination angles and intensities to examine structures in remarkable detail.
+Now, before you begin, setup is everything.
+Equipment Setup:
+Patient Positioning: Make sure the patient sits comfortably, pressing firmly against the chin rest and forehead band, aligned with the lateral canthus mark.
+Examiner Setup: Adjust your chair height, inter-pupillary distance, and diopter settings on the eyepieces. And most importantly — make sure you’re comfortable, too. A steady posture equals a steady view.
+Once you’re set up, it’s time to explore the different illumination techniques — the heart of slit lamp mastery.
+Basic Illumination Techniques:
+Diffuse Illumination: Wide, low-intensity beam to get an overview of general redness or swelling.
+Direct Illumination (Focal Illumination): Narrow, intense beam directly on the area of interest to observe detail.
+Indirect Illumination: Focusing the beam next to the area of interest to view it by scattered light, useful for subtle lesions or opacities.
+Retro-illumination: Directing the light onto the iris or retina, then focusing the microscope back through an anterior structure to view it against a red reflex or light background (e.g., corneal edema, iris transillumination defects, subtle lens opacities).
+Systematic Examination: Emphasize a consistent, organized approach to ensure no area is missed.
+Clinical Pearls & Troubleshooting:
+Step-by-Step Systematic Scan (Anterior to Posterior):
+Lids & Lashes: Blepharitis, chalazia, styes, madarosis, trichiasis.
+Lid Margins: Meibomian glands, telangiectasias.
+Conjunctiva (Bulbar & Palpebral): Redness, follicles, papillae, foreign bodies (evert upper lid).
+Tear Film: Volume, debris, tear break-up time (TBUT) with fluorescein.
+Cornea: Epithelium (staining), Bowman's, Stroma (infiltrates, edema), Endothelium (guttae). Assess clarity, contour, sensation.
+Anterior Chamber (AC): Depth, clarity (cells and flare in uveitis, hypopyon), foreign bodies. Use a narrow, oblique beam.
+Iris: Color, crypts, nevi, synechiae (adhesions).
+Lens: Clarity (cataract types: nuclear, cortical, PSC), position. Use retro-illumination, diffuse, and direct.
+Vitreous (Anterior): With dilation, look for cells, pigment, or vitreous strands.
+While you scan, remember — your patient’s comfort is just as important as your findings.
+Managing Patient Comfort: Advise patient to "keep eyes open wide," use breaks, adjust brightness.
+Common Mistakes: Forgetting to adjust IPD, not using enough magnification, inconsistent scanning pattern, missing key illumination techniques.
+Wrap-up & Takeaway:
+The slit lamp is your ultimate detective tool. A systematic approach with varied illumination will unlock its full diagnostic potential.
+"Every flicker of light, every shadow tells a story. Learn to read it."
+Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`
+  },
+  {
+    id: 'csc-ep7',
+    title: 'Tonometry Techniques: Measuring Intraocular Pressure Accurately',
+    showName: 'Clinical Skills Corner with Aanya',
+    description: 'Learn accurate intraocular pressure measurement for glaucoma detection using Goldmann Applanation Tonometry (GAT) and other common methods.',
+    duration: '03:57',
+    thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E7%20(Tonometry%20Techniques).mp3',
+    releaseDate: '2025-06-10',
+    seriesId: 'series-clinical-skills',
+    seriesTitle: 'Clinical Skills Corner',
+    episodeNumber: 7,
+    transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. Measuring intraocular pressure, or IOP, is one of the most essential clinical skills in optometry — especially in the management of glaucoma.
+We’ll explore the gold standard and other common tonometry techniques, focusing on accuracy, patient comfort, and best practices.
+Let’s start by understanding what tonometry really means.
+Concept & Explanation:
+What is Tonometry? Tonometry is the measurement of the fluid pressure inside the eye.
+It’s a vital step in diagnosing and monitoring glaucoma, helping clinicians detect changes that could threaten a patient’s vision long before symptoms appear.
+Now, when it comes to measuring IOP accurately, there’s one method that stands above the rest — the Goldmann Applanation Tonometer.
+Goldmann Applanation Tonometry (GAT): The Gold Standard
+Principle: Based on the Imbert-Fick law, which states that for a perfectly flexible, dry, thin-walled sphere, the pressure inside is equal to the force required to flatten a specific area. GAT flattens a 3.06mm diameter area of the cornea.
+Equipment: Slit lamp-mounted tonometer head, fluorescein dye, topical anesthetic.
+Advantages: Widely accepted as the most accurate clinical method, relatively repeatable.
+Now, let’s go step-by-step through the Goldmann procedure — where precision and patient cooperation make all the difference.
+Clinical Pearls & Troubleshooting:
+Step-by-Step GAT Procedure:
+Patient Preparation: Instill topical anesthetic (e.g., Proparacaine) and fluorescein dye.
+Tonometer Setup: Position patient at slit lamp, ensure tonometer head is clean, dial to 10 mmHg. Align tonometer head so the blue cobalt filter is in place.
+Approach: Gently bring the tonometer probe forward until it just touches the central cornea.
+Reading: Observe two semi-circles (mires) of fluorescein. Turn the dial to align the inner edges of the mires to touch. Record the reading.
+Calibration Check: Explain how to verify tonometer calibration using a calibration bar.
+But even the best technique can give false readings if we overlook the small details.
+Common Errors in GAT:
+Too much fluorescein: Leads to thick mires, overestimates IOP.
+Too little fluorescein: Leads to faint mires, underestimates IOP.
+Corneal Touch Off-Center: Inaccurate readings.
+Patient squeezing eyelids: Can artificially elevate IOP.
+Probe not perpendicular: Tilting can lead to errors.
+Now, not every patient or setting allows for Goldmann tonometry — so it’s important to know the alternatives.
+Other Tonometry Methods:
+Non-Contact Tonometry (NCT) / Air-Puff: Uses a puff of air to flatten the cornea. Great for screening — no anesthetic required — but less accurate at higher pressures.
+iCare Tonometry: Uses a disposable probe that gently touches the cornea. Ideal for children, uncooperative patients, or home monitoring, and again, no anesthetic needed.
+Transpalpebral Tonometry (e.g., Diaton): Measures IOP through the eyelid — useful when the cornea cannot be touched.
+Dynamic Contour Tonometry (DCT): Measures actual pressure, less affected by corneal properties.
+Central Corneal Thickness (CCT): CCT can influence IOP readings -Thinner corneas may underestimate pressure, thicker corneas may overestimate it.
+That’s why pachymetry — measuring corneal thickness — is often used alongside tonometry for a more accurate assessment.
+
+Wrap-up & Takeaway:
+Accurate IOP measurement is critical. Master GAT, understand its nuances, and recognize the utility and limitations of other tonometers.
+"Your tonometry skills are a lifeline in the fight against glaucoma."
+Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`
+  },
+  {
+    id: 'csc-ep8',
+    title: 'Gonioscopy Fundamentals: Viewing the Anterior Chamber Angle',
+    showName: 'Clinical Skills Corner with Aanya',
+    description: 'Understand gonioscopy principles to evaluate the anterior chamber angle structures, identify abnormalities, and differentiate between open and closed-angle glaucoma.',
+    duration: '04:16',
+    thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E8%20(Gonioscopy%20Fundamentals).mp3',
+    releaseDate: '2025-06-11',
+    seriesId: 'series-clinical-skills',
+    seriesTitle: 'Clinical Skills Corner',
+    episodeNumber: 8,
+    transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. For anyone involved in glaucoma care, gonioscopy is an indispensable skill. It's the only way to directly visualize the anterior chamber angle—the crucial drainage pathway of the eye.
+So how this technique gives us a direct window into the eye’s filtration system?
+Concept & Explanation:
+Gonioscopy is the technique to examine the angle structures of the anterior chamber, where the cornea and iris meet. Because of total internal reflection, we can’t view this angle directly through the cornea. That’s where gonioscopy lenses come in — they allow us to overcome this optical barrier and see what’s happening inside.
+But what’s the real purpose behind this exam?
+Purpose: To assess the openness of the angle (open vs. narrow/closed), identify structures (trabecular meshwork, scleral spur, iris root).
+It also helps detect pathological findings such as:
+Peripheral anterior synechiae (PAS)
+Neovascularization
+Pigment deposition
+Angle recession from trauma
+Types of Gonioscopy Lenses:
+Indirect Lenses (most common): Mirrors are used to reflect the angle view eg: 3-mirror and 4-mirror (Sussman or Posner) lenses. These often require coupling gel and allow dynamic gonioscopy, where you can apply gentle pressure to assess if a narrow angle opens.
+Direct Lenses, on the other hand, give a direct upright image of the angle but are less commonly used in routine practice.
+Once you’ve chosen your lens, setup and technique make all the difference.
+Equipment Setup: Slit lamp, gonioscopy lens, coupling solution (e.g., Goniosol, Celluvisc), topical anesthetic.
+Clinical Pearls & Troubleshooting:
+Step-by-Step Procedure (Indirect Gonioscopy with 4-mirror lens):
+Patient Preparation: Instill topical anesthetic.
+Lens Preparation: Apply coupling gel to the lens surface.
+Patient Positioning: Comfortable at slit lamp, chin/forehead rests engaged.
+Lens Application: Gently place the lens on the patient's cornea. Instruct patient to "look straight ahead."
+Illumination & Magnification: Use a narrow, bright slit beam, typically 10-16x magnification.
+Systematic Scan: Start in one quadrant (e.g., inferior), then rotate the lens to view all 360 degrees. Use gentle pressure and slight movements to "rock" the lens and open up a narrow angle (dynamic gonioscopy).
+Now, once you’re looking into the angle, here’s what you should see — in order from front to back
+Identifying Angle Structures (from anterior to posterior):
+Schwalbe's Line: Anterior-most structure, termination of Descemet's membrane.
+Trabecular Meshwork (TM): Pigmented (functional) and non-pigmented. This is the drainage site.
+Scleral Spur: Whitish band, posterior to the TM, indicating the insertion of the ciliary body.
+Ciliary Body Band: Grey-brown band posterior to the scleral spur, often visible in deeper angles.
+Iris Root: The origin of the iris tissue.
+Once you’ve identified the angle, it’s time to grade it.
+Angle Grading Systems:
+Shaffer Grade: Based on the visible angle between iris and trabecular meshwork (0-4).
+Spaeth Grade: More detailed, includes iris insertion, angle width, and iris configuration.
+But like every skill, gonioscopy has its challenges.
+Common Mistakes:
+Excessive pressure: Can falsely open a narrow angle, creating corneal striae.
+Too much/too little gel: Affects view.
+Patient looking around: Requires constant re-centering.
+Forgetting to anesthetize: Painful for patient.
+Pathology to Look For: Pigment dispersion, pseudoexfoliation, neovascularization, peripheral anterior synechiae (PAS), blood in Schlemm's canal, angle recession.
+Wrap-up & Takeaway:
+Gonioscopy is non-negotiable for glaucoma management. Master it to directly assess the eye's drainage system and identify critical pathology.
+"Don't guess the angle; visualize it."
+Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`
+  },
+  {
+    id: 'csc-ep9',
+    title: 'Direct Ophthalmoscopy: Practical Tips for Fundus Viewing',
+    showName: 'Clinical Skills Corner with Aanya',
+    description: 'Master direct ophthalmoscopy to perform a detailed posterior segment assessment, examining the optic disc, macula, and retinal vasculature with high magnification.',
+    duration: '04:09',
+    thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E9%20(Direct%20Ophthalmoscopy).mp3',
+    releaseDate: '2025-06-12',
+    seriesId: 'series-clinical-skills',
+    seriesTitle: 'Clinical Skills Corner',
+    episodeNumber: 9,
+    transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. The direct ophthalmoscope is a classic tool, essential for peering into the back of the eye.
+It’s small, powerful, and deeply revealing… if you know how to use it right.
+While often seen as challenging, mastering it offers valuable insights into the optic disc, macula, and retinal vasculature, providing a highly magnified, upright view.
+So, let’s start by understanding what direct ophthalmoscopy really is.
+Concept & Explanation:
+What is Direct Ophthalmoscopy? It’s a monocular technique providing a highly magnified, upright, real image of the fundus.
+Principles: Light enters the patient's eye, reflects off the retina, and exits through the pupil, then through the examiner's pupil.
+Equipment: Direct ophthalmoscope includes light source, apertures, filters, lens wheel.
+Advantages: High magnification (15x for emmetrope), upright image, portable, inexpensive.
+Disadvantages: Small field of view, monocular (no stereo/3D view), requires dilation for comprehensive exam, more difficult to use through small pupils or media opacities.
+Let’s walk through the step-by-step procedure so you can perform it smoothly and confidently
+Clinical Pearls & Troubleshooting:
+Step-by-Step Procedure:
+Patient & Examiner Setup: Patient slightly dark adapted (if possible), pupil dilated (ideally). Examiner removes own glasses, uses the same eye as the patient's eye being examined (e.g., OD examines patient's OD with examiner's OD). Start with 0 diopters in the ophthalmoscope.
+The "Red Reflex" Target: Position yourself arm's length away, direct the light into the pupil to observe the red reflex.
+Approach: Keep the red reflex in view. Slowly move closer, slightly off-axis (temporal to patient's line of sight), until you are about 2-3 cm from the patient, almost touching their brow.
+Focusing: Adjust the lens wheel to compensate for patient's (and examiner's) refractive error until the retina comes into sharp focus.
+Once you’re in focus, it’s time for a systematic scan.
+Systematic fundus examination:
+Optic Disc: Locate the optic disc and assess its color, margins, cup to disc ratio, and pallor, swelling, or blurred edges.
+Retinal Vessels: Follow the major superior and inferior arcades, checking for abnormalities (tortuosity, crossing changes, hemorrhages).
+Macula: Instruct the patient to look directly at the light (briefly!) to view the macula and foveal reflex. This area is responsible for sharp central vision.
+Retinal Quadrants: Systematically scan all four quadrants by having the patient look up, down, left, and right, while you pivot around their eye.
+Now let’s look at a few common pitfalls and how to avoid them.
+Common Mistakes:
+Too close/far: Can't focus.
+Off-axis light: Obscured view.
+Not using the correct eye: Leads to nose-to-nose discomfort.
+Forgetting to adjust focus: Blurry view.
+Not dilating: Small pupil limits view, especially of periphery.
+Patient blinking/looking away: Patience and clear instructions needed.
+Wrap-up & Takeaway:
+The direct ophthalmoscope may seem simple, but in skilled hands, it’s a powerful tool. It helps detect early signs of optic nerve changes, retinal disease, or systemic conditions like hypertension and diabetes.
+"Practice patience and precision; your direct ophthalmoscopy skills will be a powerful diagnostic tool."
 Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`
   },
   {
@@ -584,7 +789,7 @@ Jennifer, signing off.`
     duration: '02:07',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/9e6b8f524acbfc9bc0710ac0da6b5aa58835789c/Focus%20bites/ep%209%20-%20fb.wav',
-    releaseDate: '2025-06-02',
+    releaseDate: '2025-06-03',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 9,
@@ -614,7 +819,7 @@ Jennifer, signing off.`
     duration: '02:06',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/9e6b8f524acbfc9bc0710ac0da6b5aa58835789c/Focus%20bites/ep%2010%20fb.wav',
-    releaseDate: '2025-06-02',
+    releaseDate: '2025-06-03',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 10,
@@ -646,7 +851,7 @@ Jennifer, signing off.`
     duration: '02:07',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/9e6b8f524acbfc9bc0710ac0da6b5aa58835789c/Focus%20bites/ep%2011%20fb.wav',
-    releaseDate: '2025-06-02',
+    releaseDate: '2025-06-03',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 11,
