@@ -116,9 +116,9 @@ export default function NotificationSignupDialog({ isOpen, onOpenChange }: Notif
                     <BellRing className="h-8 w-8 text-primary" />
                  </div>
               </div>
-              <DialogTitle className="text-2xl">Don't Miss an Insight</DialogTitle>
+              <DialogTitle className="text-2xl">Be the First to Know</DialogTitle>
               <DialogDescription>
-                Get notified when new episodes and series launch. Join a community of forward-thinking eye care professionals.
+                Get notified when new episodes and series arrive. Listen, learn, and stay ahead.
               </DialogDescription>
             </DialogHeader>
             <form onSubmit={handleSubmit} className="grid gap-4 py-4">
