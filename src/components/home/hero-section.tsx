@@ -123,7 +123,7 @@ const HeroSection: React.FC = () => {
   return (
     <section className="py-12 md:py-24 bg-gradient-to-br from-primary/10 via-background to-secondary/10 dark:from-primary/5 dark:to-secondary/5">
       <div className="container mx-auto text-center">
-        <div className="flex justify-center items-center gap-3 mb-4 md:mb-6">
+        <div className="hidden md:flex justify-center items-center gap-3 mb-4 md:mb-6">
           <FocusCastLogo className="h-10 md:h-12 text-4xl md:text-5xl" />
         </div>
         <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4 max-w-3xl mx-auto font-headline">
