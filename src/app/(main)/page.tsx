@@ -14,12 +14,12 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const featured: Episode[] = [
-    placeholderEpisodes.find(ep => ep.id === 'csc-ep5'),
-    placeholderEpisodes.find(ep => ep.id === 'csc-ep6'),
+    placeholderEpisodes.find(ep => ep.id === 'csc-ep10'),
+    placeholderEpisodes.find(ep => ep.id === 'csc-ep11'),
   ].filter(ep => ep) as Episode[];
   
   const trendingEpisodes = [
-    placeholderEpisodes.find(ep => ep.id === 'csc-ep7'),
+    placeholderEpisodes.find(ep => ep.id === 'csc-ep12'),
     placeholderEpisodes.find(ep => ep.id === 'dod-ep1'),
     placeholderEpisodes.find(ep => ep.id === 'fb-ep11'),
   ].filter(ep => ep !== undefined) as Episode[];

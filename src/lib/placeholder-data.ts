@@ -481,6 +481,275 @@ The direct ophthalmoscope may seem simple, but in skilled hands, it’s a powerf
 Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`
   },
   {
+    id: 'csc-ep10',
+    title: 'Indirect Ophthalmoscopy: Comprehensive Posterior Segment Examination',
+    showName: 'Clinical Skills Corner with Aanya',
+    description: 'Examine the entire retina using binocular indirect ophthalmoscopy techniques.',
+    duration: '03:50',
+    thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E10%20(Indirect%20Ophthalmoscopy).mp3',
+    releaseDate: '2025-06-13',
+    seriesId: 'series-clinical-skills',
+    seriesTitle: 'Clinical Skills Corner',
+    episodeNumber: 10,
+    transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. If the direct ophthalmoscope gives you a magnified keyhole view, indirect ophthalmoscopy gives you a wide-angle panorama of the entire posterior segment, including the crucial peripheral retina. This skill is paramount for detecting conditions like retinal tears and detachments.
+Concept & Explanation:
+Let’s start with the basics — what exactly is indirect ophthalmoscopy?
+Indirect ophthalmoscopy is a binocular technique providing a wide-field, stereoscopic (3D), inverted and reversed real image of the fundus.
+In simple terms — you’re seeing the retina in 3D, but flipped upside down and side to side!
+Principles: The examiner wears a binocular indirect ophthalmoscope (BIO) on their head and uses a high-plus condensing lens (e.g., 20D, 28D) to form an aerial image of the retina between the lens and the examiner.
+Equipment: BIO, condensing lens, scleral depressor (for peripheral exam).
+Advantages: Wide field of view, stereoscopic (3D) vision, excellent for peripheral retinal examination, can see through some media opacities, good for viewing patients with small pupils (though dilation is still best).
+Disadvantages: Image is inverted/reversed (requires mental re-orientation), less magnification than direct, can be uncomfortable for examiner's neck/back if not done properly.
+Alright, now let’s walk through the practical part — the actual examination process.
+Clinical Pearls & Troubleshooting:
+Step-by-Step Procedure:
+Patient & Examiner Setup: Patient comfortably reclined (or seated at slit lamp with lens). Examiner adjusts BIO for IPD and comfortable position. Pupil dilated thoroughly (essential for comprehensive exam).
+Illumination: Ensure BIO light is bright enough.
+Lens Handling: Hold the condensing lens (e.g., 20D) by its edges, positioned about an arm's length from the patient's eye.
+Locating the Red Reflex: Direct BIO light into the patient's pupil, find the red reflex.
+Bringing the Image into Focus: Slowly bring the condensing lens into the light path, about one lens focal length (e.g., 5cm for a 20D lens) from the patient's cornea, until a clear, inverted aerial image of the fundus appears.
+Once the image is in focus — it’s time to explore the retina systematically.
+Systematic Scan (Starting with 7-fields of vision):
+Posterior Pole (Central): Patient looks straight ahead.
+Superior Retina: Patient looks up; you look down through the lens.
+Inferior Retina: Patient looks down; you look up through the lens.
+Nasal Retina: Patient looks nasally; you look temporally.
+Temporal Retina: Patient looks temporally; you look nasally.
+Further Periphery with Scleral Depression (Advanced Skill): With a scleral depressor, gently indent the eye wall to bring the far periphery into view.
+This step is crucial for spotting subtle retinal tears or holes that could lead to detachment.
+Even with experience, a few common mistakes can sneak in — here’s how to avoid them.
+Common Mistakes:
+Incorrect IPD on BIO: Leads to monocular view or "kidney bean" effect.
+Lens too far/close from patient: Blurry image.
+Not using patient's gaze correctly: Missing quadrants.
+Patient blinking: Patience is key.
+Forgetting mental inversion: Misinterpreting location of pathology.
+Insufficient dilation: Limits peripheral view.
+Benefits: Excellent for identifying retinal holes, tears, detachments, diabetic retinopathy, and other peripheral pathology.
+Wrap-up & Takeaway:
+Indirect ophthalmoscopy is a vital skill for truly comprehensive retinal health assessment, especially for vision-threatening peripheral conditions.
+"Master the inverted world; protect their entire retina."
+Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`
+  },
+  {
+    id: 'csc-ep11',
+    title: 'Pupil Examination: A Window to Neurological Health',
+    showName: 'Clinical Skills Corner with Aanya',
+    description: 'Examining pupillary reactions to assess optic nerve function and detect neurological abnormalities.',
+    duration: '04:23',
+    thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E11%20(Pupil%20Examination.mp3',
+    releaseDate: '2025-06-14',
+    seriesId: 'series-clinical-skills',
+    seriesTitle: 'Clinical Skills Corner',
+    episodeNumber: 11,
+    transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. The pupils, those black circles in the center of your eyes, are far more than just openings for light. Their size, shape, and reactions provide crucial clues about the health of both the eyes and the complex neurological pathways connecting them to the brain.
+The pupils are the window to the neurological system.
+Concept & Explanation:
+Purpose of Pupil Exam: To assess the afferent (sensory input) and efferent (motor output) pathways of the pupillary light reflex and to detect abnormalities that may indicate ocular or neurological disease.
+Here’s a quick anatomy refresher to connect the dots.
+Anatomy Review:
+Afferent Pathway: Retina Optic Nerve Optic Chiasm Optic Tract Pretectal Nucleus.
+Efferent Pathway (Parasympathetic): Edinger-Westphal Nucleus Oculomotor Nerve (CN III) Ciliary Ganglion Short Ciliary Nerves Iris Sphincter Muscle (constriction).
+Efferent Pathway (Sympathetic): Hypothalamus spinal cord superior cervical ganglion Long Ciliary Nerves Iris Dilator Muscle (dilation).
+When everything works perfectly, here’s what normal looks like.
+Normal Pupil Characteristics:
+Size: Typically 3-5mm in normal room light.
+Shape: Round.
+Symmetry: Equal in size (isocoria) in both eyes.
+Reactivity: Constrict briskly to light, constrict to near (accommodation).
+Now, let’s move from theory to practice — how do we actually perform a thorough pupil exam?
+Clinical Pearls & Troubleshooting:
+Step-by-Step Procedure:
+Inspection (Room Light): Observe pupils for size, shape, and symmetry. Note any anisocoria (unequal pupil size).
+Direct & Consensual Light Reflex:
+Direct: Shine light into one eye; observe direct constriction of that pupil.
+Consensual: Shine light into one eye; observe consensual constriction of the other pupil. Perform for both eyes.
+But to truly test the integrity of the optic nerve — you’ll need the swinging flashlight test.
+Swinging Flashlight Test (RAPD): This is critical for detecting a Relative Afferent Pupillary Defect.
+Procedure: Rapidly swing a bright light from one eye to the other, holding it on each eye for 2-3 seconds.
+Interpretation: A normal response is equal constriction in both eyes, even when light is swung. A RAPD is present if, when the light is swung from the unaffected eye to the affected eye, the affected pupil paradoxically dilates or escapes initial constriction. This indicates a lesion in the afferent pathway of the affected eye.
+Near Reflex (Accommodation Reflex): Have the patient focus on a near target; observe pupil constriction and convergence.
+So what do abnormal findings tell us?
+Key Abnormalities & Their Significance:
+Anisocoria: Unequal pupil sizes. Differentiate physiological anisocoria (normal, slight difference) from pathological causes (e.g., Horner's syndrome, Adie's tonic pupil, CN III palsy). Use bright vs. dim light to localize.
+RAPD: Indicates significant unilateral optic nerve or retinal disease (e.g., optic neuritis, CRAO, large retinal detachment), but not cataract or mild refractive error.
+Argyll Robertson Pupils: Small, irregular pupils that react to near but not to light (associated with neurosyphilis).
+Pupil Irregularity: Suggests iris pathology (e.g., posterior synechiae from uveitis, trauma).
+Even experienced examiners slip up sometimes — here are a few pitfalls to watch for.
+Common Mistakes: Not using a bright enough light, not holding the light long enough for RAPD, confusing consensual with direct reflex, failing to consider patient medications.
+Wrap-up & Takeaway:
+The pupil exam is a rapid, non-invasive screening tool for critical ocular and neurological pathology.
+"Your ability to interpret pupillary signs can literally save sight or even a life."
+Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`
+  },
+  {
+    id: 'csc-ep12',
+    title: 'Cover Test Demystified: Diagnosing Ocular Misalignment',
+    showName: 'Clinical Skills Corner with Aanya',
+    description: 'Objective assessment of eye alignment to identify tropias, phorias, and binocular vision disorders.',
+    duration: '04:11',
+    thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E12%20(Cover%20Test%20Demystified).mp3',
+    releaseDate: '2025-06-15',
+    seriesId: 'series-clinical-skills',
+    seriesTitle: 'Clinical Skills Corner',
+    episodeNumber: 12,
+    transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. The cover test is perhaps the most fundamental binocular vision test you'll perform. It's deceptively simple yet incredibly powerful for detecting and quantifying ocular misalignment, or strabismus.
+Let’s start with the basics.
+Concept & Explanation:
+What is the Cover Test? It’s an objective test to assess ocular alignment and identify the presence and type of strabismus (tropia vs. phoria).
+Basic Principles: Relies on disrupting fusion to reveal latent deviations (phoria) or directly observing manifest deviations (tropia).
+Now, let’s decode some essential terms before diving deeper:
+Key Terminology:
+Orthophoria: Perfect alignment.
+Phoria: A latent deviation, only present when fusion is broken (e.g., by covering an eye). The eyes appear straight when both are open.
+Tropia: A manifest or constant deviation, present even when both eyes are open.
+Eso-: Inward deviation (esophoria, esotropia).
+Exo-: Outward deviation (exophoria, exotropia).
+Hyper-: Upward deviation (hyperphoria, hypertropia).
+Hypo-: Downward deviation (hypophoria, hypotropia).
+Equipment: Occluder, small accommodative target (e.g., a letter on the distance or near chart).
+Now, let’s break down the steps — because precision here makes all the difference.
+Clinical Pearls & Troubleshooting:
+Step-by-Step Procedure:
+Unilateral Cover Test (Cover-Uncover Test): Detecting a Tropia
+Procedure: Have the patient fixate on a distant target. Place the occluder over one eye for 2-3 seconds, then remove it. Observe the uncovered eye for any movement. Repeat on the other eye.
+Interpretation: If the uncovered eye moves to take up fixation, a tropia (manifest deviation) is present in that eye. If no movement is seen in the uncovered eye, the patient may be orthophoric or have a phoria.
+Alternating Cover Test: Detecting a Phoria or Tropia (and quantifying total deviation)
+Procedure: Rapidly alternate the occluder from one eye to the other, not allowing the patient to re-fuse. Observe the eye as the occluder is removed from it or as it's being uncovered.
+Any movement of the uncovered eye? That means a deviation is present.
+Interpretation: The direction of movement indicates the type (e.g., eye moves out to take up fixation = esodeviation).
+Quantification: Use prism bars to neutralize the movement, thereby quantifying the deviation in prism diopters.
+Performing at Distance and Near: Crucial as deviations can vary with viewing distance (e.g., convergence insufficiency).
+Monocular vs. Alternating: Emphasize that the unilateral cover test distinguishes tropia from phoria, while the alternating cover test reveals the maximum deviation (the total deviation, whether phoric or tropic).
+Common Mistakes:
+Not performing the test slowly enough for tropia, or fast enough for phoria.
+Allowing fusion during the alternating cover test.
+Not using an accommodative target.
+Poor observation: Missing subtle movements.
+Patient looking around: Requires re-instruction.
+And remember, not all “crossed eyes” are truly misaligned. Pseudostrabismus — caused by facial anatomy like epicanthal folds — can mimic strabismus, so always interpret with context.
+Wrap-up & Takeaway:
+The cover test is your most powerful tool for objective assessment of ocular alignment. It’s simple, fast, and incredibly revealing when performed with skill and patience.
+"Every eye movement tells you a story about their binocular vision."
+Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`
+  },
+  {
+    id: 'csc-ep13',
+    title: 'Ocular Motility Assessment: Tracking Eye Movements',
+    showName: 'Clinical Skills Corner with Aanya',
+    description: 'Evaluating extraocular muscle function and coordination to detect nerve palsies or restrictions.',
+    duration: '03:45',
+    thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E13%20(Ocular%20Motility%20Assessment).mp3',
+    releaseDate: '2025-06-16',
+    seriesId: 'series-clinical-skills',
+    seriesTitle: 'Clinical Skills Corner',
+    episodeNumber: 13,
+    transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. You’ve checked your patient’s clarity of vision — but can their eyes move together smoothly? This is where ocular motility assessment comes in – checking for any restrictions, weaknesses, or dysfunctions in their eye movements.
+Concept & Explanation:
+What is Ocular Motility? It’s the assessment of the coordinated movement of the eyes, controlled by the extraocular muscles.
+Purpose: To identify any paralytic or restrictive strabismus, cranial nerve palsies, or other oculomotor dysfunctions that affect eye movements.
+Let’s quickly review the key players:
+Six extraocular muscles per eye — superior, inferior, medial, and lateral rectus; and the superior and inferior obliques.
+They’re powered by three cranial nerves: III (Oculomotor), IV (Trochlear), and VI (Abducens).
+Terminology:
+Versions: Conjugate (both eyes moving together) eye movements in the same direction.
+Ductions: Monocular (one eye moving) eye movements.
+Saccades: Rapid, jerky eye movements that shift fixation from one point to another.
+Pursuits: Smooth, slow eye movements that follow a moving target.
+Clinical Pearls & Troubleshooting:
+Step-by-Step Procedure:
+Patient Setup: Patient comfortably seated, head still.
+Observation of Primary Gaze: Observe eyes in the straight-ahead position for any obvious misalignment (tropia), head turns, or nystagmus.
+Versions (H-Pattern or Starburst Pattern):
+Use a small accommodative target (e.g., penlight or target on a stick).
+Instruct patient to "follow the light with your eyes, keep your head still."
+Move the target slowly into the nine cardinal positions of gaze (up-right, right, down-right, up-left, left, down-left, and straight up/down).
+Observe both eyes together for fullness of movement, smoothness, and presence of nystagmus.
+Look for:
+Underaction: Incomplete movement in a specific direction.
+Overaction: Excessive movement.
+Lag: One eye lags behind the other.
+Nystagmus: Involuntary, rhythmic eye movements.
+Ductions (Monocular Movements):
+Occlude one eye, have the patient move the uncovered eye in all directions. Useful for differentiating weakness from restriction (e.g., thyroid eye disease).
+Saccades & Pursuits (Optional, but good for neuro-optometry):
+Saccades: Have patient rapidly shift gaze between two targets. Look for accuracy and speed.
+Pursuits: Have patient smoothly follow a moving target in a circle or horizontal line. Look for jerkiness.
+Common Abnormalities include:
+Cranial Nerve Palsies (III, IV, VI): Specific patterns of underaction.
+Thyroid Eye Disease: Restrictive myopathy, especially of inferior rectus (difficulty looking up).
+Myasthenia Gravis: Fatigable ptosis and eye muscle weakness.
+Nystagmus: Involuntary eye movements, indicating neurological dysfunction.
+Common Mistakes: 
+Moving your target too fast.
+Following the target with your own head.
+Not observing both eyes at once.
+Forgetting to ask about diplopia (double vision).
+
+Wrap-up & Takeaway:
+Ocular motility assessment is vital for detecting neurological and muscular issues affecting eye movement, which can profoundly impact vision.
+"Watch their eyes dance, and uncover the story of their neurological health."
+Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`
+  },
+  {
+    id: 'csc-ep14',
+    title: 'Keratometry & Corneal Topography: Understanding Corneal Shape',
+    showName: 'Clinical Skills Corner with Aanya',
+    description: 'Measuring and mapping corneal curvature for accurate refraction, lens fitting, and disease detection.',
+    duration: '04:08',
+    thumbnailUrl: 'https://picsum.photos/seed/clinicskills/400/400',
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/CLINICAL%20SKILLS%20CORNER/S1-E14%20(Keratometry%20%26%20Corneal%20Topography).mp3',
+    releaseDate: '2025-06-17',
+    seriesId: 'series-clinical-skills',
+    seriesTitle: 'Clinical Skills Corner',
+    episodeNumber: 14,
+    transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. The cornea, your eye's clear front window, plays a critical role in focusing light. Understanding its precise shape is essential for accurate refraction, contact lens fitting, and diagnosing corneal diseases. Let’s explore keratometry and corneal topography, two essential tools that map the corneal surface.
+Concept & Explanation:
+What is Keratometry? It’s the measurement of the curvature of the central cornea, specifically the two principal meridians. It helps determine corneal astigmatism, giving us readings in diopters and axes.
+Principles of Keratometry: Based on reflecting mires off the anterior corneal surface and measuring the size of the reflected image. The cornea acts as a convex mirror.
+What keratometry measures: Radius of curvature (mm), corneal power (diopters), and axis of corneal astigmatism.
+Corneal Topography:
+What it is: A more advanced, non-invasive imaging technique that creates a detailed, color-coded map of the entire corneal surface, plotting thousands of points of curvature and elevation.
+Principle: Projects concentric rings (Placido rings) onto the cornea and analyzes their reflection.
+Advantages: Provides much more detailed information than keratometry, including peripheral curvature, irregular astigmatism, and corneal shape changes.
+
+Clinical Pearls & Troubleshooting:
+Step-by-Step Manual Keratometry Procedure:
+Patient & Instrument Setup: Patient comfortably positioned, instrument focused.
+Mire Alignment: Align the central circles/squares/plus signs of the mires.
+Focusing: Adjust the focus knob until the mires are clear.
+Axis Alignment: Rotate the instrument until the plus signs are aligned in a straight line.
+Power Measurement: Adjust the horizontal and vertical power drums until the mires perfectly coincide.
+Recording: Record the K-readings (e.g., 43.00 @ 180 / 44.50 @ 90).
+Interpreting Keratometry Readings:
+Steep vs. Flat Meridian: The higher dioptric power is the steeper meridian.
+Corneal Astigmatism: The difference between the two powers.
+"With-the-rule," "Against-the-rule," "Oblique" astigmatism.
+Corneal Topography Interpretation:
+Color Scale: Warmer colors (red/orange) typically indicate steeper areas, and cooler colors (blue/green) indicate flatter areas.
+Common Patterns:
+Symmetric Bowtie: Regular corneal astigmatism.
+Asymmetric Bowtie: Irregular astigmatism, often associated with corneal ectasias.
+"Inferior Steepening" or "Kissing Doves": Classic signs of keratoconus.
+"Red Spot" (central steepening): Suggests irregular cornea.
+Clinical Applications:
+Refraction: Aids in determining astigmatic power and axis, especially when subjective refraction is challenging.
+Contact Lens Fitting: Crucial for RGP and scleral lens fitting.
+Diagnosing Corneal Ectasias: Essential for early detection and monitoring of keratoconus and pellucid marginal degeneration.
+Pre- and Post-Refractive Surgery: Assessing candidacy and monitoring outcomes.
+Common Mistakes in Keratometry: Patient not fixating centrally, eyelids touching instrument, not focusing mires, inaccurate alignment.
+
+
+Wrap-up & Takeaway:
+Keratometry and topography provide invaluable information about corneal shape, critical for accurate refraction, contact lens fitting, and diagnosing corneal pathology.
+"The cornea's blueprint is key to clear vision."
+Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`
+  },
+  {
     id: 'fb-ep1',
     title: 'Phosphene Phenomena',
     showName: 'Focus Bites',
@@ -789,7 +1058,7 @@ Jennifer, signing off.`
     duration: '02:07',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/9e6b8f524acbfc9bc0710ac0da6b5aa58835789c/Focus%20bites/ep%209%20-%20fb.wav',
-    releaseDate: '2025-06-03',
+    releaseDate: '2025-06-02',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 9,
@@ -819,7 +1088,7 @@ Jennifer, signing off.`
     duration: '02:06',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/9e6b8f524acbfc9bc0710ac0da6b5aa58835789c/Focus%20bites/ep%2010%20fb.wav',
-    releaseDate: '2025-06-03',
+    releaseDate: '2025-06-02',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 10,
@@ -851,7 +1120,7 @@ Jennifer, signing off.`
     duration: '02:07',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/StromVault/9e6b8f524acbfc9bc0710ac0da6b5aa58835789c/Focus%20bites/ep%2011%20fb.wav',
-    releaseDate: '2025-06-03',
+    releaseDate: '2025-06-02',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 11,
