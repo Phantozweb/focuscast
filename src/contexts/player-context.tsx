@@ -27,7 +27,7 @@ interface PlayerActions {
   closePlayer: () => void;
   playNextInPlaylist: () => void;
   playPreviousInPlaylist: () => void;
-  startSeriesPlayback: (seriesEpisodes: Episode[]) => void;
+  startSeriesPlayback: (seriesEpisodes: Episode[], startIndex?: number) => void;
   setPlaybackRate: (rate: number) => void;
   skipForward: () => void;
   skipBackward: () => void;
@@ -142,6 +142,19 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     }
   }, [currentEpisode, toast]);
 
+  const togglePlayPause = useCallback(() => {
+    if (audioRef.current && currentEpisode) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play().catch(error => {
+            console.error("Error playing audio:", error);
+            toast({ title: "Error", description: "Could not resume audio.", variant: "destructive" });
+        });
+      }
+    }
+  }, [isPlaying, currentEpisode, toast]);
+
   const playEpisode = useCallback((episode: Episode, playlist?: Episode[], startIndex?: number) => {
     if (currentEpisode?.id !== episode.id) {
         setCurrentEpisode(episode);
@@ -162,12 +175,12 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         setCurrentPlaylistEpisodeIndex(0);
       }
     }
-  }, [currentEpisode, currentPlaylist, playNextInPlaylist]);
+  }, [currentEpisode, currentPlaylist, togglePlayPause]);
 
 
-  const startSeriesPlayback = useCallback((seriesEpisodes: Episode[]) => {
+  const startSeriesPlayback = useCallback((seriesEpisodes: Episode[], startIndex: number = 0) => {
     if (seriesEpisodes.length > 0) {
-      playEpisode(seriesEpisodes[0], seriesEpisodes, 0);
+      playEpisode(seriesEpisodes[startIndex], seriesEpisodes, startIndex);
       setIsExpanded(true);
     }
   }, [playEpisode]);
@@ -181,19 +194,6 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
        toast({ title: "Start of playlist", description: "You're at the beginning of the playlist." });
     }
   }, [currentPlaylist, currentPlaylistEpisodeIndex, toast]);
-
-  const togglePlayPause = useCallback(() => {
-    if (audioRef.current && currentEpisode) {
-      if (isPlaying) {
-        audioRef.current.pause();
-      } else {
-        audio.current.play().catch(error => {
-            console.error("Error playing audio:", error);
-            toast({ title: "Error", description: "Could not resume audio.", variant: "destructive" });
-        });
-      }
-    }
-  }, [isPlaying, currentEpisode, toast]);
 
   const seek = useCallback((time: number) => {
     if (audioRef.current && currentEpisode) {

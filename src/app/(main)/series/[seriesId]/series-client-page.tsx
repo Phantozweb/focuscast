@@ -1,11 +1,12 @@
+
 'use client';
 
-import React, { useState } from 'react'; 
+import React from 'react'; 
 import type { Episode, Series } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, PlayCircle, Clock, Play, MessageSquareQuote } from 'lucide-react';
+import { ArrowLeft, PlayCircle, Clock, Play, MessageSquareQuote, List } from 'lucide-react';
 import { usePlayer } from '@/contexts/player-context';
 import { cn } from '@/lib/utils';
 import ShareButton from '@/components/general/share-button';
@@ -18,10 +19,21 @@ interface SeriesClientPageProps {
   totalDuration: string;
 }
 
-export default function SeriesClientPage({ initialSeries, initialEpisodesInSeries, totalDuration }: SeriesClientPageProps) {
-  const [series] = useState<Series>(initialSeries); 
-  const [episodesInSeries] = useState<Episode[]>(initialEpisodesInSeries);
-  const { playEpisode, currentEpisode, isPlaying, startSeriesPlayback } = usePlayer();
+const StatItem: React.FC<{ icon: React.ElementType; value: string; label: string; }> = ({ icon: Icon, value, label }) => (
+    <div className="flex items-center gap-3">
+      <div className="bg-primary/10 text-primary p-2.5 rounded-full">
+        <Icon className="w-5 h-5" />
+      </div>
+      <div>
+        <p className="text-xl sm:text-2xl font-bold">{value}</p>
+        <p className="text-xs sm:text-sm text-muted-foreground">{label}</p>
+      </div>
+    </div>
+);
+
+
+export default function SeriesClientPage({ initialSeries: series, initialEpisodesInSeries: episodesInSeries, totalDuration }: SeriesClientPageProps) {
+  const { currentEpisode, isPlaying, startSeriesPlayback } = usePlayer();
 
   const handlePlayAll = () => {
     if (episodesInSeries.length > 0) {
@@ -40,58 +52,62 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
 
   return (
     <div className="container mx-auto py-8">
-      <div className="mb-12 p-4 md:p-0 group">
-        <Button asChild variant="outline" className="mb-6">
+      <div className="mb-8 px-4 md:px-0">
+        <Button asChild variant="outline" className="mb-6 text-sm">
           <Link href="/#series">
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to All Series
           </Link>
         </Button>
-        <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
-          <div className="w-full md:w-1/3 lg:w-1/4 flex-shrink-0">
-            <Image
-              src={series.thumbnailUrl}
-              alt={series.title}
-              width={400}
-              height={400}
-              className="rounded-lg shadow-xl aspect-square object-cover w-full transition-transform duration-300 group-hover:scale-105"
-              data-ai-hint={series.dataAiHint || "podcast series cover"}
-            />
-          </div>
-          <div className="flex-grow">
-            <h1 className="text-4xl md:text-5xl font-bold mb-3 font-headline">{series.title}</h1>
-            <p className="text-lg text-muted-foreground mb-4">{series.description}</p>
-            <div className="text-sm text-muted-foreground mb-6 flex flex-wrap items-center gap-x-4 gap-y-2">
-              <span>
-                {episodesInSeries.length} episode{episodesInSeries.length === 1 ? '' : 's'}
-              </span>
-              {totalDuration && (
-                <>
-                  <span className="text-muted-foreground/50 hidden sm:inline">|</span>
-                  <div className="flex items-center">
-                    <Clock className="mr-1.5 h-4 w-4" />
-                    <span>{totalDuration} total</span>
-                  </div>
-                </>
-              )}
-            </div>
-            <div className="flex gap-2 items-center">
-              {episodesInSeries.length > 0 && (
-                <Button size="lg" onClick={handlePlayAll}>
-                  <Play className="mr-2 h-5 w-5" /> Play All Episodes
-                </Button>
-              )}
-               <ShareButton 
-                  shareTitle={series.title}
-                  shareUrl={`/series/${series.id}`}
-                  buttonText="Share Series"
-                  size="lg"
+      </div>
+      
+      {/* Redesigned Hero Section */}
+      <div className="bg-card dark:bg-muted/10 border border-border/50 rounded-xl p-4 sm:p-6 shadow-sm mb-12 group">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-center">
+            {/* Image Column */}
+            <div className="lg:col-span-1 flex justify-center">
+                <Image
+                    src={series.thumbnailUrl}
+                    alt={series.title}
+                    width={400}
+                    height={400}
+                    className="rounded-lg shadow-xl aspect-square object-cover w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 transition-transform duration-300 group-hover:scale-105"
+                    data-ai-hint={series.dataAiHint || "podcast series cover"}
+                    priority
                 />
             </div>
-          </div>
+
+            {/* Info & Stats Column */}
+            <div className="lg:col-span-2">
+                <h1 className="text-3xl md:text-4xl font-bold mb-3 font-headline">{series.title}</h1>
+                <p className="text-md text-muted-foreground mb-6">{series.description}</p>
+                
+                <div className="grid grid-cols-2 sm:grid-cols-2 gap-6 text-left mb-6">
+                    <StatItem icon={List} value={episodesInSeries.length.toString()} label="Episodes" />
+                    {totalDuration && (
+                        <StatItem icon={Clock} value={totalDuration.replace(' total','')} label="Total Time" />
+                    )}
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-2 items-center">
+                  {episodesInSeries.length > 0 && (
+                    <Button size="lg" onClick={handlePlayAll} className="flex-1 w-full sm:w-auto">
+                      <Play className="mr-2 h-5 w-5" /> Play All
+                    </Button>
+                  )}
+                  <ShareButton 
+                      shareTitle={series.title}
+                      shareUrl={`/series/${series.id}`}
+                      buttonText="Share Series"
+                      size="lg"
+                      variant="outline"
+                      className="flex-1 w-full sm:w-auto"
+                    />
+                </div>
+            </div>
         </div>
       </div>
       
-      <h2 className="text-3xl font-bold mb-8 px-4 md:px-0 font-headline">Episodes in {series.title}</h2>
+      <h2 className="text-3xl font-bold mb-8 px-4 md:px-0 font-headline">Episodes in This Series</h2>
       
       {episodesInSeries.length === 0 ? (
         <p className="text-center text-muted-foreground py-8 px-4 md:px-0">No episodes found for this series yet.</p>
@@ -104,7 +120,8 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
                 key={episode.id} 
                 className={cn(
                   "flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 border rounded-lg shadow-sm bg-card",
-                  "transform hover:-translate-y-0.5 transition-all duration-200 ease-out hover:shadow-md"
+                  "transform hover:-translate-y-0.5 transition-all duration-200 ease-out hover:shadow-md",
+                  isActive ? "border-primary ring-1 ring-primary" : ""
                 )}
               >
                 <div className="flex items-start sm:items-center gap-4 mb-4 sm:mb-0 flex-grow">
@@ -113,13 +130,10 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
                   </span>
                   <div className="flex-grow">
                     <h3 
-                      className="text-lg font-semibold hover:text-primary transition-colors cursor-pointer"
+                      className="text-lg font-semibold"
                     >
-                       <Link href={`/episode/${episode.id}`}>{episode.title}</Link>
+                       <Link href={`/episode/${episode.id}`} className="hover:text-primary transition-colors">{episode.title}</Link>
                     </h3>
-                    <p className="text-xs text-muted-foreground mt-0.5">
-                      From the "{series.title}" series
-                    </p>
                     <div className="mt-1 flex items-center text-xs text-muted-foreground">
                       <Clock size={14} className="mr-1.5" />
                       <span>{episode.duration}</span>
@@ -132,7 +146,7 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
                   <Button 
                     size="sm" 
                     variant={isActive && isPlaying ? "default" : "outline"}
-                    onClick={() => playEpisode(episode, episodesInSeries, index)}
+                    onClick={() => startSeriesPlayback(episodesInSeries, index)}
                     className="flex-1 sm:flex-none"
                     aria-label={`Play ${episode.title}`}
                   >
