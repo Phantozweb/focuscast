@@ -45,7 +45,7 @@ export const placeholderEpisodes: Episode[] = [
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 1,
-    keywords: ['visual acuity', 'Snellen chart', 'LogMAR', 'pinhole test', 'refractive error', 'optometry basics', 'pediatric optometry', 'low vision', 'acuity testing', 'clinical pearls'],
+    keywords: ['visual acuity', 'Snellen chart', 'LogMAR', 'pinhole test', 'refractive error', 'pediatric optometry', 'low vision', 'acuity testing', 'clinical pearls'],
     transcript: `Hello, and you’re listening to Clinical Skills Corner with Aanya!
 Every clinic day is full of tiny challenges and big learning moments.
 Together, we’ll break down key techniques, tackle tricky scenarios, and share the clinical pearls that turn good care into great care.
@@ -89,7 +89,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 2,
-    keywords: ['retinoscopy', 'objective refraction', 'refractive error', 'astigmatism', 'with motion', 'against motion', 'phoropter technique', 'trial frame', 'cycloplegic refraction', 'clinical optics'],
+    keywords: ['retinoscopy', 'objective refraction', 'refractive error', 'astigmatism', 'with motion', 'against motion', 'phoropter technique', 'trial frame', 'cycloplegic refraction', 'keratoconus'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. Now, we're demystifying retinoscopy, your fastest, most objective way to determine a patient's refractive error. It’s like peeking into their eye to see how light is behaving.
 Concept & Explanation:
 Retinoscopy is an objective method of determining the eye's refractive error by observing the movement of reflected light from the retina as a streak of light is moved across the pupil.
@@ -295,7 +295,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 6,
-    keywords: ['slit lamp', 'anterior segment', 'biomicroscopy', 'cornea examination', 'illumination techniques', 'eye exam', 'retro-illumination', 'tear film assessment', 'TBUT', 'blepharitis'],
+    keywords: ['slit lamp', 'anterior segment', 'biomicroscopy', 'cornea examination', 'illumination techniques', 'retro-illumination', 'tear film assessment', 'TBUT', 'blepharitis', 'uveitis'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. The slit lamp biomicroscope is arguably the most powerful and versatile diagnostic tool in your optometric arsenal. Mastering its systematic use is key to identifying subtle signs of ocular disease in the anterior segment.
 Let’s start with the basics — what exactly is a slit lamp, and why is it so essential?
 Concept & Explanation:
@@ -1168,7 +1168,7 @@ Jennifer, signing off.`
     seriesId: 'series-decoding-ocular-disease',
     seriesTitle: 'Decoding Ocular Disease',
     episodeNumber: 1,
-    keywords: ['diabetic retinopathy', 'NPDR', 'PDR', 'diabetic macular edema', 'fundus photography', 'OCT'],
+    keywords: ['diabetic retinopathy', 'NPDR', 'PDR', 'diabetic macular edema', 'fundus photography', 'OCT', 'neovascularization', 'pan-retinal photocoagulation', 'anti-VEGF'],
     transcript: `I am John, and welcome to Focus Cast! This is the very first episode of our brand new series, Decoding Ocular Disease! In this series, our mission is to really break down those complex eye conditions, offering clear, practical insights for all you practicing optometrists out there, and for students who are eager to learn. Each episode, we’ll dissect a specific ocular pathology – looking at everything from its fundamental mechanisms, to what it actually looks like when you see it in the clinic, and, of course, how we best manage it. The goal here? To equip you with the knowledge and confidence to diagnose, to manage, and to truly educate your patients.
 
 Today, for our inaugural deep dive, we’re tackling a condition that is, frankly, a significant public health concern. It’s one that every single one of us in optometric practice will encounter with increasing frequency: Diabetic Retinopathy.
@@ -1221,7 +1221,7 @@ Until next time, keep those funduscopes ready, stay curious, and continue to mak
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 3,
-    keywords: ['Purkinje shift', 'scotopic vision', 'photopic vision', 'rod vision', 'cone vision', 'color perception'],
+    keywords: ['Purkinje shift', 'scotopic vision', 'photopic vision', 'rod vision', 'cone vision', 'color perception', 'mesopic vision'],
     transcript: `Hey, this is Jennifer — and you’re tuned in to Focus Bites.
 
 So, have you ever noticed how the bright red flowers in your garden seem to almost vanish into darkness at dusk, while the blue ones appear surprisingly vibrant?
@@ -1254,7 +1254,7 @@ Jennifer, signing off.`
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 4,
-    keywords: ["Haidinger's Brushes", 'entoptic phenomenon', 'polarized light', 'macular pigment', 'dichroism', 'visual perception'],
+    keywords: ["Haidinger's Brushes", 'entoptic phenomenon', 'polarized light', 'macular pigment', 'dichroism', 'visual perception', 'lutein', 'zeaxanthin'],
     transcript: `Hey, this is Jennifer — and you’re tuned in to Focus Bites.
 
 So, here’s a subtle, almost elusive visual phenomenon: have you ever perceived a faint, yellowish bowtie or hourglass shape when looking at a uniformly blue, polarized light source, like the sky?
@@ -1320,7 +1320,7 @@ Jennifer, signing off.`
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 6,
-    keywords: ["Scheerer's phenomenon", 'blue field entoptic phenomenon', 'entoptic', 'retinal circulation', 'leukocytes', 'vision science'],
+    keywords: ["Scheerer's phenomenon", 'blue field entoptic phenomenon', 'entoptic', 'retinal circulation', 'leukocytes', 'microcirculation'],
     transcript: `Hey, this is Jennifer — and you’re tuned in to Focus Bites.
 
 Have you ever looked at a bright, uniform blue sky and noticed tiny, rapidly moving specks or "flying corpuscles" darting around in your vision?
@@ -1352,7 +1352,7 @@ Jennifer, signing off.`
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 7,
-    keywords: ['horopter', "Panum's fusional area", 'binocular vision', 'stereopsis', 'diplopia', 'retinal correspondence'],
+    keywords: ['horopter', "Panum's fusional area", 'binocular vision', 'stereopsis', 'diplopia', 'retinal correspondence', '3D vision'],
     transcript: `Hey, this is Jennifer — and you’re tuned in to Focus Bites.
 
 We have two eyes, each capturing a slightly different image. So how does our brain fuse them into a single, three-dimensional perception—without us seeing double?
@@ -1384,7 +1384,7 @@ Jennifer, signing off.`
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 8,
-    keywords: ['binocular rivalry', 'visual perception', 'neural competition', 'consciousness', 'binocular vision', 'ambiguous stimuli'],
+    keywords: ['binocular rivalry', 'visual perception', 'neural competition', 'consciousness', 'binocular vision', 'ambiguous stimuli', 'suppression'],
     transcript: `Hey, this is Jennifer — and you’re tuned in to Focus Bites.
 
 What happens when each eye is presented with totally different images—like a vertical grating to one eye and a horizontal grating to the other—that can’t be fused into a single coherent picture?
@@ -1416,7 +1416,7 @@ Jennifer, signing off.`
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 9,
-    keywords: ['Pulfrich effect', 'optical illusion', 'depth perception', 'stereopsis', 'neural processing', 'binocular vision'],
+    keywords: ['Pulfrich effect', 'optical illusion', 'depth perception', 'stereopsis', 'neural processing', 'binocular vision', 'optic neuropathy'],
     transcript: `This is Jennifer, and you're listening to Focus Bites.
 
 The Pulfrich effect occurs when a neutral density filter placed over one eye causes a swinging pendulum, which normally moves in a flat plane, to appear to move in an elliptical path. This is due to a delay in neural processing in the eye receiving the dimmer image.
@@ -1447,7 +1447,7 @@ Jennifer, signing off.`
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
     episodeNumber: 10,
-    keywords: ['adaptive optics', 'retinal imaging', 'high-resolution', 'photoreceptors', 'vision science', 'ocular aberrations'],
+    keywords: ['adaptive optics', 'retinal imaging', 'high-resolution', 'photoreceptors', 'vision science', 'ocular aberrations', 'wavefront sensor'],
     transcript: `This is Jennifer, and you're listening to Focus Bites.
 
 The optics of the human eye contain aberrations. Despite this, researchers can capture high-resolution images of the retina, down to individual photoreceptors.

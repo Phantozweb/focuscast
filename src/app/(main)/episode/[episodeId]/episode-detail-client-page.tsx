@@ -110,6 +110,17 @@ export default function EpisodeDetailClientPage({ episode, series, relatedEpisod
             <h2 className="text-xl font-semibold mb-2 mt-6 font-headline">Episode Description</h2>
             <p className="text-foreground/80 leading-relaxed text-sm sm:text-base whitespace-pre-line">{episode.description}</p>
 
+            {episode.keywords && episode.keywords.length > 0 && (
+              <div className="mt-6">
+                <h3 className="text-base font-semibold mb-2 font-headline">Tags</h3>
+                <div className="flex flex-wrap gap-2">
+                  {episode.keywords.map(keyword => (
+                    <Badge key={keyword} variant="secondary">{keyword}</Badge>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {episode.transcript && (
               <Accordion type="single" collapsible className="w-full mt-6">
                 <AccordionItem value="transcript-item">
@@ -121,7 +132,7 @@ export default function EpisodeDetailClientPage({ episode, series, relatedEpisod
                   </AccordionTrigger>
                   <AccordionContent>
                     <div className="prose prose-sm dark:prose-invert max-w-none whitespace-pre-line text-foreground/80 p-1 leading-normal">
-                      {episode.transcript.split('\\n\\n').map((paragraph, index) => (
+                      {episode.transcript.split('\n\n').map((paragraph, index) => (
                         <p key={index} className="mb-3">{paragraph}</p>
                       ))}
                     </div>
