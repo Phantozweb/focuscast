@@ -6,6 +6,7 @@ import { ArrowRight, Podcast, List, Clock } from 'lucide-react';
 import Link from 'next/link';
 import type { Series } from '@/types';
 import Image from 'next/image';
+import { cn } from '@/lib/utils';
 
 interface StatItemProps {
   icon: React.ElementType;
@@ -64,6 +65,18 @@ interface StatsBannerProps {
 }
 
 const StatsBanner: React.FC<StatsBannerProps> = ({ totalEpisodes, totalSeries, totalHours, featuredSeries }) => {
+  const [showImage, setShowImage] = useState(false);
+
+  useEffect(() => {
+    if (!featuredSeries) return;
+
+    const interval = setInterval(() => {
+      setShowImage(prev => !prev);
+    }, 5000); // Switch every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [featuredSeries]);
+
   return (
     <section className="bg-card dark:bg-muted/10 border border-border/50 rounded-xl p-6 sm:p-8 shadow-sm">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -79,29 +92,33 @@ const StatsBanner: React.FC<StatsBannerProps> = ({ totalEpisodes, totalSeries, t
         
         {/* Right Side: Featured Series */}
         {featuredSeries && (
-           <div className="bg-muted/30 dark:bg-background/50 p-6 rounded-lg border border-primary/20 shadow-lg text-center md:text-left flex flex-col md:flex-row items-center gap-6">
-             <div className="flex-grow">
-                <p className="text-sm font-semibold text-primary mb-1">NEW SERIES DROP</p>
-                <h3 className="text-2xl font-bold font-headline mb-2">{featuredSeries.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4">
-                 {featuredSeries.shortDescription}
-                </p>
-                <Button asChild>
-                  <Link href={`/series/${featuredSeries.id}`}>
-                    Start Learning <ArrowRight className="ml-2" />
-                  </Link>
-                </Button>
-             </div>
-             <div className="relative w-32 h-32 md:w-36 md:h-36 flex-shrink-0">
-                <Image
-                    src={featuredSeries.thumbnailUrl}
-                    alt={featuredSeries.title}
-                    fill
-                    className="object-contain"
-                    data-ai-hint={featuredSeries.dataAiHint || "podcast series art"}
-                    sizes="144px"
-                />
-             </div>
+           <div className="bg-muted/30 dark:bg-background/50 p-6 rounded-lg border border-primary/20 shadow-lg text-center md:text-left flex flex-col items-center min-h-[200px] justify-center relative overflow-hidden">
+              <div className={cn("transition-opacity duration-1000", showImage ? 'opacity-0' : 'opacity-100')}>
+                <div className="flex-grow">
+                    <p className="text-sm font-semibold text-primary mb-1">NEW SERIES DROP</p>
+                    <h3 className="text-2xl font-bold font-headline mb-2">{featuredSeries.title}</h3>
+                    <p className="text-muted-foreground text-sm mb-4">
+                     {featuredSeries.shortDescription}
+                    </p>
+                    <Button asChild>
+                      <Link href={`/series/${featuredSeries.id}`}>
+                        Start Learning <ArrowRight className="ml-2" />
+                      </Link>
+                    </Button>
+                </div>
+              </div>
+              
+              <div className={cn("absolute inset-0 flex items-center justify-center transition-opacity duration-1000 p-4", showImage ? 'opacity-100' : 'opacity-0')}>
+                  <Image
+                      src={featuredSeries.thumbnailUrl}
+                      alt={featuredSeries.title}
+                      width={180}
+                      height={180}
+                      className="object-contain"
+                      data-ai-hint={featuredSeries.dataAiHint || "podcast series art"}
+                      sizes="180px"
+                  />
+              </div>
            </div>
         )}
       </div>
