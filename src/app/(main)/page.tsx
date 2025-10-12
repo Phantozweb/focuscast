@@ -14,17 +14,17 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const featured: Episode[] = [
-    placeholderEpisodes.find(ep => ep.id === 'dod-ep1'),
-    placeholderEpisodes.find(ep => ep.id === 'fb-ep8'),
+    placeholderEpisodes.find(ep => ep.id === 'csc-ep1'),
+    placeholderEpisodes.find(ep => ep.id === 'csc-ep2'),
   ].filter(ep => ep) as Episode[];
   
   const trendingEpisodes = [
+    placeholderEpisodes.find(ep => ep.id === 'csc-ep3'),
+    placeholderEpisodes.find(ep => ep.id === 'dod-ep1'),
     placeholderEpisodes.find(ep => ep.id === 'fb-ep11'),
-    placeholderEpisodes.find(ep => ep.id === 'fb-ep7'),
-    placeholderEpisodes.find(ep => ep.id === 'fb-ep6'),
   ].filter(ep => ep !== undefined) as Episode[];
 
-  const seriesData = placeholderSeries.filter(s => s.id !== 'series-grow-optom');
+  const seriesData = placeholderSeries;
 
   return (
     <div className="flex flex-col">
@@ -37,3 +37,5 @@ export default function HomePage() {
     </div>
   );
 }
+
+    
