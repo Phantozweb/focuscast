@@ -9,6 +9,7 @@ import EpisodeCard from '@/components/episodes/episode-card';
 import SeriesCard from '@/components/series/series-card';
 import { placeholderEpisodes, placeholderSeries } from '@/lib/placeholder-data';
 import type { Episode, Series } from '@/types';
+import FocusCastLogo from '@/components/icons/focus-cast-logo';
 
 type Suggestion = 
   | (Episode & { resultType: 'episode' }) 
