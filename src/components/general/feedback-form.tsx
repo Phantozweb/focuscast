@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState } from 'react';
@@ -8,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { sendFeedback } from '@/ai/flows/send-feedback-flow';
-import type { FeedbackInput } from '@/ai/flows/send-feedback-flow';
+import type { FeedbackInput } from '@/types/feedback';
 
 interface FeedbackFormProps {
   sourceTitle: string;

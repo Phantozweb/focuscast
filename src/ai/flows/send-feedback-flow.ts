@@ -3,19 +3,9 @@
  * @fileOverview A server action to send feedback to a Discord webhook.
  *
  * - sendFeedback - A function that sends feedback to Discord.
- * - FeedbackInput - The input type for the sendFeedback function.
  */
 
-import { z } from 'zod';
-
-export const FeedbackInputSchema = z.object({
-  sourceTitle: z.string().describe('The title of the episode or series.'),
-  sourceType: z.enum(['Episode', 'Series']).describe('The type of content being reviewed.'),
-  rating: z.number().min(1).max(5).describe('The star rating from 1 to 5.'),
-  feedback: z.string().optional().describe('The user\'s written feedback.'),
-  sourceUrl: z.string().url().optional().describe('The URL of the episode or series.'),
-});
-export type FeedbackInput = z.infer<typeof FeedbackInputSchema>;
+import type { FeedbackInput } from '@/types/feedback';
 
 export async function sendFeedback(input: FeedbackInput): Promise<{ success: boolean; message: string }> {
     const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
