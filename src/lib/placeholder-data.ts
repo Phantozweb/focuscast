@@ -45,7 +45,7 @@ export const placeholderEpisodes: Episode[] = [
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 1,
-    keywords: ['visual acuity', 'Snellen chart', 'LogMAR', 'pinhole test', 'refractive error', 'optometry basics'],
+    keywords: ['visual acuity', 'Snellen chart', 'LogMAR', 'pinhole test', 'refractive error', 'optometry basics', 'pediatric optometry', 'low vision', 'acuity testing', 'clinical pearls'],
     transcript: `Hello, and you’re listening to Clinical Skills Corner with Aanya!
 Every clinic day is full of tiny challenges and big learning moments.
 Together, we’ll break down key techniques, tackle tricky scenarios, and share the clinical pearls that turn good care into great care.
@@ -89,7 +89,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 2,
-    keywords: ['retinoscopy', 'objective refraction', 'refractive error', 'astigmatism', 'with motion', 'against motion'],
+    keywords: ['retinoscopy', 'objective refraction', 'refractive error', 'astigmatism', 'with motion', 'against motion', 'phoropter technique', 'trial frame', 'cycloplegic refraction', 'clinical optics'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. Now, we're demystifying retinoscopy, your fastest, most objective way to determine a patient's refractive error. It’s like peeking into their eye to see how light is behaving.
 Concept & Explanation:
 Retinoscopy is an objective method of determining the eye's refractive error by observing the movement of reflected light from the retina as a streak of light is moved across the pupil.
@@ -133,7 +133,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 3,
-    keywords: ['subjective refraction', 'JCC', 'Jackson Cross Cylinder', 'binocular balancing', 'phoropter', 'best corrected visual acuity'],
+    keywords: ['subjective refraction', 'JCC', 'Jackson Cross Cylinder', 'binocular balancing', 'phoropter', 'best corrected visual acuity', 'fogging technique', 'duochrome test', 'astigmatism refinement', 'myopia control'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. Once you've got an objective starting point, it's time to step into the art of subjective refraction – refining that prescription so your patient enjoys their clear, comfortable vision. This is where their "better 1 or better 2" choices come into play.
 Let’s start by understanding what subjective refraction really is before we jump into the techniques.
 Concept & Explanation:
@@ -181,7 +181,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 4,
-    keywords: ['phoropter', 'trial frame', 'refraction', 'low vision', 'pediatric optometry', 'vertex distance'],
+    keywords: ['phoropter', 'trial frame', 'refraction', 'low vision', 'pediatric optometry', 'vertex distance', 'complex prescriptions', 'over-refraction', 'anisometropia'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. When performing a refraction, optometrists typically reach for one of two key tools: the phoropter or the trial frame. Both are essential, but each has its advantages and ideal situations. Knowing when to choose the right option is a vital clinical skill, and we’re going to break it down,
 Concept & Explanation:
 The Phoropter:
@@ -245,7 +245,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 5,
-    keywords: ['presbyopia', 'add power', 'near vision', 'NRA/PRA', 'cross cylinder', 'reading glasses'],
+    keywords: ['presbyopia', 'add power', 'near vision', 'NRA/PRA', 'cross cylinder', 'reading glasses', 'plus build-up', 'accommodative lag', 'task-specific prescription'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. For many adult patients, the need for reading glasses eventually arises. Accurately determining the add power ensures that your patients can see clearly and comfortably at near.
 Let’s start with the basics — what exactly is presbyopia?
 Concept & Explanation:
@@ -295,7 +295,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 6,
-    keywords: ['slit lamp', 'anterior segment', 'biomicroscopy', 'cornea examination', 'illumination techniques', 'eye exam'],
+    keywords: ['slit lamp', 'anterior segment', 'biomicroscopy', 'cornea examination', 'illumination techniques', 'eye exam', 'retro-illumination', 'tear film assessment', 'TBUT', 'blepharitis'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. The slit lamp biomicroscope is arguably the most powerful and versatile diagnostic tool in your optometric arsenal. Mastering its systematic use is key to identifying subtle signs of ocular disease in the anterior segment.
 Let’s start with the basics — what exactly is a slit lamp, and why is it so essential?
 Concept & Explanation:
@@ -342,7 +342,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 7,
-    keywords: ['tonometry', 'IOP', 'intraocular pressure', 'Goldmann Applanation Tonometry', 'GAT', 'glaucoma'],
+    keywords: ['tonometry', 'IOP', 'intraocular pressure', 'Goldmann Applanation Tonometry', 'GAT', 'glaucoma', 'pachymetry', 'CCT', 'non-contact tonometry', 'NCT'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. Measuring intraocular pressure, or IOP, is one of the most essential clinical skills in optometry — especially in the management of glaucoma.
 We’ll explore the gold standard and other common tonometry techniques, focusing on accuracy, patient comfort, and best practices.
 Let’s start by understanding what tonometry really means.
@@ -395,7 +395,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 8,
-    keywords: ['gonioscopy', 'anterior chamber angle', 'glaucoma diagnosis', 'trabecular meshwork', 'open-angle glaucoma', 'angle-closure glaucoma'],
+    keywords: ['gonioscopy', 'anterior chamber angle', 'glaucoma diagnosis', 'trabecular meshwork', 'open-angle glaucoma', 'angle-closure glaucoma', 'dynamic gonioscopy', 'Shaffer Grade', 'Spaeth Grade', 'PAS'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. For anyone involved in glaucoma care, gonioscopy is an indispensable skill. It's the only way to directly visualize the anterior chamber angle—the crucial drainage pathway of the eye.
 So how this technique gives us a direct window into the eye’s filtration system?
 Concept & Explanation:
@@ -455,7 +455,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 9,
-    keywords: ['direct ophthalmoscopy', 'fundus exam', 'posterior segment', 'optic disc', 'retina', 'macula'],
+    keywords: ['direct ophthalmoscopy', 'fundus exam', 'posterior segment', 'optic disc', 'retina', 'macula', 'red reflex', 'retinal vessels', 'cup to disc ratio'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. The direct ophthalmoscope is a classic tool, essential for peering into the back of the eye.
 It’s small, powerful, and deeply revealing… if you know how to use it right.
 While often seen as challenging, mastering it offers valuable insights into the optic disc, macula, and retinal vasculature, providing a highly magnified, upright view.
@@ -504,7 +504,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 10,
-    keywords: ['indirect ophthalmoscopy', 'BIO', 'posterior segment', 'retinal detachment', 'peripheral retina', 'fundus exam'],
+    keywords: ['indirect ophthalmoscopy', 'BIO', 'posterior segment', 'retinal detachment', 'peripheral retina', 'fundus exam', 'stereoscopic view', 'scleral depression', 'retinal tear'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. If the direct ophthalmoscope gives you a magnified keyhole view, indirect ophthalmoscopy gives you a wide-angle panorama of the entire posterior segment, including the crucial peripheral retina. This skill is paramount for detecting conditions like retinal tears and detachments.
 Concept & Explanation:
 Let’s start with the basics — what exactly is indirect ophthalmoscopy?
@@ -557,7 +557,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 11,
-    keywords: ['pupil exam', 'RAPD', 'swinging flashlight test', 'anisocoria', 'neurological exam', 'optic nerve'],
+    keywords: ['pupil exam', 'RAPD', 'swinging flashlight test', 'anisocoria', 'neurological exam', 'optic nerve', 'afferent pathway', 'efferent pathway', 'Argyll Robertson', 'CN III palsy'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. The pupils, those black circles in the center of your eyes, are far more than just openings for light. Their size, shape, and reactions provide crucial clues about the health of both the eyes and the complex neurological pathways connecting them to the brain.
 The pupils are the window to the neurological system.
 Concept & Explanation:
@@ -610,7 +610,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 12,
-    keywords: ['cover test', 'strabismus', 'tropia', 'phoria', 'binocular vision', 'ocular alignment'],
+    keywords: ['cover test', 'strabismus', 'tropia', 'phoria', 'binocular vision', 'ocular alignment', 'unilateral cover test', 'alternating cover test', 'prism bars', 'pseudostrabismus'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. The cover test is perhaps the most fundamental binocular vision test you'll perform. It's deceptively simple yet incredibly powerful for detecting and quantifying ocular misalignment, or strabismus.
 Let’s start with the basics.
 Concept & Explanation:
@@ -663,7 +663,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 13,
-    keywords: ['ocular motility', 'extraocular muscles', 'cranial nerve palsy', 'eye movements', 'saccades', 'pursuits'],
+    keywords: ['ocular motility', 'extraocular muscles', 'cranial nerve palsy', 'eye movements', 'saccades', 'pursuits', 'nystagmus', 'H-pattern', 'versions', 'ductions'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. You’ve checked your patient’s clarity of vision — but can their eyes move together smoothly? This is where ocular motility assessment comes in – checking for any restrictions, weaknesses, or dysfunctions in their eye movements.
 Concept & Explanation:
 What is Ocular Motility? It’s the assessment of the coordinated movement of the eyes, controlled by the extraocular muscles.
@@ -723,7 +723,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 14,
-    keywords: ['keratometry', 'corneal topography', 'corneal curvature', 'astigmatism', 'contact lens fitting', 'keratoconus'],
+    keywords: ['keratometry', 'corneal topography', 'corneal curvature', 'astigmatism', 'contact lens fitting', 'keratoconus', 'Placido rings', 'corneal ectasia', 'RGP lenses'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. The cornea, your eye's clear front window, plays a critical role in focusing light. Understanding its precise shape is essential for accurate refraction, contact lens fitting, and diagnosing corneal diseases. Let’s explore keratometry and corneal topography, two essential tools that map the corneal surface.
 Concept & Explanation:
 What is Keratometry? It’s the measurement of the curvature of the central cornea, specifically the two principal meridians. It helps determine corneal astigmatism, giving us readings in diopters and axes.
@@ -778,7 +778,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 15,
-    keywords: ['pupil dilation', 'mydriasis', 'cycloplegia', 'fundus exam', 'tropicamide', 'phenylephrine'],
+    keywords: ['pupil dilation', 'mydriasis', 'cycloplegia', 'fundus exam', 'tropicamide', 'phenylephrine', 'punctal occlusion', 'narrow angles', 'patient education'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. One of the most common and often discussed procedures in optometry is pupil dilation. While it causes temporary inconvenience, mastering safe and effective dilation is absolutely crucial for a comprehensive and thorough eye examination.
 So, what exactly is pupil dilation, or mydriasis?
 Concept & Explanation:
@@ -833,7 +833,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 16,
-    keywords: ['eyelid eversion', 'adnexa exam', 'ocular surface', 'foreign body removal', 'conjunctivitis', 'blepharitis'],
+    keywords: ['eyelid eversion', 'adnexa exam', 'ocular surface', 'foreign body removal', 'conjunctivitis', 'blepharitis', 'meibomian glands', 'papillae', 'follicles', 'palpebral conjunctiva'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. While our focus is often on the globe itself, a thorough examination of the surrounding structures – the eyelids and adnexa – is equally vital. Let’s focus on how to perform a meticulous external adnexa exam, including the crucial skill of everting the upper eyelid.
 So, let’s step back and look around the eye — exploring the external adnexa and mastering the essential skill of eyelid eversion.
 Concept & Explanation:
@@ -889,7 +889,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 17,
-    keywords: ['contact lens training', 'lens insertion', 'lens removal', 'contact lens hygiene', 'RGP lens', 'soft contact lens'],
+    keywords: ['contact lens training', 'lens insertion', 'lens removal', 'contact lens hygiene', 'RGP lens', 'soft contact lens', 'microbial keratitis', 'patient training', 'lens care'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. Prescribing contact lenses is only half the story — what truly defines success is how well patients are trained to use them safely.
 Proper insertion and removal techniques, along with excellent hygiene, are the foundation for comfort, confidence, and healthy eyes. 
 Let’s explore how to effectively guide your patients through this critical part of contact lens care.
@@ -947,7 +947,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 18,
-    keywords: ['visual field testing', 'perimetry', 'Humphrey Field Analyzer', 'HFA', 'glaucoma', 'scotoma'],
+    keywords: ['visual field testing', 'perimetry', 'Humphrey Field Analyzer', 'HFA', 'glaucoma', 'scotoma', 'FDT', 'SITA Standard', 'deviation plots', 'hemianopsia'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. Visual field testing, or perimetry, is a critical diagnostic tool that provides functional assessment of a patient's entire field of vision. It's essential for detecting and monitoring conditions like glaucoma, neurological disorders, and retinal diseases.
 Concept & Explanation:
 What is Visual Field Testing? Measurement of the entire area of space visible to an eye when fixed on a central point.
@@ -999,7 +999,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 19,
-    keywords: ['Amsler grid', 'macular degeneration', 'AMD', 'metamorphopsia', 'scotoma', 'macular assessment'],
+    keywords: ['Amsler grid', 'macular degeneration', 'AMD', 'metamorphopsia', 'scotoma', 'macular assessment', 'Watzke-Allen test', 'photostress test', 'macular hole', 'ERM'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. The macula is responsible for our sharpest central vision. Early detection of macular disease, particularly Age-Related Macular Degeneration (AMD), is critical. Let’s focus on how to use the Amsler grid and other simple techniques for effective macular assessment.
 Concept & Explanation:
 What is the Macula? It’s the central part of the retina, responsible for high-acuity, detailed, and color vision. At its very center lies the fovea, where vision is the sharpest.
@@ -1052,7 +1052,7 @@ Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.
     seriesId: 'series-clinical-skills',
     seriesTitle: 'Clinical Skills Corner',
     episodeNumber: 20,
-    keywords: ['eye drops', 'medication adherence', 'punctal occlusion', 'patient education', 'topical medication', 'optometry treatment'],
+    keywords: ['eye drops', 'medication adherence', 'punctal occlusion', 'patient education', 'topical medication', 'optometry treatment', 'drop instillation', 'systemic absorption', 'assistive devices'],
     transcript: `Welcome back to Clinical Skills Corner! I'm Aanya. Whether it's for diagnosis or treatment, eye drops are a cornerstone of optometric practice. But if a patient can't get the drop into their eye effectively, or if they don't understand why they're using it, even the best medication is useless. 
 Concept & Explanation:
 Let’s start with the basics — why proper instillation matters so much.
