@@ -24,7 +24,6 @@ interface PlayerActions {
   seek: (time: number) => void;
   setVolume: (volume: number) => void;
   toggleExpandPlayer: () => void;
-  downloadEpisode: (episode: Episode) => void;
   closePlayer: () => void;
   playNextInPlaylist: () => void;
   playPreviousInPlaylist: () => void;
@@ -204,19 +203,6 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     setIsExpanded(!isExpanded);
   }, [isExpanded]);
 
-  const downloadEpisode = useCallback((episode: Episode) => {
-    toast({
-      title: "Download Started",
-      description: `Downloading "${episode.title}"...`,
-    });
-    setTimeout(() => {
-      toast({
-        title: "Download Complete",
-        description: `"${episode.title}" has been "downloaded".`,
-      });
-    }, 3000);
-  }, [toast]);
-
   const closePlayer = useCallback(() => {
     if (audioRef.current) {
       audioRef.current.pause();
@@ -246,7 +232,6 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       seek,
       setVolume,
       toggleExpandPlayer,
-      downloadEpisode,
       closePlayer,
       playNextInPlaylist,
       playPreviousInPlaylist,

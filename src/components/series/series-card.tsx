@@ -19,24 +19,22 @@ interface SeriesCardProps {
 const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, className }) => {
   return (
     <Card className={cn(
-      "overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full bg-card group border border-border", 
+      "overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col sm:flex-row h-full bg-card group border border-border", 
       className
     )}>
       <Link href={`/series/${series.id}`} legacyBehavior passHref>
-        <a className="block">
-          <div className="relative w-full aspect-square">
-            <Image
-              src={series.thumbnailUrl}
-              alt={series.title}
-              fill
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              data-ai-hint={series.dataAiHint || "podcast series art"}
-            />
-          </div>
+        <a className="relative w-full sm:w-1/3 aspect-square sm:aspect-auto flex-shrink-0">
+          <Image
+            src={series.thumbnailUrl}
+            alt={series.title}
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            sizes="(max-width: 640px) 100vw, 33vw"
+            data-ai-hint={series.dataAiHint || "podcast series art"}
+          />
         </a>
       </Link>
-      <div className="flex flex-col flex-grow p-5">
+      <div className="flex flex-col flex-grow p-4 sm:p-5">
         <CardHeader className="p-0 mb-2">
           <Link href={`/series/${series.id}`} legacyBehavior passHref>
             <a className="block">

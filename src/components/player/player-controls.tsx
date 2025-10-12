@@ -1,7 +1,7 @@
 
 'use client';
 
-import { Play, Pause, SkipBack, SkipForward, Volume2, VolumeX, Download, ExternalLink } from 'lucide-react';
+import { Play, Pause, SkipBack, SkipForward, Volume2, VolumeX, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
 import { usePlayer } from '@/contexts/player-context';
@@ -21,7 +21,6 @@ const PlayerControls: React.FC<PlayerControlsProps> = ({ isExpandedView }) => {
     togglePlayPause,
     seek,
     setVolume,
-    downloadEpisode,
     toggleExpandPlayer,
     isLoading,
     playNextInPlaylist,
@@ -41,7 +40,6 @@ const PlayerControls: React.FC<PlayerControlsProps> = ({ isExpandedView }) => {
   };
 
   const iconSize = isExpandedView ? 24 : 20;
-  const buttonSize = isExpandedView ? "default" : "sm";
   
   const canPlayPrev = currentPlaylist.length > 0 && currentPlaylistEpisodeIndex > 0;
   const canPlayNext = currentPlaylist.length > 0 && currentPlaylistEpisodeIndex < currentPlaylist.length - 1;
@@ -99,11 +97,6 @@ const PlayerControls: React.FC<PlayerControlsProps> = ({ isExpandedView }) => {
               className="w-full h-2"
               aria-label="Volume control"
             />
-          </div>
-          <div className="flex gap-2">
-            <Button variant="outline" size={buttonSize} onClick={() => downloadEpisode(currentEpisode)} disabled={isLoading}>
-              <Download size={iconSize-4} className="mr-2" /> Download
-            </Button>
           </div>
         </div>
       )}

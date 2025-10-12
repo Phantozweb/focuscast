@@ -6,7 +6,7 @@ import type { Episode, Series } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, PlayCircle, Download, Clock, ListMusic } from 'lucide-react';
+import { ArrowLeft, PlayCircle, Clock, ListMusic } from 'lucide-react';
 import { usePlayer } from '@/contexts/player-context';
 import ShareButton from '@/components/general/share-button';
 import { Badge } from '@/components/ui/badge';
@@ -21,7 +21,7 @@ interface EpisodeDetailClientPageProps {
 }
 
 export default function EpisodeDetailClientPage({ episode, series, relatedEpisodes }: EpisodeDetailClientPageProps) {
-  const { playEpisode, downloadEpisode, currentEpisode, isPlaying } = usePlayer();
+  const { playEpisode, currentEpisode, isPlaying } = usePlayer();
   const isActive = currentEpisode?.id === episode.id;
 
   const getShareTitle = () => {
@@ -92,10 +92,6 @@ export default function EpisodeDetailClientPage({ episode, series, relatedEpisod
               >
                 <PlayCircle size={18} className="mr-2" />
                 {isActive && isPlaying ? 'Playing' : (isActive ? 'Paused' : 'Play Episode')}
-              </Button>
-              <Button size="lg" variant="outline" onClick={() => downloadEpisode(episode)} className="flex-1">
-                <Download size={18} className="mr-2" />
-                Download
               </Button>
               <ShareButton
                 shareTitle={getShareTitle()}

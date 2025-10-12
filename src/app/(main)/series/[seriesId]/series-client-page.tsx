@@ -6,7 +6,7 @@ import type { Episode, Series } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, PlayCircle, Download, Clock, Play, Share2 } from 'lucide-react';
+import { ArrowLeft, PlayCircle, Clock, Play, Share2 } from 'lucide-react';
 import { usePlayer } from '@/contexts/player-context';
 import { cn } from '@/lib/utils';
 import ShareButton from '@/components/general/share-button';
@@ -19,7 +19,7 @@ interface SeriesClientPageProps {
 export default function SeriesClientPage({ initialSeries, initialEpisodesInSeries }: SeriesClientPageProps) {
   const [series] = useState<Series>(initialSeries); 
   const [episodesInSeries] = useState<Episode[]>(initialEpisodesInSeries);
-  const { playEpisode, downloadEpisode, currentEpisode, isPlaying, startSeriesPlayback } = usePlayer();
+  const { playEpisode, currentEpisode, isPlaying, startSeriesPlayback } = usePlayer();
 
   const handlePlayAll = () => {
     if (episodesInSeries.length > 0) {
@@ -123,15 +123,6 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
                   >
                     <PlayCircle size={16} className="mr-2" /> 
                     {isActive && isPlaying ? 'Playing' : (isActive ? 'Paused' : 'Play')}
-                  </Button>
-                  <Button 
-                    size="sm" 
-                    variant="outline" 
-                    onClick={() => downloadEpisode(episode)}
-                    className="flex-1 sm:flex-none"
-                    aria-label={`Download ${episode.title}`}
-                  >
-                    <Download size={16} className="mr-2" /> Download
                   </Button>
                   <ShareButton
                     shareTitle={getEpisodeShareTitle(episode)}

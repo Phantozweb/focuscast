@@ -6,7 +6,7 @@ import type { Episode } from '@/types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { PlayCircle, Download, Clock } from 'lucide-react';
+import { PlayCircle, Clock } from 'lucide-react';
 import { usePlayer } from '@/contexts/player-context';
 import { cn } from '@/lib/utils';
 import ShareButton from '@/components/general/share-button';
@@ -19,7 +19,7 @@ interface EpisodeCardProps {
 }
 
 const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 'vertical' }) => {
-  const { playEpisode, downloadEpisode, currentEpisode, isPlaying } = usePlayer();
+  const { playEpisode, currentEpisode, isPlaying } = usePlayer();
   const isActive = currentEpisode?.id === episode.id;
   const isFocusBitesEpisode = episode.seriesId === 'series-focus-bites' && episode.episodeNumber !== undefined;
 
@@ -108,10 +108,6 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
             <PlayCircle size={16} className="mr-1 md:mr-2" />
             {isActive && isPlaying ? 'Playing' : (isActive ? 'Paused' : 'Play')}
           </Button>
-          <Button size="sm" variant="outline" onClick={() => downloadEpisode(episode)} className="flex-1" aria-label={`Download ${episode.title}`}>
-            <Download size={16} className="mr-1 md:mr-2" />
-            Download
-          </Button>
           <ShareButton
             shareTitle={getShareTitle()}
             shareUrl={`/episode/${episode.id}`}
@@ -179,10 +175,6 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
           >
             <PlayCircle size={16} className="mr-1 md:mr-2" />
             {isActive && isPlaying ? 'Playing' : (isActive ? 'Paused' : 'Play')}
-          </Button>
-          <Button size="sm" variant="outline" onClick={() => downloadEpisode(episode)} className="flex-1" aria-label={`Download ${episode.title}`}>
-            <Download size={16} className="mr-1 md:mr-2" />
-            Download
           </Button>
           <ShareButton
             shareTitle={getShareTitle()}

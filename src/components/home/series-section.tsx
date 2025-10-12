@@ -1,7 +1,6 @@
 
 import type { Series, Episode } from '@/types';
 import SeriesCard from '@/components/series/series-card';
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 interface SeriesSectionProps {
   series: Series[];
@@ -32,23 +31,17 @@ const SeriesSection: React.FC<SeriesSectionProps> = ({ series, allEpisodes }) =>
             Explore Our Series
           </h2>
         </div>
-        <div className="relative">
-          <ScrollArea className="w-full whitespace-nowrap">
-            <div className="flex space-x-4 pb-4 px-4 md:px-0">
-              {series.map((s) => {
-                const episodeCount = allEpisodes.filter(ep => ep.seriesId === s.id).length;
-                return (
-                  <SeriesCard
-                    key={s.id}
-                    series={s}
-                    episodeCount={episodeCount}
-                    className="w-[300px] flex-shrink-0" // Fixed width for carousel items
-                  />
-                );
-              })}
-            </div>
-            <ScrollBar orientation="horizontal" />
-          </ScrollArea>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-6 px-4 md:px-0">
+          {series.map((s) => {
+            const episodeCount = allEpisodes.filter(ep => ep.seriesId === s.id).length;
+            return (
+              <SeriesCard
+                key={s.id}
+                series={s}
+                episodeCount={episodeCount}
+              />
+            );
+          })}
         </div>
       </div>
     </section>
