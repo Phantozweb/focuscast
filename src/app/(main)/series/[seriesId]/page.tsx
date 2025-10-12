@@ -5,6 +5,7 @@ import { placeholderSeries, placeholderEpisodes } from '@/lib/placeholder-data';
 import SeriesClientPage from './series-client-page';
 import type { Series, Episode } from '@/types';
 import Script from 'next/script';
+import { parseDurationToSeconds, formatTotalSeconds } from '@/lib/utils';
 
 type SeriesPageServerProps = {
   params: { seriesId: string };
@@ -51,6 +52,12 @@ export default async function SeriesPage({ params }: SeriesPageServerProps) {
   const episodesInSeries: Episode[] = placeholderEpisodes
     .filter(ep => ep.seriesId === series.id)
     .sort((a, b) => (a.episodeNumber || 0) - (b.episodeNumber || 0));
+  
+  const totalDurationInSeconds = episodesInSeries.reduce((total, episode) => {
+    return total + parseDurationToSeconds(episode.duration);
+  }, 0);
+
+  const totalDurationFormatted = formatTotalSeconds(totalDurationInSeconds);
 
   const seriesJsonLd = {
     '@context': 'https://schema.org',
@@ -69,7 +76,11 @@ export default async function SeriesPage({ params }: SeriesPageServerProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(seriesJsonLd) }}
       />
-      <SeriesClientPage initialSeries={series} initialEpisodesInSeries={episodesInSeries} />
+      <SeriesClientPage 
+        initialSeries={series} 
+        initialEpisodesInSeries={episodesInSeries} 
+        totalDuration={totalDurationFormatted}
+      />
     </>
   );
 }

@@ -14,9 +14,10 @@ import ShareButton from '@/components/general/share-button';
 interface SeriesClientPageProps {
   initialSeries: Series; 
   initialEpisodesInSeries: Episode[];
+  totalDuration: string;
 }
 
-export default function SeriesClientPage({ initialSeries, initialEpisodesInSeries }: SeriesClientPageProps) {
+export default function SeriesClientPage({ initialSeries, initialEpisodesInSeries, totalDuration }: SeriesClientPageProps) {
   const [series] = useState<Series>(initialSeries); 
   const [episodesInSeries] = useState<Episode[]>(initialEpisodesInSeries);
   const { playEpisode, currentEpisode, isPlaying, startSeriesPlayback } = usePlayer();
@@ -56,9 +57,20 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
           <div className="flex-grow">
             <h1 className="text-4xl md:text-5xl font-bold mb-3 font-headline">{series.title}</h1>
             <p className="text-lg text-muted-foreground mb-4">{series.description}</p>
-            <p className="text-sm text-muted-foreground mb-6">
-              {episodesInSeries.length} episode{episodesInSeries.length === 1 ? '' : 's'} in this series.
-            </p>
+            <div className="text-sm text-muted-foreground mb-6 flex flex-wrap items-center gap-x-4 gap-y-2">
+              <span>
+                {episodesInSeries.length} episode{episodesInSeries.length === 1 ? '' : 's'}
+              </span>
+              {totalDuration && (
+                <>
+                  <span className="text-muted-foreground/50 hidden sm:inline">|</span>
+                  <div className="flex items-center">
+                    <Clock className="mr-1.5 h-4 w-4" />
+                    <span>{totalDuration} total</span>
+                  </div>
+                </>
+              )}
+            </div>
             <div className="flex gap-2 items-center">
               {episodesInSeries.length > 0 && (
                 <Button size="lg" onClick={handlePlayAll}>
