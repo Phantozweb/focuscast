@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useEffect, useState } from 'react';
@@ -6,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Podcast, List, Clock } from 'lucide-react';
 import Link from 'next/link';
 import type { Series } from '@/types';
+import Image from 'next/image';
 
 interface StatItemProps {
   icon: React.ElementType;
@@ -69,7 +69,7 @@ const StatsBanner: React.FC<StatsBannerProps> = ({ totalEpisodes, totalSeries, t
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         {/* Left Side: Stats */}
         <div className="flex flex-col items-center md:items-start">
-          <h2 className="text-3xl font-bold font-headline mb-6 text-center md:text-left">Our Content Library</h2>
+          <h2 className="text-3xl font-bold font-headline mb-6 text-center md:text-left">Your Knowledge Hub</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left w-full">
             <StatItem icon={Podcast} value={totalEpisodes} label="Episodes" />
             <StatItem icon={List} value={totalSeries} label="Series" />
@@ -79,7 +79,7 @@ const StatsBanner: React.FC<StatsBannerProps> = ({ totalEpisodes, totalSeries, t
         
         {/* Right Side: Featured Series */}
         {featuredSeries && (
-           <div className="bg-muted/30 dark:bg-background/50 p-6 rounded-lg border border-primary/20 shadow-lg text-center md:text-left flex flex-col items-center gap-6">
+           <div className="bg-muted/30 dark:bg-background/50 p-6 rounded-lg border border-primary/20 shadow-lg text-center md:text-left flex flex-col md:flex-row items-center gap-6">
              <div className="flex-grow">
                 <p className="text-sm font-semibold text-primary mb-1">NEW SERIES DROP</p>
                 <h3 className="text-2xl font-bold font-headline mb-2">{featuredSeries.title}</h3>
@@ -91,6 +91,16 @@ const StatsBanner: React.FC<StatsBannerProps> = ({ totalEpisodes, totalSeries, t
                     Start Learning <ArrowRight className="ml-2" />
                   </Link>
                 </Button>
+             </div>
+             <div className="relative w-32 h-32 md:w-36 md:h-36 flex-shrink-0">
+                <Image
+                    src={featuredSeries.thumbnailUrl}
+                    alt={featuredSeries.title}
+                    fill
+                    className="object-contain"
+                    data-ai-hint={featuredSeries.dataAiHint || "podcast series art"}
+                    sizes="144px"
+                />
              </div>
            </div>
         )}
