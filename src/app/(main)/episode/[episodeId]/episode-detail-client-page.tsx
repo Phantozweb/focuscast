@@ -6,7 +6,7 @@ import type { Episode, Series } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, PlayCircle, Clock, ListMusic, MessageSquareQuote,ChevronRight } from 'lucide-react';
+import { ArrowLeft, PlayCircle, Clock, ListMusic, MessageSquareQuote } from 'lucide-react';
 import { usePlayer } from '@/contexts/player-context';
 import ShareButton from '@/components/general/share-button';
 import { Badge } from '@/components/ui/badge';
@@ -14,8 +14,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import EpisodeCard from '@/components/episodes/episode-card';
 import { Separator } from '@/components/ui/separator';
 import FeedbackForm from '@/components/general/feedback-form';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 
 
 interface EpisodeDetailClientPageProps {
@@ -27,7 +25,6 @@ interface EpisodeDetailClientPageProps {
 export default function EpisodeDetailClientPage({ episode, series, relatedEpisodes }: EpisodeDetailClientPageProps) {
   const { playEpisode, currentEpisode, isPlaying } = usePlayer();
   const isActive = currentEpisode?.id === episode.id;
-  const [isFeedbackSheetOpen, setIsFeedbackSheetOpen] = useState(false);
 
 
   const getShareTitle = () => {
@@ -167,8 +164,8 @@ export default function EpisodeDetailClientPage({ episode, series, relatedEpisod
                 )}
                  <Separator className="my-8" />
 
-                {/* Feedback Section - For Desktop */}
-                <div className="mt-6 hidden md:block">
+                {/* Feedback Section */}
+                <div className="mt-6">
                     <h2 className="text-2xl font-semibold mb-4 font-headline flex items-center">
                         <MessageSquareQuote className="mr-3 h-6 w-6" />
                         Leave a Review
@@ -180,38 +177,6 @@ export default function EpisodeDetailClientPage({ episode, series, relatedEpisod
                         sourceThumbnailUrl={episode.thumbnailUrl}
                     />
                 </div>
-
-                {/* Feedback Section - For Mobile */}
-                 <Sheet open={isFeedbackSheetOpen} onOpenChange={setIsFeedbackSheetOpen}>
-                    <SheetTrigger asChild>
-                        <Card className="mt-6 md:hidden active:bg-muted">
-                            <div className="p-4 flex items-center justify-between">
-                                <div className="flex items-center gap-4">
-                                     <MessageSquareQuote className="mr-3 h-6 w-6 text-primary" />
-                                     <div>
-                                        <CardTitle className="text-lg">Leave a Review</CardTitle>
-                                        <CardDescription>Share your thoughts on this episode</CardDescription>
-                                     </div>
-                                </div>
-                                <ChevronRight className="h-5 w-5 text-muted-foreground" />
-                            </div>
-                        </Card>
-                    </SheetTrigger>
-                    <SheetContent side="bottom" className="h-[90vh] overflow-y-auto">
-                        <SheetHeader>
-                            <SheetTitle className="text-2xl mt-4">Review "{episode.title}"</SheetTitle>
-                        </SheetHeader>
-                        <div className="py-4">
-                             <FeedbackForm
-                                sourceTitle={episode.title}
-                                sourceType="Episode"
-                                sourceUrl={episodeUrl}
-                                sourceThumbnailUrl={episode.thumbnailUrl}
-                                onFeedbackSent={() => setIsFeedbackSheetOpen(false)}
-                            />
-                        </div>
-                    </SheetContent>
-                </Sheet>
             </div>
           </div>
         </div>
