@@ -5,7 +5,7 @@ const clinicalSkillsCornerThumbnail = 'https://raw.githubusercontent.com/Phantoz
 const focusBitesSeriesThumbnail = 'https://raw.githubusercontent.com/Phantozweb/StromVault/175bc58a00e53a095eb5065a0cfb6e8599ca93dd/Albums/file_000000002c2861f89474f0ba58bb39a3.png';
 const decodingOcularDiseaseSeriesThumbnailUpdated = 'https://raw.githubusercontent.com/Phantozweb/StromVault/71e7cef27cc65f264b7ba93d778a275abb57426c/Albums/file_00000000078861f89c2cd48d6e220a36%20(1).png';
 const growOptomSeriesThumbnail = 'https://raw.githubusercontent.com/Phantozweb/StromVault/71e7cef27cc65f264b7ba93d778a275abb57426c/Albums/file_00000000ab3461f78fcfc560f1dd566e.png';
-const opticsUnveiledThumbnail = 'https://i.iili.io/Kkerw8P.png';
+const opticsUnveiledThumbnail = 'https://i.ibb.co/kVg73hbN/b-Add-icons-to-optics.png';
 
 export const placeholderSeries: Series[] = [
   {
@@ -2073,7 +2073,7 @@ Spherical Lenses: Induced prism.
 Cylindrical Lenses: Induced prism and possibly axis shift.
 Progressive Lenses: Difficulty accessing clear zones, significant swim and distortion.
 Wrap-up & Takeaway:
-PD is not just a number on a form; it's the critical foundation for comfortable and effective spectacle vision. Precise centration is paramount.
+PD is not just a number on a form; it's the critical foundation for a comfortable and effective spectacle vision. Precise centration is paramount.
 "A perfect prescription is only as good as its precise centration. Stay tuned for the next episode"`
   },
   {
@@ -2273,6 +2273,7 @@ Direct and indirect ophthalmoscopy are complementary tools. Understanding their 
     
 
     
+
 
 
 
