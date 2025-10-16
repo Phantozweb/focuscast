@@ -6,6 +6,7 @@ import React, { createContext, useState, useContext, useRef, useEffect, useCallb
 import { useToast } from "@/hooks/use-toast";
 import { placeholderEpisodes } from '@/lib/placeholder-data';
 import { incrementViewCount } from '@/app/actions/analytics-actions';
+import { isEpisodeLocked } from '@/lib/release-dates';
 
 interface PlayerState {
   currentEpisode: Episode | null;
@@ -77,7 +78,7 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     // Try to find a related episode from the same series that hasn't been played
     if (currentEpisode?.seriesId) {
       const relatedEpisodes = placeholderEpisodes.filter(
-        ep => ep.seriesId === currentEpisode.seriesId && !playedEpisodeIds.has(ep.id) && ep.id !== currentEpisode.id
+        ep => ep.seriesId === currentEpisode.seriesId && !playedEpisodeIds.has(ep.id) && ep.id !== currentEpisode.id && !isEpisodeLocked(ep)
       );
       if (relatedEpisodes.length > 0) {
         // Sort by episode number to play in order
@@ -88,12 +89,12 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
     // If no related episode is found, find any other random unplayed episode
     if (!nextEpisode) {
-      const allOtherUnplayedEpisodes = placeholderEpisodes.filter(ep => !playedEpisodeIds.has(ep.id));
+      const allOtherUnplayedEpisodes = placeholderEpisodes.filter(ep => !playedEpisodeIds.has(ep.id) && !isEpisodeLocked(ep));
       if(allOtherUnplayedEpisodes.length > 0) {
         nextEpisode = allOtherUnplayedEpisodes[Math.floor(Math.random() * allOtherUnplayedEpisodes.length)];
       } else {
         // If everything has been played, just pick a random one that isn't the current one
-        const allButCurrent = placeholderEpisodes.filter(ep => ep.id !== currentEpisode?.id);
+        const allButCurrent = placeholderEpisodes.filter(ep => ep.id !== currentEpisode?.id && !isEpisodeLocked(ep));
         if (allButCurrent.length > 0) {
           nextEpisode = allButCurrent[Math.floor(Math.random() * allButCurrent.length)];
         }
@@ -179,6 +180,11 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   useEffect(() => {
     if (currentEpisode && audioRef.current) {
+      if (isEpisodeLocked(currentEpisode)) {
+        toast({ title: "Episode Locked", description: "This episode is not yet available.", variant: "destructive" });
+        closePlayer();
+        return;
+      }
       setIsLoading(true);
       const rawAudioUrl = getRawGitHubUrl(currentEpisode.audioUrl);
       if (audioRef.current.src !== rawAudioUrl) {
@@ -202,6 +208,10 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       if (isPlaying) {
         audioRef.current.pause();
       } else {
+        if (isEpisodeLocked(currentEpisode)) {
+          toast({ title: "Episode Locked", description: "This episode is not yet available.", variant: "destructive" });
+          return;
+        }
         audioRef.current.play().catch(error => {
             console.error("Error playing audio:", error);
             toast({ title: "Error", description: "Could not resume audio.", variant: "destructive" });
@@ -211,6 +221,15 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   }, [isPlaying, currentEpisode, toast]);
 
   const playEpisode = useCallback((episode: Episode, playlist?: Episode[], startIndex?: number) => {
+    if (isEpisodeLocked(episode)) {
+        const releaseDate = new Date(episode.releaseDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+        toast({
+            title: "Coming Soon!",
+            description: `This episode will be available on ${releaseDate}.`,
+        });
+        return;
+    }
+    
     if (currentEpisode?.id === episode.id) {
       togglePlayPause();
       return;
@@ -226,7 +245,7 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     }
     
     setCurrentEpisode(episode);
-  }, [currentEpisode, togglePlayPause]);
+  }, [currentEpisode, togglePlayPause, toast]);
 
 
   const startSeriesPlayback = useCallback((seriesEpisodes: Episode[], startIndex: number = 0) => {
@@ -238,8 +257,13 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const playPreviousInPlaylist = useCallback(() => {
     if (currentPlaylist.length > 0 && currentPlaylistEpisodeIndex > 0) {
       const prevIndex = currentPlaylistEpisodeIndex - 1;
+      const prevEpisode = currentPlaylist[prevIndex];
+      if (isEpisodeLocked(prevEpisode)) {
+        toast({ title: "Episode Locked", description: "The previous episode is not yet available." });
+        return;
+      }
       setCurrentPlaylistEpisodeIndex(prevIndex);
-      setCurrentEpisode(currentPlaylist[prevIndex]);
+      setCurrentEpisode(prevEpisode);
     } else {
        toast({ title: "Start of playlist", description: "You're at the beginning of your listening history." });
     }
@@ -343,3 +367,5 @@ export const usePlayer = (): PlayerContextType => {
   }
   return context;
 };
+
+    

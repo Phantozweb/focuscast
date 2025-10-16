@@ -6,7 +6,7 @@ import type { Episode, Series } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, PlayCircle, Clock, Play, MessageSquareQuote, List, Info, Eye, Heart } from 'lucide-react';
+import { ArrowLeft, PlayCircle, Clock, Play, MessageSquareQuote, List, Info, Eye, Heart, Lock } from 'lucide-react';
 import { usePlayer } from '@/contexts/player-context';
 import { cn } from '@/lib/utils';
 import ShareButton from '@/components/general/share-button';
@@ -18,6 +18,8 @@ import { incrementLikeCount } from '@/app/actions/analytics-actions';
 import { useToast } from '@/hooks/use-toast';
 import { useAnalytics } from '@/hooks/use-analytics';
 import { Skeleton } from '@/components/ui/skeleton';
+import { isEpisodeLocked } from '@/lib/release-dates';
+import { Badge } from '@/components/ui/badge';
 
 
 interface SeriesClientPageProps {
@@ -29,7 +31,7 @@ interface SeriesClientPageProps {
 const StatItem: React.FC<{ icon: React.ElementType; value: string; label: string; isLoading?: boolean }> = ({ icon: Icon, value, label, isLoading }) => (
     <div className="flex items-center gap-2">
       <Icon className="w-4 h-4 text-muted-foreground" />
-      <div className="text-sm">
+      <div>
         {isLoading ? <Skeleton className="h-5 w-10 inline-block" /> : <span className="font-semibold">{value}</span>}
         <span className="text-muted-foreground ml-1">{label}</span>
       </div>
@@ -59,6 +61,8 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
 
   const [episodes, setEpisodes] = useState(initialEpisodesInSeries);
 
+  const isSeriesLocked = initialEpisodesInSeries.some(isEpisodeLocked);
+
   useEffect(() => {
     if (!isAnalyticsLoading) {
       let totalViews = 0;
@@ -83,8 +87,16 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
 
 
   const handlePlayAll = () => {
-    if (episodes.length > 0) {
-      startSeriesPlayback(episodes);
+    const firstPlayableEpisode = episodes.find(ep => !isEpisodeLocked(ep));
+    if (firstPlayableEpisode) {
+      const startIndex = episodes.indexOf(firstPlayableEpisode);
+      startSeriesPlayback(episodes, startIndex);
+    } else {
+        toast({
+            title: "Series Locked",
+            description: "This series is not yet available for playback.",
+            variant: "destructive"
+        });
     }
   };
   
@@ -129,6 +141,11 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
             {/* Info & Stats Column */}
             <div className="md:col-span-2 text-center md:text-left">
                 <h1 className="text-3xl md:text-4xl font-bold mb-2 font-headline">{initialSeries.title}</h1>
+                 {isSeriesLocked && (
+                    <Badge variant="destructive" className="text-sm mb-3">
+                        Coming Soon: {new Date(episodes[0].releaseDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                    </Badge>
+                )}
                 <p className="text-sm text-muted-foreground mb-6">{initialSeries.description}</p>
                 
                 <div className="flex justify-center md:justify-start flex-wrap gap-4 sm:gap-6 mb-6">
@@ -142,8 +159,9 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
 
                 <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-2">
                   {episodes.length > 0 && (
-                    <Button size="lg" onClick={handlePlayAll} className="w-full sm:w-auto">
-                      <Play className="mr-2 h-5 w-5" /> Play All
+                    <Button size="lg" onClick={handlePlayAll} className="w-full sm:w-auto" disabled={isSeriesLocked}>
+                       {isSeriesLocked ? <Lock className="mr-2 h-5 w-5"/> : <Play className="mr-2 h-5 w-5" />}
+                       {isSeriesLocked ? 'Locked' : 'Play All'}
                     </Button>
                   )}
                     <Button
@@ -179,13 +197,15 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
           <div className="space-y-4 px-4 md:px-0">
             {episodes.map((episode, index) => {
               const isActive = currentEpisode?.id === episode.id;
+              const isLocked = isEpisodeLocked(episode);
               return (
                 <div 
                   key={episode.id} 
                   className={cn(
                     "flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 border rounded-lg shadow-sm bg-card",
                     "transform hover:-translate-y-0.5 transition-all duration-200 ease-out hover:shadow-md",
-                    isActive ? "border-primary ring-1 ring-primary" : ""
+                    isActive ? "border-primary ring-1 ring-primary" : "",
+                    isLocked ? "opacity-70" : ""
                   )}
                 >
                   <div className="flex items-start sm:items-center gap-4 mb-4 sm:mb-0 flex-grow">
@@ -196,7 +216,7 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
                       <h3 
                         className="text-lg font-semibold"
                       >
-                        <Link href={`/episode/${episode.id}`} className="hover:text-primary transition-colors">{episode.title}</Link>
+                        <Link href={`/episode/${episode.id}`} className={cn("hover:text-primary transition-colors", isLocked && "pointer-events-none")}>{episode.title}</Link>
                       </h3>
                       <div className="mt-1 flex items-center text-xs text-muted-foreground">
                         <Clock size={14} className="mr-1.5" />
@@ -223,9 +243,10 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
                       onClick={() => startSeriesPlayback(episodes, index)}
                       className="flex-1 sm:flex-none"
                       aria-label={`Play ${episode.title}`}
+                      disabled={isLocked}
                     >
-                      <PlayCircle size={16} className="mr-2" /> 
-                      {isActive && isPlaying ? 'Playing' : (isActive ? 'Paused' : 'Play')}
+                      {isLocked ? <Lock size={16} className="mr-2" /> : <PlayCircle size={16} className="mr-2" />}
+                      {isLocked ? 'Locked' : (isActive && isPlaying ? 'Playing' : (isActive ? 'Paused' : 'Play'))}
                     </Button>
                     <ShareButton
                       shareTitle={getEpisodeShareTitle(episode)}
@@ -296,3 +317,5 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
     </div>
   );
 }
+
+    

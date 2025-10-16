@@ -6,7 +6,7 @@ import type { Episode } from '@/types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { PlayCircle, Clock, Heart, Eye } from 'lucide-react';
+import { PlayCircle, Clock, Heart, Eye, Lock } from 'lucide-react';
 import { usePlayer } from '@/contexts/player-context';
 import { cn } from '@/lib/utils';
 import ShareButton from '@/components/general/share-button';
@@ -15,6 +15,7 @@ import { useState, useEffect } from 'react';
 import { incrementLikeCount } from '@/app/actions/analytics-actions';
 import { useToast } from '@/hooks/use-toast';
 import { Skeleton } from '../ui/skeleton';
+import { isEpisodeLocked } from '@/lib/release-dates';
 
 
 interface EpisodeCardProps {
@@ -39,6 +40,8 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
   const [isLiked, setIsLiked] = useState(false);
   const [localLikeCount, setLocalLikeCount] = useState(episode.likes || 0);
   const [localViewCount, setLocalViewCount] = useState(episode.views || 0);
+
+  const isLocked = isEpisodeLocked(episode);
 
   useEffect(() => {
     setLocalLikeCount(episode.likes || 0);
@@ -73,6 +76,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
       <Card className={cn(
           "overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full w-full", 
           isActive && isPlaying ? "border-primary ring-2 ring-primary" : "",
+          isLocked ? "opacity-70" : "",
           className
         )}>
         <div className="flex flex-row items-start gap-4 p-4">
@@ -104,6 +108,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
               </Link>
             )}
             <div className="flex flex-wrap gap-1 mt-2">
+              {isLocked && <Badge variant="destructive" className="text-xs w-fit">Coming Soon</Badge>}
               {episode.episodeNumber && (
                 <Badge variant="outline" className="text-xs w-fit">
                   Episode {episode.episodeNumber}
@@ -153,9 +158,10 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
             variant={isActive && isPlaying ? "default" : "outline"}
             className="flex-1"
             aria-label={`Play ${episode.title}`}
+            disabled={isLocked}
           >
-            <PlayCircle size={18} sm-size={16} className="mr-1 md:mr-2" />
-            {isActive && isPlaying ? 'Playing' : (isActive ? 'Paused' : 'Play')}
+            {isLocked ? <Lock size={16} className="mr-1 md:mr-2" /> : <PlayCircle size={18} sm-size={16} className="mr-1 md:mr-2" />}
+            {isLocked ? 'Locked' : (isActive && isPlaying ? 'Playing' : (isActive ? 'Paused' : 'Play'))}
           </Button>
            <Button
             variant="outline"
@@ -183,6 +189,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
     <Card className={cn(
         "overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-row items-start",
         isActive && isPlaying ? "border-primary ring-2 ring-primary" : "",
+        isLocked ? "opacity-70" : "",
         className
       )}>
       <div className="relative w-20 h-20 flex-shrink-0">
@@ -240,9 +247,10 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
             variant={isActive && isPlaying ? "default" : "outline"}
             className="flex-1"
             aria-label={`Play ${episode.title}`}
+            disabled={isLocked}
           >
-            <PlayCircle size={16} className="mr-1 md:mr-2" />
-            {isActive && isPlaying ? 'Playing' : (isActive ? 'Paused' : 'Play')}
+            {isLocked ? <Lock size={16} className="mr-1 md:mr-2" /> : <PlayCircle size={16} className="mr-1 md:mr-2" />}
+            {isLocked ? 'Locked' : (isActive && isPlaying ? 'Playing' : (isActive ? 'Paused' : 'Play'))}
           </Button>
            <Button
             variant="outline"
@@ -268,3 +276,5 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
 };
 
 export default EpisodeCard;
+
+    
