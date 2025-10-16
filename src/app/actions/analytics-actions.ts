@@ -1,19 +1,18 @@
+
 'use server';
 
 import { z } from 'zod';
 
-// THIS IS A PLACEHOLDER URL. Replace it with your actual Google Apps Script Web App URL.
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec';
+// This is the Google Apps Script Web App URL you provided.
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby0Q5XgvzW7fq6f6P3VHyzJvaQNoHvmItSR45x8R7ZPiWZZ26_EHUjaFzqcMu5Vq1Cw/exec';
 
 const ViewCountSchema = z.object({
-  action: z.literal('incrementView'),
   episodeId: z.string().min(1),
 });
 
 const LikeCountSchema = z.object({
-    action: z.literal('incrementLike'),
     itemId: z.string().min(1),
-    itemType: z.enum(['episode', 'series']),
+    itemType: z.enum(['episode', 'series']), // Retaining this for client-side logic, though the API might not use it
 });
 
 /**
@@ -21,25 +20,19 @@ const LikeCountSchema = z.object({
  * @param episodeId The ID of the episode that was viewed.
  */
 export async function incrementViewCount(episodeId: string) {
-  const validation = ViewCountSchema.safeParse({ action: 'incrementView', episodeId });
+  const validation = ViewCountSchema.safeParse({ episodeId });
   if (!validation.success) {
     console.error("Invalid input for incrementViewCount:", validation.error);
     return;
   }
 
+  const url = `${GOOGLE_SCRIPT_URL}?action=view&episodeId=${validation.data.episodeId}`;
+
   try {
-    // We don't await the fetch call to avoid blocking.
-    // This is a "fire-and-forget" action.
-    fetch(GOOGLE_SCRIPT_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(validation.data),
-    });
+    // Fire-and-forget GET request
+    fetch(url, { method: 'GET', cache: 'no-store' });
   } catch (error) {
     console.error('Failed to send view count update:', error);
-    // In a real app, you might want to queue this for a retry.
   }
 }
 
@@ -49,21 +42,19 @@ export async function incrementViewCount(episodeId: string) {
  * @param itemType The type of the item ('episode' or 'series').
  */
 export async function incrementLikeCount(itemId: string, itemType: 'episode' | 'series') {
-    const validation = LikeCountSchema.safeParse({ action: 'incrementLike', itemId, itemType });
+    const validation = LikeCountSchema.safeParse({ itemId, itemType });
     if (!validation.success) {
       console.error("Invalid input for incrementLikeCount:", validation.error);
       return;
     }
+
+    // The API documentation refers to 'episodeId', so we will use that parameter name.
+    // This assumes your backend can handle series IDs sent to the 'episodeId' parameter.
+    const url = `${GOOGLE_SCRIPT_URL}?action=like&episodeId=${validation.data.itemId}`;
   
     try {
-      // Fire-and-forget
-      fetch(GOOGLE_SCRIPT_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(validation.data),
-      });
+      // Fire-and-forget GET request
+      fetch(url, { method: 'GET', cache: 'no-store' });
     } catch (error) {
       console.error('Failed to send like count update:', error);
     }
