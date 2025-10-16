@@ -48,7 +48,7 @@ const TrendingContent: React.FC<TrendingContentProps> = ({ episodes: initialEpis
 
       updatedEpisodes.sort((a, b) => ((b.views || 0) + (b.likes || 0)) - ((a.views || 0) + (a.likes || 0)));
       
-      setTrendingEpisodes(updatedEpisodes.slice(0, 3));
+      setTrendingEpisodes(updatedEpisodes.slice(0, 5));
       setIsProcessing(false);
     }
   }, [isAnalyticsLoading, analytics, initialEpisodes]);
@@ -66,8 +66,8 @@ const TrendingContent: React.FC<TrendingContentProps> = ({ episodes: initialEpis
         {isProcessing ? (
             <>
                  {/* Desktop Skeleton */}
-                <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-0">
-                    {[...Array(3)].map((_, i) => <LoadingSkeleton key={`trending-skel-d-${i}`} />)}
+                <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 px-4 md:px-0">
+                    {[...Array(5)].map((_, i) => <LoadingSkeleton key={`trending-skel-d-${i}`} />)}
                 </div>
                 {/* Mobile Skeleton */}
                 <div className="md:hidden">
@@ -85,7 +85,7 @@ const TrendingContent: React.FC<TrendingContentProps> = ({ episodes: initialEpis
         ) : (
           <>
             {/* Desktop Grid */}
-            <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-0">
+            <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 px-4 md:px-0">
               {trendingEpisodes.map((episode) => ( 
                 <EpisodeCard 
                   key={episode.id + "-trending-desktop"} 

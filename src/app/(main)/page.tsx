@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import FeaturedEpisodes from '@/components/home/featured-episodes';
 import TrendingContent from '@/components/home/trending-content';
@@ -20,12 +21,6 @@ export default function HomePage() {
     placeholderEpisodes.find(ep => ep.id === 'csc-ep16'),
   ].filter(ep => ep) as Episode[];
   
-  const trendingEpisodes = [
-    placeholderEpisodes.find(ep => ep.id === 'csc-ep17'),
-    placeholderEpisodes.find(ep => ep.id === 'dod-ep1'),
-    placeholderEpisodes.find(ep => ep.id === 'fb-ep11'),
-  ].filter(ep => ep !== undefined) as Episode[];
-
   const seriesData = placeholderSeries;
 
   const totalEpisodes = placeholderEpisodes.length;
@@ -52,7 +47,7 @@ export default function HomePage() {
         </div>
         <FeaturedEpisodes episodes={featured} />
         <SeriesSection series={seriesData} allEpisodes={placeholderEpisodes} />
-        <TrendingContent episodes={trendingEpisodes} />
+        <TrendingContent episodes={placeholderEpisodes} />
       </div>
     </div>
   );
