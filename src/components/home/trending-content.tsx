@@ -1,12 +1,36 @@
 
+'use client';
+
 import type { Episode } from '@/types';
 import EpisodeCard from '@/components/episodes/episode-card';
+import { useAnalytics } from '@/hooks/use-analytics';
+import { useEffect, useState } from 'react';
 
 interface TrendingContentProps {
   episodes: Episode[];
 }
 
-const TrendingContent: React.FC<TrendingContentProps> = ({ episodes }) => {
+const TrendingContent: React.FC<TrendingContentProps> = ({ episodes: initialEpisodes }) => {
+  const { analytics, isLoading } = useAnalytics();
+  const [episodes, setEpisodes] = useState(initialEpisodes);
+
+  useEffect(() => {
+    if (!isLoading && Object.keys(analytics).length > 0) {
+      const updatedEpisodes = initialEpisodes.map(ep => {
+        const episodeAnalytics = analytics[ep.id];
+        if (episodeAnalytics) {
+          return { ...ep, views: episodeAnalytics.views, likes: episodeAnalytics.likes };
+        }
+        return ep;
+      });
+
+      // Sort by a combination of views and likes for trending
+      updatedEpisodes.sort((a, b) => ((b.views || 0) + (b.likes || 0)) - ((a.views || 0) + (a.likes || 0)));
+      
+      setEpisodes(updatedEpisodes.slice(0, 3)); // Keep it to top 3 trending
+    }
+  }, [analytics, isLoading, initialEpisodes]);
+
   if (!episodes || episodes.length === 0) {
     return (
       <section id="trending-content" className="py-8">

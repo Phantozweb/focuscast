@@ -1,7 +1,9 @@
 
+'use client';
+
 import type { Series, Episode } from '@/types';
 import SeriesCard from '@/components/series/series-card';
-import { parseDurationToSeconds, formatTotalSeconds } from '@/lib/utils';
+import { useAnalytics } from '@/hooks/use-analytics';
 
 interface SeriesSectionProps {
   series: Series[];
@@ -9,6 +11,8 @@ interface SeriesSectionProps {
 }
 
 const SeriesSection: React.FC<SeriesSectionProps> = ({ series, allEpisodes }) => {
+  const { analytics, isLoading } = useAnalytics();
+
   if (!series || series.length === 0) {
     return (
       <section id="series" className="py-12 bg-background">
@@ -24,6 +28,25 @@ const SeriesSection: React.FC<SeriesSectionProps> = ({ series, allEpisodes }) =>
     );
   }
 
+  const getSeriesStats = (seriesId: string) => {
+    const episodesInSeries = allEpisodes.filter(ep => ep.seriesId === seriesId);
+    let totalViews = 0;
+    let totalLikes = 0;
+    
+    episodesInSeries.forEach(ep => {
+        const episodeAnalytics = analytics[ep.id];
+        if (episodeAnalytics) {
+            totalViews += episodeAnalytics.views;
+            totalLikes += episodeAnalytics.likes;
+        } else {
+            totalViews += ep.views || 0;
+            totalLikes += ep.likes || 0;
+        }
+    });
+
+    return { totalViews, totalLikes };
+  };
+
   return (
     <section id="series" className="py-12 bg-background">
       <div className="container mx-auto px-0 md:px-4">
@@ -36,19 +59,17 @@ const SeriesSection: React.FC<SeriesSectionProps> = ({ series, allEpisodes }) =>
         {/* Desktop Grid */}
         <div className="hidden md:grid grid-cols-1 gap-6 px-4 md:px-0">
           {series.map((s) => {
+            const { totalViews, totalLikes } = getSeriesStats(s.id);
+            const updatedSeries = { ...s, views: totalViews, likes: totalLikes };
             const episodesInSeries = allEpisodes.filter(ep => ep.seriesId === s.id);
             const episodeCount = episodesInSeries.length;
-            const totalDurationInSeconds = episodesInSeries.reduce((total, episode) => {
-                return total + parseDurationToSeconds(episode.duration);
-            }, 0);
-            const totalDurationFormatted = formatTotalSeconds(totalDurationInSeconds);
 
             return (
               <SeriesCard
                 key={s.id + '-desktop'}
-                series={s}
+                series={updatedSeries}
                 episodeCount={episodeCount}
-                totalDuration={totalDurationFormatted}
+                isLoading={isLoading}
               />
             );
           })}
@@ -58,20 +79,18 @@ const SeriesSection: React.FC<SeriesSectionProps> = ({ series, allEpisodes }) =>
         <div className="md:hidden">
           <div className="flex overflow-x-auto snap-x snap-mandatory py-4 space-x-4 pl-4 no-scrollbar">
             {series.map((s) => {
+                const { totalViews, totalLikes } = getSeriesStats(s.id);
+                const updatedSeries = { ...s, views: totalViews, likes: totalLikes };
                 const episodesInSeries = allEpisodes.filter(ep => ep.seriesId === s.id);
                 const episodeCount = episodesInSeries.length;
-                const totalDurationInSeconds = episodesInSeries.reduce((total, episode) => {
-                    return total + parseDurationToSeconds(episode.duration);
-                }, 0);
-                const totalDurationFormatted = formatTotalSeconds(totalDurationInSeconds);
 
                 return (
                     <div key={s.id + '-mobile'} className="snap-center shrink-0 w-[90vw] max-w-sm">
                         <SeriesCard
-                            series={s}
+                            series={updatedSeries}
                             episodeCount={episodeCount}
-                            totalDuration={totalDurationFormatted}
                             className="h-full"
+                            isLoading={isLoading}
                         />
                     </div>
                 );

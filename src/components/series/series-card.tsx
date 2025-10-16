@@ -9,12 +9,14 @@ import { ArrowRight, Clock, Eye, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import ShareButton from '@/components/general/share-button';
+import { Skeleton } from '../ui/skeleton';
 
 interface SeriesCardProps {
   series: Series;
   episodeCount: number;
   totalDuration?: string;
   className?: string;
+  isLoading?: boolean;
 }
 
 const formatStat = (num?: number): string => {
@@ -24,7 +26,7 @@ const formatStat = (num?: number): string => {
     return num.toString();
 };
 
-const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, totalDuration, className }) => {
+const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, totalDuration, className, isLoading }) => {
   return (
     <Card className={cn(
       "overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col sm:flex-row h-full bg-card group border border-border", 
@@ -72,11 +74,11 @@ const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, totalDura
                 <div className="flex items-center gap-4 text-xs text-muted-foreground mt-2">
                     <div className="flex items-center gap-1">
                         <Eye size={14} />
-                        <span>{formatStat(series.views)} Views</span>
+                         {isLoading ? <Skeleton className="w-12 h-4" /> : <span>{formatStat(series.views)} Views</span>}
                     </div>
                     <div className="flex items-center gap-1">
                         <Heart size={14} />
-                        <span>{formatStat(series.likes)} Likes</span>
+                        {isLoading ? <Skeleton className="w-12 h-4" /> : <span>{formatStat(series.likes)} Likes</span>}
                     </div>
                 </div>
             </a>

@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { useState } from 'react'; 
+import React, { useState, useEffect } from 'react'; 
 import type { Episode, Series } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -16,6 +16,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useIsMobile } from '@/hooks/use-mobile';
 import { incrementLikeCount } from '@/app/actions/analytics-actions';
 import { useToast } from '@/hooks/use-toast';
+import { useAnalytics } from '@/hooks/use-analytics';
+import { Skeleton } from '@/components/ui/skeleton';
 
 
 interface SeriesClientPageProps {
@@ -24,11 +26,11 @@ interface SeriesClientPageProps {
   totalDuration: string;
 }
 
-const StatItem: React.FC<{ icon: React.ElementType; value: string; label: string; }> = ({ icon: Icon, value, label }) => (
+const StatItem: React.FC<{ icon: React.ElementType; value: string; label: string; isLoading?: boolean }> = ({ icon: Icon, value, label, isLoading }) => (
     <div className="flex items-center gap-2">
       <Icon className="w-4 h-4 text-muted-foreground" />
       <p className="text-sm">
-        <span className="font-semibold">{value}</span>
+        {isLoading ? <Skeleton className="h-5 w-10 inline-block" /> : <span className="font-semibold">{value}</span>}
         <span className="text-muted-foreground ml-1">{label}</span>
       </p>
     </div>
@@ -42,12 +44,43 @@ const formatStat = (num?: number): string => {
 };
 
 
-export default function SeriesClientPage({ initialSeries: series, initialEpisodesInSeries: episodesInSeries, totalDuration }: SeriesClientPageProps) {
+export default function SeriesClientPage({ initialSeries, initialEpisodesInSeries, totalDuration }: SeriesClientPageProps) {
   const { currentEpisode, isPlaying, startSeriesPlayback } = usePlayer();
   const { toast } = useToast();
   const isMobile = useIsMobile();
   const [isLiked, setIsLiked] = useState(false);
-  const [localLikeCount, setLocalLikeCount] = useState(series.likes || 0);
+  
+  const { analytics, isLoading: isAnalyticsLoading } = useAnalytics();
+
+  const [seriesStats, setSeriesStats] = useState({
+      views: initialSeries.views || 0,
+      likes: initialSeries.likes || 0,
+  });
+
+  const [episodes, setEpisodes] = useState(initialEpisodesInSeries);
+
+  useEffect(() => {
+    if (!isAnalyticsLoading) {
+      let totalViews = 0;
+      let totalLikes = 0;
+
+      const updatedEpisodes = initialEpisodesInSeries.map(ep => {
+        const episodeAnalytics = analytics[ep.id];
+        if (episodeAnalytics) {
+          totalViews += episodeAnalytics.views;
+          totalLikes += episodeAnalytics.likes;
+          return { ...ep, views: episodeAnalytics.views, likes: episodeAnalytics.likes };
+        }
+        totalViews += ep.views || 0;
+        totalLikes += ep.likes || 0;
+        return ep;
+      });
+
+      setEpisodes(updatedEpisodes);
+      setSeriesStats({ views: totalViews, likes: totalLikes });
+    }
+  }, [analytics, isAnalyticsLoading, initialEpisodesInSeries]);
+
 
   const handlePlayAll = () => {
     if (episodesInSeries.length > 0) {
@@ -62,17 +95,17 @@ export default function SeriesClientPage({ initialSeries: series, initialEpisode
     return episode.title;
   };
   
-  const seriesUrl = typeof window !== 'undefined' ? `${window.location.origin}/series/${series.id}` : '';
+  const seriesUrl = typeof window !== 'undefined' ? `${window.location.origin}/series/${initialSeries.id}` : '';
   
   const handleLikeClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     if (!isLiked) {
         setIsLiked(true);
-        setLocalLikeCount(prev => prev + 1);
-        incrementLikeCount(series.id, 'series');
+        setSeriesStats(prev => ({ ...prev, likes: prev.likes + 1 }));
+        incrementLikeCount(initialSeries.id, 'series');
         toast({
           title: "Liked!",
-          description: `You liked the "${series.title}" series.`,
+          description: `You liked the "${initialSeries.title}" series.`,
         });
       } else {
         toast({
@@ -88,28 +121,28 @@ export default function SeriesClientPage({ initialSeries: series, initialEpisode
             {/* Image Column */}
             <div className="md:col-span-1 flex justify-center">
                 <Image
-                    src={series.thumbnailUrl}
-                    alt={series.title}
+                    src={initialSeries.thumbnailUrl}
+                    alt={initialSeries.title}
                     width={400}
                     height={400}
                     className="rounded-lg shadow-xl aspect-square object-cover w-40 h-40 sm:w-48 sm:h-48 md:w-full md:h-auto transition-transform duration-300 group-hover:scale-105"
-                    data-ai-hint={series.dataAiHint || "podcast series cover"}
+                    data-ai-hint={initialSeries.dataAiHint || "podcast series cover"}
                     priority
                 />
             </div>
 
             {/* Info & Stats Column */}
             <div className="md:col-span-2 text-center md:text-left">
-                <h1 className="text-3xl md:text-4xl font-bold mb-2 font-headline">{series.title}</h1>
-                <p className="text-sm text-muted-foreground mb-6">{series.description}</p>
+                <h1 className="text-3xl md:text-4xl font-bold mb-2 font-headline">{initialSeries.title}</h1>
+                <p className="text-sm text-muted-foreground mb-6">{initialSeries.description}</p>
                 
                 <div className="flex justify-center md:justify-start flex-wrap gap-4 sm:gap-6 mb-6">
                     <StatItem icon={List} value={episodesInSeries.length.toString()} label="Episodes" />
                     {totalDuration && (
                         <StatItem icon={Clock} value={totalDuration} label="Total Time" />
                     )}
-                     <StatItem icon={Eye} value={formatStat(series.views)} label="Views" />
-                     <StatItem icon={Heart} value={formatStat(localLikeCount)} label="Likes" />
+                     <StatItem icon={Eye} value={formatStat(seriesStats.views)} label="Views" isLoading={isAnalyticsLoading} />
+                     <StatItem icon={Heart} value={formatStat(seriesStats.likes)} label="Likes" isLoading={isAnalyticsLoading}/>
                 </div>
 
                 <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-2">
@@ -129,8 +162,8 @@ export default function SeriesClientPage({ initialSeries: series, initialEpisode
                         {isLiked ? 'Liked' : 'Like Series'}
                     </Button>
                   <ShareButton 
-                      shareTitle={series.title}
-                      shareUrl={`/series/${series.id}`}
+                      shareTitle={initialSeries.title}
+                      shareUrl={`/series/${initialSeries.id}`}
                       buttonText="Share Series"
                       size="lg"
                       variant="outline"
@@ -144,11 +177,11 @@ export default function SeriesClientPage({ initialSeries: series, initialEpisode
 
   const EpisodeItems = () => (
      <>
-        {episodesInSeries.length === 0 ? (
+        {episodes.length === 0 ? (
           <p className="text-center text-muted-foreground py-8 px-4">No episodes found for this series yet.</p>
         ) : (
           <div className="space-y-4 px-4 md:px-0">
-            {episodesInSeries.map((episode, index) => {
+            {episodes.map((episode, index) => {
               const isActive = currentEpisode?.id === episode.id;
               return (
                 <div 
@@ -178,11 +211,11 @@ export default function SeriesClientPage({ initialSeries: series, initialEpisode
                        <div className="flex items-center gap-3 text-xs text-muted-foreground mt-1.5">
                             <div className="flex items-center gap-1">
                                 <Eye size={14} />
-                                <span>{formatStat(episode.views)}</span>
+                                 {isAnalyticsLoading ? <Skeleton className="h-4 w-8" /> : <span>{formatStat(episode.views)}</span>}
                             </div>
                             <div className="flex items-center gap-1">
                                 <Heart size={14} />
-                                <span>{formatStat(episode.likes)}</span>
+                                {isAnalyticsLoading ? <Skeleton className="h-4 w-8" /> : <span>{formatStat(episode.likes)}</span>}
                             </div>
                         </div>
                     </div>
@@ -257,10 +290,10 @@ export default function SeriesClientPage({ initialSeries: series, initialEpisode
           </h2>
           <div className="max-w-2xl">
             <FeedbackForm
-                sourceTitle={series.title}
+                sourceTitle={initialSeries.title}
                 sourceType="Series"
                 sourceUrl={seriesUrl}
-                sourceThumbnailUrl={series.thumbnailUrl}
+                sourceThumbnailUrl={initialSeries.thumbnailUrl}
             />
           </div>
       </div>
