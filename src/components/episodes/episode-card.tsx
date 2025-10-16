@@ -14,11 +14,14 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { incrementLikeCount } from '@/app/actions/analytics-actions';
 import { useToast } from '@/hooks/use-toast';
+import { Skeleton } from '../ui/skeleton';
+
 
 interface EpisodeCardProps {
   episode: Episode;
   className?: string;
   layout?: 'vertical' | 'horizontal';
+  isLoading?: boolean;
 }
 
 const formatStat = (num?: number): string => {
@@ -29,7 +32,7 @@ const formatStat = (num?: number): string => {
 };
 
 
-const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 'vertical' }) => {
+const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 'vertical', isLoading }) => {
   const { playEpisode, currentEpisode, isPlaying } = usePlayer();
   const { toast } = useToast();
   const isActive = currentEpisode?.id === episode.id;
@@ -135,11 +138,11 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
            <div className="flex items-center gap-4 text-xs text-muted-foreground mt-2">
                 <div className="flex items-center gap-1">
                     <Eye size={14} />
-                    <span>{formatStat(episode.views)}</span>
+                    {isLoading ? <Skeleton className="h-4 w-8" /> : <span>{formatStat(episode.views)}</span>}
                 </div>
                 <div className="flex items-center gap-1">
                     <Heart size={14} className={cn(isLiked ? "text-red-500 fill-current" : "")} />
-                    <span>{formatStat(localLikeCount)}</span>
+                    {isLoading ? <Skeleton className="h-4 w-8" /> : <span>{formatStat(localLikeCount)}</span>}
                 </div>
             </div>
         </CardContent>
@@ -222,11 +225,11 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
             <div className="flex items-center gap-3 text-xs text-muted-foreground mt-1.5">
                 <div className="flex items-center gap-1">
                     <Eye size={14} />
-                    <span>{formatStat(episode.views)}</span>
+                    {isLoading ? <Skeleton className="h-4 w-8" /> : <span>{formatStat(episode.views)}</span>}
                 </div>
                 <div className="flex items-center gap-1">
                     <Heart size={14} className={cn(isLiked ? "text-red-500 fill-current" : "")}/>
-                    <span>{formatStat(localLikeCount)}</span>
+                    {isLoading ? <Skeleton className="h-4 w-8" /> : <span>{formatStat(localLikeCount)}</span>}
                 </div>
             </div>
         </CardContent>

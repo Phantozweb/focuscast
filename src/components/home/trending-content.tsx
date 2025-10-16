@@ -63,6 +63,7 @@ const TrendingContent: React.FC<TrendingContentProps> = ({ episodes: initialEpis
               episode={episode} 
               layout="vertical"
               className="w-full bg-background border border-border/70 shadow-sm hover:shadow-md"
+              isLoading={isLoading}
             />
           ))}
         </div>
@@ -76,6 +77,7 @@ const TrendingContent: React.FC<TrendingContentProps> = ({ episodes: initialEpis
                     episode={episode} 
                     layout="vertical"
                     className="w-full h-full bg-background border border-border/70 shadow-sm"
+                    isLoading={isLoading}
                   />
                 </div>
               ))}

@@ -1,13 +1,33 @@
 
+'use client';
+
 import type { Episode } from '@/types';
 import EpisodeCard from '@/components/episodes/episode-card';
-import { ScrollArea, ScrollBar } from '../ui/scroll-area';
+import { useAnalytics } from '@/hooks/use-analytics';
+import { useEffect, useState } from 'react';
 
 interface FeaturedEpisodesProps {
   episodes: Episode[];
 }
 
-const FeaturedEpisodes: React.FC<FeaturedEpisodesProps> = ({ episodes }) => {
+const FeaturedEpisodes: React.FC<FeaturedEpisodesProps> = ({ episodes: initialEpisodes }) => {
+  const { analytics, isLoading } = useAnalytics();
+  const [episodes, setEpisodes] = useState(initialEpisodes);
+
+  useEffect(() => {
+    if (!isLoading && Object.keys(analytics).length > 0) {
+      const updatedEpisodes = initialEpisodes.map(ep => {
+        const episodeAnalytics = analytics[ep.id];
+        if (episodeAnalytics) {
+          return { ...ep, views: episodeAnalytics.views, likes: episodeAnalytics.likes };
+        }
+        return ep;
+      });
+      setEpisodes(updatedEpisodes);
+    }
+  }, [analytics, isLoading, initialEpisodes]);
+
+
   if (!episodes || episodes.length === 0) {
     return (
       <section
@@ -46,6 +66,7 @@ const FeaturedEpisodes: React.FC<FeaturedEpisodesProps> = ({ episodes }) => {
               episode={episode}
               className="w-full bg-background border border-border/70 shadow-sm hover:shadow-md"
               layout="vertical"
+              isLoading={isLoading}
             />
           ))}
         </div>
@@ -59,6 +80,7 @@ const FeaturedEpisodes: React.FC<FeaturedEpisodesProps> = ({ episodes }) => {
                         episode={episode}
                         className="w-full h-full bg-background border border-border/70 shadow-sm"
                         layout="vertical"
+                        isLoading={isLoading}
                     />
                 </div>
               ))}
