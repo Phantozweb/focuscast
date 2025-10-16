@@ -83,8 +83,8 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
 
 
   const handlePlayAll = () => {
-    if (episodesInSeries.length > 0) {
-      startSeriesPlayback(episodesInSeries);
+    if (episodes.length > 0) {
+      startSeriesPlayback(episodes);
     }
   };
   
@@ -137,7 +137,7 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
                 <p className="text-sm text-muted-foreground mb-6">{initialSeries.description}</p>
                 
                 <div className="flex justify-center md:justify-start flex-wrap gap-4 sm:gap-6 mb-6">
-                    <StatItem icon={List} value={episodesInSeries.length.toString()} label="Episodes" />
+                    <StatItem icon={List} value={episodes.length.toString()} label="Episodes" />
                     {totalDuration && (
                         <StatItem icon={Clock} value={totalDuration} label="Total Time" />
                     )}
@@ -146,7 +146,7 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
                 </div>
 
                 <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-2">
-                  {episodesInSeries.length > 0 && (
+                  {episodes.length > 0 && (
                     <Button size="lg" onClick={handlePlayAll} className="w-full sm:w-auto">
                       <Play className="mr-2 h-5 w-5" /> Play All
                     </Button>
@@ -224,7 +224,7 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
                     <Button 
                       size="sm" 
                       variant={isActive && isPlaying ? "default" : "outline"}
-                      onClick={() => startSeriesPlayback(episodesInSeries, index)}
+                      onClick={() => startSeriesPlayback(episodes, index)}
                       className="flex-1 sm:flex-none"
                       aria-label={`Play ${episode.title}`}
                     >
@@ -262,7 +262,7 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
           <div className="px-4">
             <TabsList className="grid w-full grid-cols-2 mb-4">
               <TabsTrigger value="overview"><Info className="mr-2 h-4 w-4"/>Overview</TabsTrigger>
-              <TabsTrigger value="episodes"><List className="mr-2 h-4 w-4"/>Episodes ({episodesInSeries.length})</TabsTrigger>
+              <TabsTrigger value="episodes"><List className="mr-2 h-4 w-4"/>Episodes ({episodes.length})</TabsTrigger>
             </TabsList>
           </div>
           <TabsContent value="overview">
