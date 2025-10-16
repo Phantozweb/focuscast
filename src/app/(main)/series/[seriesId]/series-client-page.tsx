@@ -29,10 +29,10 @@ interface SeriesClientPageProps {
 const StatItem: React.FC<{ icon: React.ElementType; value: string; label: string; isLoading?: boolean }> = ({ icon: Icon, value, label, isLoading }) => (
     <div className="flex items-center gap-2">
       <Icon className="w-4 h-4 text-muted-foreground" />
-      <p className="text-sm">
+      <div className="text-sm">
         {isLoading ? <Skeleton className="h-5 w-10 inline-block" /> : <span className="font-semibold">{value}</span>}
         <span className="text-muted-foreground ml-1">{label}</span>
-      </p>
+      </div>
     </div>
 );
 
