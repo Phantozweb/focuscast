@@ -7,6 +7,7 @@ import EpisodeList from '@/components/episodes/episode-list';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Search } from 'lucide-react';
+import { useAnalytics } from '@/hooks/use-analytics';
 
 interface EpisodesClientPageProps {
   initialEpisodes: Episode[];
@@ -16,13 +17,29 @@ interface EpisodesClientPageProps {
 export default function EpisodesClientPage({ initialEpisodes, allSeries }: EpisodesClientPageProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedSeriesId, setSelectedSeriesId] = useState(''); // Empty string for "All Series" logic
-  const [filteredEpisodes, setFilteredEpisodes] = useState<Episode[]>(initialEpisodes);
+  const [episodes, setEpisodes] = useState<Episode[]>(initialEpisodes);
+  
+  const { analytics, isLoading: isAnalyticsLoading } = useAnalytics();
 
   useEffect(() => {
-    let episodesToFilter = initialEpisodes;
+    if (!isAnalyticsLoading && Object.keys(analytics).length > 0) {
+      const updatedEpisodes = initialEpisodes.map(ep => {
+        const episodeAnalytics = analytics[ep.id];
+        if (episodeAnalytics) {
+          return { ...ep, views: episodeAnalytics.views, likes: episodeAnalytics.likes };
+        }
+        return ep;
+      });
+      setEpisodes(updatedEpisodes);
+    }
+  }, [analytics, isAnalyticsLoading, initialEpisodes]);
+
+
+  const filteredEpisodes = useMemo(() => {
+    let episodesToFilter = episodes;
 
     // Filter by selected series
-    if (selectedSeriesId) { // This will be true if selectedSeriesId is not '' (i.e., a specific series is chosen)
+    if (selectedSeriesId) { 
       episodesToFilter = episodesToFilter.filter(episode => episode.seriesId === selectedSeriesId);
     }
 
@@ -39,8 +56,8 @@ export default function EpisodesClientPage({ initialEpisodes, allSeries }: Episo
       );
     }
 
-    setFilteredEpisodes(episodesToFilter);
-  }, [searchTerm, selectedSeriesId, initialEpisodes]);
+    return episodesToFilter;
+  }, [searchTerm, selectedSeriesId, episodes]);
 
   const uniqueSeriesForFilter = useMemo(() => {
     const seriesMap = new Map<string, Series>();
@@ -94,7 +111,7 @@ export default function EpisodesClientPage({ initialEpisodes, allSeries }: Episo
         </div>
       </div>
       
-      <EpisodeList episodes={filteredEpisodes} />
+      <EpisodeList episodes={filteredEpisodes} isLoading={isAnalyticsLoading} />
       {filteredEpisodes.length === 0 && (
         <div className="text-center py-10">
           <p className="text-xl text-muted-foreground">No episodes match your criteria.</p>

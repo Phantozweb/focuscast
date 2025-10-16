@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { Episode, Series } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -17,6 +17,7 @@ import FeedbackForm from '@/components/general/feedback-form';
 import { cn } from '@/lib/utils';
 import { incrementLikeCount } from '@/app/actions/analytics-actions';
 import { useToast } from '@/hooks/use-toast';
+import { useAnalytics } from '@/hooks/use-analytics';
 
 
 interface EpisodeDetailClientPageProps {
@@ -32,12 +33,34 @@ const formatStat = (num?: number): string => {
     return num.toString();
 };
 
-export default function EpisodeDetailClientPage({ episode, series, relatedEpisodes }: EpisodeDetailClientPageProps) {
+export default function EpisodeDetailClientPage({ episode: initialEpisode, series, relatedEpisodes: initialRelatedEpisodes }: EpisodeDetailClientPageProps) {
   const { playEpisode, currentEpisode, isPlaying } = usePlayer();
   const { toast } = useToast();
+  const { analytics, isLoading: isAnalyticsLoading } = useAnalytics();
+  
+  const [episode, setEpisode] = useState(initialEpisode);
+  const [relatedEpisodes, setRelatedEpisodes] = useState(initialRelatedEpisodes);
+
   const isActive = currentEpisode?.id === episode.id;
   const [isLiked, setIsLiked] = useState(false);
   const [localLikeCount, setLocalLikeCount] = useState(episode.likes || 0);
+
+  useEffect(() => {
+    if (!isAnalyticsLoading && Object.keys(analytics).length > 0) {
+      const mainEpisodeAnalytics = analytics[initialEpisode.id];
+      if (mainEpisodeAnalytics) {
+        const updatedEpisode = { ...initialEpisode, ...mainEpisodeAnalytics };
+        setEpisode(updatedEpisode);
+        setLocalLikeCount(updatedEpisode.likes || 0);
+      }
+
+      const updatedRelatedEpisodes = initialRelatedEpisodes.map(ep => {
+        const relatedEpisodeAnalytics = analytics[ep.id];
+        return relatedEpisodeAnalytics ? { ...ep, ...relatedEpisodeAnalytics } : ep;
+      });
+      setRelatedEpisodes(updatedRelatedEpisodes);
+    }
+  }, [analytics, isAnalyticsLoading, initialEpisode, initialRelatedEpisodes]);
 
 
   const getShareTitle = () => {
@@ -241,7 +264,7 @@ export default function EpisodeDetailClientPage({ episode, series, relatedEpisod
             <h2 className="text-2xl font-bold font-headline">Related Episodes</h2>
             <div className="space-y-4">
                 {relatedEpisodes.map(relatedEp => (
-                    <EpisodeCard key={`related-${relatedEp.id}`} episode={relatedEp} layout="vertical" className="bg-card shadow-md border"/>
+                    <EpisodeCard key={`related-${relatedEp.id}`} episode={relatedEp} layout="vertical" className="bg-card shadow-md border" isLoading={isAnalyticsLoading}/>
                 ))}
             </div>
           </div>
