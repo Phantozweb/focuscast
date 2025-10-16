@@ -5,7 +5,7 @@ import Image from 'next/image';
 import type { Series } from '@/types';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import Link from 'next/link';
-import { ArrowRight, Clock, Eye, Heart } from 'lucide-react';
+import { ArrowRight, Clock, Eye, Heart, Lock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import ShareButton from '@/components/general/share-button';
@@ -13,6 +13,7 @@ import { Skeleton } from '../ui/skeleton';
 import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { incrementLikeCount } from '@/app/actions/analytics-actions';
+import { Badge } from '@/components/ui/badge';
 
 interface SeriesCardProps {
   series: Series;
@@ -20,6 +21,7 @@ interface SeriesCardProps {
   totalDuration?: string;
   className?: string;
   isLoading?: boolean;
+  isLocked?: boolean;
 }
 
 const formatStat = (num?: number): string => {
@@ -29,7 +31,7 @@ const formatStat = (num?: number): string => {
     return num.toString();
 };
 
-const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, totalDuration, className, isLoading }) => {
+const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, totalDuration, className, isLoading, isLocked }) => {
   const [isLiked, setIsLiked] = useState(false);
   const { toast } = useToast();
 
@@ -49,11 +51,12 @@ const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, totalDura
 
   return (
     <Card className={cn(
-      "overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col sm:flex-row h-full bg-card group border border-border", 
+      "overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col sm:flex-row h-full bg-card group border border-border",
+      isLocked ? "opacity-80" : "",
       className
     )}>
       <Link href={`/series/${series.id}`} legacyBehavior passHref>
-        <a className="relative w-full sm:w-1/3 aspect-square sm:aspect-auto flex-shrink-0 bg-muted/30">
+        <a className={cn("relative w-full sm:w-1/3 aspect-square sm:aspect-auto flex-shrink-0 bg-muted/30", isLocked ? "pointer-events-none" : "")}>
           <Image
             src={series.thumbnailUrl}
             alt={series.title}
@@ -67,7 +70,7 @@ const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, totalDura
       <div className="flex flex-col flex-grow p-4 sm:p-5">
         <CardHeader className="p-0 mb-2">
           <Link href={`/series/${series.id}`} legacyBehavior passHref>
-            <a className="block">
+            <a className={cn("block", isLocked ? "pointer-events-none" : "")}>
               <CardTitle className="text-xl sm:text-2xl leading-tight group-hover:text-primary transition-colors">
                 {series.title}
               </CardTitle>
@@ -76,7 +79,7 @@ const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, totalDura
         </CardHeader>
         <CardContent className="p-0 flex-grow mb-3">
            <Link href={`/series/${series.id}`} legacyBehavior passHref>
-            <a className="block">
+            <a className={cn("block", isLocked ? "pointer-events-none" : "")}>
               <CardDescription className="text-base sm:text-sm text-foreground/80 line-clamp-2">
                 {series.shortDescription || series.description}
               </CardDescription>
@@ -90,6 +93,7 @@ const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, totalDura
                     <span>{totalDuration}</span>
                   </div>
                 )}
+                 {isLocked && <Badge variant="destructive">Coming Soon</Badge>}
               </div>
                 <div className="flex items-center gap-4 text-xs text-muted-foreground mt-2">
                     <div className="flex items-center gap-1">
@@ -105,9 +109,10 @@ const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, totalDura
           </Link>
         </CardContent>
         <div className="mt-auto flex gap-2">
-          <Button asChild size="lg" sm-size="sm" className="flex-1">
+          <Button asChild size="lg" sm-size="sm" className="flex-1" disabled={isLocked}>
             <Link href={`/series/${series.id}`}>
-              View Series <ArrowRight size={16} className="ml-2" />
+              {isLocked ? <Lock size={16} className="mr-2" /> : <ArrowRight size={16} className="mr-2" />}
+              {isLocked ? 'Locked' : 'View Series'}
             </Link>
           </Button>
            <Button
@@ -115,7 +120,7 @@ const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, totalDura
             size="lg" sm-size="icon"
             className="h-10 w-10 flex-shrink-0"
             onClick={handleLikeClick}
-            disabled={isLiked}
+            disabled={isLiked || isLocked}
             aria-label="Like series"
             >
                 <Heart size={18} className={cn("transition-colors", isLiked ? "text-red-500 fill-current" : "")} />
@@ -125,6 +130,7 @@ const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, totalDura
             shareUrl={`/series/${series.id}`}
             size="lg" sm-size="sm"
             className="flex-shrink-0"
+            disabled={isLocked}
           />
         </div>
       </div>

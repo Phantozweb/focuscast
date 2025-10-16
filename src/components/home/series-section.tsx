@@ -4,6 +4,7 @@
 import type { Series, Episode } from '@/types';
 import SeriesCard from '@/components/series/series-card';
 import { useAnalytics } from '@/hooks/use-analytics';
+import { isEpisodeLocked } from '@/lib/release-dates';
 
 interface SeriesSectionProps {
   series: Series[];
@@ -63,6 +64,7 @@ const SeriesSection: React.FC<SeriesSectionProps> = ({ series, allEpisodes }) =>
             const updatedSeries = { ...s, views: totalViews, likes: totalLikes };
             const episodesInSeries = allEpisodes.filter(ep => ep.seriesId === s.id);
             const episodeCount = episodesInSeries.length;
+            const isLocked = episodesInSeries.some(isEpisodeLocked);
 
             return (
               <SeriesCard
@@ -70,6 +72,7 @@ const SeriesSection: React.FC<SeriesSectionProps> = ({ series, allEpisodes }) =>
                 series={updatedSeries}
                 episodeCount={episodeCount}
                 isLoading={isLoading}
+                isLocked={isLocked}
               />
             );
           })}
@@ -83,6 +86,7 @@ const SeriesSection: React.FC<SeriesSectionProps> = ({ series, allEpisodes }) =>
                 const updatedSeries = { ...s, views: totalViews, likes: totalLikes };
                 const episodesInSeries = allEpisodes.filter(ep => ep.seriesId === s.id);
                 const episodeCount = episodesInSeries.length;
+                const isLocked = episodesInSeries.some(isEpisodeLocked);
 
                 return (
                     <div key={s.id + '-mobile'} className="snap-center shrink-0 w-[90vw] max-w-sm">
@@ -91,6 +95,7 @@ const SeriesSection: React.FC<SeriesSectionProps> = ({ series, allEpisodes }) =>
                             episodeCount={episodeCount}
                             className="h-full"
                             isLoading={isLoading}
+                            isLocked={isLocked}
                         />
                     </div>
                 );
