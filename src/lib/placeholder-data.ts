@@ -38,11 +38,11 @@ export const placeholderSeries: Series[] = [
    {
     id: 'series-optics-unveiled',
     title: 'Optics Unveiled',
-    description: 'Journey through the fundamental principles of vision optics. This series breaks down complex topics like lens types, aberrations, and optical instruments into clear, digestible episodes. A must-listen for anyone wanting to master the science behind sight.',
-    shortDescription: 'Master the fundamental principles of vision optics, from lenses and aberrations to optical instruments.',
+    description: "Journey through the fundamental principles of vision optics with 'Optics Unveiled.' This comprehensive series breaks down complex topics—from Snell's Law and lens aberrations to the intricacies of progressive lenses and low vision magnification. Master the science behind sight, understand how optical instruments work, and learn the essentials of lens materials, coatings, and accurate dispensing. A must-listen for any student or practitioner wanting to master ophthalmic optics.",
+    shortDescription: "Master fundamental vision optics, from Snell's Law and lens design to optical instruments and low vision aids.",
     thumbnailUrl: opticsUnveiledThumbnail,
     dataAiHint: 'optical lens science',
-    keywords: ['optics', 'vision science', 'lenses', 'refraction', 'aberrations', 'magnification', 'ophthalmic optics'],
+    keywords: ['optics', 'vision science', 'lenses', 'refraction', 'aberrations', 'magnification', 'ophthalmic optics', 'Snell\'s Law', 'progressive lenses', 'low vision', 'aniseikonia', 'vertex distance', 'pupillary distance'],
   },
 ];
 
@@ -2284,3 +2284,6 @@ Direct and indirect ophthalmoscopy are complementary tools. Understanding their 
 
 
 
+
+
+    

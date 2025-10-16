@@ -76,7 +76,7 @@ export default function SeriesClientPage({ initialSeries: series, initialEpisode
                 <div className="flex justify-center md:justify-start gap-4 sm:gap-6 mb-6">
                     <StatItem icon={List} value={episodesInSeries.length.toString()} label="Episodes" />
                     {totalDuration && (
-                        <StatItem icon={Clock} value={totalDuration.replace(' total','')} label="Total Time" />
+                        <StatItem icon={Clock} value={totalDuration} label="Total Time" />
                     )}
                 </div>
 
@@ -215,3 +215,5 @@ export default function SeriesClientPage({ initialSeries: series, initialEpisode
     </div>
   );
 }
+
+    
