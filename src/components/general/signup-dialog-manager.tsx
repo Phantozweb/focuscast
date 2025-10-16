@@ -54,8 +54,8 @@ export default function SignupDialogManager() {
         if (!getCookie(SIGNUP_SUCCESS_COOKIE)) {
             setCookie(SIGNUP_DISMISS_COOKIE, 'true', DISMISS_EXPIRATION_DAYS);
             toast({
-                title: "Stay Connected!",
-                description: "Join Focus Links Community To Attend Webinars, give feedback and become a member for free.",
+                title: "Join the Focus Links Global Eye Care Community!",
+                description: "Become a member for free to attend webinars, give feedback, and connect with peers.",
                 action: (
                     <Button asChild>
                         <Link href="https://chat.whatsapp.com/Bigr23C10d54i9fEBxKVHk?mode=wwc" target="_blank">Join Now</Link>
