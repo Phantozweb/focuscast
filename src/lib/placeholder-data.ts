@@ -8,6 +8,17 @@ const growOptomSeriesThumbnail = 'https://raw.githubusercontent.com/Phantozweb/S
 const opticsUnveiledThumbnail = 'https://iili.io/Kkerw8P.png';
 
 export const placeholderSeries: Series[] = [
+   {
+    id: 'series-optics-unveiled',
+    title: 'Optics Unveiled',
+    description: "Journey through the fundamental principles of vision optics with 'Optics Unveiled.' This comprehensive series breaks down complex topics—from Snell's Law and lens aberrations to the intricacies of progressive lenses and low vision magnification. Master the science behind sight, understand how optical instruments work, and learn the essentials of lens materials, coatings, and accurate dispensing. A must-listen for any student or practitioner wanting to master ophthalmic optics.",
+    shortDescription: "Master fundamental vision optics, from Snell's Law and lens design to optical instruments and low vision aids.",
+    thumbnailUrl: opticsUnveiledThumbnail,
+    dataAiHint: 'optical lens science',
+    keywords: ['optics', 'vision science', 'lenses', 'refraction', 'aberrations', 'magnification', 'ophthalmic optics', 'Snell\'s Law', 'progressive lenses', 'low vision', 'aniseikonia', 'vertex distance', 'pupillary distance'],
+    views: 0,
+    likes: 0,
+  },
   {
     id: 'series-clinical-skills',
     title: 'Clinical Skills Corner',
@@ -38,17 +49,6 @@ export const placeholderSeries: Series[] = [
     thumbnailUrl: decodingOcularDiseaseSeriesThumbnailUpdated,
     dataAiHint: 'microscopic eye cells',
     keywords: ['ocular disease', 'diabetic retinopathy', 'glaucoma management', 'retinal pathology', 'optometry diagnosis', 'NPDR', 'PDR', 'OCT', 'anti-VEGF'],
-    views: 0,
-    likes: 0,
-  },
-   {
-    id: 'series-optics-unveiled',
-    title: 'Optics Unveiled',
-    description: "Journey through the fundamental principles of vision optics with 'Optics Unveiled.' This comprehensive series breaks down complex topics—from Snell's Law and lens aberrations to the intricacies of progressive lenses and low vision magnification. Master the science behind sight, understand how optical instruments work, and learn the essentials of lens materials, coatings, and accurate dispensing. A must-listen for any student or practitioner wanting to master ophthalmic optics.",
-    shortDescription: "Master fundamental vision optics, from Snell's Law and lens design to optical instruments and low vision aids.",
-    thumbnailUrl: opticsUnveiledThumbnail,
-    dataAiHint: 'optical lens science',
-    keywords: ['optics', 'vision science', 'lenses', 'refraction', 'aberrations', 'magnification', 'ophthalmic optics', 'Snell\'s Law', 'progressive lenses', 'low vision', 'aniseikonia', 'vertex distance', 'pupillary distance'],
     views: 0,
     likes: 0,
   },
@@ -1273,7 +1273,7 @@ Bottle Preparation: Shake bottle gently if it's a suspension.
 Positioning: Recommend tilting head back, looking up towards the ceiling.
 Creating a Pouch: Use one hand to gently pull down the lower eyelid, creating a small pocket.
 Dispensing the Drop: Hold the bottle inverted, about 1 inch (2.5 cm) above the eye. Squeeze gently to dispense one drop into the pouch. Avoid touching the bottle tip to the eye or lashes!
-Closure & Occlusion: Close the eye gently (do not squeeze!). Apply gentle pressure to the inner corner of the eye (punctual occlusion) for 30-60 seconds. This helps prevent systemic absorption and keeps the drop on the eye longer.
+Closure & Occlusion: Close the eye gently (do not squeeze!). Apply gentle pressure to the inner corner of the eye (punctal occlusion) for 30-60 seconds. This helps prevent systemic absorption and keeps the drop on the eye longer.
 Wiping Excess: Blot any excess with a clean tissue.
 Multiple Drops: If multiple different drops are prescribed, advise waiting at least 5 minutes between drops to prevent "washout." If the same drop, wait 1-2 minutes.
 Of course, not every patient finds this easy — and that’s where your guidance makes the difference.
@@ -2389,6 +2389,7 @@ Direct and indirect ophthalmoscopy are complementary tools. Understanding their 
 
 
     
+
 
 
 

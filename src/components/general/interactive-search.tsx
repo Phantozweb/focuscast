@@ -9,6 +9,7 @@ import SeriesCard from '@/components/series/series-card';
 import { placeholderEpisodes, placeholderSeries } from '@/lib/placeholder-data';
 import type { Episode, Series } from '@/types';
 import { parseDurationToSeconds, formatTotalSeconds } from '@/lib/utils';
+import { useAnalytics } from '@/hooks/use-analytics';
 
 type Suggestion = 
   | (Episode & { resultType: 'episode'; score: number }) 
@@ -18,6 +19,7 @@ export default function InteractiveSearch() {
   const [searchTerm, setSearchTerm] = useState('');
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
   const [isSearching, setIsSearching] = useState(false);
+  const { analytics, isLoading: isAnalyticsLoading } = useAnalytics();
 
   useEffect(() => {
     if (searchTerm.trim() !== '') {
@@ -47,7 +49,10 @@ export default function InteractiveSearch() {
       };
 
       const matchingEpisodes = placeholderEpisodes
-        .map(ep => ({ ...ep, resultType: 'episode' as const, score: calculateScore(ep, lowerSearchTerm) }))
+        .map(ep => {
+            const stats = analytics[ep.id] || { views: 0, likes: 0 };
+            return { ...ep, ...stats, resultType: 'episode' as const, score: calculateScore(ep, lowerSearchTerm) }
+        })
         .filter(ep => ep.score > 0);
 
       const matchingSeries = placeholderSeries.map(s => {
@@ -55,8 +60,16 @@ export default function InteractiveSearch() {
         const count = episodesInSeries.length;
         const totalDurationInSeconds = episodesInSeries.reduce((total, ep) => total + parseDurationToSeconds(ep.duration), 0);
         const totalDuration = formatTotalSeconds(totalDurationInSeconds);
+        const seriesStats = episodesInSeries.reduce((acc, ep) => {
+            const stats = analytics[ep.id] || { views: 0, likes: 0 };
+            acc.views += stats.views;
+            acc.likes += stats.likes;
+            return acc;
+        }, { views: 0, likes: 0 });
+        
         return { 
           ...s, 
+          ...seriesStats,
           resultType: 'series' as const, 
           episodeCount: count, 
           totalDuration,
@@ -73,7 +86,7 @@ export default function InteractiveSearch() {
     } else {
       setSuggestions([]);
     }
-  }, [searchTerm]);
+  }, [searchTerm, analytics]);
 
   return (
     <div className="flex flex-col gap-6">
@@ -101,6 +114,7 @@ export default function InteractiveSearch() {
                     episode={item as Episode} 
                     layout="horizontal" 
                     className="bg-background border border-border/70 shadow-sm hover:shadow-md"
+                    isLoading={isAnalyticsLoading}
                   />
                 );
               } else if (item.resultType === 'series') {
@@ -112,12 +126,13 @@ export default function InteractiveSearch() {
                     episodeCount={seriesItem.episodeCount}
                     totalDuration={seriesItem.totalDuration}
                     className="bg-background border border-border/70 shadow-sm hover:shadow-md"
+                    isLoading={isAnalyticsLoading}
                   />
                 );
               }
               return null;
             })
-          ) : !isSearching ? (
+          ) : !isAnalyticsLoading && !isSearching ? (
              <p className="text-center text-muted-foreground py-8">No results found for "{searchTerm}".</p>
           ) : null}
         </div>

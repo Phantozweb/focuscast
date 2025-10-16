@@ -11,6 +11,7 @@ import { placeholderEpisodes, placeholderSeries } from '@/lib/placeholder-data';
 import type { Episode, Series } from '@/types';
 import FocusCastLogo from '@/components/icons/focus-cast-logo';
 import { parseDurationToSeconds, formatTotalSeconds } from '@/lib/utils';
+import { useAnalytics } from '@/hooks/use-analytics';
 
 type Suggestion = 
   | (Episode & { resultType: 'episode'; score: number }) 
@@ -28,6 +29,7 @@ const HeroSection: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
   const [placeholder, setPlaceholder] = useState("Search episodes, series, topics...");
+  const { analytics, isLoading: isAnalyticsLoading } = useAnalytics();
   
   useEffect(() => {
     let currentTermIndex = 0;
@@ -92,7 +94,10 @@ const HeroSection: React.FC = () => {
       };
 
       const matchingEpisodes = placeholderEpisodes
-        .map(ep => ({ ...ep, resultType: 'episode' as const, score: calculateScore(ep, lowerSearchTerm) }))
+        .map(ep => {
+            const stats = analytics[ep.id] || { views: 0, likes: 0 };
+            return { ...ep, ...stats, resultType: 'episode' as const, score: calculateScore(ep, lowerSearchTerm) }
+        })
         .filter(ep => ep.score > 0);
 
       const matchingSeries = placeholderSeries.map(s => {
@@ -100,8 +105,16 @@ const HeroSection: React.FC = () => {
         const count = episodesInSeries.length;
         const totalDurationInSeconds = episodesInSeries.reduce((total, ep) => total + parseDurationToSeconds(ep.duration), 0);
         const totalDuration = formatTotalSeconds(totalDurationInSeconds);
+        const seriesStats = episodesInSeries.reduce((acc, ep) => {
+            const stats = analytics[ep.id] || { views: 0, likes: 0 };
+            acc.views += stats.views;
+            acc.likes += stats.likes;
+            return acc;
+        }, { views: 0, likes: 0 });
+
         return { 
           ...s, 
+          ...seriesStats,
           resultType: 'series' as const, 
           episodeCount: count, 
           totalDuration,
@@ -118,7 +131,7 @@ const HeroSection: React.FC = () => {
     } else {
       setSuggestions([]);
     }
-  }, [searchTerm]);
+  }, [searchTerm, analytics]);
 
   return (
     <section className="py-12 md:py-24 bg-gradient-to-br from-primary/10 via-background to-secondary/10 dark:from-primary/5 dark:to-secondary/5">
@@ -162,6 +175,7 @@ const HeroSection: React.FC = () => {
                       episode={item as Episode} 
                       layout="horizontal" 
                       className="bg-background border border-border/70 shadow-sm hover:shadow-md"
+                      isLoading={isAnalyticsLoading}
                     />
                   );
                 } else if (item.resultType === 'series') {
@@ -173,6 +187,7 @@ const HeroSection: React.FC = () => {
                       episodeCount={seriesItem.episodeCount}
                       totalDuration={seriesItem.totalDuration}
                       className="bg-background border border-border/70 shadow-sm hover:shadow-md"
+                      isLoading={isAnalyticsLoading}
                     />
                   );
                 }

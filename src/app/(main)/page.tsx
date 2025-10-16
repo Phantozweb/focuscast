@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const featured: Episode[] = [
-    placeholderEpisodes.find(ep => ep.id === 'csc-ep15'),
+    placeholderEpisodes.find(ep => ep.id === 'ou-ep1'),
     placeholderEpisodes.find(ep => ep.id === 'csc-ep16'),
   ].filter(ep => ep) as Episode[];
   

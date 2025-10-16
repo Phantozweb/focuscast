@@ -107,11 +107,6 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
           title: "Liked!",
           description: `You liked the "${initialSeries.title}" series.`,
         });
-      } else {
-        toast({
-          title: "Already Liked",
-          description: `You've already liked this series.`,
-        });
       }
   };
 
@@ -156,6 +151,7 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
                         variant="outline"
                         onClick={handleLikeClick}
                         className="w-full sm:w-auto"
+                        disabled={isLiked}
                         aria-label="Like series"
                     >
                         <Heart size={20} className={cn("mr-2 transition-colors", isLiked ? "text-red-500 fill-current" : "")} />

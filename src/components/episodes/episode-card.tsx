@@ -54,6 +54,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
   };
 
   const handleLikeClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
     e.stopPropagation();
     
     if (!isLiked) {
@@ -63,11 +64,6 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
       toast({
         title: "Liked!",
         description: `You liked "${episode.title}".`,
-      });
-    } else {
-      toast({
-        title: "Already Liked",
-        description: `You've already liked this episode.`,
       });
     }
   };
@@ -166,6 +162,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
             size="lg" sm-size="icon"
             className="h-10 w-10"
             onClick={handleLikeClick}
+            disabled={isLiked}
             aria-label="Like episode"
             >
                 <Heart size={18} className={cn("transition-colors", isLiked ? "text-red-500 fill-current" : "")} />
@@ -252,6 +249,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
             size="sm"
             className="h-9 w-9 p-0"
             onClick={handleLikeClick}
+            disabled={isLiked}
             aria-label="Like episode"
             >
              <Heart size={16} className={cn("transition-colors", isLiked ? "text-red-500 fill-current" : "")} />

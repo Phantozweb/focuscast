@@ -10,6 +10,9 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import ShareButton from '@/components/general/share-button';
 import { Skeleton } from '../ui/skeleton';
+import { useState } from 'react';
+import { useToast } from '@/hooks/use-toast';
+import { incrementLikeCount } from '@/app/actions/analytics-actions';
 
 interface SeriesCardProps {
   series: Series;
@@ -27,6 +30,23 @@ const formatStat = (num?: number): string => {
 };
 
 const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, totalDuration, className, isLoading }) => {
+  const [isLiked, setIsLiked] = useState(false);
+  const { toast } = useToast();
+
+  const handleLikeClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!isLiked) {
+      setIsLiked(true); // Visually update immediately and disable button
+      incrementLikeCount(series.id, 'series');
+      toast({
+        title: "Liked!",
+        description: `You liked the "${series.title}" series.`,
+      });
+    }
+  };
+
+
   return (
     <Card className={cn(
       "overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col sm:flex-row h-full bg-card group border border-border", 
@@ -90,6 +110,16 @@ const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, totalDura
               View Series <ArrowRight size={16} className="ml-2" />
             </Link>
           </Button>
+           <Button
+            variant="outline"
+            size="lg" sm-size="icon"
+            className="h-10 w-10 flex-shrink-0"
+            onClick={handleLikeClick}
+            disabled={isLiked}
+            aria-label="Like series"
+            >
+                <Heart size={18} className={cn("transition-colors", isLiked ? "text-red-500 fill-current" : "")} />
+            </Button>
           <ShareButton
             shareTitle={series.title}
             shareUrl={`/series/${series.id}`}
