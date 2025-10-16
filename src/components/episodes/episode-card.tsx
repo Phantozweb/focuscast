@@ -6,11 +6,12 @@ import type { Episode } from '@/types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { PlayCircle, Clock } from 'lucide-react';
+import { PlayCircle, Clock, Heart, Eye } from 'lucide-react';
 import { usePlayer } from '@/contexts/player-context';
 import { cn } from '@/lib/utils';
 import ShareButton from '@/components/general/share-button';
 import Link from 'next/link';
+import { useState } from 'react';
 
 interface EpisodeCardProps {
   episode: Episode;
@@ -18,15 +19,31 @@ interface EpisodeCardProps {
   layout?: 'vertical' | 'horizontal';
 }
 
+const formatStat = (num?: number): string => {
+    if (num === undefined) return '0';
+    if (num >= 1000000) return `${(num / 1000000).toFixed(1)}M`;
+    if (num >= 1000) return `${(num / 1000).toFixed(1)}k`;
+    return num.toString();
+};
+
+
 const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 'vertical' }) => {
   const { playEpisode, currentEpisode, isPlaying } = usePlayer();
   const isActive = currentEpisode?.id === episode.id;
+  const [isLiked, setIsLiked] = useState(false);
+
 
   const getShareTitle = () => {
     if (episode.seriesTitle && episode.episodeNumber) {
       return `${episode.title} - ${episode.seriesTitle} Ep. ${episode.episodeNumber}`;
     }
     return episode.title;
+  };
+
+  const handleLikeClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    setIsLiked(!isLiked);
+    // Here you would also call your backend to update the like count
   };
 
   if (layout === 'vertical') {
@@ -96,6 +113,16 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
             <span className="mx-1.5">•</span>
             <span>{episode.releaseDate}</span>
           </div>
+           <div className="flex items-center gap-4 text-xs text-muted-foreground mt-2">
+                <div className="flex items-center gap-1">
+                    <Eye size={14} />
+                    <span>{formatStat(episode.views)}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                    <Heart size={14} className={cn(isLiked ? "text-red-500 fill-current" : "")} />
+                    <span>{formatStat(isLiked ? (episode.likes || 0) + 1 : episode.likes)}</span>
+                </div>
+            </div>
         </CardContent>
 
         <CardFooter className="flex gap-2 p-4 pt-0 mt-auto">
@@ -109,6 +136,15 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
             <PlayCircle size={18} sm-size={16} className="mr-1 md:mr-2" />
             {isActive && isPlaying ? 'Playing' : (isActive ? 'Paused' : 'Play')}
           </Button>
+           <Button
+            variant="outline"
+            size="lg" sm-size="icon"
+            className="h-10 w-10"
+            onClick={handleLikeClick}
+            aria-label="Like episode"
+            >
+                <Heart size={18} className={cn("transition-colors", isLiked ? "text-red-500 fill-current" : "")} />
+            </Button>
           <ShareButton
             shareTitle={getShareTitle()}
             shareUrl={`/episode/${episode.id}`}
@@ -164,6 +200,16 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
             <span className="mx-1.5">•</span>
             <span>{episode.releaseDate}</span>
           </div>
+            <div className="flex items-center gap-3 text-xs text-muted-foreground mt-1.5">
+                <div className="flex items-center gap-1">
+                    <Eye size={14} />
+                    <span>{formatStat(episode.views)}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                    <Heart size={14} className={cn(isLiked ? "text-red-500 fill-current" : "")}/>
+                    <span>{formatStat(isLiked ? (episode.likes || 0) + 1 : episode.likes)}</span>
+                </div>
+            </div>
         </CardContent>
 
         <CardFooter className="flex gap-2 p-0 pt-1.5 sm:pt-2 mt-auto">
@@ -177,6 +223,15 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
             <PlayCircle size={16} className="mr-1 md:mr-2" />
             {isActive && isPlaying ? 'Playing' : (isActive ? 'Paused' : 'Play')}
           </Button>
+           <Button
+            variant="outline"
+            size="sm"
+            className="h-9 w-9 p-0"
+            onClick={handleLikeClick}
+            aria-label="Like episode"
+            >
+             <Heart size={16} className={cn("transition-colors", isLiked ? "text-red-500 fill-current" : "")} />
+            </Button>
           <ShareButton
             shareTitle={getShareTitle()}
             shareUrl={`/episode/${episode.id}`}

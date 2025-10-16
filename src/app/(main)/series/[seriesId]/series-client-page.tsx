@@ -1,12 +1,12 @@
 
 'use client';
 
-import React from 'react'; 
+import React, { useState } from 'react'; 
 import type { Episode, Series } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, PlayCircle, Clock, Play, MessageSquareQuote, List, Info } from 'lucide-react';
+import { ArrowLeft, PlayCircle, Clock, Play, MessageSquareQuote, List, Info, Eye, Heart } from 'lucide-react';
 import { usePlayer } from '@/contexts/player-context';
 import { cn } from '@/lib/utils';
 import ShareButton from '@/components/general/share-button';
@@ -32,10 +32,18 @@ const StatItem: React.FC<{ icon: React.ElementType; value: string; label: string
     </div>
 );
 
+const formatStat = (num?: number): string => {
+    if (num === undefined) return '0';
+    if (num >= 1000000) return `${(num / 1000000).toFixed(1)}M`;
+    if (num >= 1000) return `${(num / 1000).toFixed(1)}k`;
+    return num.toString();
+};
+
 
 export default function SeriesClientPage({ initialSeries: series, initialEpisodesInSeries: episodesInSeries, totalDuration }: SeriesClientPageProps) {
   const { currentEpisode, isPlaying, startSeriesPlayback } = usePlayer();
   const isMobile = useIsMobile();
+  const [isLiked, setIsLiked] = useState(false);
 
   const handlePlayAll = () => {
     if (episodesInSeries.length > 0) {
@@ -51,6 +59,12 @@ export default function SeriesClientPage({ initialSeries: series, initialEpisode
   };
   
   const seriesUrl = typeof window !== 'undefined' ? `${window.location.origin}/series/${series.id}` : '';
+  
+  const handleLikeClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    setIsLiked(!isLiked);
+    // Here you would also call your backend to update the like count
+  };
 
   const SeriesHero = () => (
     <div className="bg-card dark:bg-muted/10 sm:border sm:border-border/50 sm:rounded-xl p-4 sm:p-6 sm:shadow-sm sm:mb-12 group">
@@ -73,11 +87,13 @@ export default function SeriesClientPage({ initialSeries: series, initialEpisode
                 <h1 className="text-3xl md:text-4xl font-bold mb-2 font-headline">{series.title}</h1>
                 <p className="text-sm text-muted-foreground mb-6">{series.description}</p>
                 
-                <div className="flex justify-center md:justify-start gap-4 sm:gap-6 mb-6">
+                <div className="flex justify-center md:justify-start flex-wrap gap-4 sm:gap-6 mb-6">
                     <StatItem icon={List} value={episodesInSeries.length.toString()} label="Episodes" />
                     {totalDuration && (
                         <StatItem icon={Clock} value={totalDuration} label="Total Time" />
                     )}
+                     <StatItem icon={Eye} value={formatStat(series.views)} label="Views" />
+                     <StatItem icon={Heart} value={formatStat(isLiked ? (series.likes || 0) + 1 : series.likes)} label="Likes" />
                 </div>
 
                 <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-2">
@@ -86,6 +102,16 @@ export default function SeriesClientPage({ initialSeries: series, initialEpisode
                       <Play className="mr-2 h-5 w-5" /> Play All
                     </Button>
                   )}
+                    <Button
+                        size="lg"
+                        variant="outline"
+                        onClick={handleLikeClick}
+                        className="w-full sm:w-auto"
+                        aria-label="Like series"
+                    >
+                        <Heart size={20} className={cn("mr-2 transition-colors", isLiked ? "text-red-500 fill-current" : "")} />
+                        {isLiked ? 'Liked' : 'Like Series'}
+                    </Button>
                   <ShareButton 
                       shareTitle={series.title}
                       shareUrl={`/series/${series.id}`}
@@ -133,6 +159,16 @@ export default function SeriesClientPage({ initialSeries: series, initialEpisode
                         <span className="mx-1.5">•</span>
                         <span>{episode.releaseDate}</span>
                       </div>
+                       <div className="flex items-center gap-3 text-xs text-muted-foreground mt-1.5">
+                            <div className="flex items-center gap-1">
+                                <Eye size={14} />
+                                <span>{formatStat(episode.views)}</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                                <Heart size={14} />
+                                <span>{formatStat(episode.likes)}</span>
+                            </div>
+                        </div>
                     </div>
                   </div>
                   <div className="flex gap-2 w-full sm:w-auto flex-shrink-0">
@@ -215,5 +251,3 @@ export default function SeriesClientPage({ initialSeries: series, initialEpisode
     </div>
   );
 }
-
-    

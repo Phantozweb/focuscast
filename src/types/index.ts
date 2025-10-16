@@ -14,6 +14,8 @@ export interface Episode {
   episodeNumber?: number; // Episode number within the series
   transcript?: string;
   keywords?: string[];
+  views?: number;
+  likes?: number;
 }
 
 export interface Series {
@@ -24,5 +26,7 @@ export interface Series {
   thumbnailUrl: string;
   dataAiHint?: string;
   keywords?: string[];
+  views?: number;
+  likes?: number;
   // Episodes belonging to this series will be filtered from the global Episode list
 }

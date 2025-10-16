@@ -6,7 +6,7 @@ import type { Episode, Series } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, PlayCircle, Clock, ListMusic, MessageSquareQuote } from 'lucide-react';
+import { ArrowLeft, PlayCircle, Clock, ListMusic, MessageSquareQuote, Heart, Eye } from 'lucide-react';
 import { usePlayer } from '@/contexts/player-context';
 import ShareButton from '@/components/general/share-button';
 import { Badge } from '@/components/ui/badge';
@@ -14,6 +14,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import EpisodeCard from '@/components/episodes/episode-card';
 import { Separator } from '@/components/ui/separator';
 import FeedbackForm from '@/components/general/feedback-form';
+import { cn } from '@/lib/utils';
 
 
 interface EpisodeDetailClientPageProps {
@@ -22,9 +23,17 @@ interface EpisodeDetailClientPageProps {
   relatedEpisodes: Episode[];
 }
 
+const formatStat = (num?: number): string => {
+    if (num === undefined) return '0';
+    if (num >= 1000000) return `${(num / 1000000).toFixed(1)}M`;
+    if (num >= 1000) return `${(num / 1000).toFixed(1)}k`;
+    return num.toString();
+};
+
 export default function EpisodeDetailClientPage({ episode, series, relatedEpisodes }: EpisodeDetailClientPageProps) {
   const { playEpisode, currentEpisode, isPlaying } = usePlayer();
   const isActive = currentEpisode?.id === episode.id;
+  const [isLiked, setIsLiked] = useState(false);
 
 
   const getShareTitle = () => {
@@ -32,6 +41,12 @@ export default function EpisodeDetailClientPage({ episode, series, relatedEpisod
       return `${episode.title} - ${episode.seriesTitle} Ep. ${episode.episodeNumber}`;
     }
     return episode.title;
+  };
+  
+  const handleLikeClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    setIsLiked(!isLiked);
+    // Here you would also call your backend to update the like count
   };
 
   const episodeUrl = typeof window !== 'undefined' ? `${window.location.origin}/episode/${episode.id}` : '';
@@ -83,6 +98,18 @@ export default function EpisodeDetailClientPage({ episode, series, relatedEpisod
                   <span className="mx-2">•</span>
                   <span>{episode.releaseDate}</span>
                 </div>
+                 <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-1.5">
+                        <Eye size={16} />
+                        <span className="font-medium">{formatStat(episode.views)}</span>
+                        <span className="hidden sm:inline">Views</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                        <Heart size={16} className={cn(isLiked ? "text-red-500 fill-current" : "")} />
+                        <span className="font-medium">{formatStat(isLiked ? (episode.likes || 0) + 1 : episode.likes)}</span>
+                         <span className="hidden sm:inline">Likes</span>
+                    </div>
+                </div>
               </div>
             </div>
             
@@ -98,6 +125,16 @@ export default function EpisodeDetailClientPage({ episode, series, relatedEpisod
                 <PlayCircle size={20} className="mr-2" />
                 {isActive && isPlaying ? 'Playing' : (isActive ? 'Paused' : 'Play Episode')}
               </Button>
+               <Button
+                size="lg"
+                variant="outline"
+                onClick={handleLikeClick}
+                className="flex-1 text-lg py-6 sm:py-2 sm:text-sm"
+                aria-label="Like episode"
+                >
+                    <Heart size={20} className={cn("mr-2 transition-colors", isLiked ? "text-red-500 fill-current" : "")} />
+                    {isLiked ? 'Liked' : 'Like'}
+                </Button>
               <ShareButton
                 shareTitle={getShareTitle()}
                 shareUrl={`/episode/${episode.id}`}

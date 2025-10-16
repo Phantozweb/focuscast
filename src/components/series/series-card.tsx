@@ -5,7 +5,7 @@ import Image from 'next/image';
 import type { Series } from '@/types';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import Link from 'next/link';
-import { ArrowRight, Clock } from 'lucide-react';
+import { ArrowRight, Clock, Eye, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import ShareButton from '@/components/general/share-button';
@@ -16,6 +16,13 @@ interface SeriesCardProps {
   totalDuration?: string;
   className?: string;
 }
+
+const formatStat = (num?: number): string => {
+    if (num === undefined) return '0';
+    if (num >= 1000000) return `${(num / 1000000).toFixed(1)}M`;
+    if (num >= 1000) return `${(num / 1000).toFixed(1)}k`;
+    return num.toString();
+};
 
 const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, totalDuration, className }) => {
   return (
@@ -62,6 +69,16 @@ const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, totalDura
                   </div>
                 )}
               </div>
+                <div className="flex items-center gap-4 text-xs text-muted-foreground mt-2">
+                    <div className="flex items-center gap-1">
+                        <Eye size={14} />
+                        <span>{formatStat(series.views)} Views</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                        <Heart size={14} />
+                        <span>{formatStat(series.likes)} Likes</span>
+                    </div>
+                </div>
             </a>
           </Link>
         </CardContent>
