@@ -56,6 +56,7 @@ export default function SignupDialogManager() {
             toast({
                 title: "Join the Focus Links Global Eye Care Community!",
                 description: "Become a member for free to attend webinars, give feedback, and connect with peers.",
+                duration: Infinity,
                 action: (
                     <Button asChild>
                         <Link href="https://chat.whatsapp.com/Bigr23C10d54i9fEBxKVHk?mode=wwc" target="_blank">Join Now</Link>
