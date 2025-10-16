@@ -5,19 +5,19 @@ const clinicalSkillsCornerThumbnail = 'https://raw.githubusercontent.com/Phantoz
 const focusBitesSeriesThumbnail = 'https://raw.githubusercontent.com/Phantozweb/StromVault/175bc58a00e53a095eb5065a0cfb6e8599ca93dd/Albums/file_000000002c2861f89474f0ba58bb39a3.png';
 const decodingOcularDiseaseSeriesThumbnailUpdated = 'https://raw.githubusercontent.com/Phantozweb/StromVault/71e7cef27cc65f264b7ba93d778a275abb57426c/Albums/file_00000000078861f89c2cd48d6e220a36%20(1).png';
 const growOptomSeriesThumbnail = 'https://raw.githubusercontent.com/Phantozweb/StromVault/71e7cef27cc65f264b7ba93d778a275abb57426c/Albums/file_00000000ab3461f78fcfc560f1dd566e.png';
-const opticsUnveiledThumbnail = 'https://iili.io/Kkerw8P.png';
+const opticsUnveiledThumbnail = 'https://i.ibb.co/L8T3cs8/b-Add-icons-to-optics.png';
 
 export const placeholderSeries: Series[] = [
   {
     id: 'series-clinical-skills',
     title: 'Clinical Skills Corner',
-    description: 'A comprehensive series for optometry students and practitioners dedicated to sharpening essential clinical skills. This series covers foundational techniques like visual acuity testing, retinoscopy, and subjective refraction, to advanced diagnostics including slit lamp mastery, tonometry, gonioscopy, and visual field analysis. Learn to confidently manage everything from presbyopia and contact lens fitting to pupil examination and ocular motility assessment.',
+    description: 'Master essential optometry skills, from refraction and tonometry to advanced diagnostic procedures. This series covers foundational techniques like visual acuity testing, retinoscopy, and subjective refraction, to advanced diagnostics including slit lamp mastery, tonometry, gonioscopy, and visual field analysis. Learn to confidently manage everything from presbyopia and contact lens fitting to pupil examination and ocular motility assessment.',
     shortDescription: 'Master essential optometry skills, from refraction and tonometry to advanced diagnostic procedures.',
     thumbnailUrl: clinicalSkillsCornerThumbnail,
     dataAiHint: 'clinical eye exam',
     keywords: ['optometry clinical skills', 'eye exam techniques', 'ophthalmology training', 'optometry podcast', 'patient care', 'retinoscopy', 'tonometry', 'gonioscopy', 'slit lamp', 'visual field'],
-    views: 10200,
-    likes: 1200,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'series-focus-bites',
@@ -27,8 +27,8 @@ export const placeholderSeries: Series[] = [
     thumbnailUrl: focusBitesSeriesThumbnail,
     dataAiHint: 'abstract science eye',
     keywords: ['vision science', 'optometry basics', 'ocular phenomena', 'visual perception', 'entoptic phenomena', 'Purkinje shift', 'Haidinger\'s Brushes', 'binocular rivalry'],
-    views: 15300,
-    likes: 2100,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'series-decoding-ocular-disease',
@@ -38,8 +38,8 @@ export const placeholderSeries: Series[] = [
     thumbnailUrl: decodingOcularDiseaseSeriesThumbnailUpdated,
     dataAiHint: 'microscopic eye cells',
     keywords: ['ocular disease', 'diabetic retinopathy', 'glaucoma management', 'retinal pathology', 'optometry diagnosis', 'NPDR', 'PDR', 'OCT', 'anti-VEGF'],
-    views: 8400,
-    likes: 980,
+    views: 0,
+    likes: 0,
   },
    {
     id: 'series-optics-unveiled',
@@ -49,8 +49,8 @@ export const placeholderSeries: Series[] = [
     thumbnailUrl: opticsUnveiledThumbnail,
     dataAiHint: 'optical lens science',
     keywords: ['optics', 'vision science', 'lenses', 'refraction', 'aberrations', 'magnification', 'ophthalmic optics', 'Snell\'s Law', 'progressive lenses', 'low vision', 'aniseikonia', 'vertex distance', 'pupillary distance'],
-    views: 5600,
-    likes: 750,
+    views: 0,
+    likes: 0,
   },
 ];
 
@@ -106,8 +106,8 @@ Visual acuity is foundational. Master its measurement, understand its limitation
 "Remember, visual acuity is your starting point, not the full story of vision."
 
 Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`,
-    views: 890,
-    likes: 150,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'csc-ep2',
@@ -159,8 +159,8 @@ Retinoscopy is an indispensable skill, especially for non-verbal patients, child
 "Practice makes perfect. The more retinoscopy you do, the more natural it becomes."
 
 Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`,
-    views: 750,
-    likes: 110,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'csc-ep3',
@@ -214,8 +214,8 @@ Subjective refraction is a blend of science and art. It demands patience, clear 
 "Your goal is not just a clear vision, but a comfortable, balanced vision."
 
 Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`,
-    views: 680,
-    likes: 95,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'csc-ep4',
@@ -287,8 +287,8 @@ Both the phoropter and trial frame are invaluable. Your skill lies in knowing wh
 "Choose your tool wisely; it can make all the difference to your patient's visual experience."
 
 Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`,
-    views: 620,
-    likes: 80,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'csc-ep5',
@@ -345,8 +345,8 @@ Determining the presbyopic add is about customizing vision for near tasks, ensur
 "Your goal is to give them back the functional vision they need, not just a number."
 
 Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`,
-    views: 590,
-    likes: 70,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'csc-ep6',
@@ -401,8 +401,8 @@ The slit lamp is your ultimate detective tool. A systematic approach with varied
 "Every flicker of light, every shadow tells a story. Learn to read it."
 
 Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`,
-    views: 1200,
-    likes: 180,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'csc-ep7',
@@ -462,8 +462,8 @@ Accurate IOP measurement is critical. Master GAT, understand its nuances, and re
 "Your tonometry skills are a lifeline in the fight against glaucoma."
 
 Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`,
-    views: 1150,
-    likes: 175,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'csc-ep8',
@@ -533,8 +533,8 @@ Gonioscopy is non-negotiable for glaucoma management. Master it to directly asse
 "Don't guess the angle; visualize it."
 
 Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`,
-    views: 990,
-    likes: 160,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'csc-ep9',
@@ -590,8 +590,8 @@ The direct ophthalmoscope may seem simple, but in skilled hands, it’s a powerf
 "Practice patience and precision; your direct ophthalmoscopy skills will be a powerful diagnostic tool."
 
 Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`,
-    views: 850,
-    likes: 140,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'csc-ep10',
@@ -651,8 +651,8 @@ Indirect ophthalmoscopy is a vital skill for truly comprehensive retinal health 
 "Master the inverted world; protect their entire retina."
 
 Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`,
-    views: 920,
-    likes: 155,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'csc-ep11',
@@ -717,8 +717,8 @@ The pupil exam is a rapid, non-invasive screening tool for critical ocular and n
 "Your ability to interpret pupillary signs can literally save sight or even a life."
 
 Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`,
-    views: 1300,
-    likes: 210,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'csc-ep12',
@@ -779,8 +779,8 @@ The cover test is your most powerful tool for objective assessment of ocular ali
 "Every eye movement tells you a story about their binocular vision."
 
 Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`,
-    views: 780,
-    likes: 120,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'csc-ep13',
@@ -851,8 +851,8 @@ Ocular motility assessment is vital for detecting neurological and muscular issu
 "Watch their eyes dance, and uncover the story of their neurological health."
 
 Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`,
-    views: 730,
-    likes: 115,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'csc-ep14',
@@ -913,8 +913,8 @@ Keratometry and topography provide invaluable information about corneal shape, c
 "The cornea's blueprint is key to clear vision."
 
 Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`,
-    views: 820,
-    likes: 130,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'csc-ep15',
@@ -978,8 +978,8 @@ Dilation is a powerful diagnostic tool. Master the procedure, understand the pha
 "Dilation opens a world of diagnostic possibilities, but always with caution and care."
 
 Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`,
-    views: 1500,
-    likes: 250,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'csc-ep16',
@@ -1042,8 +1042,8 @@ A thorough external adnexa exam and mastering eyelid eversion are essential for 
 "Don't miss the forest for the trees – or the adnexa for the globe!"
 
 Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`,
-    views: 1600,
-    likes: 280,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'csc-ep17',
@@ -1112,8 +1112,8 @@ By teaching safe insertion and removal, you’re not just preventing complicatio
 "Your guidance empowers patients to see clearly and safely with contact lenses."
 
 Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`,
-    views: 2100,
-    likes: 350,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'csc-ep18',
@@ -1173,8 +1173,8 @@ Visual field testing is more than pressing buttons — it’s uncovering the sto
 "The visual field tells you what your patient sees, not just what their eyes look like."
 
 Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`,
-    views: 1800,
-    likes: 300,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'csc-ep19',
@@ -1237,8 +1237,8 @@ The Amsler grid is a simple yet powerful tool for early detection and home monit
 "Protecting central vision starts with vigilance for subtle changes."
 
 Thanks for tuning in to Clinical Skills Corner! Stay tuned for the next episode.`,
-    views: 1950,
-    likes: 320,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'csc-ep20',
@@ -1298,8 +1298,8 @@ Your role in educating patients on proper drop instillation is vital for treatme
 "Effective eye care often starts with a single, properly placed drop."
 
 That brings us to the end of our Clinical Skills Corner series. This is Aanya, signing off — thank you for learning with us, and until next time, keep applying these skills with precision and curiosity in your daily practice.`,
-    views: 2500,
-    likes: 400,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'fb-ep1',
@@ -1329,8 +1329,8 @@ Eyes are more electric than we think.
 See you tomorrow on Focus Bites.
 
 Jennifer, signing off.`,
-    views: 3200,
-    likes: 450,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'fb-ep2',
@@ -1364,8 +1364,8 @@ Keep that in mind when you’re refracting – you’re not just bending light�
 See you tomorrow on Focus Bites.
 
 Jennifer, signing off.`,
-    views: 2800,
-    likes: 380,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'dod-ep1',
@@ -1419,8 +1419,8 @@ Diabetic Retinopathy is a formidable opponent, there’s no doubt about it. But 
 And that wraps up our deep dive into Diabetic Retinopathy, and our very first episode of Decoding Ocular Disease. I sincerely hope this approach has provided you with a clearer, more confident understanding of this critical condition. Remember, early detection and proactive management are our greatest allies.
 
 Until next time, keep those funduscopes ready, stay curious, and continue to make a clear impact. Thank you so much for listening.`,
-    views: 4500,
-    likes: 850,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'fb-ep3',
@@ -1454,8 +1454,8 @@ Keep that in mind as evening falls – you’re not just losing light… your ey
 See you tomorrow on Focus Bites.
 
 Jennifer, signing off.`,
-    views: 2500,
-    likes: 350,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'fb-ep4',
@@ -1489,8 +1489,8 @@ Keep that in mind when you’re looking at a blue sky – you might not just be 
 See you tomorrow on Focus Bites.
 
 Jennifer, signing off.`,
-    views: 2300,
-    likes: 320,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'fb-ep5',
@@ -1524,8 +1524,8 @@ Keep that in mind when you’re concentrating hard on one spot – your brain mi
 See you tomorrow on Focus Bites.
 
 Jennifer, signing off.`,
-    views: 2200,
-    likes: 300,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'fb-ep6',
@@ -1558,8 +1558,8 @@ So next time you gaze at a clear blue sky, you’re not just seeing the heavens�
 
 See you tomorrow on Focus Bites.
 Jennifer, signing off.`,
-    views: 2100,
-    likes: 290,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'fb-ep7',
@@ -1592,8 +1592,8 @@ So next time you’re measuring stereoacuity, remember—you’re not just check
 
 See you tomorrow on Focus Bites.
 Jennifer, signing off.`,
-    views: 1900,
-    likes: 270,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'fb-ep8',
@@ -1626,8 +1626,8 @@ So when you think about visual processing, remember: your brain isn’t just a c
 
 See you tomorrow on Focus Bites.
 Jennifer, signing off.`,
-    views: 1850,
-    likes: 260,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'fb-ep9',
@@ -1659,8 +1659,8 @@ Keep in mind that binocular vision involves not only alignment but also precise 
 See you on the next Focus Bites.
 
 Jennifer, signing off.`,
-    views: 1700,
-    likes: 240,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'fb-ep10',
@@ -1694,8 +1694,8 @@ It extends the frontiers of visual science, allowing exploration of visual funct
 See you on the next Focus Bites.
 
 Jennifer, signing off.`,
-    views: 1650,
-    likes: 230,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'fb-ep11',
@@ -1727,8 +1727,8 @@ Remember, color perception is a processed interpretation, not a direct measureme
 See you on the next Focus Bites.
 
 Jennifer, signing off.`,
-    views: 1500,
-    likes: 210,
+    views: 0,
+    likes: 0,
   },
    {
     id: 'ou-ep1',
@@ -1769,8 +1769,8 @@ Understanding Symptoms: How symptoms like blurry vision, eye strain, or double v
 Wrap-up & Takeaway:
 Understanding spherical, cylindrical, and prism lenses isn't just theory; it's the foundation of crafting effective vision correction. Each plays a specific, critical role in bringing clarity and comfort to our patients' eyes.
 "Every lens is a precision tool, bending light exactly where it needs to go for optimal vision. Stay tuned for the next episode "`,
-    views: 450,
-    likes: 80,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'ou-ep2',
@@ -1812,8 +1812,8 @@ Vision Therapy: Many vision therapy exercises are designed to improve the flexib
 Wrap-up & Takeaway:
 Accommodation and vergence are a dynamic duo, constantly working together to provide clear, single, comfortable vision. Their intricate relationship, described by the AC/A ratio, is central to diagnosing and managing many binocular vision disorders.
 "It's a delicate balance; when the team works well, your vision is effortless. Stay tuned for the next episode "`,
-    views: 420,
-    likes: 75,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'ou-ep3',
@@ -1850,8 +1850,8 @@ Instrumentation: Optical instruments themselves have aberrations, which must be 
 Wrap-up & Takeaway:
 Our eyes are amazing, but not optically perfect. Aberrations are intrinsic imperfections that optometrists consider when optimizing vision correction and addressing nuanced patient complaints.
 "Beyond the numbers of a prescription, understanding aberrations helps us truly refine vision. Stay tuned for the next episode "`,
-    views: 400,
-    likes: 70,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'ou-ep4',
@@ -1899,8 +1899,8 @@ Limits and Capabilities: Knowing what each instrument can and cannot do is cruci
 Wrap-up & Takeaway:
 Your optical instruments are extensions of your diagnostic capabilities. Master their underlying principles for precision in every examination.
 "Beyond pushing buttons, truly understanding your tools unlocks their full diagnostic power. Stay tuned for the next episode "`,
-    views: 380,
-    likes: 65,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'ou-ep5',
@@ -1939,8 +1939,8 @@ Counseling: Thorough education on how to wear and use PALs effectively (e.g., po
 Wrap-up & Takeaway:
 Progressive lenses offer incredible freedom and natural vision for presbyopic patients. Understanding their optical design, fitting requirements, and inherent compromises allows you to guide patients to the best solution for their needs.
 "PALs are a triumph of optical engineering, blending science with the art of comfortable vision. Stay tuned for the next episode "`,
-    views: 510,
-    likes: 90,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'ou-ep6',
@@ -1976,8 +1976,8 @@ Optical Instruments: From slit lamps to ophthalmoscopes, all optical instruments
 Wrap-up & Takeaway:
 Snell's Law is not just an abstract formula; it's the fundamental principle governing all light bending in the eye and in corrective lenses. It's the bedrock of vision optics.
 "Every clear image you see, every lens you prescribe, is a testament to Snell's Law in action. Stay tuned for the next episode"`,
-    views: 350,
-    likes: 60,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'ou-ep7',
@@ -2019,8 +2019,8 @@ Patient Counseling: Explaining to low vision patients how to use their magnifier
 Wrap-up & Takeaway:
 Magnification is a powerful tool in optometry, transforming small, blurry images into larger, clearer ones, especially vital for those with reduced visual function.
 "When you can't see better, sometimes you just need to see bigger. Stay tuned for the next episode."`,
-    views: 320,
-    likes: 55,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'ou-ep8',
@@ -2068,8 +2068,8 @@ Specialty Lenses: Some patients (e.g., those with strong light sensitivity) may 
 Wrap-up & Takeaway:
 Choosing the right lens material is a balance of optical performance, safety, and aesthetics. Understanding refractive index, Abbe value, and impact resistance allows you to make informed recommendations.
 "It's not just the prescription, but the material that shapes the patient's visual experience and protects their eyes. Stay tuned for the next episode"`,
-    views: 480,
-    likes: 85,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'ou-ep9',
@@ -2116,8 +2116,8 @@ Patient Education: Explaining the benefits clearly is crucial for patient accept
 Wrap-up & Takeaway:
 Antireflective coatings are a highly beneficial optical enhancement, offering clearer vision, reduced glare, and improved aesthetics, making them a cornerstone of modern spectacle dispensing.
 "AR coatings are the silent heroes of spectacle lenses, letting light pass through beautifully. Stay tuned for the next episode"`,
-    views: 410,
-    likes: 70,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'ou-ep10',
@@ -2163,10 +2163,10 @@ Spherical Lenses: Induced prism.
 Cylindrical Lenses: Induced prism and possibly axis shift.
 Progressive Lenses: Difficulty accessing clear zones, significant swim and distortion.
 Wrap-up & Takeaway:
-PD is not just a number on a form; it's the critical foundation for a comfortable and effective spectacle vision. Precise centration is paramount.
+PD is not just a number on a form; it's the critical foundation for comfortable and effective spectacle vision. Precise centration is paramount.
 "A perfect prescription is only as good as its precise centration. Stay tuned for the next episode"`,
-    views: 390,
-    likes: 68,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'ou-ep11',
@@ -2206,8 +2206,8 @@ Troubleshooting: Understanding these concepts helps you troubleshoot vision prob
 Wrap-up & Takeaway:
 Focal length and optical power are two sides of the same coin, defining how lenses bend light. They are the fundamental language of refraction and vision correction.
 "Diopters are more than just numbers; they tell the story of how light is precisely guided for clear vision. Stay tuned for the next episode"`,
-    views: 370,
-    likes: 65,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'ou-ep12',
@@ -2253,8 +2253,8 @@ Avoiding Errors: Practicing transposition regularly helps prevent dispensing err
 Wrap-up & Takeaway:
 Transposition is a quick, essential skill that ensures you can convert any spherocylindrical prescription accurately, maintaining the patient's intended optical correction.
 "It's the optical language translator, ensuring every lens speaks the same clear vision. Stay tuned for the next episode"`,
-    views: 350,
-    likes: 62,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'ou-ep13',
@@ -2288,8 +2288,8 @@ Troubleshooting: You might need to measure the vertex distance of the phoropter,
 Wrap-up & Takeaway:
 Vertex distance is a seemingly small detail that has a big impact on the effective power of a lens. Accounting for it ensures the precise vision correction intended by the prescription.
 "That small space between your lens and your eye plays a surprisingly big role in your visual clarity. Stay tuned for the next episode"`,
-    views: 330,
-    likes: 60,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'ou-ep14',
@@ -2327,8 +2327,8 @@ Children: Undiagnosed or uncorrected aniseikonia in children can lead to suppres
 Wrap-up & Takeaway:
 Aniseikonia is a complex binocular vision problem that can cause significant discomfort. Recognizing it and knowing how to correct it with specialized lenses or contact lenses is crucial for providing comfortable, clear vision.
 "When your eyes don't see eye-to-eye on image size, precise optics can bring them back into balance. Stay tuned for the next episode"`,
-    views: 310,
-    likes: 58,
+    views: 0,
+    likes: 0,
   },
   {
     id: 'ou-ep15',
@@ -2367,8 +2367,8 @@ Mental Image Inversion: Students must learn to mentally invert the image seen wi
 Wrap-up & Takeaway:
 Direct and indirect ophthalmoscopy are complementary tools. Understanding their unique optical principles helps you maximize their diagnostic power and ensures a thorough examination of the entire retina.
 "Two different optical paths, both leading to a comprehensive understanding of ocular health." Stay tune.`,
-    views: 300,
-    likes: 55,
+    views: 0,
+    likes: 0,
   }
 ];
 
@@ -2389,3 +2389,4 @@ Direct and indirect ophthalmoscopy are complementary tools. Understanding their 
 
 
     
+
