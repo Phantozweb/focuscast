@@ -19,7 +19,7 @@ const TrendingContent: React.FC<TrendingContentProps> = ({ episodes: initialEpis
       const updatedEpisodes = initialEpisodes.map(ep => {
         const episodeAnalytics = analytics[ep.id];
         if (episodeAnalytics) {
-          return { ...ep, views: episodeAnalytics.views, likes: episodeAnalytics.likes };
+          return { ...ep, ...episodeAnalytics };
         }
         return ep;
       });

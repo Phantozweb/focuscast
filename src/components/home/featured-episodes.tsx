@@ -19,7 +19,7 @@ const FeaturedEpisodes: React.FC<FeaturedEpisodesProps> = ({ episodes: initialEp
       const updatedEpisodes = initialEpisodes.map(ep => {
         const episodeAnalytics = analytics[ep.id];
         if (episodeAnalytics) {
-          return { ...ep, views: episodeAnalytics.views, likes: episodeAnalytics.likes };
+          return { ...ep, ...episodeAnalytics };
         }
         return ep;
       });
