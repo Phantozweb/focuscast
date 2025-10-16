@@ -61,7 +61,6 @@ export default function SignupDialogManager() {
                         <Link href="https://chat.whatsapp.com/Bigr23C10d54i9fEBxKVHk?mode=wwc" target="_blank">Join Now</Link>
                     </Button>
                 ),
-                duration: 10000, // Show for 10 seconds
             });
         }
     }
