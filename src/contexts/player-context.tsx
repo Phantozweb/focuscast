@@ -5,6 +5,7 @@ import type { Episode } from '@/types';
 import React, { createContext, useState, useContext, useRef, useEffect, useCallback } from 'react';
 import { useToast } from "@/hooks/use-toast";
 import { placeholderEpisodes } from '@/lib/placeholder-data';
+import { incrementViewCount } from '@/app/actions/analytics-actions';
 
 interface PlayerState {
   currentEpisode: Episode | null;
@@ -183,6 +184,7 @@ export const PlayerProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       if (audioRef.current.src !== rawAudioUrl) {
         audioRef.current.src = rawAudioUrl;
         audioRef.current.load();
+        incrementViewCount(currentEpisode.id); // Increment view count when new episode is loaded
       }
       audioRef.current.play().then(() => {
          setIsPlaying(true);

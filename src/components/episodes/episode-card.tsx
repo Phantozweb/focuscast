@@ -12,6 +12,8 @@ import { cn } from '@/lib/utils';
 import ShareButton from '@/components/general/share-button';
 import Link from 'next/link';
 import { useState } from 'react';
+import { incrementLikeCount } from '@/app/actions/analytics-actions';
+import { useToast } from '@/hooks/use-toast';
 
 interface EpisodeCardProps {
   episode: Episode;
@@ -29,8 +31,10 @@ const formatStat = (num?: number): string => {
 
 const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 'vertical' }) => {
   const { playEpisode, currentEpisode, isPlaying } = usePlayer();
+  const { toast } = useToast();
   const isActive = currentEpisode?.id === episode.id;
   const [isLiked, setIsLiked] = useState(false);
+  const [localLikeCount, setLocalLikeCount] = useState(episode.likes || 0);
 
 
   const getShareTitle = () => {
@@ -42,8 +46,23 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
 
   const handleLikeClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    setIsLiked(!isLiked);
-    // Here you would also call your backend to update the like count
+    
+    if (!isLiked) {
+      setIsLiked(true);
+      setLocalLikeCount(prev => prev + 1);
+      incrementLikeCount(episode.id, 'episode');
+      toast({
+        title: "Liked!",
+        description: `You liked "${episode.title}".`,
+      });
+    } else {
+      // Note: We are not implementing "unlike" logic to send to the backend
+      // to prevent spamming. The UI will remain "liked".
+      toast({
+        title: "Already Liked",
+        description: `You've already liked this episode.`,
+      });
+    }
   };
 
   if (layout === 'vertical') {
@@ -120,7 +139,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
                 </div>
                 <div className="flex items-center gap-1">
                     <Heart size={14} className={cn(isLiked ? "text-red-500 fill-current" : "")} />
-                    <span>{formatStat(isLiked ? (episode.likes || 0) + 1 : episode.likes)}</span>
+                    <span>{formatStat(localLikeCount)}</span>
                 </div>
             </div>
         </CardContent>
@@ -207,7 +226,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
                 </div>
                 <div className="flex items-center gap-1">
                     <Heart size={14} className={cn(isLiked ? "text-red-500 fill-current" : "")}/>
-                    <span>{formatStat(isLiked ? (episode.likes || 0) + 1 : episode.likes)}</span>
+                    <span>{formatStat(localLikeCount)}</span>
                 </div>
             </div>
         </CardContent>

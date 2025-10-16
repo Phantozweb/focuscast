@@ -15,6 +15,8 @@ import EpisodeCard from '@/components/episodes/episode-card';
 import { Separator } from '@/components/ui/separator';
 import FeedbackForm from '@/components/general/feedback-form';
 import { cn } from '@/lib/utils';
+import { incrementLikeCount } from '@/app/actions/analytics-actions';
+import { useToast } from '@/hooks/use-toast';
 
 
 interface EpisodeDetailClientPageProps {
@@ -32,8 +34,10 @@ const formatStat = (num?: number): string => {
 
 export default function EpisodeDetailClientPage({ episode, series, relatedEpisodes }: EpisodeDetailClientPageProps) {
   const { playEpisode, currentEpisode, isPlaying } = usePlayer();
+  const { toast } = useToast();
   const isActive = currentEpisode?.id === episode.id;
   const [isLiked, setIsLiked] = useState(false);
+  const [localLikeCount, setLocalLikeCount] = useState(episode.likes || 0);
 
 
   const getShareTitle = () => {
@@ -45,8 +49,20 @@ export default function EpisodeDetailClientPage({ episode, series, relatedEpisod
   
   const handleLikeClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    setIsLiked(!isLiked);
-    // Here you would also call your backend to update the like count
+    if (!isLiked) {
+      setIsLiked(true);
+      setLocalLikeCount(prev => prev + 1);
+      incrementLikeCount(episode.id, 'episode');
+      toast({
+        title: "Liked!",
+        description: `You liked "${episode.title}".`,
+      });
+    } else {
+      toast({
+        title: "Already Liked",
+        description: `You've already liked this episode.`,
+      });
+    }
   };
 
   const episodeUrl = typeof window !== 'undefined' ? `${window.location.origin}/episode/${episode.id}` : '';
@@ -106,7 +122,7 @@ export default function EpisodeDetailClientPage({ episode, series, relatedEpisod
                     </div>
                     <div className="flex items-center gap-1.5">
                         <Heart size={16} className={cn(isLiked ? "text-red-500 fill-current" : "")} />
-                        <span className="font-medium">{formatStat(isLiked ? (episode.likes || 0) + 1 : episode.likes)}</span>
+                        <span className="font-medium">{formatStat(localLikeCount)}</span>
                          <span className="hidden sm:inline">Likes</span>
                     </div>
                 </div>

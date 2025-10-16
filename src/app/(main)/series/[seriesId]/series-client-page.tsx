@@ -14,6 +14,8 @@ import FeedbackForm from '@/components/general/feedback-form';
 import { Separator } from '@/components/ui/separator';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useIsMobile } from '@/hooks/use-mobile';
+import { incrementLikeCount } from '@/app/actions/analytics-actions';
+import { useToast } from '@/hooks/use-toast';
 
 
 interface SeriesClientPageProps {
@@ -42,8 +44,10 @@ const formatStat = (num?: number): string => {
 
 export default function SeriesClientPage({ initialSeries: series, initialEpisodesInSeries: episodesInSeries, totalDuration }: SeriesClientPageProps) {
   const { currentEpisode, isPlaying, startSeriesPlayback } = usePlayer();
+  const { toast } = useToast();
   const isMobile = useIsMobile();
   const [isLiked, setIsLiked] = useState(false);
+  const [localLikeCount, setLocalLikeCount] = useState(series.likes || 0);
 
   const handlePlayAll = () => {
     if (episodesInSeries.length > 0) {
@@ -62,8 +66,20 @@ export default function SeriesClientPage({ initialSeries: series, initialEpisode
   
   const handleLikeClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    setIsLiked(!isLiked);
-    // Here you would also call your backend to update the like count
+    if (!isLiked) {
+        setIsLiked(true);
+        setLocalLikeCount(prev => prev + 1);
+        incrementLikeCount(series.id, 'series');
+        toast({
+          title: "Liked!",
+          description: `You liked the "${series.title}" series.`,
+        });
+      } else {
+        toast({
+          title: "Already Liked",
+          description: `You've already liked this series.`,
+        });
+      }
   };
 
   const SeriesHero = () => (
@@ -93,7 +109,7 @@ export default function SeriesClientPage({ initialSeries: series, initialEpisode
                         <StatItem icon={Clock} value={totalDuration} label="Total Time" />
                     )}
                      <StatItem icon={Eye} value={formatStat(series.views)} label="Views" />
-                     <StatItem icon={Heart} value={formatStat(isLiked ? (series.likes || 0) + 1 : series.likes)} label="Likes" />
+                     <StatItem icon={Heart} value={formatStat(localLikeCount)} label="Likes" />
                 </div>
 
                 <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-2">
