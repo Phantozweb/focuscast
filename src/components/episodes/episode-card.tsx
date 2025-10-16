@@ -11,7 +11,7 @@ import { usePlayer } from '@/contexts/player-context';
 import { cn } from '@/lib/utils';
 import ShareButton from '@/components/general/share-button';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { incrementLikeCount } from '@/app/actions/analytics-actions';
 import { useToast } from '@/hooks/use-toast';
 import { Skeleton } from '../ui/skeleton';
@@ -38,6 +38,10 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
   const isActive = currentEpisode?.id === episode.id;
   const [isLiked, setIsLiked] = useState(false);
   const [localLikeCount, setLocalLikeCount] = useState(episode.likes || 0);
+
+  useEffect(() => {
+    setLocalLikeCount(episode.likes || 0);
+  }, [episode.likes]);
 
 
   const getShareTitle = () => {
