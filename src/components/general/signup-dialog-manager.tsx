@@ -1,7 +1,11 @@
+
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
 import NotificationSignupDialog from './notification-signup-dialog';
+import { useToast } from '@/hooks/use-toast';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 const SIGNUP_SUCCESS_COOKIE = 'focuscast_signup_success';
 const SIGNUP_DISMISS_COOKIE = 'focuscast_signup_dismissed';
@@ -27,6 +31,7 @@ const setCookie = (name: string, value: string, days: number) => {
 
 export default function SignupDialogManager() {
   const [isOpen, setIsOpen] = useState(false);
+  const { toast } = useToast();
 
   useEffect(() => {
     // We want this to run only on the client
@@ -48,9 +53,19 @@ export default function SignupDialogManager() {
         // If dialog is closed without success, set a temporary dismiss cookie
         if (!getCookie(SIGNUP_SUCCESS_COOKIE)) {
             setCookie(SIGNUP_DISMISS_COOKIE, 'true', DISMISS_EXPIRATION_DAYS);
+            toast({
+                title: "Stay Connected!",
+                description: "Join Focus Links Community To Attend Webinars, give feedback and become a member for free.",
+                action: (
+                    <Button asChild>
+                        <Link href="https://chat.whatsapp.com/Bigr23C10d54i9fEBxKVHk?mode=wwc" target="_blank">Join Now</Link>
+                    </Button>
+                ),
+                duration: 10000, // Show for 10 seconds
+            });
         }
     }
-  }, []);
+  }, [toast]);
 
   const onSignupSuccess = useCallback(() => {
     setCookie(SIGNUP_SUCCESS_COOKIE, 'true', SUCCESS_EXPIRATION_DAYS);
