@@ -30,11 +30,11 @@ export default function HomePage() {
   }, 0);
   const totalDurationFormatted = formatTotalSeconds(totalDurationInSeconds, true);
   
-  const clinicalSkillsSeries = placeholderSeries.find(s => s.id === 'series-clinical-skills');
+  const opticsUnveiledSeries = placeholderSeries.find(s => s.id === 'series-optics-unveiled');
 
   return (
     <div className="flex flex-col">
-      <AnnouncementBar featuredSeries={clinicalSkillsSeries} />
+      <AnnouncementBar featuredSeries={opticsUnveiledSeries} />
       <HeroSection />
       <div className="container mx-auto py-8 space-y-12 px-0 md:px-2">
         <div className="hidden md:block px-2">
@@ -42,7 +42,7 @@ export default function HomePage() {
               totalEpisodes={totalEpisodes}
               totalSeries={totalSeries}
               totalHours={totalDurationFormatted}
-              featuredSeries={clinicalSkillsSeries}
+              featuredSeries={opticsUnveiledSeries}
             />
         </div>
         <FeaturedEpisodes episodes={featured} />
