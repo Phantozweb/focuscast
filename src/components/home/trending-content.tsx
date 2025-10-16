@@ -11,31 +11,7 @@ interface TrendingContentProps {
   episodes: Episode[];
 }
 
-const TrendingContent: React.FC<TrendingContentProps> = ({ episodes: initialEpisodes }) => {
-  const { analytics, isLoading } = useAnalytics();
-  const [episodes, setEpisodes] = useState<Episode[]>([]);
-
-  useEffect(() => {
-    if (!isLoading && Object.keys(analytics).length > 0) {
-      const updatedEpisodes = initialEpisodes.map(ep => {
-        const episodeAnalytics = analytics[ep.id];
-        if (episodeAnalytics) {
-          return { ...ep, ...episodeAnalytics };
-        }
-        return ep;
-      });
-
-      // Sort by a combination of views and likes for trending
-      updatedEpisodes.sort((a, b) => ((b.views || 0) + (b.likes || 0)) - ((a.views || 0) + (a.likes || 0)));
-      
-      setEpisodes(updatedEpisodes.slice(0, 3)); // Keep it to top 3 trending
-    } else if (!isLoading) {
-      // Handle case where analytics might be empty but not loading
-      setEpisodes(initialEpisodes.slice(0, 3));
-    }
-  }, [analytics, isLoading, initialEpisodes]);
-  
-  const LoadingSkeleton = () => (
+const LoadingSkeleton = () => (
     <div className="w-full bg-background border border-border/70 shadow-sm p-4 rounded-lg">
       <div className="flex flex-row items-start gap-4">
         <Skeleton className="w-24 h-24 sm:w-20 sm:h-20 flex-shrink-0 rounded-md" />
@@ -58,6 +34,25 @@ const TrendingContent: React.FC<TrendingContentProps> = ({ episodes: initialEpis
     </div>
   );
 
+const TrendingContent: React.FC<TrendingContentProps> = ({ episodes: initialEpisodes }) => {
+  const { analytics, isLoading: isAnalyticsLoading } = useAnalytics();
+  const [trendingEpisodes, setTrendingEpisodes] = useState<Episode[]>([]);
+  const [isProcessing, setIsProcessing] = useState(true);
+
+  useEffect(() => {
+    if (!isAnalyticsLoading && initialEpisodes.length > 0) {
+      const updatedEpisodes = initialEpisodes.map(ep => {
+        const episodeAnalytics = analytics[ep.id];
+        return episodeAnalytics ? { ...ep, ...episodeAnalytics } : ep;
+      });
+
+      updatedEpisodes.sort((a, b) => ((b.views || 0) + (b.likes || 0)) - ((a.views || 0) + (a.likes || 0)));
+      
+      setTrendingEpisodes(updatedEpisodes.slice(0, 3));
+      setIsProcessing(false);
+    }
+  }, [isAnalyticsLoading, analytics, initialEpisodes]);
+
 
   return (
     <section id="trending-content" className="py-8">
@@ -68,7 +63,7 @@ const TrendingContent: React.FC<TrendingContentProps> = ({ episodes: initialEpis
           </h2>
         </div>
         
-        {isLoading && (
+        {isProcessing ? (
             <>
                  {/* Desktop Skeleton */}
                 <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-0">
@@ -85,23 +80,19 @@ const TrendingContent: React.FC<TrendingContentProps> = ({ episodes: initialEpis
                     </div>
                 </div>
             </>
-        )}
-
-        {!isLoading && episodes.length === 0 && (
+        ) : trendingEpisodes.length === 0 ? (
              <p className="text-center text-muted-foreground py-8">No trending content available at the moment.</p>
-        )}
-
-        {!isLoading && episodes.length > 0 && (
+        ) : (
           <>
             {/* Desktop Grid */}
             <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-0">
-              {episodes.map((episode) => ( 
+              {trendingEpisodes.map((episode) => ( 
                 <EpisodeCard 
                   key={episode.id + "-trending-desktop"} 
                   episode={episode} 
                   layout="vertical"
                   className="w-full bg-background border border-border/70 shadow-sm hover:shadow-md"
-                  isLoading={isLoading}
+                  isLoading={isProcessing}
                 />
               ))}
             </div>
@@ -109,13 +100,13 @@ const TrendingContent: React.FC<TrendingContentProps> = ({ episodes: initialEpis
             {/* Mobile Carousel */}
             <div className="md:hidden">
               <div className="flex overflow-x-auto snap-x snap-mandatory py-4 space-x-4 pl-4 no-scrollbar">
-                  {episodes.map((episode) => ( 
+                  {trendingEpisodes.map((episode) => ( 
                     <div key={episode.id + "-trending-mobile"} className="snap-center shrink-0 w-[85vw]">
                       <EpisodeCard 
                         episode={episode} 
                         layout="vertical"
                         className="w-full h-full bg-background border border-border/70 shadow-sm"
-                        isLoading={isLoading}
+                        isLoading={isProcessing}
                       />
                     </div>
                   ))}

@@ -38,10 +38,12 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
   const isActive = currentEpisode?.id === episode.id;
   const [isLiked, setIsLiked] = useState(false);
   const [localLikeCount, setLocalLikeCount] = useState(episode.likes || 0);
+  const [localViewCount, setLocalViewCount] = useState(episode.views || 0);
 
   useEffect(() => {
     setLocalLikeCount(episode.likes || 0);
-  }, [episode.likes]);
+    setLocalViewCount(episode.views || 0);
+  }, [episode.likes, episode.views]);
 
 
   const getShareTitle = () => {
@@ -63,8 +65,6 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
         description: `You liked "${episode.title}".`,
       });
     } else {
-      // Note: We are not implementing "unlike" logic to send to the backend
-      // to prevent spamming. The UI will remain "liked".
       toast({
         title: "Already Liked",
         description: `You've already liked this episode.`,
@@ -73,7 +73,6 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
   };
 
   if (layout === 'vertical') {
-    // This is the full-width, stacked vertical layout
     return (
       <Card className={cn(
           "overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full w-full", 
@@ -142,7 +141,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
            <div className="flex items-center gap-4 text-xs text-muted-foreground mt-2">
                 <div className="flex items-center gap-1">
                     <Eye size={14} />
-                    {isLoading ? <Skeleton className="h-4 w-8" /> : <span>{formatStat(episode.views)}</span>}
+                    {isLoading ? <Skeleton className="h-4 w-8" /> : <span>{formatStat(localViewCount)}</span>}
                 </div>
                 <div className="flex items-center gap-1">
                     <Heart size={14} className={cn(isLiked ? "text-red-500 fill-current" : "")} />
@@ -183,7 +182,6 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
     );
   }
 
-  // Horizontal layout (used in Hero search suggestions, SeriesClientPage episode list, and potentially other places)
   return (
     <Card className={cn(
         "overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-row items-start",
@@ -229,7 +227,7 @@ const EpisodeCard: React.FC<EpisodeCardProps> = ({ episode, className, layout = 
             <div className="flex items-center gap-3 text-xs text-muted-foreground mt-1.5">
                 <div className="flex items-center gap-1">
                     <Eye size={14} />
-                    {isLoading ? <Skeleton className="h-4 w-8" /> : <span>{formatStat(episode.views)}</span>}
+                    {isLoading ? <Skeleton className="h-4 w-8" /> : <span>{formatStat(localViewCount)}</span>}
                 </div>
                 <div className="flex items-center gap-1">
                     <Heart size={14} className={cn(isLiked ? "text-red-500 fill-current" : "")}/>
