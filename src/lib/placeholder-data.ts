@@ -5,7 +5,7 @@ const clinicalSkillsCornerThumbnail = 'https://raw.githubusercontent.com/Phantoz
 const focusBitesSeriesThumbnail = 'https://raw.githubusercontent.com/Phantozweb/StromVault/175bc58a00e53a095eb5065a0cfb6e8599ca93dd/Albums/file_000000002c2861f89474f0ba58bb39a3.png';
 const decodingOcularDiseaseSeriesThumbnailUpdated = 'https://raw.githubusercontent.com/Phantozweb/StromVault/71e7cef27cc65f264b7ba93d778a275abb57426c/Albums/file_00000000078861f89c2cd48d6e220a36%20(1).png';
 const growOptomSeriesThumbnail = 'https://raw.githubusercontent.com/Phantozweb/StromVault/71e7cef27cc65f264b7ba93d778a275abb57426c/Albums/file_00000000ab3461f78fcfc560f1dd566e.png';
-const opticsUnveiledThumbnail = 'https://i.ibb.co/L8T3cs8/b-Add-icons-to-optics.png';
+const opticsUnveiledThumbnail = 'https://iili.io/Kkerw8P.png';
 
 export const placeholderSeries: Series[] = [
   {
@@ -2389,4 +2389,5 @@ Direct and indirect ophthalmoscopy are complementary tools. Understanding their 
 
 
     
+
 
