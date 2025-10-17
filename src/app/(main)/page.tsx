@@ -11,6 +11,9 @@ import { parseDurationToSeconds, formatTotalSeconds } from '@/lib/utils';
 import AnnouncementBar from '@/components/home/announcement-bar';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Link from 'next/link';
+import EpisodeList from '@/components/episodes/episode-list';
+import SeriesCard from '@/components/series/series-card';
+import { isEpisodeLocked } from '@/lib/release-dates';
 
 export const metadata: Metadata = {
   title: 'FocusCast: Optometry Insights, Clearly Delivered',
@@ -23,7 +26,8 @@ export default function HomePage() {
     placeholderEpisodes.find(ep => ep.id === 'csc-ep16'),
   ].filter(ep => ep) as Episode[];
   
-  const seriesData = placeholderSeries;
+  const allSeries = placeholderSeries;
+  const allEpisodes = placeholderEpisodes;
 
   const totalEpisodes = placeholderEpisodes.length;
   const totalSeries = placeholderSeries.length;
@@ -47,17 +51,46 @@ export default function HomePage() {
               featuredSeries={opticsUnveiledSeries}
             />
         </div>
-        <div className="hidden md:block px-2 -mt-8">
+        
+        {/* Desktop Tabs */}
+        <div className="hidden md:block px-2">
             <Tabs defaultValue="episodes" className="w-full">
-                <TabsList>
-                    <TabsTrigger value="episodes" asChild><Link href="#featured-episodes">Featured Episodes</Link></TabsTrigger>
-                    <TabsTrigger value="series" asChild><Link href="#series">Explore Series</Link></TabsTrigger>
+                <TabsList className="grid w-full grid-cols-2">
+                    <TabsTrigger value="episodes">All Episodes</TabsTrigger>
+                    <TabsTrigger value="series">Explore Series</TabsTrigger>
                 </TabsList>
+                <TabsContent value="episodes" className="mt-6">
+                   <EpisodeList episodes={allEpisodes} />
+                </TabsContent>
+                 <TabsContent value="series" className="mt-6">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        {allSeries.map((s) => {
+                            const episodesInSeries = allEpisodes.filter(ep => ep.seriesId === s.id);
+                            const episodeCount = episodesInSeries.length;
+                            const isLocked = episodesInSeries.some(isEpisodeLocked);
+                            const totalDuration = formatTotalSeconds(episodesInSeries.reduce((total, ep) => total + parseDurationToSeconds(ep.duration), 0));
+
+                            return (
+                                <SeriesCard
+                                    key={s.id + '-desktop-tab'}
+                                    series={s}
+                                    episodeCount={episodeCount}
+                                    totalDuration={totalDuration}
+                                    isLocked={isLocked}
+                                />
+                            );
+                        })}
+                    </div>
+                </TabsContent>
             </Tabs>
         </div>
-        <FeaturedEpisodes episodes={featured} />
-        <SeriesSection series={seriesData} allEpisodes={placeholderEpisodes} />
-        <TrendingContent episodes={placeholderEpisodes} />
+
+        {/* Mobile Sections */}
+        <div className="md:hidden space-y-12">
+            <FeaturedEpisodes episodes={featured} />
+            <SeriesSection series={allSeries} allEpisodes={allEpisodes} />
+            <TrendingContent episodes={allEpisodes} />
+        </div>
       </div>
     </div>
   );
