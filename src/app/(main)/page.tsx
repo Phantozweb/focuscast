@@ -9,6 +9,8 @@ import type { Episode } from '@/types';
 import StatsBanner from '@/components/home/stats-banner';
 import { parseDurationToSeconds, formatTotalSeconds } from '@/lib/utils';
 import AnnouncementBar from '@/components/home/announcement-bar';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'FocusCast: Optometry Insights, Clearly Delivered',
@@ -37,13 +39,21 @@ export default function HomePage() {
       <AnnouncementBar featuredSeries={opticsUnveiledSeries} />
       <HeroSection />
       <div className="container mx-auto py-8 space-y-12 px-0 md:px-2">
-        <div className="hidden md:block px-2">
+        <div className="px-2">
             <StatsBanner 
               totalEpisodes={totalEpisodes}
               totalSeries={totalSeries}
               totalHours={totalDurationFormatted}
               featuredSeries={opticsUnveiledSeries}
             />
+        </div>
+        <div className="hidden md:block px-2 -mt-8">
+            <Tabs defaultValue="episodes" className="w-full">
+                <TabsList>
+                    <TabsTrigger value="episodes" asChild><Link href="#featured-episodes">Featured Episodes</Link></TabsTrigger>
+                    <TabsTrigger value="series" asChild><Link href="#series">Explore Series</Link></TabsTrigger>
+                </TabsList>
+            </Tabs>
         </div>
         <FeaturedEpisodes episodes={featured} />
         <SeriesSection series={seriesData} allEpisodes={placeholderEpisodes} />
