@@ -1,7 +1,8 @@
 
 import type { Metadata, ResolvingMetadata } from 'next';
 import { notFound } from 'next/navigation';
-import { placeholderSeries, placeholderEpisodes } from '@/lib/placeholder-data';
+import { placeholderSeries as placeholderSeries1, placeholderEpisodes as placeholderEpisodes1 } from '@/lib/placeholder-data';
+import { placeholderSeries2, placeholderEpisodes2 } from '@/lib/placeholder-2data';
 import SeriesClientPage from './series-client-page';
 import type { Series, Episode } from '@/types';
 import Script from 'next/script';
@@ -10,6 +11,9 @@ import { parseDurationToSeconds, formatTotalSeconds } from '@/lib/utils';
 type SeriesPageServerProps = {
   params: { seriesId: string };
 };
+
+const placeholderSeries = [...placeholderSeries1, ...placeholderSeries2];
+const placeholderEpisodes = [...placeholderEpisodes1, ...placeholderEpisodes2];
 
 export async function generateMetadata(
   { params }: SeriesPageServerProps,

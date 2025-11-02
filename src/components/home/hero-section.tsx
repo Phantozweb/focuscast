@@ -7,7 +7,8 @@ import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 import EpisodeCard from '@/components/episodes/episode-card';
 import SeriesCard from '@/components/series/series-card';
-import { placeholderEpisodes, placeholderSeries } from '@/lib/placeholder-data';
+import { placeholderEpisodes as placeholderEpisodes1, placeholderSeries as placeholderSeries1 } from '@/lib/placeholder-data';
+import { placeholderEpisodes2, placeholderSeries2 } from '@/lib/placeholder-2data';
 import type { Episode, Series } from '@/types';
 import FocusCastLogo from '@/components/icons/focus-cast-logo';
 import { parseDurationToSeconds, formatTotalSeconds } from '@/lib/utils';
@@ -16,6 +17,9 @@ import { useAnalytics } from '@/hooks/use-analytics';
 type Suggestion = 
   | (Episode & { resultType: 'episode'; score: number }) 
   | (Series & { resultType: 'series'; episodeCount: number; totalDuration: string; score: number });
+
+const placeholderEpisodes = [...placeholderEpisodes1, ...placeholderEpisodes2];
+const placeholderSeries = [...placeholderSeries1, ...placeholderSeries2];
 
 const searchExamples = [
   "Diabetic Retinopathy",

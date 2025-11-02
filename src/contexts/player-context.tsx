@@ -4,9 +4,12 @@
 import type { Episode } from '@/types';
 import React, { createContext, useState, useContext, useRef, useEffect, useCallback } from 'react';
 import { useToast } from "@/hooks/use-toast";
-import { placeholderEpisodes } from '@/lib/placeholder-data';
+import { placeholderEpisodes as placeholderEpisodes1 } from '@/lib/placeholder-data';
+import { placeholderEpisodes2 } from '@/lib/placeholder-2data';
 import { incrementViewCount } from '@/app/actions/analytics-actions';
 import { isEpisodeLocked } from '@/lib/release-dates';
+
+const placeholderEpisodes = [...placeholderEpisodes1, ...placeholderEpisodes2];
 
 interface PlayerState {
   currentEpisode: Episode | null;
@@ -367,5 +370,3 @@ export const usePlayer = (): PlayerContextType => {
   }
   return context;
 };
-
-    

@@ -4,7 +4,8 @@ import FeaturedEpisodes from '@/components/home/featured-episodes';
 import TrendingContent from '@/components/home/trending-content';
 import HeroSection from '@/components/home/hero-section';
 import SeriesSection from '@/components/home/series-section';
-import { placeholderEpisodes, placeholderSeries } from '@/lib/placeholder-data';
+import { placeholderEpisodes as placeholderEpisodes1, placeholderSeries as placeholderSeries1 } from '@/lib/placeholder-data';
+import { placeholderEpisodes2, placeholderSeries2 } from '@/lib/placeholder-2data';
 import type { Episode } from '@/types';
 import StatsBanner from '@/components/home/stats-banner';
 import { parseDurationToSeconds, formatTotalSeconds } from '@/lib/utils';
@@ -21,22 +22,22 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
+  const allEpisodes = [...placeholderEpisodes1, ...placeholderEpisodes2];
+  const allSeries = [...placeholderSeries1, ...placeholderSeries2];
+
   const featured: Episode[] = [
-    placeholderEpisodes.find(ep => ep.id === 'ou-ep1'),
-    placeholderEpisodes.find(ep => ep.id === 'csc-ep16'),
+    allEpisodes.find(ep => ep.id === 'ou-ep1'),
+    allEpisodes.find(ep => ep.id === 'csc-ep16'),
   ].filter(ep => ep) as Episode[];
   
-  const allSeries = placeholderSeries;
-  const allEpisodes = placeholderEpisodes;
-
-  const totalEpisodes = placeholderEpisodes.length;
-  const totalSeries = placeholderSeries.length;
-  const totalDurationInSeconds = placeholderEpisodes.reduce((total, episode) => {
+  const totalEpisodes = allEpisodes.length;
+  const totalSeries = allSeries.length;
+  const totalDurationInSeconds = allEpisodes.reduce((total, episode) => {
     return total + parseDurationToSeconds(episode.duration);
   }, 0);
   const totalDurationFormatted = formatTotalSeconds(totalDurationInSeconds, true);
   
-  const opticsUnveiledSeries = placeholderSeries.find(s => s.id === 'series-optics-unveiled');
+  const opticsUnveiledSeries = allSeries.find(s => s.id === 'series-optics-unveiled');
 
   return (
     <div className="flex flex-col">
