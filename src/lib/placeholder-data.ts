@@ -2386,7 +2386,7 @@ Jennifer, signing off.`,
     id: 'fb-ep12',
     title: 'Afterimages: The Ghostly Traces in Your Vision',
     showName: 'Focus Bites',
-    description: "Explore afterimages, how your brain 'sees' colors and shapes after looking away.",
+    description: 'Explore afterimages, how your brain "sees" colors and shapes after looking away.',
     duration: '03:24',
     thumbnailUrl: focusBitesSeriesThumbnail,
     audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/12%20TO%2030%20BITES/12-Afterimages.MP3',
@@ -3078,7 +3078,7 @@ See you tomorrow on Focus Bites. Jennifer, signing off.`,
     description: "Compare Helmholtz's Trichromatic and Hering's Opponent Process Theories for color vision.",
     duration: '03:50',
     thumbnailUrl: focusBitesSeriesThumbnail,
-    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/12%20TO%2030%20BITES/29-Helmholtz%20vs.%20Hering.mp3',
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/12%20TO%2030%20BITES/29-Helmholtz%20vs.%20Hering.MP3',
     releaseDate: '2025-06-03',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
@@ -3116,7 +3116,7 @@ Patient Education & Follow-up:
 Explaining Color Perception: This is a great topic to explain the complexity of how we perceive color, moving beyond simple "light hitting the eye."
 Personal Experiences: Many patients can relate to afterimages, making Hering's theory intuitive, while the idea of three cone types explains genetic deficiencies.
 Wrap-up & Takeaway: The co-existence of Helmholtz's Trichromatic Theory and Hering's Opponent Process Theory offers a comprehensive understanding of human color vision. From the initial spectral sensitivity of retinal cones to the opponent coding in higher visual pathways, these theories illuminate the intricate, multi-stage processing that allows us to perceive a rich and vibrant world of color.
-So, seeing color is a two-step process, a two-step process, working together in perfect harmony.
+So, seeing color is a two-step process, working together in perfect harmony.
 See you tomorrow on Focus Bites. Jennifer, signing off.`,
     views: 0,
     likes: 0,
@@ -3789,6 +3789,126 @@ Wrap-up & Takeaway:
 ROP is a potentially blinding disease unique to premature infants. Understanding its risk factors, adhering to strict screening guidelines, and ensuring long-term follow-up are critical for preserving vision in these vulnerable patients.
 "For the smallest patients, ROP screening is a giant step in safeguarding their visual future."
 A drooping lid might seem cosmetic — but it can shape visual development in surprising ways. Stay tuned to uncover that in the next episode.`,
+      views: 0,
+      likes: 0,
+    },
+     {
+      id: 'pecp-ep12',
+      title: 'Paediatric Ptosis: Causes and Management',
+      showName: 'Paediatric Eye Care Playbook',
+      description: 'Understand the causes, assessment, and management of drooping eyelids in children.',
+      duration: '05:58',
+      thumbnailUrl: pediatricEyeCareThumbnail,
+      audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/S4%20PEDIATRIC%20EYE%20CARE%20PLAYBOOK/S4-E12%20(Paediatric%20Ptosis).MP3',
+      releaseDate: '2025-11-01',
+      seriesId: 'series-pediatric-eye-care',
+      seriesTitle: 'Paediatric Eye Care Playbook',
+      episodeNumber: 12,
+      keywords: ['pediatric ptosis', 'congenital ptosis', 'amblyopia', 'Horner\'s Syndrome', 'levator function'],
+      transcript: `Welcome back to Paediatric Eye Care Playbook! I’m Rohini. A drooping eyelid in a child—ptosis—can be more than a cosmetic issue. It can block vision and even cause amblyopia. Let’s explore its causes, how to assess severity, and strategies to protect a child’s visual development.
+Concept & Explanation:
+What is Ptosis? It is defined as an abnormally low-lying upper eyelid.
+Why It's Critical in Children: If the droopy eyelid covers or significantly obstructs the pupil, it can cause deprivational amblyopia by blocking light from reaching the retina. Even if the pupil isn't fully covered, severe ptosis can induce astigmatism or anisometropia, also leading to amblyopia.
+Unilateral vs. Bilateral: Can affect one eye or both.
+Clinical Pearls & Causes of Paediatric Ptosis:
+1. Congenital Ptosis (Most Common):
+Cause: Often due to a developmental dystrophy (abnormality) of the levator palpebrae superioris muscle (the main muscle that lifts the eyelid). The muscle is poorly formed and doesn't contract well.
+Characteristics: Usually unilateral, present at birth, often with reduced lid crease. The eyelid position doesn't change much with upgaze (poor levator function).
+Associated Conditions: Can be associated with superior rectus weakness, Marfan syndrome, or blepharophimosis syndrome.
+2. Acquired Ptosis (Less Common in Children, More Concerning):
+Cause: Can be due to neurological conditions.
+Examples:
+Horner's Syndrome: A triad of mild ptosis, miosis (small pupil), and anhidrosis (reduced sweating on the affected side). Caused by damage to the sympathetic nerve pathway. Can be congenital or acquired.
+Third Cranial Nerve (Oculomotor Nerve) Palsy: Ptosis is usually severe, often with a "down and out" eye turn, and a large, poorly reactive pupil. This requires urgent neurological investigation to rule out tumors or aneurysms (though rare in children).
+Myasthenia Gravis: An autoimmune neuromuscular junction disorder that can cause fluctuating ptosis and eye muscle weakness that worsens with fatigue.
+Trauma: Direct injury to the eyelid or levator muscle.
+Diagnosis & Assessment:
+1. Patient History: When was it first noticed? Does it fluctuate? Any associated symptoms (eye turns, double vision, pupil changes, weakness elsewhere)? Family history?
+2. Visual Acuity: Crucial to check for amblyopia (best corrected VA in each eye).
+3. Pupillary Exam: Check for anisocoria (unequal pupils), especially looking for miosis in Horner's or mydriasis in CN III palsy.
+4. Ocular Motility: Assess eye movements for any weakness or restriction, particularly the superior rectus or other extraocular muscles.
+5. Ptosis Measurement:
+Palpebral Fissure Height (PFH): Distance from upper to lower lid margin.
+Marginal Reflex Distance 1 (MRD1): Distance from the center of the pupillary light reflex to the upper eyelid margin. This is the most important measurement for assessing severity.
+Levator Function: Measure the excursion of the upper eyelid from extreme downgaze to extreme upgaze while holding the eyebrow. This assesses the strength of the levator muscle.
+Presence of Lid Crease: Location and symmetry.
+6. Refraction: Cycloplegic refraction to detect amblyogenic refractive errors (e.g., astigmatism).
+7. Head Posture: Note if the child uses a chin-up head posture to see under the droopy lid.
+8. Ancillary Testing: For suspected neurological causes, referral for neuro-imaging (MRI) and further neurological workup is required.
+Management Strategies:
+1. Amblyopia Management: If ptosis is causing amblyopia, treatment (patching, glasses) is initiated immediately, even before surgery.
+2. Refractive Correction: Correct any amblyogenic refractive errors.
+3. Observation: For mild, non-amblyogenic ptosis that doesn't significantly obstruct vision.
+4. Surgical Intervention (Ptosis Surgery):
+Purpose: To lift the eyelid to a cosmetically and functionally acceptable position, restoring visual field and preventing amblyopia.
+Timing: If ptosis is causing amblyopia, surgery is usually done earlier (e.g., age 3-4). For purely cosmetic reasons, it may be deferred until school age.
+Types: Depends on levator function (e.g., levator resection for good function, frontalis sling for poor function).
+Risks: Undercorrection/overcorrection, dry eye, lagophthalmos (incomplete lid closure).
+Wrap-up & Takeaway:
+Paediatric ptosis requires careful assessment, differentiating between benign congenital forms and more serious neurological causes. Preventing amblyopia is the primary goal, often achieved through timely surgical intervention and amblyopia therapy.
+"A drooping lid is more than just a look; it's a potential threat to a child's developing vision. Stay tuned for the next episode. "
+Ever met a child who struggles with reading but has ‘perfect’ vision? The next episode might make you rethink what 6/6 really means. So stay tuned`,
+      views: 0,
+      likes: 0,
+    },
+    {
+      id: 'pecp-ep13',
+      title: 'Learning-Related Vision Problems: What\'s the Link?',
+      showName: 'Paediatric Eye Care Playbook',
+      description: 'How vision issues can mimic learning difficulties or ADHD.',
+      duration: '05:01',
+      thumbnailUrl: pediatricEyeCareThumbnail,
+      audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/S4%20PEDIATRIC%20EYE%20CARE%20PLAYBOOK/S4-E13%20(Learning-Related%20Vision%20Problems).MP3',
+      releaseDate: '2025-11-01',
+      seriesId: 'series-pediatric-eye-care',
+      seriesTitle: 'Paediatric Eye Care Playbook',
+      episodeNumber: 13,
+      keywords: ['learning-related vision', 'convergence insufficiency', 'ADHD', 'vision therapy', 'accommodative dysfunction'],
+      transcript: `Welcome back to Paediatric Eye Care Playbook! I’m Rohini. Many children struggle in school, often mislabeled with learning disabilities or ADHD. However, a significant portion of these difficulties can stem from Learning-Related Vision Problems – issues with how their eyes function and process visual information, even if they have 20/20 acuity. Let’s explore this critical link between vision and learning.
+Concept & Explanation:
+Beyond 20/20: Emphasize that "20/20 vision" means clarity at a distance, but doesn't tell us if the eyes work together efficiently, focus comfortably, or track accurately for reading.
+The Demands of Learning: Reading, writing, and computer use place high demands on binocular vision, accommodation, and eye movement skills. If these systems are inefficient, learning becomes a struggle.
+Symptoms Often Mimic Learning Disabilities/ADHD: Misconceptions are common, leading to missed diagnoses.
+Clinical Pearls & Common Problems:
+1. Accommodative Dysfunctions:
+Accommodative Insufficiency: Difficulty sustaining focus at near. Symptoms: blurry vision after short reading, eye strain, headaches, difficulty copying from board to desk.
+Accommodative Infacility: Difficulty quickly changing focus from far to near (e.g., looking from book to board). Symptoms: blur when shifting gaze, losing place.
+2. Vergence Dysfunctions:
+Convergence Insufficiency (CI): Eyes struggle to turn inward for near work. Symptoms: eye strain, headaches, double vision at near, losing place, reading avoidance.
+Convergence Excess: Eyes converge too much at near. Symptoms: blur at distance after near work, headaches, eye strain.
+3. Oculomotor Dysfunctions:
+Saccadic Dysfunction: Inaccurate and jerky eye movements when reading. Symptoms: skipping lines, losing place, re-reading, poor comprehension, reading slowly.
+Pursuit Dysfunction: Difficulty smoothly following a moving target.
+4. Visual Perceptual Disorders (Brief Mention): Problems with processing visual information (e.g., visual memory, discrimination), which can affect recognizing letters, words, or objects.
+Signs and Symptoms in the Classroom/Home:
+Reading Difficulties: Avoiding reading, reading slowly, losing place, re-reading, poor comprehension, eye rubbing.
+Attention/Concentration Problems: Short attention span for near tasks, easily distracted.
+Headaches/Eye Strain: Especially after near work.
+Double Vision/Blurred Vision: Especially at near.
+Clumsiness/Poor Hand-Eye Coordination: Can be related to visual-motor integration issues.
+Excessive Blinking or Squinting.
+Behavioral Issues: Frustration, acting out due to visual difficulties.
+Diagnosis & Assessment:
+Comprehensive Binocular Vision Assessment: A detailed evaluation focusing on accommodation, vergence, and oculomotor skills. Includes tests like:
+Near Point of Convergence (NPC).
+Amplitude of Accommodation (AA).
+Accommodative facility (flipper lenses).
+Vergence ranges (prism bar).
+MEM Retinoscopy.
+Developmental Eye Movement (DEM) test.
+Visual-motor integration and visual perceptual testing.
+Rule Out Other Causes: Ensure the child is not amblyopic or strabismic, and has an accurate refractive correction.
+Collaboration: Work with teachers, parents, and other specialists (e.g., educational psychologists, occupational therapists).
+Management Strategies:
+1. Optical Correction: Accurate spectacle prescription. Often, a small amount of near add (bifocal) or prism can alleviate symptoms temporarily for accommodative/vergence issues.
+2. Vision Therapy: The primary treatment.
+Purpose: Targeted eye exercises performed in-office and at home to develop and improve the efficiency and coordination of visual skills.
+Goals: Eliminate symptoms, improve reading fluency, enhance visual comfort, and support overall learning.
+3. Environmental Modifications: Proper lighting, reading posture, frequent breaks during near work, and use of reading guides.
+Wrap-up & Takeaway:
+Learning-related vision problems are distinct from learning disabilities but can profoundly impact a child's academic success and self-esteem. As optometrists, we are uniquely positioned to diagnose and treat these conditions, making a life-changing difference.
+"Beyond seeing 20/20, true visual clarity for learning comes from eyes that work efficiently as a team. Stay tuned for the next episode
+Is it possible to strengthen a child’s vision without glasses—just through exercises? Don’t miss the next episode!`,
       views: 0,
       likes: 0,
     },
