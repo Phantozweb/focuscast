@@ -4,14 +4,14 @@ import type { Episode, Series } from '@/types';
 // This file is for upcoming series data.
 // Add new series and episode data here to keep it separate from the main data file.
 
-const pediatricEyeCareThumbnail = 'https://i.ibb.co/Fz3T6b5/file-00000000a6e061f8a846c2d1b777a118.png';
-const lowVisionLivingThumbnail = 'https://i.ibb.co/68qB0r3/file-0000000021c461f893d5f134a6239120.png';
+const pediatricEyeCareThumbnail = 'https://i.ibb.co/CKSyYfkp/b-Pediatrics-not-paedi.jpg';
+const lowVisionLivingThumbnail = 'https://i.ibb.co/CK3RmC8q/a-And-fix-spelling-of.png';
 const ocularPharmacologyThumbnail = 'https://i.ibb.co/yQGmn0p/file-0000000023a161f8b1c40212720d3f2b.png';
 
 export const placeholderSeries2: Series[] = [
     {
         id: 'series-pediatric-eye-care',
-        title: 'Paediatric Eye Care Playbook',
+        title: 'Pediatric Eye Care Playbook',
         description: 'A comprehensive series for optometry students and practitioners focused on paediatric vision care. This series explores the full spectrum of childhood eye health — from infant eye exams, amblyopia and strabismus management, to paediatric glaucoma, ocular trauma, and visual impairment. Learn evidence-based strategies for assessment, diagnosis, communication, and intervention, empowering you to protect and enhance the developing vision of your youngest patients.',
         shortDescription: 'A comprehensive guide to paediatric vision care, from exams to managing complex conditions.',
         thumbnailUrl: pediatricEyeCareThumbnail,
@@ -48,17 +48,17 @@ export const placeholderEpisodes2: Episode[] = [
     {
       id: 'pecp-ep1',
       title: 'The Infant Eye Exam: What to Expect and How to Perform',
-      showName: 'Paediatric Eye Care Playbook',
+      showName: 'Pediatric Eye Care Playbook',
       description: 'Learn how to assess vision in newborns and infants effectively.',
       duration: '04:38',
       thumbnailUrl: pediatricEyeCareThumbnail,
       audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/S4%20PEDIATRIC%20EYE%20CARE%20PLAYBOOK/S4-E1%20(The%20Infant%20Eye%20Exam).MP3',
       releaseDate: '2025-11-01',
       seriesId: 'series-pediatric-eye-care',
-      seriesTitle: 'Paediatric Eye Care Playbook',
+      seriesTitle: 'Pediatric Eye Care Playbook',
       episodeNumber: 1,
       keywords: ['infant eye exam', 'pediatric optometry', 'red reflex', 'Brückner test', 'leukocoria', 'cycloplegic refraction'],
-      transcript: `Welcome to Paediatric Eye Care Playbook! I’m Rohini. Examining an infant can seem daunting, but it's a critical part of early vision detection. In this episode, we’ll demystify the infant eye exam, guiding you through what to expect and how to perform a comprehensive assessment on our tiniest patients.
+      transcript: `Welcome to Pediatric Eye Care Playbook! I’m Rohini. Examining an infant can seem daunting, but it's a critical part of early vision detection. In this episode, we’ll demystify the infant eye exam, guiding you through what to expect and how to perform a comprehensive assessment on our tiniest patients.
 Concept & Explanation:
 Why Early Examination is Crucial: Emphasize the critical period of visual development (first few months/years of life). Undetected and untreated conditions (e.g., congenital cataract, strabismus, high refractive error) can lead to permanent vision loss (amblyopia).
 Challenges of Infant Exams: Limited cooperation, inability to communicate verbally. Requires observation and objective testing.
@@ -107,17 +107,17 @@ We’ve explored how to examine the tiniest eyes — but what happens when one e
     {
       id: 'pecp-ep2',
       title: 'Amblyopia: Diagnosing and Treating the "Lazy Eye"',
-      showName: 'Paediatric Eye Care Playbook',
+      showName: 'Pediatric Eye Care Playbook',
       description: 'Understanding diagnosis and strategies to treat the “lazy eye.”',
       duration: '06:29',
       thumbnailUrl: pediatricEyeCareThumbnail,
       audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/S4%20PEDIATRIC%20EYE%20CARE%20PLAYBOOK/S4-E2%20(Amblyopia).MP3',
       releaseDate: '2025-11-01',
       seriesId: 'series-pediatric-eye-care',
-      seriesTitle: 'Paediatric Eye Care Playbook',
+      seriesTitle: 'Pediatric Eye Care Playbook',
       episodeNumber: 2,
       keywords: ['amblyopia', 'lazy eye', 'strabismus', 'anisometropia', 'patching', 'atropine'],
-      transcript: `Welcome back to Paediatric Eye Care Playbook! I’m Rohini. Amblyopia, often called "lazy eye," is arguably the most critical and preventable cause of vision loss in children. In this episode, we’ll unpack amblyopia: what it is, how to diagnose it confidently, and how timely treatment can literally save a child’s sight.
+      transcript: `Welcome back to Pediatric Eye Care Playbook! I’m Rohini. Amblyopia, often called "lazy eye," is arguably the most critical and preventable cause of vision loss in children. In this episode, we’ll unpack amblyopia: what it is, how to diagnose it confidently, and how timely treatment can literally save a child’s sight.
 Concept & Explanation:
 What is Amblyopia? Define as reduced visual acuity in one or both eyes that cannot be corrected by refractive means (glasses or contact lenses) and is caused by inadequate visual stimulation during the critical period of visual development. It's a developmental problem in the brain's visual pathways, not an inherent eye disease.
 Critical Period: Emphasize that the brain's visual pathways are most plastic and responsive to stimulation from birth to around 7-9 years of age. Treatment is most effective during this time.
@@ -164,17 +164,17 @@ Sometimes, both eyes look fine, but don’t work together as a team. Curious why
     {
       id: 'pecp-ep3',
       title: 'Strabismus Uncovered: Types, Diagnosis, and Management',
-      showName: 'Paediatric Eye Care Playbook',
+      showName: 'Pediatric Eye Care Playbook',
       description: 'Identify types of eye misalignment and approaches for management.',
       duration: '05:27',
       thumbnailUrl: pediatricEyeCareThumbnail,
       audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/S4%20PEDIATRIC%20EYE%20CARE%20PLAYBOOK/S4-E3%20(Strabismus%20Uncovered).MP3',
       releaseDate: '2025-11-01',
       seriesId: 'series-pediatric-eye-care',
-      seriesTitle: 'Paediatric Eye Care Playbook',
+      seriesTitle: 'Pediatric Eye Care Playbook',
       episodeNumber: 3,
       keywords: ['strabismus', 'esotropia', 'exotropia', 'cover test', 'vision therapy', 'strabismus surgery'],
-      transcript: `Welcome back to Paediatric Eye Care Playbook! I’m Rohini. When a child's eyes aren't working together, it's called strabismus, or an eye turn. Beyond the cosmetic appearance, strabismus has profound implications for visual development. Let’s explore the various types, master diagnostic techniques, and examine management strategies to help children achieve aligned, binocular vision.
+      transcript: `Welcome back to Pediatric Eye Care Playbook! I’m Rohini. When a child's eyes aren't working together, it's called strabismus, or an eye turn. Beyond the cosmetic appearance, strabismus has profound implications for visual development. Let’s explore the various types, master diagnostic techniques, and examine management strategies to help children achieve aligned, binocular vision.
 Concept & Explanation:
 What is Strabismus? It’s the condition where the two eyes do not align simultaneously when looking at an object. One eye turns inward, outward, upward, or downward.
 Why is it Critical in Children? If constant, it can lead to amblyopia (the brain suppresses the turned eye) and loss of stereopsis (3D vision). Early intervention is key.
@@ -228,17 +228,17 @@ Vision goes far beyond just clear sight — what happens when visual development
     {
       id: 'pecp-ep4',
       title: 'Developmental Vision Disorders: Beyond Refractive Error',
-      showName: 'Paediatric Eye Care Playbook',
+      showName: 'Pediatric Eye Care Playbook',
       description: 'Explore vision issues beyond simple refractive errors in children.',
       duration: '05:09',
       thumbnailUrl: pediatricEyeCareThumbnail,
       audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/S4%20PEDIATRIC%20EYE%20CARE%20PLAYBOOK/S4-E4%20(Developmental%20Vision%20Disorders).MP3',
       releaseDate: '2025-11-01',
       seriesId: 'series-pediatric-eye-care',
-      seriesTitle: 'Paediatric Eye Care Playbook',
+      seriesTitle: 'Pediatric Eye Care Playbook',
       episodeNumber: 4,
       keywords: ['developmental vision disorders', 'convergence insufficiency', 'accommodative dysfunction', 'vision therapy', 'learning difficulties'],
-      transcript: `Welcome back to Paediatric Eye Care Playbook! I’m Rohini. In Paediatric optometry, our job goes beyond just prescribing glasses. Many children struggle with learning or discomfort due to Developmental Vision Disorders – problems with how their eyes work together or focus, even if they have 20/20 vision. Let’s explore these common, yet often overlooked, conditions.
+      transcript: `Welcome back to Pediatric Eye Care Playbook! I’m Rohini. In Paediatric optometry, our job goes beyond just prescribing glasses. Many children struggle with learning or discomfort due to Developmental Vision Disorders – problems with how their eyes work together or focus, even if they have 20/20 vision. Let’s explore these common, yet often overlooked, conditions.
 Concept & Explanation:
 What are Developmental Vision Disorders? It’s the problems with eye teaming (binocularity), focusing (accommodation), or eye movements (oculomotor skills) that are not simply refractive errors, but impact visual performance and comfort. These are not eye diseases but rather inefficiencies in the visual system.
 Why They Matter: It can lead to symptoms that interfere with reading, learning, and sports, often mistakenly attributed to ADHD or learning disabilities.
@@ -290,18 +290,18 @@ Stay tuned to see how even young patients can benefit from a specialised correct
     },
     {
       id: 'pecp-ep5',
-      title: 'The Paediatric Contact Lens: A Growing Field',
-      showName: 'Paediatric Eye Care Playbook',
+      title: 'The Pediatric Contact Lens: A Growing Field',
+      showName: 'Pediatric Eye Care Playbook',
       description: 'Insights into fitting and managing lenses for young patients.',
       duration: '04:01',
       thumbnailUrl: pediatricEyeCareThumbnail,
       audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/S4%20PEDIATRIC%20EYE%20CARE%20PLAYBOOK/S4-E5%20(The%20Paediatric%20Contact%20Lens).MP3',
       releaseDate: '2025-11-01',
       seriesId: 'series-pediatric-eye-care',
-      seriesTitle: 'Paediatric Eye Care Playbook',
+      seriesTitle: 'Pediatric Eye Care Playbook',
       episodeNumber: 5,
       keywords: ['pediatric contact lens', 'myopia management', 'orthokeratology', 'anisometropia', 'aphakia'],
-      transcript: `Welcome back to Paediatric Eye Care Playbook! I’m Rohini. For many years, contact lenses were largely considered an adult domain. But for certain Paediatric conditions, or even for lifestyle choices, contact lenses can offer profound benefits for children. Let’s discuss when and how to safely and effectively prescribe contact lenses for our youngest patients.
+      transcript: `Welcome back to Pediatric Eye Care Playbook! I’m Rohini. For many years, contact lenses were largely considered an adult domain. But for certain Paediatric conditions, or even for lifestyle choices, contact lenses can offer profound benefits for children. Let’s discuss when and how to safely and effectively prescribe contact lenses for our youngest patients.
 Concept & Explanation:
 Why Contact Lenses for Children?
 Therapeutic/Medical Indications (Often at a very young age):
@@ -347,17 +347,17 @@ Ever wondered why we sometimes need to ‘freeze’ accommodation before checkin
     {
       id: 'pecp-ep6',
       title: 'Cycloplegic Refraction: The Gold Standard for Kids',
-      showName: 'Paediatric Eye Care Playbook',
+      showName: 'Pediatric Eye Care Playbook',
       description: 'Gold standard technique for accurate Paediatric prescriptions.',
       duration: '04:05',
       thumbnailUrl: pediatricEyeCareThumbnail,
       audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/S4%20PEDIATRIC%20EYE%20CARE%20PLAYBOOK/S4-E6%20(Cycloplegic%20Refraction).MP3',
       releaseDate: '2025-11-01',
       seriesId: 'series-pediatric-eye-care',
-      seriesTitle: 'Paediatric Eye Care Playbook',
+      seriesTitle: 'Pediatric Eye Care Playbook',
       episodeNumber: 6,
       keywords: ['cycloplegic refraction', 'pediatric refraction', 'hyperopia', 'cyclopentolate', 'atropine'],
-      transcript: `Welcome back to Paediatric Eye Care Playbook! I’m Rohini. Getting an accurate prescription for a child is fundamental, but their strong focusing ability, or accommodation, can often mask hyperopia. That's why cycloplegic refraction is considered the gold standard in Paediatric eye care. Let’s explore why this test is so vital and how to perform it effectively.
+      transcript: `Welcome back to Pediatric Eye Care Playbook! I’m Rohini. Getting an accurate prescription for a child is fundamental, but their strong focusing ability, or accommodation, can often mask hyperopia. That's why cycloplegic refraction is considered the gold standard in Paediatric eye care. Let’s explore why this test is so vital and how to perform it effectively.
 Concept & Explanation:
 What is Cycloplegic Refraction? It’s a refraction performed after instilling eye drops that temporarily paralyse the ciliary muscle, thereby eliminating the eye's ability to accommodate.
 Why It's the Gold Standard for Children:
@@ -399,17 +399,17 @@ Measuring vision in kids isn’t one-size-fits-all —so stay tuned to find out 
     {
       id: 'pecp-ep7',
       title: 'Visual Acuity in Children: Adapting Your Methods',
-      showName: 'Paediatric Eye Care Playbook',
+      showName: 'Pediatric Eye Care Playbook',
       description: 'Adapting assessment methods for different ages and abilities.',
       duration: '03:56',
       thumbnailUrl: pediatricEyeCareThumbnail,
       audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/S4%20PEDIATRIC%20EYE%20CARE%20PLAYBOOK/S4-E7%20(Visual%20Acuity%20in%20Children).MP3',
       releaseDate: '2025-11-01',
       seriesId: 'series-pediatric-eye-care',
-      seriesTitle: 'Paediatric Eye Care Playbook',
+      seriesTitle: 'Pediatric Eye Care Playbook',
       episodeNumber: 7,
       keywords: ['pediatric visual acuity', 'Lea symbols', 'HOTV chart', 'Teller acuity cards', 'crowding phenomenon'],
-      transcript: `Welcome back to Paediatric Eye Care Playbook! I’m Rohini. Measuring visual acuity is our most fundamental assessment, but for children, it's rarely as simple as "read the lowest line." Young patients present unique challenges, and our job is to adapt testing methods to their developmental stage to get the most accurate picture of how they see.
+      transcript: `Welcome back to Pediatric Eye Care Playbook! I’m Rohini. Measuring visual acuity is our most fundamental assessment, but for children, it's rarely as simple as "read the lowest line." Young patients present unique challenges, and our job is to adapt testing methods to their developmental stage to get the most accurate picture of how they see.
 Concept & Explanation:
 Why Standard Snellen Fails: Young children often don't know letters, have short attention spans, or may struggle with verbal communication. Also, amblyopic eyes often show a "crowding phenomenon" (reading single letters better than a line).
 Importance of Age-Appropriate Testing: Using the right method for the child's developmental stage is crucial for accurate assessment and avoiding frustration.
@@ -444,18 +444,18 @@ Early signs can be subtle, but missing them can have lasting consequences. So st
     },
     {
       id: 'pecp-ep8',
-      title: 'Recognizing Red Flags in Paediatric Eye Health',
-      showName: 'Paediatric Eye Care Playbook',
+      title: 'Recognizing Red Flags in Pediatric Eye Health',
+      showName: 'Pediatric Eye Care Playbook',
       description: 'Early signs of serious eye conditions in children you shouldn’t miss.',
       duration: '04:59',
       thumbnailUrl: pediatricEyeCareThumbnail,
       audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/S4%20PEDIATRIC%20EYE%20CARE%20PLAYBOOK/S4-E8%20(Recognizing%20Red%20Flags).MP3',
       releaseDate: '2025-11-01',
       seriesId: 'series-pediatric-eye-care',
-      seriesTitle: 'Paediatric Eye Care Playbook',
+      seriesTitle: 'Pediatric Eye Care Playbook',
       episodeNumber: 8,
       keywords: ['pediatric red flags', 'leukocoria', 'nystagmus', 'ptosis', 'congenital glaucoma'],
-      transcript: `Welcome back to Paediatric Eye Care Playbook! I’m Rohini. As optometrists, we are often the first line of defense for a child's vision. Knowing the critical red flags in Paediatric eye health – those urgent signs and symptoms that demand immediate attention or referral – is paramount to preventing irreversible vision loss and even saving lives.
+      transcript: `Welcome back to Pediatric Eye Care Playbook! I’m Rohini. As optometrists, we are often the first line of defense for a child's vision. Knowing the critical red flags in Paediatric eye health – those urgent signs and symptoms that demand immediate attention or referral – is paramount to preventing irreversible vision loss and even saving lives.
 Concept & Explanation:
 Why Red Flags are Urgent: Children's visual systems are still developing. Delays in diagnosis and treatment can have permanent, devastating consequences on vision (amblyopia). Some red flags also indicate systemic or life-threatening conditions.
 Parental Concerns: Always take parental concerns seriously, even if objective signs are subtle initially. Parents are often the first to notice changes.
@@ -499,17 +499,17 @@ Some eye movements tell deep neurological stories — stay tuned to decode what 
     {
       id: 'pecp-ep9',
       title: 'Decoding Nystagmus in Children',
-      showName: 'Paediatric Eye Care Playbook',
+      showName: 'Pediatric Eye Care Playbook',
       description: 'Understanding involuntary eye movements and their implications for vision.',
       duration: '05:30',
       thumbnailUrl: pediatricEyeCareThumbnail,
       audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/S4%20PEDIATRIC%20EYE%20CARE%20PLAYBOOK/S4-E9%20(Decoding%20Nystagmus%20in%20Children).MP3',
       releaseDate: '2025-11-01',
       seriesId: 'series-pediatric-eye-care',
-      seriesTitle: 'Paediatric Eye Care Playbook',
+      seriesTitle: 'Pediatric Eye Care Playbook',
       episodeNumber: 9,
       keywords: ['nystagmus', 'infantile nystagmus syndrome', 'albinism', 'null point', 'oscillopsia'],
-      transcript: `Welcome back to Paediatric Eye Care Playbook! I’m Rohini. When a child's eyes seem to be constantly dancing with involuntary, rhythmic movements, we call it nystagmus. While sometimes benign, nystagmus in children is often a crucial sign of underlying visual or neurological issues. Let’s decode its types, causes, and the crucial steps for diagnosis and management in Paediatric patients.
+      transcript: `Welcome back to Pediatric Eye Care Playbook! I’m Rohini. When a child's eyes seem to be constantly dancing with involuntary, rhythmic movements, we call it nystagmus. While sometimes benign, nystagmus in children is often a crucial sign of underlying visual or neurological issues. Let’s decode its types, causes, and the crucial steps for diagnosis and management in Paediatric patients.
 Concept & Explanation:
 What is Nystagmus? It’s the repetitive, uncontrolled oscillations of the eyes. These movements can be horizontal, vertical, rotary, or mixed, and can vary in speed (jerk vs. pendular).
 Impact on Vision: Nystagmus significantly impairs visual acuity because the eyes cannot maintain steady fixation. It also interferes with depth perception and can cause an abnormal head posture.
@@ -563,17 +563,17 @@ What if a newborn’s clear visual world turns cloudy before it begins? Stay tun
     {
       id: 'pecp-ep10',
       title: 'Congenital Cataracts: Early Detection and Intervention',
-      showName: 'Paediatric Eye Care Playbook',
+      showName: 'Pediatric Eye Care Playbook',
       description: 'Importance of early detection and timely intervention for clear vision.',
       duration: '04:40',
       thumbnailUrl: pediatricEyeCareThumbnail,
       audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/S4%20PEDIATRIC%20EYE%20CARE%20PLAYBOOK/S4-E10%20(Congenital%20Cataracts).MP3',
       releaseDate: '2025-11-01',
       seriesId: 'series-pediatric-eye-care',
-      seriesTitle: 'Paediatric Eye Care Playbook',
+      seriesTitle: 'Pediatric Eye Care Playbook',
       episodeNumber: 10,
       keywords: ['congenital cataracts', 'leukocoria', 'deprivational amblyopia', 'infant aphakia', 'pediatric eye surgery'],
-      transcript: `Welcome back to Paediatric Eye Care Playbook! I’m Rohini. While cataracts are commonly associated with ageing, they can also be present at birth, a condition known as congenital cataract. Let’s explore why early detection and timely intervention are essential.
+      transcript: `Welcome back to Pediatric Eye Care Playbook! I’m Rohini. While cataracts are commonly associated with ageing, they can also be present at birth, a condition known as congenital cataract. Let’s explore why early detection and timely intervention are essential.
 Concept & Explanation:
 What is a Congenital Cataract? It’s any opacity within the crystalline lens of the eye that is present at birth or develops shortly thereafter.
 Why It's an Emergency: Untreated congenital cataracts cause deprivational amblyopia. Because the opaque lens blocks light from reaching the retina, the visual pathways in the brain do not develop properly, leading to permanent, irreversible vision loss if not addressed promptly during the critical period of visual development. The denser the cataract and the longer it's present, the worse the prognosis.
@@ -616,17 +616,17 @@ Tiny, fragile eyes need timely care, so stay tuned to explore how to prevent a p
     {
       id: 'pecp-ep11',
       title: 'Retinopathy of Prematurity (ROP): Screening and Follow-up',
-      showName: 'Paediatric Eye Care Playbook',
+      showName: 'Pediatric Eye Care Playbook',
       description: 'Screening and follow-up strategies for at-risk infants.',
       duration: '04:53',
       thumbnailUrl: pediatricEyeCareThumbnail,
       audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/S4%20PEDIATRIC%20EYE%20CARE%20PLAYBOOK/S4-E11%20(Retinopathy%20of%20Prematurity).MP3',
       releaseDate: '2025-11-01',
       seriesId: 'series-pediatric-eye-care',
-      seriesTitle: 'Paediatric Eye Care Playbook',
+      seriesTitle: 'Pediatric Eye Care Playbook',
       episodeNumber: 11,
       keywords: ['retinopathy of prematurity', 'ROP', 'premature infants', 'anti-VEGF', 'laser photocoagulation'],
-      transcript: `Welcome back to Paediatric Eye Care Playbook! I’m Rohini. Retinopathy of Prematurity, or ROP, is a serious eye disease that can affect prematurely born infants, potentially leading to blindness. Today, we're detailing ROP: its pathology, the critical screening guidelines, and the long-term follow-up essential for these vulnerable patients. Let’s explore what ROP is, how it develops, and the critical screening and follow-up needed to protect these vulnerable eyes.
+      transcript: `Welcome back to Pediatric Eye Care Playbook! I’m Rohini. Retinopathy of Prematurity, or ROP, is a serious eye disease that can affect prematurely born infants, potentially leading to blindness. Today, we're detailing ROP: its pathology, the critical screening guidelines, and the long-term follow-up essential for these vulnerable patients. Let’s explore what ROP is, how it develops, and the critical screening and follow-up needed to protect these vulnerable eyes.
 Concept & Explanation:
 What is ROP? It’s an abnormal growth of blood vessels in the retina of premature infants. It occurs when normal retinal blood vessel development is interrupted by premature birth.
 Pathophysiology:
@@ -676,18 +676,18 @@ A drooping lid might seem cosmetic — but it can shape visual development in su
     },
      {
       id: 'pecp-ep12',
-      title: 'Paediatric Ptosis: Causes and Management',
-      showName: 'Paediatric Eye Care Playbook',
+      title: 'Pediatric Ptosis: Causes and Management',
+      showName: 'Pediatric Eye Care Playbook',
       description: 'Understand the causes, assessment, and management of drooping eyelids in children.',
       duration: '05:58',
       thumbnailUrl: pediatricEyeCareThumbnail,
       audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/S4%20PEDIATRIC%20EYE%20CARE%20PLAYBOOK/S4-E12%20(Paediatric%20Ptosis).MP3',
       releaseDate: '2025-11-01',
       seriesId: 'series-pediatric-eye-care',
-      seriesTitle: 'Paediatric Eye Care Playbook',
+      seriesTitle: 'Pediatric Eye Care Playbook',
       episodeNumber: 12,
       keywords: ['pediatric ptosis', 'congenital ptosis', 'amblyopia', "Horner's Syndrome", 'levator function'],
-      transcript: `Welcome back to Paediatric Eye Care Playbook! I’m Rohini. A drooping eyelid in a child—ptosis—can be more than a cosmetic issue. It can block vision and even cause amblyopia. Let’s explore its causes, how to assess severity, and strategies to protect a child’s visual development.
+      transcript: `Welcome back to Pediatric Eye Care Playbook! I’m Rohini. A drooping eyelid in a child—ptosis—can be more than a cosmetic issue. It can block vision and even cause amblyopia. Let’s explore its causes, how to assess severity, and strategies to protect a child’s visual development.
 Concept & Explanation:
 What is Ptosis? It is defined as an abnormally low-lying upper eyelid.
 Why It's Critical in Children: If the droopy eyelid covers or significantly obstructs the pupil, it can cause deprivational amblyopia by blocking light from reaching the retina. Even if the pupil isn't fully covered, severe ptosis can induce astigmatism or anisometropia, also leading to amblyopia.
@@ -736,17 +736,17 @@ Ever met a child who struggles with reading but has ‘perfect’ vision? The ne
     {
       id: 'pecp-ep13',
       title: 'Learning-Related Vision Problems: What\'s the Link?',
-      showName: 'Paediatric Eye Care Playbook',
+      showName: 'Pediatric Eye Care Playbook',
       description: 'How vision issues can mimic learning difficulties or ADHD.',
       duration: '05:01',
       thumbnailUrl: pediatricEyeCareThumbnail,
       audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/S4%20PEDIATRIC%20EYE%20CARE%20PLAYBOOK/S4-E13%20(Learning-Related%20Vision%20Problems).MP3',
       releaseDate: '2025-11-01',
       seriesId: 'series-pediatric-eye-care',
-      seriesTitle: 'Paediatric Eye Care Playbook',
+      seriesTitle: 'Pediatric Eye Care Playbook',
       episodeNumber: 13,
       keywords: ['learning-related vision', 'convergence insufficiency', 'ADHD', 'vision therapy', 'accommodative dysfunction'],
-      transcript: `Welcome back to Paediatric Eye Care Playbook! I’m Rohini. Many children struggle in school, often mislabeled with learning disabilities or ADHD. However, a significant portion of these difficulties can stem from Learning-Related Vision Problems – issues with how their eyes function and process visual information, even if they have 20/20 acuity. Let’s explore this critical link between vision and learning.
+      transcript: `Welcome back to Pediatric Eye Care Playbook! I’m Rohini. Many children struggle in school, often mislabeled with learning disabilities or ADHD. However, a significant portion of these difficulties can stem from Learning-Related Vision Problems – issues with how their eyes function and process visual information, even if they have 20/20 acuity. Let’s explore this critical link between vision and learning.
 Concept & Explanation:
 Beyond 20/20: Emphasize that "20/20 vision" means clarity at a distance, but doesn't tell us if the eyes work together efficiently, focus comfortably, or track accurately for reading.
 The Demands of Learning: Reading, writing, and computer use place high demands on binocular vision, accommodation, and eye movement skills. If these systems are inefficient, learning becomes a struggle.
@@ -797,17 +797,17 @@ Is it possible to strengthen a child’s vision without glasses—just through e
     {
       id: 'pecp-ep14',
       title: 'Vision Therapy for Children: Building Visual Skills',
-      showName: 'Paediatric Eye Care Playbook',
+      showName: 'Pediatric Eye Care Playbook',
       description: 'Building visual skills through targeted exercises and brain training.',
       duration: '04:53',
       thumbnailUrl: pediatricEyeCareThumbnail,
       audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/S4%20PEDIATRIC%20EYE%20CARE%20PLAYBOOK/S4-E14%20(Vision%20Therapy%20for%20Children).MP3',
       releaseDate: '2025-11-01',
       seriesId: 'series-pediatric-eye-care',
-      seriesTitle: 'Paediatric Eye Care Playbook',
+      seriesTitle: 'Pediatric Eye Care Playbook',
       episodeNumber: 14,
       keywords: ['vision therapy', 'neuroplasticity', 'convergence insufficiency', 'amblyopia therapy', 'oculomotor therapy'],
-      transcript: `Welcome back to Paediatric Eye Care Playbook! I’m Rohini. When a child's eyes struggle to work together, vision therapy can be a transformative intervention. This isn’t just simple eye exercises—it’s a specialized neuro-rehabilitative process designed to build and refine visual skills, empowering children to see more comfortably and effectively.
+      transcript: `Welcome back to Pediatric Eye Care Playbook! I’m Rohini. When a child's eyes struggle to work together, vision therapy can be a transformative intervention. This isn’t just simple eye exercises—it’s a specialized neuro-rehabilitative process designed to build and refine visual skills, empowering children to see more comfortably and effectively.
 Concept & Explanation:
 What is Vision Therapy? It’s a customized, supervised treatment program designed to correct certain visual conditions and improve visual skills. It's like physical therapy for the eyes and brain.
 Neuroplasticity: Emphasize that vision therapy works by harnessing the brain's neuroplasticity – its ability to reorganize itself by forming new neural connections throughout life, especially in children.
@@ -862,17 +862,17 @@ Working with kids isn’t just about exams — it’s about connection. Stay tun
     {
       id: 'pecp-ep15',
       title: 'Communicating with Kids and Parents: Best Practices',
-      showName: 'Paediatric Eye Care Playbook',
+      showName: 'Pediatric Eye Care Playbook',
       description: 'Effective strategies to engage children and educate families.',
       duration: '03:09',
       thumbnailUrl: pediatricEyeCareThumbnail,
       audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/S4%20PEDIATRIC%20EYE%20CARE%20PLAYBOOK/S4-E15%20(Communicating%20with%20Kids%20and%20Parents).MP3',
       releaseDate: '2025-11-01',
       seriesId: 'series-pediatric-eye-care',
-      seriesTitle: 'Paediatric Eye Care Playbook',
+      seriesTitle: 'Pediatric Eye Care Playbook',
       episodeNumber: 15,
       keywords: ['pediatric communication', 'patient education', 'building rapport', 'family-centered care'],
-      transcript: `Welcome back to Paediatric Eye Care Playbook! I’m Rohini. Examining a child is one skill, but effectively communicating with both the child and their parents is an entirely different art. This episode focuses on best practices in paediatric communication, helping you build trust, gain cooperation, and empower families with clear, actionable information.
+      transcript: `Welcome back to Pediatric Eye Care Playbook! I’m Rohini. Examining a child is one skill, but effectively communicating with both the child and their parents is an entirely different art. This episode focuses on best practices in paediatric communication, helping you build trust, gain cooperation, and empower families with clear, actionable information.
 Concept & Explanation:
 The Unique Paediatric Communication Challenge: You're dealing with two audiences simultaneously: the child (who needs engagement and reassurance) and the parent (who needs clear information and reassurance).
 Goal: Build rapport, gain cooperation, accurately gather history, provide clear explanations, manage expectations, and encourage compliance.
@@ -912,17 +912,17 @@ Sometimes, the smallest refractive differences can hide a much bigger story — 
     {
       id: 'pecp-ep16',
       title: 'Uncovering Refractive Amblyopia: High Hyperopia and Anisometropia',
-      showName: 'Paediatric Eye Care Playbook',
+      showName: 'Pediatric Eye Care Playbook',
       description: 'Detecting high hyperopia and anisometropia that quietly affect vision.',
       duration: '04:14',
       thumbnailUrl: pediatricEyeCareThumbnail,
       audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/S4%20PEDIATRIC%20EYE%20CARE%20PLAYBOOK/S4-E16%20(Uncovering%20Refractive%20Amblyopia).MP3',
       releaseDate: '2025-11-01',
       seriesId: 'series-pediatric-eye-care',
-      seriesTitle: 'Paediatric Eye Care Playbook',
+      seriesTitle: 'Pediatric Eye Care Playbook',
       episodeNumber: 16,
       keywords: ['refractive amblyopia', 'anisometropia', 'high hyperopia', 'cycloplegic refraction', 'pediatric screening'],
-      transcript: `Welcome back to Paediatric Eye Care Playbook! I’m Rohini. We've talked about amblyopia, but today we're shining a spotlight on its most common, yet often subtle, cause: refractive amblyopia. This is where significant, uncorrected refractive errors, particularly high hyperopia and anisometropia, silently steal a child's vision.
+      transcript: `Welcome back to Pediatric Eye Care Playbook! I’m Rohini. We've talked about amblyopia, but today we're shining a spotlight on its most common, yet often subtle, cause: refractive amblyopia. This is where significant, uncorrected refractive errors, particularly high hyperopia and anisometropia, silently steal a child's vision.
 Concept & Explanation:
 Refractive Amblyopia Review: Briefly recap that this occurs when consistently blurred images prevent the visual brain pathways from developing normally. The eye itself is healthy, but the brain hasn't learned to "see" with it clearly.
 Why It's Subtle: Unlike strabismus (an obvious eye turn) or congenital cataract (leukocoria), refractive amblyopia often has no visible signs. Parents might not notice anything wrong, as children are highly adaptable or the "good" eye compensates. This is why early universal screening is vital.
@@ -956,18 +956,18 @@ High pressure isn’t just an adult concern — Stay tuned for the next episode 
     },
     {
       id: 'pecp-ep17',
-      title: 'Paediatric Glaucoma: Unique Challenges and Presentations',
-      showName: 'Paediatric Eye Care Playbook',
+      title: 'Pediatric Glaucoma: Unique Challenges and Presentations',
+      showName: 'Pediatric Eye Care Playbook',
       description: 'Unique presentations, challenges, and urgent management in children.',
       duration: '05:04',
       thumbnailUrl: pediatricEyeCareThumbnail,
       audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/S4%20PEDIATRIC%20EYE%20CARE%20PLAYBOOK/S4-E17%20(Paediatric%20Glaucoma).MP3',
       releaseDate: '2025-11-01',
       seriesId: 'series-pediatric-eye-care',
-      seriesTitle: 'Paediatric Eye Care Playbook',
+      seriesTitle: 'Pediatric Eye Care Playbook',
       episodeNumber: 17,
       keywords: ['pediatric glaucoma', 'congenital glaucoma', 'buphthalmos', "Haab's striae", 'goniotomy'],
-      transcript: `Welcome back to Paediatric Eye Care Playbook! I’m Rohini. Glaucoma is often seen as an adult disease, but it can also affect children, presenting unique challenges and significantly different forms than adult glaucoma. In this episode, we’re exploring Paediatric glaucoma — how it presents, how it differs from adult forms, and why timely recognition is crucial to preserving a child’s vision.
+      transcript: `Welcome back to Pediatric Eye Care Playbook! I’m Rohini. Glaucoma is often seen as an adult disease, but it can also affect children, presenting unique challenges and significantly different forms than adult glaucoma. In this episode, we’re exploring Paediatric glaucoma — how it presents, how it differs from adult forms, and why timely recognition is crucial to preserving a child’s vision.
 Concept & Explanation:
 What is Paediatric Glaucoma? It’s an optic neuropathy and visual field loss due to elevated intraocular pressure (IOP) occurring in children up to 18 years of age.
 Why It's Different from Adult Glaucoma:
@@ -1018,17 +1018,17 @@ Children can surprise you with sudden ocular injuries — our next episode will 
     {
       id: 'pecp-ep18',
       title: 'Ocular Trauma in Children: Common Injuries and Management',
-      showName: 'Paediatric Eye Care Playbook',
+      showName: 'Pediatric Eye Care Playbook',
       description: 'Common eye injuries in kids and how to manage them safely.',
       duration: '05:35',
       thumbnailUrl: pediatricEyeCareThumbnail,
       audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/S4%20PEDIATRIC%20EYE%20CARE%20PLAYBOOK/S4-E18%20(Ocular%20Trauma%20in%20Children).MP3',
       releaseDate: '2025-11-01',
       seriesId: 'series-pediatric-eye-care',
-      seriesTitle: 'Paediatric Eye Care Playbook',
+      seriesTitle: 'Pediatric Eye Care Playbook',
       episodeNumber: 18,
       keywords: ['ocular trauma', 'corneal abrasion', 'hyphema', 'globe rupture', 'chemical burn'],
-      transcript: `Welcome back to Paediatric Eye Care Playbook! I’m Rohini. Children are naturally curious and active, which unfortunately puts them at higher risk for ocular trauma. From playground mishaps to sports injuries, timely and appropriate management of Paediatric eye injuries is crucial to prevent permanent vision loss. Let’s discuss the common ocular traumas in children and their urgent management.
+      transcript: `Welcome back to Pediatric Eye Care Playbook! I’m Rohini. Children are naturally curious and active, which unfortunately puts them at higher risk for ocular trauma. From playground mishaps to sports injuries, timely and appropriate management of Paediatric eye injuries is crucial to prevent permanent vision loss. Let’s discuss the common ocular traumas in children and their urgent management.
 Concept & Explanation:
 Why Children are Vulnerable: Developing motor skills, lack of awareness of danger, participation in sports, and toy-related accidents all contribute.
 Urgency: Ocular trauma can lead to rapid and severe vision loss. Children are less likely to verbalize symptoms accurately, making careful examination vital.
@@ -1083,17 +1083,17 @@ Not all visual challenges are curable, but every child deserves the best support
     {
       id: 'pecp-ep19',
       title: 'Visual Impairment in Children: Causes and Support',
-      showName: 'Paediatric Eye Care Playbook',
+      showName: 'Pediatric Eye Care Playbook',
       description: 'Understand the causes, assessment, and support strategies for children with reduced vision.',
       duration: '05:02',
       thumbnailUrl: pediatricEyeCareThumbnail,
       audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/S4%20PEDIATRIC%20EYE%20CARE%20PLAYBOOK/S4-E19%20(Visual%20Impairment%20in%20Children).MP3',
       releaseDate: '2025-11-01',
       seriesId: 'series-pediatric-eye-care',
-      seriesTitle: 'Paediatric Eye Care Playbook',
+      seriesTitle: 'Pediatric Eye Care Playbook',
       episodeNumber: 19,
       keywords: ['visual impairment', 'cortical visual impairment', 'CVI', 'low vision aids', 'early intervention'],
-      transcript: `Welcome back to Paediatric Eye Care Playbook! I’m Rohini. Visual impairment in children, whether mild or profound, presents unique challenges for development, learning, and daily life. In this episode, we’ll explore the diverse causes of visual impairment in children and discuss how we, as optometrists, can provide crucial support and resources to these families.
+      transcript: `Welcome back to Pediatric Eye Care Playbook! I’m Rohini. Visual impairment in children, whether mild or profound, presents unique challenges for development, learning, and daily life. In this episode, we’ll explore the diverse causes of visual impairment in children and discuss how we, as optometrists, can provide crucial support and resources to these families.
 Concept & Explanation:
 What is Visual Impairment (VI) in Children? It often includes uncorrectable vision below a certain threshold (e.g., <20/60 or <20/70 in the better eye with best correction) or significant visual field loss. Emphasize it's a spectrum, not just blindness.
 Why It's Different in Children: Visual impairment during childhood impacts developmental milestones, learning, social interaction, and motor skills, as the brain is still developing. Early intervention is critical for maximizing residual vision and teaching compensatory strategies.
@@ -1144,18 +1144,18 @@ Could a child really have dry eye? You’ll be amazed at how common it’s becom
     },
     {
       id: 'pecp-ep20',
-      title: 'Managing Paediatric Dry Eye and Ocular Surface Issues',
-      showName: 'Paediatric Eye Care Playbook',
+      title: 'Managing Pediatric Dry Eye and Ocular Surface Issues',
+      showName: 'Pediatric Eye Care Playbook',
       description: 'Diagnosing and managing dry eye and ocular surface issues in children.',
       duration: '05:29',
       thumbnailUrl: pediatricEyeCareThumbnail,
       audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/S4%20PEDIATRIC%20EYE%20CARE%20PLAYBOOK/S4-E20%20(Managing%20Paediatric%20Dry%20Eye).MP3',
       releaseDate: '2025-11-01',
       seriesId: 'series-pediatric-eye-care',
-      seriesTitle: 'Paediatric Eye Care Playbook',
+      seriesTitle: 'Pediatric Eye Care Playbook',
       episodeNumber: 20,
       keywords: ['pediatric dry eye', 'MGD', 'blepharitis', 'allergic conjunctivitis', 'ocular surface disease'],
-      transcript: `Welcome back to Paediatric Eye Care Playbook! I’m Rohini. While often thought of as an adult condition, children can and do suffer from dry eye and other ocular surface issues. In this episode, we’re uncovering the world of Paediatric dry eye and other ocular surface disorders: their unique causes, diagnostic challenges, and effective management strategies tailored specifically for young eyes.
+      transcript: `Welcome back to Pediatric Eye Care Playbook! I’m Rohini. While often thought of as an adult condition, children can and do suffer from dry eye and other ocular surface issues. In this episode, we’re uncovering the world of Paediatric dry eye and other ocular surface disorders: their unique causes, diagnostic challenges, and effective management strategies tailored specifically for young eyes.
 Concept & Explanation:
 Why Paediatric Dry Eye is Unique:
 Verbalization: Children may not articulate symptoms clearly, often complaining of "sore eyes" or just rubbing.
@@ -1210,7 +1210,7 @@ Wrap-up & Takeaway:
 Paediatric dry eye and ocular surface disease are real and increasingly common challenges. Your role is to carefully diagnose, differentiate causes, and implement tailored, effective management strategies to restore comfort and protect the ocular surface in children.
 "Healthy eyes mean comfortable kids. Don't let Paediatric dry eye go unnoticed or untreated."
 Thank you for listening. Keep learning, keep caring, and keep those little eyes shining.
-This is Rohan, signing off from the Paediatric Eye Care Playbook.`,
+This is Rohan, signing off from the Pediatric Eye Care Playbook.`,
       views: 0,
       likes: 0,
     },
