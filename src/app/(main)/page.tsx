@@ -15,6 +15,7 @@ import Link from 'next/link';
 import SeriesCard from '@/components/series/series-card';
 import { isEpisodeLocked } from '@/lib/release-dates';
 import PaginatedEpisodeList from '@/components/episodes/paginated-episode-list';
+import FeaturedNewEpisodes from '@/components/home/featured-new-episodes';
 
 export const metadata: Metadata = {
   title: 'FocusCast: Optometry Insights, Clearly Delivered',
@@ -22,12 +23,18 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const allEpisodes = [...placeholderEpisodes1, ...placeholderEpisodes2];
+  const allEpisodes = [...placeholderEpisodes1, ...placeholderEpisodes2].sort(() => 0.5 - Math.random());
   const allSeries = [...placeholderSeries1, ...placeholderSeries2];
 
   const featured: Episode[] = [
     allEpisodes.find(ep => ep.id === 'ou-ep1'),
     allEpisodes.find(ep => ep.id === 'csc-ep16'),
+  ].filter(ep => ep) as Episode[];
+
+  const newFeaturedEpisodes: Episode[] = [
+    allEpisodes.find(ep => ep.id === 'pecp-ep1'),
+    allEpisodes.find(ep => ep.id === 'lvl-ep1'),
+    allEpisodes.find(ep => ep.id === 'op-ep1'),
   ].filter(ep => ep) as Episode[];
   
   const totalEpisodes = allEpisodes.length;
@@ -93,6 +100,7 @@ export default function HomePage() {
         {/* Mobile Sections */}
         <div className="md:hidden space-y-12">
             <FeaturedEpisodes episodes={featured} />
+            <FeaturedNewEpisodes episodes={newFeaturedEpisodes} />
             <SeriesSection series={allSeries} allEpisodes={allEpisodes} />
             <TrendingContent episodes={allEpisodes} />
         </div>

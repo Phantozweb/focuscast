@@ -1,0 +1,80 @@
+
+'use client';
+
+import type { Episode } from '@/types';
+import EpisodeCard from '@/components/episodes/episode-card';
+import { useAnalytics } from '@/hooks/use-analytics';
+import { useEffect, useState } from 'react';
+
+interface FeaturedNewEpisodesProps {
+  episodes: Episode[];
+}
+
+const FeaturedNewEpisodes: React.FC<FeaturedNewEpisodesProps> = ({ episodes: initialEpisodes }) => {
+  const { analytics, isLoading } = useAnalytics();
+  const [episodes, setEpisodes] = useState(initialEpisodes);
+
+  useEffect(() => {
+    if (!isLoading && Object.keys(analytics).length > 0) {
+      const updatedEpisodes = initialEpisodes.map(ep => {
+        const episodeAnalytics = analytics[ep.id];
+        if (episodeAnalytics) {
+          return { ...ep, ...episodeAnalytics };
+        }
+        return ep;
+      });
+      setEpisodes(updatedEpisodes);
+    }
+  }, [analytics, isLoading, initialEpisodes]);
+
+
+  if (!episodes || episodes.length === 0) {
+    return null;
+  }
+
+  return (
+    <section
+      id="featured-new-episodes"
+      className="py-12 md:border-y md:border-border/30 md:bg-muted/20 dark:bg-muted/10"
+    >
+      <div className="container mx-auto px-0 md:px-4">
+        <div className="flex items-end gap-3 justify-center md:justify-start mb-8 px-4 md:px-0">
+           <h2 className="text-3xl font-bold font-headline border-b-[3px] border-primary pb-1 leading-none">
+            Featured New Episodes
+          </h2>
+        </div>
+
+        {/* Desktop Grid */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-0">
+          {episodes.map((episode) => (
+            <EpisodeCard
+              key={episode.id + '-featured-new-desktop'}
+              episode={episode}
+              className="w-full bg-background border border-border/70 shadow-sm hover:shadow-md"
+              layout="vertical"
+              isLoading={isLoading}
+            />
+          ))}
+        </div>
+
+        {/* Mobile Carousel */}
+        <div className="md:hidden">
+            <div className="flex overflow-x-auto snap-x snap-mandatory py-4 space-x-4 pl-4 no-scrollbar">
+              {episodes.map((episode) => (
+                <div key={episode.id + '-featured-new-mobile'} className="snap-center shrink-0 w-[85vw]">
+                      <EpisodeCard
+                        episode={episode}
+                        className="w-full h-full bg-background border border-border/70 shadow-sm"
+                        layout="vertical"
+                        isLoading={isLoading}
+                    />
+                </div>
+              ))}
+            </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default FeaturedNewEpisodes;
