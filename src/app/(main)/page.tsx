@@ -54,7 +54,7 @@ export default function HomePage() {
   
   const announcementCard = {
     id: 'announcement',
-    title: `New Episodes on FocusCast!`,
+    title: `Focus Bites Updated!`,
     shortDescription: `We've just dropped ${focusBitesEpisodesCount} new episodes in the Focus Bites series. More short, insightful optometry content for you to enjoy.`,
     thumbnailUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/Cover/logo.png',
     isAnnouncement: true,

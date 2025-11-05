@@ -107,7 +107,7 @@ const StatsBanner: React.FC<StatsBannerProps> = ({ totalEpisodes, totalSeries, t
                     )}>
                         <div className="flex-grow text-center sm:text-left">
                            {'isAnnouncement' in item && item.isAnnouncement ? (
-                              <p className="text-sm font-semibold text-primary mb-1 uppercase flex items-center justify-center sm:justify-start gap-2"><Rss size={16}/>FocusCast Updated</p>
+                              <p className="text-sm font-semibold text-primary mb-1 uppercase flex items-center justify-center sm:justify-start gap-2"><Rss size={16}/>Focus Bites Updated!</p>
                             ) : (
                                <p className="text-sm font-semibold text-primary mb-1 uppercase flex items-center justify-center sm:justify-start gap-2"><Megaphone size={16}/>New Series Drop</p>
                             )}
