@@ -16,6 +16,8 @@ import SeriesCard from '@/components/series/series-card';
 import { isEpisodeLocked } from '@/lib/release-dates';
 import PaginatedEpisodeList from '@/components/episodes/paginated-episode-list';
 import FeaturedNewEpisodes from '@/components/home/featured-new-episodes';
+import { focusBitesSeriesThumbnail } from '@/lib/placeholder-data';
+
 
 export const metadata: Metadata = {
   title: 'FocusCast: Optometry Insights, Clearly Delivered',
@@ -56,7 +58,7 @@ export default function HomePage() {
     id: 'announcement',
     title: `Focus Bites Updated!`,
     shortDescription: `We've just dropped ${focusBitesEpisodesCount} new episodes in the Focus Bites series. More short, insightful optometry content for you to enjoy.`,
-    thumbnailUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/Cover/logo.png',
+    thumbnailUrl: focusBitesSeriesThumbnail,
     isAnnouncement: true,
   };
 

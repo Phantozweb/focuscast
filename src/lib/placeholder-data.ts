@@ -2,7 +2,7 @@
 import type { Episode, Series } from '@/types';
 
 const clinicalSkillsCornerThumbnail = 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/Cover/undefined_Change_blue_colour_t.png';
-const focusBitesSeriesThumbnail = 'https://raw.githubusercontent.com/Phantozweb/StromVault/175bc58a00e53a095eb5065a0cfb6e8599ca93dd/Albums/file_000000002c2861f89474f0ba58bb39a3.png';
+export const focusBitesSeriesThumbnail = 'https://raw.githubusercontent.com/Phantozweb/StromVault/175bc58a00e53a095eb5065a0cfb6e8599ca93dd/Albums/file_000000002c2861f89474f0ba58bb39a3.png';
 const decodingOcularDiseaseSeriesThumbnailUpdated = 'https://raw.githubusercontent.com/Phantozweb/StromVault/71e7cef27cc65f264b7ba93d778a275abb57426c/Albums/file_00000000078861f89c2cd48d6e220a36%20(1).png';
 const growOptomSeriesThumbnail = 'https://raw.githubusercontent.com/Phantozweb/StromVault/71e7cef27cc65f264b7ba93d778a275abb57426c/Albums/file_00000000ab3461f78fcfc560f1dd566e.png';
 const opticsUnveiledThumbnail = 'https://iili.io/Kkerw8P.png';
@@ -3026,7 +3026,7 @@ See you tomorrow on Focus Bites. Jennifer, signing off.`,
     description: "Explore empty field and night myopia, how eye's resting focus causes temporary blur.",
     duration: '04:40',
     thumbnailUrl: focusBitesSeriesThumbnail,
-    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/12%20TO%2030%20BITES/28-Empty%20Field%20Myopia%20%20Night%20Myopia.mp3',
+    audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/12%20TO%2030%20BITES/28-Empty%20Field%20Myopia%20%20Night%20Myopia.MP3',
     releaseDate: '2025-06-03',
     seriesId: 'series-focus-bites',
     seriesTitle: 'Focus Bites',
