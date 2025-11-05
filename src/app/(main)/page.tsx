@@ -12,9 +12,9 @@ import { parseDurationToSeconds, formatTotalSeconds } from '@/lib/utils';
 import AnnouncementBar from '@/components/home/announcement-bar';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Link from 'next/link';
-import EpisodeList from '@/components/episodes/episode-list';
 import SeriesCard from '@/components/series/series-card';
 import { isEpisodeLocked } from '@/lib/release-dates';
+import PaginatedEpisodeList from '@/components/episodes/paginated-episode-list';
 
 export const metadata: Metadata = {
   title: 'FocusCast: Optometry Insights, Clearly Delivered',
@@ -65,7 +65,7 @@ export default function HomePage() {
                     <TabsTrigger value="series">Explore Series</TabsTrigger>
                 </TabsList>
                 <TabsContent value="episodes" className="mt-6">
-                   <EpisodeList episodes={allEpisodes} />
+                   <PaginatedEpisodeList initialEpisodes={allEpisodes} />
                 </TabsContent>
                  <TabsContent value="series" className="mt-6">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
