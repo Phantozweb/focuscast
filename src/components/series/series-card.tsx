@@ -55,7 +55,7 @@ const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, totalDura
       isLocked ? "opacity-80" : "",
       className
     )}>
-      <div className="relative w-full h-48 sm:w-48 sm:h-auto sm:flex-shrink-0">
+      <div className="relative w-full sm:w-48 h-48 sm:h-auto flex-shrink-0">
         <Link href={`/series/${series.id}`} passHref legacyBehavior>
             <a className={cn("block w-full h-full", isLocked ? "pointer-events-none" : "")}>
                 <Image

@@ -127,7 +127,7 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center">
             {/* Image Column */}
             <div className="md:col-span-1 flex justify-center">
-                <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-full md:h-56 rounded-lg shadow-xl overflow-hidden transition-transform duration-300 group-hover:scale-105">
+                <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-full md:h-full md:aspect-square rounded-lg shadow-xl overflow-hidden transition-transform duration-300 group-hover:scale-105">
                     <Image
                         src={initialSeries.thumbnailUrl}
                         alt={initialSeries.title}

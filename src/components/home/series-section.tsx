@@ -5,6 +5,7 @@ import type { Series, Episode } from '@/types';
 import SeriesCard from '@/components/series/series-card';
 import { useAnalytics } from '@/hooks/use-analytics';
 import { isEpisodeLocked } from '@/lib/release-dates';
+import { parseDurationToSeconds, formatTotalSeconds } from '@/lib/utils';
 
 interface SeriesSectionProps {
   series: Series[];
@@ -45,7 +46,9 @@ const SeriesSection: React.FC<SeriesSectionProps> = ({ series, allEpisodes }) =>
         }
     });
 
-    return { totalViews, totalLikes };
+    const totalDuration = formatTotalSeconds(episodesInSeries.reduce((total, ep) => total + parseDurationToSeconds(ep.duration), 0));
+
+    return { totalViews, totalLikes, totalDuration };
   };
 
   return (
@@ -60,7 +63,7 @@ const SeriesSection: React.FC<SeriesSectionProps> = ({ series, allEpisodes }) =>
         {/* Desktop Grid */}
         <div className="hidden md:grid grid-cols-1 gap-6 px-4 md:px-0">
           {series.map((s) => {
-            const { totalViews, totalLikes } = getSeriesStats(s.id);
+            const { totalViews, totalLikes, totalDuration } = getSeriesStats(s.id);
             const updatedSeries = { ...s, views: totalViews, likes: totalLikes };
             const episodesInSeries = allEpisodes.filter(ep => ep.seriesId === s.id);
             const episodeCount = episodesInSeries.length;
@@ -71,6 +74,7 @@ const SeriesSection: React.FC<SeriesSectionProps> = ({ series, allEpisodes }) =>
                 key={s.id + '-desktop'}
                 series={updatedSeries}
                 episodeCount={episodeCount}
+                totalDuration={totalDuration}
                 isLoading={isLoading}
                 isLocked={isLocked}
               />
@@ -82,7 +86,7 @@ const SeriesSection: React.FC<SeriesSectionProps> = ({ series, allEpisodes }) =>
         <div className="md:hidden">
           <div className="flex overflow-x-auto snap-x snap-mandatory py-4 space-x-4 pl-4 no-scrollbar">
             {series.map((s) => {
-                const { totalViews, totalLikes } = getSeriesStats(s.id);
+                const { totalViews, totalLikes, totalDuration } = getSeriesStats(s.id);
                 const updatedSeries = { ...s, views: totalViews, likes: totalLikes };
                 const episodesInSeries = allEpisodes.filter(ep => ep.seriesId === s.id);
                 const episodeCount = episodesInSeries.length;
@@ -93,6 +97,7 @@ const SeriesSection: React.FC<SeriesSectionProps> = ({ series, allEpisodes }) =>
                         <SeriesCard
                             series={updatedSeries}
                             episodeCount={episodeCount}
+                            totalDuration={totalDuration}
                             className="h-full"
                             isLoading={isLoading}
                             isLocked={isLocked}
