@@ -28,5 +28,4 @@ export interface Series {
   keywords?: string[];
   views?: number;
   likes?: number;
-  // Episodes belonging to this series will be filtered from the global Episode list
 }

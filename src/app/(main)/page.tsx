@@ -44,15 +44,28 @@ export default function HomePage() {
   }, 0);
   const totalDurationFormatted = formatTotalSeconds(totalDurationInSeconds, true);
   
-  const newSeries = [
+  const newSeries: (Series | any)[] = [
     allSeries.find(s => s.id === 'series-pediatric-eye-care'),
     allSeries.find(s => s.id === 'series-low-vision-living'),
     allSeries.find(s => s.id === 'series-ocular-pharmacology'),
   ].filter(s => s) as Series[];
 
+  const focusBitesEpisodesCount = allEpisodes.filter(ep => ep.seriesId === 'series-focus-bites').length;
+  
+  const announcementCard = {
+    id: 'announcement',
+    title: `New Episodes on FocusCast!`,
+    shortDescription: `We've just dropped ${focusBitesEpisodesCount} new episodes in the Focus Bites series. More short, insightful optometry content for you to enjoy.`,
+    thumbnailUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/Cover/logo.png',
+    isAnnouncement: true,
+  };
+
+  const bannerItems = [...newSeries, announcementCard];
+
+
   return (
     <div className="flex flex-col">
-      <AnnouncementBar featuredSeries={newSeries} />
+      <AnnouncementBar featuredSeries={newSeries as Series[]} />
       <HeroSection />
       <div className="container mx-auto py-8 space-y-12 px-0 md:px-2">
         <div className="px-2">
@@ -60,7 +73,7 @@ export default function HomePage() {
               totalEpisodes={totalEpisodes}
               totalSeries={totalSeries}
               totalHours={totalDurationFormatted}
-              newestSeries={newSeries}
+              newestSeries={bannerItems}
             />
         </div>
         
