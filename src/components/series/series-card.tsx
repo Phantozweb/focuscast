@@ -55,20 +55,18 @@ const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, totalDura
       isLocked ? "opacity-80" : "",
       className
     )}>
-      <div className="relative w-full sm:w-48 h-48 sm:h-auto flex-shrink-0">
-        <Link href={`/series/${series.id}`} passHref legacyBehavior>
-          <a className={cn("block w-full h-full group-hover:opacity-90 transition-opacity", isLocked ? "pointer-events-none" : "")}>
-            <Image
-              src={series.thumbnailUrl}
-              alt={series.title}
-              fill
-              className="object-cover"
-              sizes="(max-width: 640px) 100vw, 192px"
-              data-ai-hint={series.dataAiHint || "podcast series art"}
-            />
-          </a>
-        </Link>
-      </div>
+      <Link href={`/series/${series.id}`} passHref legacyBehavior>
+        <a className={cn("relative block w-full sm:w-48 h-48 sm:h-auto flex-shrink-0 group-hover:opacity-90 transition-opacity", isLocked ? "pointer-events-none" : "")}>
+          <Image
+            src={series.thumbnailUrl}
+            alt={series.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 640px) 100vw, 192px"
+            data-ai-hint={series.dataAiHint || "podcast series art"}
+          />
+        </a>
+      </Link>
 
       <div className="flex flex-col flex-grow p-4 sm:p-5">
         <CardHeader className="p-0 mb-2">

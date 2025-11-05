@@ -1215,19 +1215,19 @@ This is Rohan, signing off from the Pediatric Eye Care Playbook.`,
       likes: 0,
     },
     {
-      id: 'lvl-ep1',
-      title: 'Understanding Low Vision: Definitions and Impact',
-      showName: 'Low Vision Living',
-      description: 'Explore the fundamentals of visual acuity and learn how it guides low vision assessments.',
-      duration: '04:49',
-      thumbnailUrl: lowVisionLivingThumbnail,
-      audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/S5%20LOW%20VISION%20LIVING/S5-E1%20(Understanding%20Low%20Vision).MP3',
-      releaseDate: '2025-12-01',
-      seriesId: 'series-low-vision-living',
-      seriesTitle: 'Low Vision Living',
-      episodeNumber: 1,
-      keywords: ['low vision', 'legal blindness', 'functional vision', 'visual impairment', 'AMD', 'glaucoma'],
-      transcript: `Welcome to Low Vision Living! I’m Nisha. Ever wondered how people with low vision navigate the world, stay independent, and make the most of their remaining sight? For many, 'low vision' is just a vague term—but in this series, we’re cutting through the ambiguity. We’ll define what low vision truly means, explore its impact beyond just visual acuity, and dive into practical strategies, adaptive tools, counseling, and community support. Let’s break it down.
+        id: 'lvl-ep1',
+        title: 'Understanding Low Vision: Definitions and Impact',
+        showName: 'Low Vision Living',
+        description: 'Explore the fundamentals of visual acuity and learn how it guides low vision assessments.',
+        duration: '04:49',
+        thumbnailUrl: lowVisionLivingThumbnail,
+        audioUrl: 'https://raw.githubusercontent.com/Phantozweb/focuscastaudios/main/S5%20LOW%20VISION%20LIVING/S5-E1%20(Understanding%20Low%20Vision).MP3',
+        releaseDate: '2025-12-01',
+        seriesId: 'series-low-vision-living',
+        seriesTitle: 'Low Vision Living',
+        episodeNumber: 1,
+        keywords: ['low vision', 'legal blindness', 'functional vision', 'visual impairment', 'AMD', 'glaucoma'],
+        transcript: `Welcome to Low Vision Living! I’m Nisha. Ever wondered how people with low vision navigate the world, stay independent, and make the most of their remaining sight? For many, 'low vision' is just a vague term—but in this series, we’re cutting through the ambiguity. We’ll define what low vision truly means, explore its impact beyond just visual acuity, and dive into practical strategies, adaptive tools, counseling, and community support. Let’s break it down.
 Concept & Explanation:
 What is Low Vision?
 Definition: Vision loss that cannot be corrected by conventional spectacles, contact lenses, or medical/surgical intervention, and that interferes with a person's ability to perform everyday tasks. It is not blindness, but a significant reduction in visual function.
@@ -2003,7 +2003,7 @@ Encourage Experiential Learning: Advocate for students and colleagues to partici
 Connect to Reality: Always link the simulation back to the patient's real-world complaints and goals.
 Wrap-up & Takeaway:
 Vision simulation is a powerful educational and empathy-building tool that allows eye care professionals and caregivers to gain invaluable insight into the daily lives of low vision patients. By stepping into their world, even momentarily, we can transform our approach to care, fostering deeper understanding and more effective, compassionate support.
-"To truly help them see better, we must first learn to see their world. This insight is the foundation of empathetic low vision care. Stay tuned for the next episode."`,
+"To truly help them see better, we must first learn to see their world. This insight is the foundation of empathetic low vision care. Stay tuned for the next episode."`,
         views: 0,
         likes: 0,
     },
