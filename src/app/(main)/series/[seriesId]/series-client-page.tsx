@@ -130,8 +130,8 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
                 <Image
                     src={initialSeries.thumbnailUrl}
                     alt={initialSeries.title}
-                    width={400}
-                    height={400}
+                    width={200}
+                    height={200}
                     className="rounded-lg shadow-xl aspect-square object-cover w-40 h-40 sm:w-48 sm:h-48 md:w-full md:h-auto transition-transform duration-300 group-hover:scale-105"
                     data-ai-hint={initialSeries.dataAiHint || "podcast series cover"}
                     priority
@@ -317,5 +317,3 @@ export default function SeriesClientPage({ initialSeries, initialEpisodesInSerie
     </div>
   );
 }
-
-    
