@@ -52,12 +52,10 @@ export default function HomePage() {
     allSeries.find(s => s.id === 'series-ocular-pharmacology'),
   ].filter(s => s) as Series[];
 
-  const focusBitesEpisodesCount = allEpisodes.filter(ep => ep.seriesId === 'series-focus-bites').length;
-  
   const announcementCard = {
     id: 'announcement',
     title: `Focus Bites Updated!`,
-    shortDescription: `We've just dropped ${focusBitesEpisodesCount} new episodes in the Focus Bites series. More short, insightful optometry content for you to enjoy.`,
+    shortDescription: `We've just dropped 18 new episodes in the Focus Bites series. More short, insightful optometry content for you to enjoy.`,
     thumbnailUrl: focusBitesSeriesThumbnail,
     isAnnouncement: true,
   };
