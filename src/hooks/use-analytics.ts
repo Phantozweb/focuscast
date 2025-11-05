@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -21,7 +20,10 @@ export function useAnalytics() {
     const fetchAnalytics = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(`${GOOGLE_SCRIPT_URL}?action=getEpisodes`, { cache: 'no-store' });
+        const response = await fetch(`${GOOGLE_SCRIPT_URL}?action=getEpisodes`, { 
+          cache: 'no-store',
+          mode: 'cors' 
+        });
         if (!response.ok) {
           throw new Error('Failed to fetch analytics data');
         }
