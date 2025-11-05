@@ -53,7 +53,7 @@ export default function HomePage() {
               totalEpisodes={totalEpisodes}
               totalSeries={totalSeries}
               totalHours={totalDurationFormatted}
-              featuredSeries={allSeries.find(s => s.id === 'series-optics-unveiled')}
+              newestSeries={newSeries}
             />
         </div>
         

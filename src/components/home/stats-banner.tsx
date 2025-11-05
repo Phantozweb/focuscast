@@ -1,7 +1,7 @@
 
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Podcast, List, Clock, Users } from 'lucide-react';
 import Link from 'next/link';
@@ -9,6 +9,7 @@ import type { Series } from '@/types';
 import Image from 'next/image';
 import { useAnalytics } from '@/hooks/use-analytics';
 import { Skeleton } from '../ui/skeleton';
+import { cn } from '@/lib/utils';
 
 interface StatItemProps {
   icon: React.ElementType;
@@ -51,7 +52,7 @@ interface StatsBannerProps {
   totalEpisodes: number;
   totalSeries: number;
   totalHours: string;
-  featuredSeries?: Series;
+  newestSeries?: Series[];
 }
 
 const formatStat = (num?: number): string => {
@@ -62,8 +63,20 @@ const formatStat = (num?: number): string => {
 };
 
 
-const StatsBanner: React.FC<StatsBannerProps> = ({ totalEpisodes, totalSeries, totalHours, featuredSeries }) => {
+const StatsBanner: React.FC<StatsBannerProps> = ({ totalEpisodes, totalSeries, totalHours, newestSeries }) => {
   const { analytics, isLoading: isAnalyticsLoading } = useAnalytics();
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (!newestSeries || newestSeries.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % newestSeries.length);
+    }, 5000); // Change series every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [newestSeries]);
+
 
   const totalListeners = React.useMemo(() => {
     if (isAnalyticsLoading || Object.keys(analytics).length === 0) return 0;
@@ -86,31 +99,38 @@ const StatsBanner: React.FC<StatsBannerProps> = ({ totalEpisodes, totalSeries, t
         </div>
         
         {/* Right Side: Featured Series */}
-        {featuredSeries && (
-           <div className="bg-muted/30 dark:bg-background/50 p-4 sm:p-6 rounded-lg border border-primary/20 shadow-lg flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-                <div className="flex-grow text-center sm:text-left">
-                    <p className="text-sm font-semibold text-primary mb-1">NEW SERIES DROP</p>
-                    <h3 className="text-xl sm:text-2xl font-bold font-headline mb-2">{featuredSeries.title}</h3>
-                    <p className="text-muted-foreground text-sm mb-4">
-                     {featuredSeries.shortDescription}
-                    </p>
-                    <Button asChild size="sm" sm-size="default">
-                      <Link href={`/series/${featuredSeries.id}`}>
-                        Start Learning <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                </div>
-                <div className="flex-shrink-0 order-first sm:order-last">
-                    <Image
-                        src={featuredSeries.thumbnailUrl}
-                        alt={featuredSeries.title}
-                        width={120}
-                        height={120}
-                        className="object-contain rounded-md w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32"
-                        data-ai-hint={featuredSeries.dataAiHint || "podcast series art"}
-                        sizes="(max-width: 640px) 96px, (max-width: 1024px) 112px, 128px"
-                    />
-                </div>
+        {newestSeries && newestSeries.length > 0 && (
+           <div className="bg-muted/30 dark:bg-background/50 p-4 sm:p-6 rounded-lg border border-primary/20 shadow-lg flex flex-col sm:flex-row items-center gap-4 sm:gap-6 min-h-[180px] relative overflow-hidden">
+                {newestSeries.map((series, index) => (
+                    <div key={series.id} className={cn("absolute inset-0 p-4 sm:p-6 transition-opacity duration-1000 flex flex-col sm:flex-row items-center gap-4 sm:gap-6",
+                        index === currentIndex ? "opacity-100" : "opacity-0"
+                    )}>
+                        <div className="flex-grow text-center sm:text-left">
+                            <p className="text-sm font-semibold text-primary mb-1">NEW SERIES DROP</p>
+                            <h3 className="text-xl sm:text-2xl font-bold font-headline mb-2">{series.title}</h3>
+                            <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                            {series.shortDescription}
+                            </p>
+                            <Button asChild size="sm" sm-size="default">
+                            <Link href={`/series/${series.id}`}>
+                                Start Learning <ArrowRight className="ml-2 h-4 w-4" />
+                            </Link>
+                            </Button>
+                        </div>
+                        <div className="flex-shrink-0 order-first sm:order-last">
+                           <div className="relative w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32">
+                             <Image
+                                src={series.thumbnailUrl}
+                                alt={series.title}
+                                fill
+                                className="object-cover rounded-md"
+                                data-ai-hint={series.dataAiHint || "podcast series art"}
+                                sizes="(max-width: 640px) 96px, (max-width: 1024px) 112px, 128px"
+                             />
+                           </div>
+                        </div>
+                    </div>
+                ))}
            </div>
         )}
       </div>
