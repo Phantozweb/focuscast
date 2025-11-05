@@ -6,7 +6,7 @@ import type { Episode, Series } from '@/types';
 
 const pediatricEyeCareThumbnail = 'https://i.ibb.co/CKSyYfkp/b-Pediatrics-not-paedi.jpg';
 const lowVisionLivingThumbnail = 'https://i.ibb.co/CK3RmC8q/a-And-fix-spelling-of.png';
-const ocularPharmacologyThumbnail = 'https://i.ibb.co/yQGmn0p/file-0000000023a161f8b1c40212720d3f2b.png';
+const ocularPharmacologyThumbnail = 'https://i.ibb.co/v69jrMhB/b-Change-into-solid-ba.png';
 
 export const placeholderSeries2: Series[] = [
     {

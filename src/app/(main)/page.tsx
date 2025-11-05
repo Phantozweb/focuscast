@@ -6,7 +6,7 @@ import HeroSection from '@/components/home/hero-section';
 import SeriesSection from '@/components/home/series-section';
 import { placeholderEpisodes as placeholderEpisodes1, placeholderSeries as placeholderSeries1 } from '@/lib/placeholder-data';
 import { placeholderEpisodes2, placeholderSeries2 } from '@/lib/placeholder-2data';
-import type { Episode } from '@/types';
+import type { Episode, Series } from '@/types';
 import StatsBanner from '@/components/home/stats-banner';
 import { parseDurationToSeconds, formatTotalSeconds } from '@/lib/utils';
 import AnnouncementBar from '@/components/home/announcement-bar';
@@ -37,11 +37,15 @@ export default function HomePage() {
   }, 0);
   const totalDurationFormatted = formatTotalSeconds(totalDurationInSeconds, true);
   
-  const opticsUnveiledSeries = allSeries.find(s => s.id === 'series-optics-unveiled');
+  const newSeries = [
+    allSeries.find(s => s.id === 'series-pediatric-eye-care'),
+    allSeries.find(s => s.id === 'series-low-vision-living'),
+    allSeries.find(s => s.id === 'series-ocular-pharmacology'),
+  ].filter(s => s) as Series[];
 
   return (
     <div className="flex flex-col">
-      <AnnouncementBar featuredSeries={opticsUnveiledSeries} />
+      <AnnouncementBar featuredSeries={newSeries} />
       <HeroSection />
       <div className="container mx-auto py-8 space-y-12 px-0 md:px-2">
         <div className="px-2">
@@ -49,7 +53,7 @@ export default function HomePage() {
               totalEpisodes={totalEpisodes}
               totalSeries={totalSeries}
               totalHours={totalDurationFormatted}
-              featuredSeries={opticsUnveiledSeries}
+              featuredSeries={allSeries.find(s => s.id === 'series-optics-unveiled')}
             />
         </div>
         
