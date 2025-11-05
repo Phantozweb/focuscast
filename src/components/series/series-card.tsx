@@ -56,17 +56,15 @@ const SeriesCard: React.FC<SeriesCardProps> = ({ series, episodeCount, totalDura
       className
     )}>
       <div className="relative w-full sm:w-48 sm:flex-shrink-0">
-        <Link href={`/series/${series.id}`} legacyBehavior passHref>
-            <a className={cn("block w-full h-48 sm:h-full", isLocked ? "pointer-events-none" : "")}>
-                <Image
-                    src={series.thumbnailUrl}
-                    alt={series.title}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    sizes="(max-width: 640px) 100vw, 192px"
-                    data-ai-hint={series.dataAiHint || "podcast series art"}
-                />
-            </a>
+        <Link href={`/series/${series.id}`} passHref className={cn("block w-full h-48 sm:h-full", isLocked ? "pointer-events-none" : "")}>
+            <Image
+                src={series.thumbnailUrl}
+                alt={series.title}
+                width={200}
+                height={200}
+                className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                data-ai-hint={series.dataAiHint || "podcast series art"}
+            />
         </Link>
       </div>
 
