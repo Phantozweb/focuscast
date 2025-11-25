@@ -49,26 +49,6 @@ const FocusCastRedesign = () => {
   return (
     <div className="min-h-screen bg-[#F0F5FA] font-sans text-slate-800">
       
-      {/* 1. Navbar - Glassmorphism for Premium Feel */}
-      <nav className="sticky top-0 z-50 bg-[#F0F5FA]/80 backdrop-blur-md border-b border-slate-200/50 px-6 py-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2 cursor-pointer">
-            <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white">
-              <Play size={14} fill="white" />
-            </div>
-            <span className="text-xl font-bold tracking-tight text-slate-900">FocusCast</span>
-          </div>
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-500">
-            <a href="#" className="text-blue-600 hover:text-blue-700 transition-colors">Home</a>
-            <a href="#" className="hover:text-slate-900 transition-colors">Episodes</a>
-            <a href="#" className="hover:text-slate-900 transition-colors">Series</a>
-            <button className="bg-slate-900 text-white px-5 py-2 rounded-full hover:bg-slate-800 transition-all shadow-lg shadow-slate-200">
-              Subscribe
-            </button>
-          </div>
-        </div>
-      </nav>
-
       {/* 2. Hero Section - Centered, Clean, Soft */}
       <div className="relative pt-16 pb-12 px-6 text-center">
         <div className="max-w-3xl mx-auto space-y-6">
