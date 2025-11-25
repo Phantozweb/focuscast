@@ -28,7 +28,7 @@ const Header: React.FC = () => {
             </Link>
             <div className="nav-links">
                 <NavigationMenu items={navItems} />
-                <Button asChild className="rounded-full bg-slate-900 hover:bg-slate-800 shadow-lg shadow-slate-200">
+                <Button asChild className="rounded-full bg-slate-900 hover:bg-slate-800 shadow-lg shadow-slate-200 text-white">
                   <Link href="/#subscribe">Subscribe</Link>
                 </Button>
             </div>
