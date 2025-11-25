@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -18,20 +19,21 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ items, className }) => 
   const pathname = usePathname();
 
   return (
-    <nav className={cn("flex items-center space-x-4 lg:space-x-6", className)}>
-      {items.map((item) => (
-        <Link
-          key={item.href}
-          href={item.href}
-          className={cn(
-            "text-sm font-medium transition-colors hover:text-primary",
-            pathname === item.href ? "text-primary" : "text-foreground/60"
-          )}
-        >
-          {item.label}
-        </Link>
-      ))}
-    </nav>
+    <>{items.map((item) => {
+        const isActive =
+          (pathname === '/' && item.href === '/') ||
+          (item.href !== '/' && pathname.startsWith(item.href));
+        return (
+          <Link
+            key={item.href}
+            href={item.href}
+            className={cn( isActive && "active" )}
+          >
+            {item.label}
+          </Link>
+        )
+      })}
+    </>
   );
 };
 

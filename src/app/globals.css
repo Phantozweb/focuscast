@@ -18,14 +18,14 @@ body {
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
 
-    --primary: 206 78% 71%; /* #7EC0EE Darker sky blue */
+    --primary: 217 91% 60%; /* --primary-blue: #3B82F6; */
     --primary-foreground: 0 0% 0%; /* Black text on primary, contrast checked */
 
     --secondary: 223 44% 88%; /* #C7D0E9 Pale lavender */
     --secondary-foreground: 0 0% 0%; /* Black text on secondary */
 
     --muted: 223 44% 92%; /* Lighter lavender for muted elements */
-    --muted-foreground: 0 0% 25%; /* Darker gray for muted text */
+    --muted-foreground: 220 9% 46%; /* --text-gray: #64748B; */
 
     --accent: 223 44% 88%; /* #C7D0E9 Pale lavender for other interactive elements/highlights */
     --accent-foreground: 0 0% 0%; /* Black text on accent */
@@ -33,9 +33,9 @@ body {
     --destructive: 0 84.2% 60.2%; /* Default destructive */
     --destructive-foreground: 0 0% 98%; /* Default destructive foreground */
 
-    --border: 223 44% 82%; /* Slightly darker lavender for borders */
+    --border: 215 20% 90%; /* --border-light: #E2E8F0; */
     --input: 223 44% 85%; /* Lavender-ish input background */
-    --ring: 206 78% 71%; /* Primary color for focus rings */
+    --ring: 217 91% 60%; /* Primary color for focus rings */
 
     --radius: 0.5rem; /* Slightly rounded edges for components */
 
@@ -47,7 +47,7 @@ body {
   }
 
   .dark {
-    --background: 220 10% 10%; /* Dark background */
+    --background: 222 47% 11%; /* --text-dark: #0F172A; */
     --foreground: 0 0% 98%;    /* Light foreground */
 
     --card: 220 10% 12%; 
@@ -56,14 +56,14 @@ body {
     --popover: 220 10% 10%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 206 78% 65%; /* Adjusted sky blue for dark mode */
+    --primary: 217 91% 60%; /* --primary-blue: #3B82F6; */
     --primary-foreground: 0 0% 10%; /* Dark text on primary */
 
     --secondary: 223 44% 30%; /* Darker lavender */
     --secondary-foreground: 0 0% 98%;
 
     --muted: 223 44% 25%;
-    --muted-foreground: 0 0% 65%;
+    --muted-foreground: 220 9% 46%; /* --text-gray: #64748B; */
 
     --accent: 223 44% 40%; /* Darker lavender for accent */
     --accent-foreground: 0 0% 98%;
@@ -71,9 +71,9 @@ body {
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 223 44% 20%;
+    --border: 215 28% 17%;
     --input: 223 44% 22%;
-    --ring: 206 78% 65%;
+    --ring: 217 91% 60%;
     
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
@@ -92,6 +92,68 @@ body {
     @apply antialiased;
   }
 }
+
+/* --- Navbar --- */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 50; /* Z-40 was here */
+    background: hsla(220, 26%, 96%, 0.85); /* F0F5FA with opacity */
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+    padding: 1rem 1.5rem;
+}
+
+.dark nav {
+    background: hsla(222, 47%, 11%, 0.85); /* Dark background color with opacity */
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: none; /* Hidden on mobile */
+    gap: 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: hsl(var(--muted-foreground));
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .nav-links {
+        display: flex;
+    }
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: hsl(var(--muted-foreground));
+    transition: color 0.2s;
+    position: relative;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: hsl(var(--primary));
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: hsl(var(--primary));
+    border-radius: 2px;
+}
+
+
 
 /* Custom animation for player expansion */
 @keyframes slide-up {

@@ -21,37 +21,35 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header className="z-40 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
-        <Link
-          href="/"
-          className="flex items-center space-x-2 flex-shrink-0 mr-6"
-        >
-          <FocusCastLogo className="h-8 text-2xl" />
-        </Link>
-
-        <div className="hidden md:flex flex-1 items-center justify-end gap-4">
-          <NavigationMenu items={navItems} />
+    <nav>
+        <div className="nav-container">
+            <Link href="/" passHref>
+              <FocusCastLogo />
+            </Link>
+            <div className="nav-links">
+                <NavigationMenu items={navItems} />
+                <Button asChild className="rounded-full">
+                  <Link href="/#subscribe">Subscribe</Link>
+                </Button>
+            </div>
+             <div className="md:hidden">
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button variant="ghost" size="icon">
+                    <Search className="h-6 w-6" />
+                    <span className="sr-only">Search</span>
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="top" className="h-full overflow-y-auto">
+                  <SheetHeader>
+                    <SheetTitle className="text-2xl mt-4 mb-2">Search</SheetTitle>
+                  </SheetHeader>
+                  <InteractiveSearch />
+                </SheetContent>
+              </Sheet>
+            </div>
         </div>
-
-        <div className="md:hidden">
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Search className="h-6 w-6" />
-                <span className="sr-only">Search</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="top" className="h-full overflow-y-auto">
-              <SheetHeader>
-                <SheetTitle className="text-2xl mt-4 mb-2">Search</SheetTitle>
-              </SheetHeader>
-              <InteractiveSearch />
-            </SheetContent>
-          </Sheet>
-        </div>
-      </div>
-    </header>
+    </nav>
   );
 };
 

@@ -1,30 +1,14 @@
 
 import React from 'react';
 import { cn } from '@/lib/utils';
+import { Play } from 'lucide-react';
 
 const FocusCastLogo: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <div className={cn("flex items-center gap-2 text-foreground", props.className)}>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      className="h-full w-auto"
-      aria-labelledby="focusCastLogoTitle"
-    >
-      <title id="focusCastLogoTitle">FocusCast Logo Icon</title>
-      <path 
-        d="M1,12 C1,12 5,4 12,4 C19,4 23,12 23,12 C23,12 19,20 12,20 C5,20 1,12 1,12 Z" 
-        stroke="hsl(var(--primary))" 
-        strokeWidth="2" 
-        fill="none" 
-      />
-      <path 
-        d="M10 9 L15 12 L10 15 Z" 
-        className="fill-primary"
-      />
-    </svg>
-    <span className="font-bold font-headline">
-        FocusCast
-    </span>
+  <div className={cn("flex items-center gap-2 font-extrabold text-xl tracking-tight text-slate-900", props.className)}>
+    <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white">
+        <Play size={14} fill="white" />
+    </div>
+    <span>FocusCast</span>
   </div>
 );
 
