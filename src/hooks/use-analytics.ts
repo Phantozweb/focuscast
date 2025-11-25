@@ -11,6 +11,28 @@ export interface AnalyticsData {
   };
 }
 
+export async function getAnalyticsData(): Promise<AnalyticsData> {
+    const response = await fetch(`${GOOGLE_SCRIPT_URL}?action=getEpisodes`, { 
+      cache: 'no-store',
+      mode: 'cors' 
+    });
+    if (!response.ok) {
+      throw new Error('Failed to fetch analytics data');
+    }
+    const result = await response.json();
+
+    if (result.status === 'success' && Array.isArray(result.data)) {
+      const analyticsMap: AnalyticsData = result.data.reduce((acc, item) => {
+        acc[item.id] = { views: item.views || 0, likes: item.likes || 0 };
+        return acc;
+      }, {});
+      return analyticsMap;
+    } else {
+      throw new Error(result.message || 'Invalid data structure from API');
+    }
+}
+
+
 export function useAnalytics() {
   const [analytics, setAnalytics] = useState<AnalyticsData>({});
   const [isLoading, setIsLoading] = useState(true);
@@ -20,24 +42,8 @@ export function useAnalytics() {
     const fetchAnalytics = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(`${GOOGLE_SCRIPT_URL}?action=getEpisodes`, { 
-          cache: 'no-store',
-          mode: 'cors' 
-        });
-        if (!response.ok) {
-          throw new Error('Failed to fetch analytics data');
-        }
-        const result = await response.json();
-
-        if (result.status === 'success' && Array.isArray(result.data)) {
-          const analyticsMap: AnalyticsData = result.data.reduce((acc, item) => {
-            acc[item.id] = { views: item.views || 0, likes: item.likes || 0 };
-            return acc;
-          }, {});
-          setAnalytics(analyticsMap);
-        } else {
-          throw new Error(result.message || 'Invalid data structure from API');
-        }
+        const data = await getAnalyticsData();
+        setAnalytics(data);
       } catch (e) {
         setError(e as Error);
         console.error('Error fetching analytics:', e);
